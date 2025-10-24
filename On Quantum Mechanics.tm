@@ -833,6 +833,23 @@
   <math|R<rsub|n>=0> for any <math|n\<gtr\>2>) and <math|R<rsub|2>> is
   constant.
 
+  Recall that the moments <math|R<rsub|n>>s are cut-off by
+  <math|N<rsub|cut>>. The term that proportional to
+  <math|\<partial\><rsup|N<rsub|cut>>\<varphi\><around*|(|0|)>> is
+
+  <\equation*>
+    <around*|[|<around*|(|R<rsub|N<rsub|cut>><rsup|\<ast\>>|)><rsup|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|N<rsub|cut>>><around*|(|x|)>+<around*|(|-1|)><rsup|N<rsub|cut>>R<rsub|N<rsub|cut>><rsup|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|N<rsub|cut>>><around*|(|x|)>|]><around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<cdots\>\<partial\><rsub|\<alpha\><rsub|N<rsub|cut>>>\<varphi\>|)><around*|(|0|)>=0.
+  </equation*>
+
+  It implies
+
+  <\equation*>
+    R<rsub|N<rsub|cut>><rsup|\<ast\>><around*|(|x|)>=<around*|(|-1|)><rsup|N<rsub|cut>>R<rsub|N<rsub|cut>><around*|(|x|)>.
+  </equation*>
+
+  Namely, <math|R<rsub|N<rsub|cut>><around*|(|x|)>> is real when
+  <math|N<rsub|cut>> is even, and imaginary otherwise.
+
   TODO: give a recursive equation that determines the <math|R<rsub|n>>s from
   <math|R<rsub|N<rsub|cut>>> to <math|R<rsub|0>>.
 
@@ -977,13 +994,37 @@
   </equation*>
 
   Inserting <math|f<around*|(|x,\<Delta\>t|)>> up to
-  <math|\<omicron\><around*|(|\<Delta\>t|)>>, and knowing that
-  <math|R<rsub|N>> is real (see section <reference|section:Hermitianity on
-  Moments>), we find <math|\<bbb-E\><rsub|f><around*|[|v<around*|(|0|)>|]>=\<omicron\><around*|(|1|)>>.
-  Then we have (using the famous formula of variance)
+  <math|\<omicron\><around*|(|\<Delta\>t|)>>, we find
+
+  <\align>
+    <tformat|<table|<row|<cell|\<bbb-E\><rsub|f><around*|[|v<around*|(|0|)>|]>=>|<cell|<big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|f<around*|(|x,0|)>+\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!>
+    R<rsup|\<ast\>><rsub|N><around*|(|x|)>\<partial\><rsup|N>f<around*|(|x,0|)>\<Delta\>t|]><around*|[|f<around*|(|x,0|)>-\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!>
+    R<rsub|N><around*|(|x|)>\<partial\><rsup|N>f<around*|(|x,0|)>\<Delta\>t|]><frac|x|\<Delta\>t>>>|<row|<cell|=>|<cell|\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|R<rsup|\<ast\>><rsub|N><around*|(|x|)>-
+    R<rsub|N><around*|(|x|)>|]>\<partial\><rsup|N>f<around*|(|x,0|)>x+\<omicron\><around*|(|\<Delta\>t|)>.>>>>
+  </align>
+
+  When <math|N> is even, <math|R<rsub|N><around*|(|x|)>> is real (see section
+  <reference|section:Hermitianity on Moments>), we find
+  <math|\<bbb-E\><rsub|f><around*|[|v<around*|(|0|)>|]>=\<omicron\><around*|(|1|)>>.
+  But when <math|N> is odd, <math|R<rsub|N><around*|(|x|)>> is imaginary. In
+  this situation, denote <math|R<rsub|N><around*|(|x|)>=\<mathi\>A<around*|(|x|)>/2>,
+  we get
 
   <\equation*>
-    Var<rsub|f><around*|[|v<around*|(|0|)>|]>=\<bbb-E\><rsub|f><around*|[|v<rsup|2><around*|(|0|)>|]>-\<bbb-E\><rsup|2><rsub|f><around*|[|v<around*|(|0|)>|]>=\<bbb-E\><rsub|f><around*|[|v<rsup|2><around*|(|0|)>|]>+\<omicron\><around*|(|1|)>.
+    \<bbb-E\><rsub|f><around*|[|v<around*|(|0|)>|]>=<frac|<around*|(|-1|)><rsup|N>|N!><big|int><rsub|\<bbb-R\>>\<mathd\>x
+    A<around*|(|x|)>\<partial\><rsup|N>f<around*|(|x,0|)>x+\<omicron\><around*|(|\<Delta\>t|)>,
+  </equation*>
+
+  which may not vanish up to <math|\<omicron\><around*|(|\<Delta\>t|)>>,
+  leading to a violation of parity symmetry, because the velocity has a
+  favored direction even though the distribution (or wave-function) has not.
+  For simplicity, we assume the parity symmetry in this section, and consider
+  the case where <math|N> is even.
+
+  Then, using the famous formula of variance,
+
+  <\equation*>
+    Var<rsub|f><around*|[|v<around*|(|0|)>|]>=\<bbb-E\><rsub|f><around*|[|v<rsup|2><around*|(|0|)>|]>-\<bbb-E\><rsup|2><rsub|f><around*|[|v<around*|(|0|)>|]>.
   </equation*>
 
   Now focus on <math|\<bbb-E\><rsub|f><around*|[|v<rsup|2><around*|(|0|)>|]>>.
@@ -994,7 +1035,7 @@
     \<bbb-E\><rsub|f><around*|[|v<rsup|2><around*|(|0|)>|]>=<frac|\<bbb-E\><rsub|f><around*|[|<around*|(|x<around*|(|\<Delta\>t|)>-\<bbb-E\><rsub|f><around*|[|x<around*|(|0|)>|]>|)><rsup|2>|]>|\<Delta\>t<rsup|2>>=<frac|\<bbb-E\><rsub|f><around*|[|x<rsup|2><around*|(|\<Delta\>t|)>|]>|\<Delta\>t<rsup|2>>.
   </equation*>
 
-  Hence,
+  Hence, since <math|R<rsub|N>> has been real, we have
 
   <\align>
     <tformat|<table|<row|<cell|\<bbb-E\><rsub|f><around*|[|v<rsup|2><around*|(|0|)>|]>>|<cell|=<big|int><rsub|\<bbb-R\>>\<mathd\>x
@@ -1023,14 +1064,13 @@
     <verbatim|at(diff(R2(x), x, n), x=0)/(N!^2)/n! * integrate(integrand, x,
     -inf, inf);> gives the <math|n>-th term in
     <math|\<bbb-E\><rsub|f><around*|[|v<rsup|2><around*|(|0|)>|]>>.
-  </footnote> <with|color|dark green|<em|We find that, for
-  <math|\<Delta\>x\<Delta\>v> satisfying the uncertainty principle
-  <reference|axiom:uncert>, we shall have
-  <math|R<rsub|N><around*|(|x|)>\<propto\>x<rsup|N-2>> for each
-  <math|N\<geqslant\>2>.>> Any other situation depends on <math|\<sigma\>>,
-  which is either vanishing or diverging when <math|\<sigma\>> tends to zero.
-  The specific case is <math|N=2> in which <math|R<rsub|N>> becomes constant.
-  This is the canonical situation in physics.
+  </footnote> <with|color|dark green|<em|Restricted <math|N> to be positive
+  even number, we shall have <math|R<rsub|N><around*|(|x|)>\<propto\>x<rsup|N-2>>
+  so as to satisfy the uncertainty principle <reference|axiom:uncert>.>> Any
+  other situation depends on <math|\<sigma\>>, which is either vanishing or
+  diverging when <math|\<sigma\>> tends to zero. The specific case is
+  <math|N=2> in which <math|R<rsub|N>> becomes constant. This is the
+  canonical situation in physics.
 
   We can generalize the previous analysis to dimension <math|d\<gtr\>1>, in
   which the covariance matrix of <math|f> is diagonal, such that all
@@ -1048,11 +1088,12 @@
   extension that can be experimentally examined is:
 
   <\axiom>
-    [Uncertainty Principle of Many Particles?]<label|axiom:uncert-ext> In a
-    multiple particle quantum system, given a wave-function <math|f>
-    <with|color|dark green|such that <math|Var<rsub|f><around*|[|x<rsub|i><around*|(|0|)>|]>>
-    is small enough for each <math|i>-th particle>, the variances of position
-    and of velocity have the relation
+    [<with|color|red|Uncertainty Principle of Many
+    Particles?>]<label|axiom:uncert-ext> In a multiple particle quantum
+    system, given a wave-function <math|f> <with|color|dark green|such that
+    <math|Var<rsub|f><around*|[|x<rsub|i><around*|(|0|)>|]>> is small enough
+    for each <math|i>-th particle>, the variances of position and of velocity
+    have the relation
 
     <\equation*>
       \<Delta\>x<rsub|i>\<Delta\>v<rsub|i>\<assign\><sqrt|Var<rsub|f><around*|[|x<rsub|i><around*|(|t|)>|]>
