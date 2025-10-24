@@ -9,6 +9,52 @@
   of quantum mechanics following the steps in stochastic process. As a
   sketch, detailed proofs are temporally omitted.>>
 
+  <\table-of-contents|toc>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|1<space|2spc>How
+    to Read this Note?> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-1><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|2<space|2spc>Superposition
+    Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-2><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|3<space|2spc>Probability
+    Interpretation Implies Hermitianity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-3><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|4<space|2spc>In
+    Euclidean Space: Path Integral> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-4><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|5<space|2spc>An
+    Useful Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-5><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|6<space|2spc>Expansion
+    of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-6><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|7<space|2spc>On
+    Analyticity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-7><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|8<space|2spc>Locality
+    Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-8><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|9<space|2spc>Hermitianity
+    on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-9><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|10<space|2spc>Uncertainty
+    Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-10><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|11<space|2spc>Summary>
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-11><vspace|0.5fn>
+  </table-of-contents>
+
   <section|How to Read this Note?>
 
   Tips for reading this note:
@@ -509,7 +555,7 @@
 
   <\equation*>
     <big|int><rsub|\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>>\<mathd\>x
-    <around*|\||f<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>
+    <around*|\||f<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>/2
   </equation*>
 
   where the set <math|\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>\<assign\><around*|{|x\<in\>\<bbb-R\><rsup|d>:<around*|\<\|\|\>|x|\<\|\|\>>\<gtr\>X|}>>.
@@ -519,15 +565,32 @@
   Within this compact region, <hlink|Weierstrass approximation
   theorem|https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem#Weierstrass_approximation_theorem>
   claims that <math|f> can be approximate by a polynomial at any precision.
+  Namely, for any <math|\<delta\>\<gtr\>0>, there is a polynomial <math|p>
+  such that
+
+  <\equation*>
+    <around*|\||f<around*|(|x|)>-p<around*|(|x|)>|\|>\<less\>\<delta\>
+  </equation*>
+
+  holds for any <math|x\<in\>U<rsub|X><around*|(|0|)>>. By defining
+  <math|\<delta\>\<assign\>\<varepsilon\>/2<around*|\||U<rsub|X><around*|(|0|)>|\|>>
+  where <math|<around*|\||\<cdots\>|\|>> is used for volume, we get
+
+  <\equation*>
+    <big|int><rsub|U<rsub|X><around*|(|0|)>>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-p<around*|(|x|)>|\|>\<less\>\<delta\>
+    <around*|\||U<rsub|X><around*|(|0|)>|\|>=\<varepsilon\>/2.
+  </equation*>
+
   But a polynomial cannot be negligible on the \Pboundary\Q
   <math|\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>>. Instead, it will
   increase as <math|<around*|\<\|\|\>|x|\<\|\|\>><rsup|n>> where <math|n> is
   the order of the polynomial. Inspired by the solution of harmonic
   oscillator, we weight it by <math|exp<around*|(|-<around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>>.
-  Namely, we use <math|p<around*|(|x|)> exp<around*|(|-<around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>>
-  to approximate <math|f> on <math|\<bbb-R\><rsup|d>>, which means the
-  polynomial <math|p<around*|(|x|)>> approximates
-  <math|f<around*|(|x|)>exp<around*|(|<around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>>
+  Namely, we use <math|p<around*|(|x|)> exp<around*|(|-<around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>>,
+  instead of <math|p<around*|(|x|)>> alone, to approximate <math|f> on
+  <math|\<bbb-R\><rsup|d>>, which means the polynomial
+  <math|p<around*|(|x|)>> approximates <math|f<around*|(|x|)>exp<around*|(|<around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>>
   in the compact region <math|U<rsub|X><around*|(|0|)>>. In fact, any
   function <math|w\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>
   that has a continuous inverse (namely, <math|1/w<around*|(|x|)>> is
@@ -545,6 +608,40 @@
 
   <with|color|dark green|<em|The <math|p<around*|(|x|)>w<around*|(|x|)>> is
   an analytic Schwartz function.>>
+
+  Besides, we cannot generalize this to <math|<around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>>
+  for any <math|x\<in\>\<bbb-R\><rsup|d>> because we can construct an
+  <math|f> where it equals or approximates to <math|\<delta\><around*|(|x|)>
+  \<varepsilon\>/2<rsup|n>> at distance <math|2<rsup|n>X> from origin. On the
+  \Pboundary\Q <math|\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>>,
+  restriction <math|<big|int><rsub|\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>><around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>>
+  cannot imply <math|<around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<delta\>>
+  for any <math|\<delta\>>. Intuitively, this has been sufficient for our
+  study: on the \Pboundary\Q the difference is bounded by measure, and within
+  the \Pboundary\Q it is bounded at each position (stronger than by measure).
+
+  If, however, <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, then
+  there is <math|X\<gtr\>0> such that <math|<around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>/2>
+  hold for any <math|x\<in\>\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>>,
+  just because both <math|f> and <math|p<around*|(|x|)>w<around*|(|x|)>> tend
+  to vanish on the \Pboundary\Q of <math|\<bbb-R\><rsup|d>>, so
+
+  <\equation*>
+    <around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\><around*|\||f<around*|(|x|)>|\|>+<around*|\||p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>/2,
+  </equation*>
+
+  if we demand both <math|<around*|\||f<around*|(|x|)>|\|>\<less\>\<varepsilon\>/4>
+  and <math|<around*|\||p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>/4>
+  by enlarging <math|X>. Then, we find, <with|color|dark green|<em|for any
+  function <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> and any
+  <math|\<varepsilon\>\<gtr\>0>, there are a polynomial <math|p> and an
+  analytic Schwartz function <math|w> such that>>
+
+  <\equation>
+    <around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>
+  </equation>
+
+  <with|color|dark green|holds for any <math|x\<in\>\<bbb-R\><rsup|d>>.>
 
   <section|Locality Imports a Cut-Off on Moments>
 
@@ -1041,50 +1138,49 @@
 <\auxiliary>
   <\collection>
     <\associate|toc>
-      <vspace*|2fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|font-size|<quote|1.19>|1<space|2spc>From
-      Stochastic Process to Quantum Mechanics: A Sketch>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-1><vspace|1fn>
-
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>How
       to Read this Note?> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-2><vspace|0.5fn>
+      <no-break><pageref|auto-1><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Superposition
       Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-3><vspace|0.5fn>
+      <no-break><pageref|auto-2><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Probability
       Interpretation Implies Hermitianity>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4><vspace|0.5fn>
+      <no-break><pageref|auto-3><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>In
       Euclidean Space: Path Integral> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5><vspace|0.5fn>
+      <no-break><pageref|auto-4><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>An
       Useful Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-6><vspace|0.5fn>
+      <no-break><pageref|auto-5><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>Expansion
       of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7><vspace|0.5fn>
+      <no-break><pageref|auto-6><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>On
       Analyticity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8><vspace|0.5fn>
+      <no-break><pageref|auto-7><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>Locality
       Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-9><vspace|0.5fn>
+      <no-break><pageref|auto-8><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Hermitianity
       on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-10><vspace|0.5fn>
+      <no-break><pageref|auto-9><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Uncertainty
       Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-10><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>Summary>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-11><vspace|0.5fn>
     </associate>
   </collection>
