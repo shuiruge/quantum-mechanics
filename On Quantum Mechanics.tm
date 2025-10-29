@@ -14,45 +14,49 @@
     to Read this Note?> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-1><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|2<space|2spc>Superposition
-    Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|2<space|2spc>On
+    Wave-Function> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-2><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|3<space|2spc>Probability
-    Interpretation Implies Hermitianity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|3<space|2spc>Superposition
+    Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-3><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|4<space|2spc>In
-    Euclidean Space: Path Integral> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|4<space|2spc>Probability
+    Interpretation Implies Hermitianity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-4><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|5<space|2spc>An
-    Useful Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|5<space|2spc>Path
+    Integral Formalism> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-5><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|6<space|2spc>Expansion
-    of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|6<space|2spc>An
+    Useful Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-6><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|7<space|2spc>On
-    Analyticity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|7<space|2spc>Expansion
+    of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-7><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|8<space|2spc>Locality
-    Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|8<space|2spc>On
+    Analyticity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-8><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|9<space|2spc>Hermitianity
-    on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|9<space|2spc>Locality
+    Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-9><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|10<space|2spc>Uncertainty
-    Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|10<space|2spc>Hermitianity
+    on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-10><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|11<space|2spc>Summary>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|11<space|2spc>Uncertainty
+    Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-11><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|12<space|2spc>Summary>
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-12><vspace|0.5fn>
   </table-of-contents>
 
   <section|How to Read this Note?>
@@ -77,27 +81,196 @@
     <strong|definition>s).
   </itemize>
 
-  <section|Superposition Principle and Time Evolution>
+  <section|On Wave-Function>
 
-  We mimic the deriving of stochastic process. Unlike stochastic process,
-  where the system is described by probability, a quantum system is
-  represented by wave-function. Given a set <math|\<cal-X\>> that contains
-  all possible states of the quantum system, a <strong|wave-function> is a
-  map <math|f:\<cal-X\>\<rightarrow\>\<bbb-C\>>. Especially when
-  <math|\<cal-X\>> is a manifold, we suppose that <math|f> is smooth, that is
-  <math|f\<in\>C<rsup|\<infty\>><around*|(|\<cal-X\>|)>>. In addition, when
-  <math|\<cal-X\>> is Euclidean, namely <math|\<cal-X\>=\<bbb-R\><rsup|d>>,
-  we further suppose that <math|f> is an element of Schwartz space
-  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.<\footnote>
-    A <strong|Schwartz space> <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-    contains smooth function <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>
-    that decays \Pexponentially fast\Q at infinity. Precisely, for any
-    <math|m>-order polynomial <math|P<rsub|m>> and any <math|m>-order partial
-    derivative <math|D<rsup|n>>, with integers <math|m,n\<geqslant\>0>, we
-    have <math|<around*|\||P<rsub|m><around*|(|x|)>D<rsup|n>f<around*|(|x|)>|\|>\<rightarrow\>0>
-    as <math|<around*|\<\|\|\>|x|\<\|\|\>>\<rightarrow\>\<infty\>>. Functions
-    in Schwartz space are usually termed by <strong|Schwartz function>s.
+  In classical physics, a system with <math|n> classical particles in
+  <math|3>-dimensional space can be represented by an element in
+  <math|\<bbb-R\><rsup|3n>>, or a <strong|configuration>. The time evolution
+  is thus a trajectory in the space of configurations, namely a map
+  <math|\<bbb-R\>\<rightarrow\>\<bbb-R\><rsup|3n>>.<\footnote>
+    Remark that the space of configurations is not the phase space. For a
+    Hamiltonian system, the phase space is <math|\<bbb-R\><rsup|6n>>, where
+    the dimension of phase space doubles because of momenta.
+  </footnote> Generally, we suppose that the space of configurations is
+  <math|d>-dimensional Euclidean.
+
+  The state of a quantum system is represented by wave-function. A
+  <strong|wave-function> is a map from the space of configurations to complex
+  plane, say <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>. In
+  traditional textures, wave-functions are supposed to be square-integrable,
+  thus <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. This is
+  essential for probability interpretation (axiom <reference|axiom:prob>). It
+  is <hlink|well known|https://en.wikipedia.org/wiki/Fourier_transform>,
+  however, that the Fourier transform of a square-integrable function may not
+  be square-integrable again, so that its inverse Fourier transform may not
+  exist. Since Fourier transform is basic in quantum mechamics, we shall seek
+  for a smaller space in which wave-functions live. An ideal substitution is
+  the (complex) Schwartz space. A <strong|Schwartz space>
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> contains smooth function
+  <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>> that decays
+  \Pexponentially fast\Q at infinity. Precisely, for any <math|m>-order
+  polynomial <math|P<rsub|m>> and any <math|m>-order partial derivative
+  <math|D<rsup|n>>, with integers <math|m,n\<geqslant\>0>, we have
+
+  <\equation*>
+    lim<rsub|<around*|\<\|\|\>|x|\<\|\|\>>\<rightarrow\>\<infty\>><around*|\||P<rsub|m><around*|(|x|)>D<rsup|n>f<around*|(|x|)>|\|>=0.
+  </equation*>
+
+  Functions in Schwartz space are usually termed as <strong|Schwartz
+  function>s. Fourier transform is an automorphism on Schwartz space. And for
+  any <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
+  <math|\<varepsilon\>\<gtr\>0>, there is a
+  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> such that<\footnote>
+    TODO: give a reference or a proof.
   </footnote>
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
+  </equation*>
+
+  That is, <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> is a dense
+  subspace in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. It is in this
+  sense that the substitution is plausible.
+
+  Restriction from <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> to
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, however, is still
+  insufficient. For example, in solving the stationary
+  Schr<wide|o|\<ddot\>>dinger equation of one-dimensional harmonic
+  oscillator, we suppose that wave-function has the form
+
+  <\equation*>
+    f<around*|(|x|)>=exp<around*|(|-x<rsup|2>|)>
+    <around*|[|<big|sum><rsub|n=0><rsup|\<infty\>>a<rsub|n>x<rsup|n>|]>,
+  </equation*>
+
+  where <math|a<rsub|n>>s are to be determined. The factor
+  <math|exp<around*|(|-x<rsup|2>|)>> is employed for an exponentially fast
+  decay as <math|<around*|\||x|\|>\<rightarrow\>\<infty\>> (thus faster than
+  the inverse of any polynomial). And the factor
+  <math|<around*|[|\<cdots\>|]>> is a Taylor series. Hence, <math|f> is an
+  analytic function in Schwartz space. The energy quantization emerges for
+  ensuring the convergence of the series <math|<big|sum><rsub|n>a<rsub|n>x<rsup|n>>.
+  It indicates that we shall further restrict the space of wave-function to
+  <strong|analytic Schwartz space>, denoted by
+  <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>, which collects all
+  the analytic functions in Schwartz space
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>. Analytic functions are
+  dense in Schwartz space, meaning that for any
+  <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> and any
+  <math|\<varepsilon\>\<gtr\>0>, there is a
+  <math|g\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>> such
+  that<\footnote>
+    TODO: give a reference or a proof.
+  </footnote>
+
+  <\equation*>
+    sup<rsub|x\<in\>\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>\<less\>\<varepsilon\>.
+  </equation*>
+
+  Notice that the norms employed for quantifying the approximations are
+  different. While considering <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>\<subset\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
+  we used the norm in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
+  integral on the squared norm of the difference, but in
+  <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>\<subset\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
+  we used the <math|L<rsub|1>>-norm, the supremum on the norm of the
+  difference.
+
+  To prove that analytic functions are dense in Schwartz space, we introduce
+  the convolution for a function <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
+  as
+
+  <\equation*>
+    f<rsub|n><around*|(|x|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|x-y|)>f<around*|(|y|)>
+  </equation*>
+
+  by a \Pkernel\Q function
+
+  <\equation*>
+    \<delta\><rsub|n><around*|(|x|)>\<assign\><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|n|2><around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>,
+  </equation*>
+
+  where <math|n=<around*|{|1,2,\<ldots\>|}>>. The <math|\<delta\><rsub|n>>
+  function is recognized as Gaussian with variance <math|1/n>. We are to show
+  that <math|f<rsub|n><around*|(|x|)>>s are all analytic, and that
+  <math|f<rsub|n><around*|(|x|)>> tends to <math|f<around*|(|x|)>> as
+  <math|n> tends to infinity. We left the proof of analyticity to reader (or
+  an appendix).<\footnote>
+    A method for proving analyticity is using complex analysis. We first
+    extend the domain of <math|f<rsub|n>> from <math|\<bbb-R\><rsup|d>> to
+    <math|\<bbb-C\><rsup|d>>. For each <math|z\<in\>\<bbb-C\><rsup|d>>,
+
+    <\equation*>
+      f<rsub|n><around*|(|z|)>=<around*|(|<frac|n|\<mathpi\>>|)><rsup|d/2><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+      exp<around*|(|-n<big|sum><rsub|\<alpha\>=1><rsup|d><around*|(|z<rsup|\<alpha\>>-y<rsup|\<alpha\>>|)><around*|(|<wide|z|\<bar\>><rsup|\<alpha\>>-y<rsup|\<alpha\>>|)>|)>f<around*|(|y|)>.
+    </equation*>
+
+    Thus, <math|f<rsub|n>> is analytic if and only if it is holomorphic. This
+    is a direct result of <hlink|Cauchy integral
+    formula|https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula> (for
+    multivariate function). Based on <hlink|Hartogs'
+    theorem|https://en.wikipedia.org/wiki/Hartogs%27_theorem>, a multivariate
+    complex function is holomorphic if and only if it is holomorphic in each
+    variable separately. Since derivatives are taken on the exponential,
+    which is holomorphic on <math|\<bbb-C\><rsup|d>>, it is manifest that
+    Cauchy\URiemann equations hold for each component
+    <math|z<rsup|\<alpha\>>> (it will be <math|<big|int>\<mathd\>y
+    f<around*|(|x|)><around*|[|<text|Cauchy\URiemann equations of
+    exponential>|]>>), which then implies that <math|f<rsub|n>> is
+    holomorphic on <math|\<bbb-C\><rsup|d>>. So we find <math|f<rsub|n>>
+    analytic on <math|\<bbb-R\><rsup|d>>. This proof is quite tricky, and we
+    cannot <em|see> what is really happening.
+  </footnote> For investigating the limit as <math|n\<rightarrow\>\<infty\>>,
+  we change the variable of integral by replacing
+  <math|y\<rightarrow\><around*|(|x-y|)>>, and find
+  <math|f<rsub|n><around*|(|x|)>=<big|int>\<mathd\>y
+  \<delta\><rsub|n><around*|(|y|)>f<around*|(|x-y|)>>. Since
+  <math|<big|int>\<mathd\>x \<delta\><rsub|n><around*|(|y|)>=1>,
+
+  we get
+
+  <\align>
+    <tformat|<table|<row|<cell|f<rsub|n><around*|(|x|)>-f<around*|(|x|)>=>|<cell|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|y|)><around*|[|f<around*|(|x-y|)>-f<around*|(|x|)>|]>>>|<row|<cell|=>|<cell|<around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    exp<around*|(|-<frac|n|2><around*|\<\|\|\>|y|\<\|\|\>><rsup|2>|)><around*|[|f<around*|(|x-y|)>-f<around*|(|x|)>|]>.>>>>
+  </align>
+
+  Now, we are to bound <math|<around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>>.
+  Observing the integrand, when <math|n> has been sufficiently large, we find
+  it negligible out of the neighborhood <math|U<rsub|\<delta\>><around*|(|0|)>>
+  for some <math|\<delta\>\<gtr\>0>. Indeed, as a Schwartz function, <math|f>
+  can be uniformly bounded by a finite <math|M\<assign\>sup<rsub|x\<in\>\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>|\|>>,
+  hence <math|<around*|\||f<around*|(|x-y|)>-f<around*|(|x|)>|\|>\<less\>2M>.
+  So, integral out of <math|U<rsub|\<delta\>><around*|(|0|)>> is bounded by
+
+  <\equation*>
+    2M<around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2><big|int><rsub|\<bbb-R\><rsup|d>\\U<rsub|\<delta\>><around*|(|0|)>>\<mathd\>y
+    exp<around*|(|-<frac|n|2><around*|\<\|\|\>|y|\<\|\|\>><rsup|2>|)>,
+  </equation*>
+
+  which tends to zero as <math|n\<rightarrow\>\<infty\>>. The integral within
+  the <math|U<rsub|\<delta\>><around*|(|0|)>> is bounded by
+
+  <\equation*>
+    M<rprime|'><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2><big|int><rsub|U<rsub|\<delta\>><around*|(|0|)>>\<mathd\>y
+    exp<around*|(|-<frac|n|2><around*|\<\|\|\>|y|\<\|\|\>><rsup|2>|)><around*|\||y|\|>,
+  </equation*>
+
+  where <math|M<rprime|'>\<assign\>sup<rsub|x\<in\>\<bbb-R\><rsup|d>><around*|\||\<partial\>f<around*|(|x|)>|\|>>
+  is also finite. This integral also tends to zero as
+  <math|n\<rightarrow\>\<infty\>>. TODO: make this more clear. So we find
+  <math|lim<rsub|n\<rightarrow\>\<infty\>>f<rsub|n>=f>. As a corollary,
+  <math|\<delta\><rsub|n>> has Dirac's <math|\<delta\>>-function as its
+  limit. In fact, <math|\<delta\>>-function is <em|defined> as the limit of
+  <math|\<delta\><rsub|n>> when it is applied (as convolution) on a Schwartz
+  function.<\footnote>
+    This profound construction is found in the lemma 15.1 of Topological
+    Vector Spaces, Distributions and Kernels written by Francois Treves,
+    1967.
+  </footnote>
+
+  <section|Superposition Principle and Time Evolution>
 
   First consider the analogy of master equation in stochastic process. The
   key feature of master equation is its linearity. The first axiom of quantum
@@ -111,7 +284,7 @@
   An implication of superposition principle is how quantum states (precisely,
   their wave-functions) evolve with time. To give raise to time evolution, we
   have to add time-dependence to wave-function, which makes a wave-function
-  <math|f:\<cal-X\>\<times\>\<bbb-R\>\<rightarrow\>\<bbb-C\>>, where
+  <math|f:\<bbb-R\><rsup|d>\<times\>\<bbb-R\>\<rightarrow\>\<bbb-C\>>, where
   <math|\<bbb-R\>> characterizes the time-axis. Then, axiom
   <reference|axiom:sup> claims that the equation of time evolution (as a
   physical law that operates on a quantum state) shall be linear:
@@ -123,12 +296,11 @@
     distribution of particles) at any time <math|t>. In short, the
     evolutionary equation of wave-function is first order on time.
   </footnote> Mathematically, linearity imports a kernel
-  <math|r:\<cal-X\>\<times\>\<cal-X\>\<rightarrow\>\<bbb-C\>> such that (if
-  <math|\<cal-X\>> is discrete, then the integral is defined to be
-  <math|<big|int><rsub|\<cal-X\>>\<mathd\>x\<rightarrow\><big|sum><rsub|x\<in\>\<cal-X\>>>)
+  <math|r:\<bbb-R\><rsup|d>\<times\>\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>
+  such that
 
   <\equation>
-    \<mathi\><frac|\<partial\>f|\<partial\>t><around*|(|y,t|)>=<big|int><rsub|\<cal-X\>>\<mathd\>x
+    \<mathi\><frac|\<partial\>f|\<partial\>t><around*|(|y,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
     f<around*|(|x,t|)>r<around*|(|x,y|)>.<label|equ:superposition>
   </equation>
 
@@ -147,14 +319,14 @@
   transition density. But in quantum mechanics, it is about unitary.
 
   <\axiom>
-    [Probability Interpretation on Density]<label|axiom:prob1> Given a
-    wave-function <math|f> of quantum system, the probabilistic density that
-    the system at state <math|x> is given by
+    [Probability Interpretation]<label|axiom:prob> Given a wave-function
+    <math|f> of quantum system, the probabilistic density that the system is
+    found at configuration <math|x> is given by
     <math|<around*|\||f<around*|(|x|)>|\|><rsup|2>=f<rsup|\<ast\>><around*|(|x|)>f<around*|(|x|)>>.
   </axiom>
 
   Since probabilistic density shall be normalized, axiom
-  <reference|axiom:prob1> implies that, for any wave-function <math|f>,
+  <reference|axiom:prob> implies that, for any wave-function <math|f>,
 
   <\equation>
     <big|int><rsub|\<cal-X\>>\<mathd\>x f<rsup|\<ast\>><around*|(|x|)>f<around*|(|x|)>=1.<label|eq:probtoself>
@@ -212,7 +384,7 @@
     where <math|<wide|H|^>> is the Hamiltonian operator.
   </footnote>
 
-  <section|In Euclidean Space: Path Integral>
+  <section|Path Integral Formalism>
 
   In this section and the followings, we focus on the situation where
   <math|\<cal-X\>=\<bbb-R\><rsup|d>>, on which Fourier transform can be
@@ -855,20 +1027,22 @@
 
   <section|Uncertainty Principle>
 
-  An <strong|observable> is a real function on the collection of states of a
-  quantum system. The second part of probability interpretation is about the
-  expectation of an observable.
+  An <strong|observable> is a real function of the configuration of a quantum
+  system. A corollary of axiom <reference|axiom:prob> is that, given a
+  wave-function <math|f> and an observable
+  <math|O:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-R\>>, the observed value is
+  the expactation <math|\<bbb-E\><rsub|f><around*|[|O|]>\<assign\><big|int>\<mathd\>x
+  <around*|\||f<around*|(|x|)>|\|><rsup|2>O<around*|(|x|)>>, since
+  <math|<around*|\||f<around*|(|x|)>|\|><rsup|2>> represents the probability
+  density that the system is found at configuration <math|x>. When time is
+  considered, it turns to be
 
-  <\axiom>
-    [Probability Interpretation on Observable]<label|axiom:prob2> \ Given an
-    observable <math|O> and a wave-function <math|f> of quantum system, the
-    expected value of the observable is given by
+  <\equation>
+    \<bbb-E\><rsub|f><around*|[|O<around*|(|t|)>|]>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    f<rsup|\<ast\>><around*|(|x,t|)>f<around*|(|x,t|)>O<around*|(|x|)>.
+  </equation>
 
-    <\equation*>
-      \<bbb-E\><rsub|f><around*|[|O<around*|(|t|)>|]>=<big|int><rsub|\<cal-X\>>\<mathd\>x
-      f<rsup|\<ast\>><around*|(|x,t|)>f<around*|(|x,t|)>O<around*|(|x|)>.
-    </equation*>
-  </axiom>
+  \;
 
   For a single particle system, we use <math|x<around*|(|t|)>> to denote the
   position of the particle at time <math|t>. Velocity is defined as usual,
@@ -1131,6 +1305,7 @@
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-10|<tuple|10|7>>
     <associate|auto-11|<tuple|11|8>>
+    <associate|auto-12|<tuple|12|?>>
     <associate|auto-2|<tuple|2|1>>
     <associate|auto-3|<tuple|3|1>>
     <associate|auto-4|<tuple|4|2>>
@@ -1140,11 +1315,10 @@
     <associate|auto-8|<tuple|8|5>>
     <associate|auto-9|<tuple|9|6>>
     <associate|axiom:local|<tuple|3|?>>
-    <associate|axiom:prob1|<tuple|2|?>>
-    <associate|axiom:prob2|<tuple|4|?>>
+    <associate|axiom:prob|<tuple|2|?>>
     <associate|axiom:sup|<tuple|1|1>>
-    <associate|axiom:uncert|<tuple|5|?>>
-    <associate|axiom:uncert-ext|<tuple|6|?>>
+    <associate|axiom:uncert|<tuple|4|?>>
+    <associate|axiom:uncert-ext|<tuple|5|?>>
     <associate|eq:deltaexp|<tuple|9|4>>
     <associate|eq:expandbymoments|<tuple|14|5>>
     <associate|eq:hamiltonian|<tuple|4|3>>
@@ -1155,6 +1329,10 @@
     <associate|eq:transexp|<tuple|12|5>>
     <associate|equ:superposition|<tuple|1|1>>
     <associate|footnote-1|<tuple|1|?>>
+    <associate|footnote-10|<tuple|10|?>>
+    <associate|footnote-11|<tuple|11|?>>
+    <associate|footnote-12|<tuple|12|?>>
+    <associate|footnote-13|<tuple|13|?>>
     <associate|footnote-2|<tuple|2|?>>
     <associate|footnote-3|<tuple|3|?>>
     <associate|footnote-4|<tuple|4|?>>
@@ -1164,6 +1342,10 @@
     <associate|footnote-8|<tuple|8|?>>
     <associate|footnote-9|<tuple|9|?>>
     <associate|footnr-1|<tuple|1|?>>
+    <associate|footnr-10|<tuple|10|?>>
+    <associate|footnr-11|<tuple|11|?>>
+    <associate|footnr-12|<tuple|12|?>>
+    <associate|footnr-13|<tuple|13|?>>
     <associate|footnr-2|<tuple|2|?>>
     <associate|footnr-3|<tuple|3|?>>
     <associate|footnr-4|<tuple|4|?>>
@@ -1172,7 +1354,7 @@
     <associate|footnr-7|<tuple|7|?>>
     <associate|footnr-8|<tuple|8|?>>
     <associate|footnr-9|<tuple|9|?>>
-    <associate|section:Hermitianity on Moments|<tuple|9|?>>
+    <associate|section:Hermitianity on Moments|<tuple|10|?>>
   </collection>
 </references>
 
@@ -1183,46 +1365,50 @@
       to Read this Note?> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Superposition
-      Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>On
+      Wave-Function> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-2><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Probability
-      Interpretation Implies Hermitianity>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Superposition
+      Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>In
-      Euclidean Space: Path Integral> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Probability
+      Interpretation Implies Hermitianity>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>An
-      Useful Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Path
+      Integral Formalism> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>Expansion
-      of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>An
+      Useful Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>On
-      Analyticity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>Expansion
+      of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-7><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>Locality
-      Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>On
+      Analyticity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-8><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Hermitianity
-      on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Locality
+      Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-9><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Uncertainty
-      Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Hermitianity
+      on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-10><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>Summary>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>Uncertainty
+      Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-11><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|12<space|2spc>Summary>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-12><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
