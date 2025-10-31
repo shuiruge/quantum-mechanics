@@ -38,25 +38,21 @@
     of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-7><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|8<space|2spc>On
-    Analyticity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|8<space|2spc>Locality
+    Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-8><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|9<space|2spc>Locality
-    Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|9<space|2spc>Hermitianity
+    on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-9><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|10<space|2spc>Hermitianity
-    on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|10<space|2spc>Uncertainty
+    Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-10><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|11<space|2spc>Uncertainty
-    Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-11><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|12<space|2spc>Summary>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|11<space|2spc>Summary>
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-12><vspace|0.5fn>
+    <no-break><pageref|auto-11><vspace|0.5fn>
   </table-of-contents>
 
   <section|How to Read this Note?>
@@ -103,7 +99,7 @@
   is <hlink|well known|https://en.wikipedia.org/wiki/Fourier_transform>,
   however, that the Fourier transform of a square-integrable function may not
   be square-integrable again, so that its inverse Fourier transform may not
-  exist. Since Fourier transform is basic in quantum mechamics, we shall seek
+  exist. Since Fourier transform is basic in quantum mechanics, we shall seek
   for a smaller space in which wave-functions live. An ideal substitution is
   the (complex) Schwartz space. A <strong|Schwartz space>
   <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> contains smooth function
@@ -192,89 +188,50 @@
   </equation*>
 
   where <math|n=<around*|{|1,2,\<ldots\>|}>>. The <math|\<delta\><rsub|n>>
-  function is recognized as Gaussian with variance <math|1/n>. We are to show
-  that <math|f<rsub|n><around*|(|x|)>>s are all analytic, and that
-  <math|f<rsub|n><around*|(|x|)>> tends to <math|f<around*|(|x|)>> as
-  <math|n> tends to infinity. We left the proof of analyticity to reader (or
-  an appendix).<\footnote>
-    A method for proving analyticity is using complex analysis. We first
-    extend the domain of <math|f<rsub|n>> from <math|\<bbb-R\><rsup|d>> to
-    <math|\<bbb-C\><rsup|d>>. For each <math|z\<in\>\<bbb-C\><rsup|d>>,
-
-    <\equation*>
-      f<rsub|n><around*|(|z|)>=<around*|(|<frac|n|\<mathpi\>>|)><rsup|d/2><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-      exp<around*|(|-n<big|sum><rsub|\<alpha\>=1><rsup|d><around*|(|z<rsup|\<alpha\>>-y<rsup|\<alpha\>>|)><around*|(|<wide|z|\<bar\>><rsup|\<alpha\>>-y<rsup|\<alpha\>>|)>|)>f<around*|(|y|)>.
-    </equation*>
-
-    Thus, <math|f<rsub|n>> is analytic if and only if it is holomorphic. This
-    is a direct result of <hlink|Cauchy integral
-    formula|https://en.wikipedia.org/wiki/Cauchy%27s_integral_formula> (for
-    multivariate function). Based on <hlink|Hartogs'
-    theorem|https://en.wikipedia.org/wiki/Hartogs%27_theorem>, a multivariate
-    complex function is holomorphic if and only if it is holomorphic in each
-    variable separately. Since derivatives are taken on the exponential,
-    which is holomorphic on <math|\<bbb-C\><rsup|d>>, it is manifest that
-    Cauchy\URiemann equations hold for each component
-    <math|z<rsup|\<alpha\>>> (it will be <math|<big|int>\<mathd\>y
-    f<around*|(|x|)><around*|[|<text|Cauchy\URiemann equations of
-    exponential>|]>>), which then implies that <math|f<rsub|n>> is
-    holomorphic on <math|\<bbb-C\><rsup|d>>. So we find <math|f<rsub|n>>
-    analytic on <math|\<bbb-R\><rsup|d>>. This proof is quite tricky, and we
-    cannot <em|see> what is really happening.
-  </footnote> For investigating the limit as <math|n\<rightarrow\>\<infty\>>,
-  we change the variable of integral by replacing
-  <math|y\<rightarrow\><around*|(|x-y|)>>, and find
+  function is recognized as Gaussian with variance <math|1/n>. This
+  construction is fantastic, because derivatives taken on <math|f<rsub|n>>
+  are now converted onto <math|\<delta\><rsub|n>> instead of <math|f>, which
+  is even not necessarily continuous! But, as a Schwartz function, <math|f>
+  has been \Pgood\Q enough; it is uniformly bounded on
+  <math|\<bbb-R\><rsup|d>>. Indeed, <math|f<around*|(|x|)>> is negligible
+  when <math|x> is far from origin, so that we regard <math|f> as compact
+  supported, then <math|f> is uniformly bounded because of its continuity.
+  This also applies to the derivatives of <math|f> since they are also
+  Schwartz functions. Then, analyticity raises from the good properties of
+  <math|\<delta\><rsub|n>>. To show that <math|f<rsub|n><around*|(|x|)>>
+  tends to <math|f<around*|(|x|)>> as <math|n> tends to infinity, we first
+  change the variable of integral by replacing
+  <math|y\<rightarrow\><around*|(|x-y|)>>, thus
   <math|f<rsub|n><around*|(|x|)>=<big|int>\<mathd\>y
-  \<delta\><rsub|n><around*|(|y|)>f<around*|(|x-y|)>>. Since
-  <math|<big|int>\<mathd\>x \<delta\><rsub|n><around*|(|y|)>=1>,
-
-  we get
-
-  <\align>
-    <tformat|<table|<row|<cell|f<rsub|n><around*|(|x|)>-f<around*|(|x|)>=>|<cell|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|y|)><around*|[|f<around*|(|x-y|)>-f<around*|(|x|)>|]>>>|<row|<cell|=>|<cell|<around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    exp<around*|(|-<frac|n|2><around*|\<\|\|\>|y|\<\|\|\>><rsup|2>|)><around*|[|f<around*|(|x-y|)>-f<around*|(|x|)>|]>.>>>>
-  </align>
-
-  Now, we are to bound <math|<around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>>.
-  Observing the integrand, when <math|n> has been sufficiently large, we find
-  it negligible out of the neighborhood <math|U<rsub|\<delta\>><around*|(|0|)>>
-  for some <math|\<delta\>\<gtr\>0>. Indeed, as a Schwartz function, <math|f>
-  can be uniformly bounded by a finite <math|M\<assign\>sup<rsub|x\<in\>\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>|\|>>,
-  hence <math|<around*|\||f<around*|(|x-y|)>-f<around*|(|x|)>|\|>\<less\>2M>.
-  So, integral out of <math|U<rsub|\<delta\>><around*|(|0|)>> is bounded by
+  \<delta\><rsub|n><around*|(|y|)>f<around*|(|x-y|)>>. Then using
+  <math|<big|int>\<mathd\>x \<delta\><rsub|n><around*|(|y|)>=1>, we find
 
   <\equation*>
-    2M<around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2><big|int><rsub|\<bbb-R\><rsup|d>\\U<rsub|\<delta\>><around*|(|0|)>>\<mathd\>y
-    exp<around*|(|-<frac|n|2><around*|\<\|\|\>|y|\<\|\|\>><rsup|2>|)>,
+    f<rsub|n><around*|(|x|)>-f<around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|y|)><around*|[|f<around*|(|x-y|)>-f<around*|(|x|)>|]>.
   </equation*>
 
-  which tends to zero as <math|n\<rightarrow\>\<infty\>>. The integral within
-  the <math|U<rsub|\<delta\>><around*|(|0|)>> is bounded by
-
-  <\equation*>
-    M<rprime|'><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2><big|int><rsub|U<rsub|\<delta\>><around*|(|0|)>>\<mathd\>y
-    exp<around*|(|-<frac|n|2><around*|\<\|\|\>|y|\<\|\|\>><rsup|2>|)><around*|\||y|\|>,
-  </equation*>
-
-  where <math|M<rprime|'>\<assign\>sup<rsub|x\<in\>\<bbb-R\><rsup|d>><around*|\||\<partial\>f<around*|(|x|)>|\|>>
-  is also finite. This integral also tends to zero as
-  <math|n\<rightarrow\>\<infty\>>. TODO: make this more clear. So we find
-  <math|lim<rsub|n\<rightarrow\>\<infty\>>f<rsub|n>=f>. As a corollary,
-  <math|\<delta\><rsub|n>> has Dirac's <math|\<delta\>>-function as its
-  limit. In fact, <math|\<delta\>>-function is <em|defined> as the limit of
-  <math|\<delta\><rsub|n>> when it is applied (as convolution) on a Schwartz
-  function.<\footnote>
+  Notice that <math|\<delta\><rsub|n>> is much sharper a peak at origin as
+  <math|n> goes greater, together with the fact that <math|\<partial\>f> is
+  uniformly bounded, we find, for any <math|\<varepsilon\>\<gtr\>0>, there is
+  an <math|N\<gtr\>0> such that <math|<around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>\<less\>\<varepsilon\>>
+  for any <math|n\<gtr\>N> and <math|x\<in\>\<bbb-R\><rsup|d>>. In other
+  words, we get <math|lim<rsub|n\<rightarrow\>\<infty\>>f<rsub|n>=f>, thus
+  proof ends. This is an elegant proof because we can <em|see> how <math|f>
+  is approximated by a series of analytic functions explicitly.<\footnote>
     This profound construction is found in the lemma 15.1 of Topological
     Vector Spaces, Distributions and Kernels written by Francois Treves,
     1967.
-  </footnote>
+  </footnote> As a by-product, we also find that <math|\<delta\><rsub|n>> has
+  Dirac's <math|\<delta\>>-function as its limit. In fact,
+  <math|\<delta\>>-function is <em|defined> as the limit of
+  <math|\<delta\><rsub|n>> when it is applied (as convolution) on a Schwartz
+  function.
 
   <section|Superposition Principle and Time Evolution>
 
-  First consider the analogy of master equation in stochastic process. The
-  key feature of master equation is its linearity. The first axiom of quantum
-  mechanics, superposition principle, claims the same linearity.
+  The first axiom of quantum mechanics, superposition principle, claims the
+  same linearity.
 
   <\axiom>
     [Superposition Principle]<label|axiom:sup> Physical laws that operate on
@@ -285,7 +242,7 @@
   their wave-functions) evolve with time. To give raise to time evolution, we
   have to add time-dependence to wave-function, which makes a wave-function
   <math|f:\<bbb-R\><rsup|d>\<times\>\<bbb-R\>\<rightarrow\>\<bbb-C\>>, where
-  <math|\<bbb-R\>> characterizes the time-axis. Then, axiom
+  the second <math|\<bbb-R\>> represents the time-axis. Then, axiom
   <reference|axiom:sup> claims that the equation of time evolution (as a
   physical law that operates on a quantum state) shall be linear:
   <math|\<partial\>f/\<partial\>t=L<around*|(|f|)>> where the operation
@@ -305,18 +262,14 @@
   </equation>
 
   The right hand side can be seen as a generalization of linear
-  transformation in <math|\<bbb-R\><rsup|n>> like
+  transformation in <math|\<bbb-R\><rsup|n>> like vector-matrix product
   <math|<big|sum><rsub|i=1><rsup|n>f<rsub|i> r<rsub|i j>>. The imaginary
-  <math|\<mathi\>> is employed for convenience. You can compare equation
-  <reference|equ:superposition> with the master equation of continuous time
-  Markovian process. The only difference is the imaginary number in the
-  front.
+  <math|\<mathi\>> is employed for convenience.
 
   <section|Probability Interpretation Implies Hermitianity>
 
   Then, the probability interpretation add restriction to the transition
-  rate. In stochastic process, the restriction is about the normalization of
-  transition density. But in quantum mechanics, it is about unitary.
+  rate.
 
   <\axiom>
     [Probability Interpretation]<label|axiom:prob> Given a wave-function
@@ -329,7 +282,8 @@
   <reference|axiom:prob> implies that, for any wave-function <math|f>,
 
   <\equation>
-    <big|int><rsub|\<cal-X\>>\<mathd\>x f<rsup|\<ast\>><around*|(|x|)>f<around*|(|x|)>=1.<label|eq:probtoself>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    f<rsup|\<ast\>><around*|(|x|)>f<around*|(|x|)>=1.<label|eq:probtoself>
   </equation>
 
   Since this equation holds for all wave-functions, time evolution sustains
@@ -337,7 +291,8 @@
   <math|f<around*|(|x,t|)>>,
 
   <\equation*>
-    <big|int><rsub|\<cal-X\>>\<mathd\>x f<rsup|\<ast\>><around*|(|x,t|)>f<around*|(|x,t|)>=<big|int><rsub|\<cal-X\>>\<mathd\>x
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    f<rsup|\<ast\>><around*|(|x,t|)>f<around*|(|x,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
     f<rsup|\<ast\>><around*|(|x,t<rprime|'>|)>f<around*|(|x,t<rprime|'>|)>=1
   </equation*>
 
@@ -346,7 +301,7 @@
   evolution). Equation <reference|eq:probtoself> gives
 
   <\equation*>
-    f<around*|(|y,t+\<Delta\>t|)>=f<around*|(|y,t|)>-\<mathi\>\<Delta\>t<big|int>\<mathd\>x
+    f<around*|(|y,t+\<Delta\>t|)>=f<around*|(|y,t|)>-\<mathi\>\<Delta\>t<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
     f<around*|(|x,t|)> r<around*|(|x,y|)>+\<omicron\><around*|(|\<Delta\>t|)>.
   </equation*>
 
@@ -354,7 +309,7 @@
   <math|f<around*|(|\<cdummy\>,t+\<Delta\>t|)>> gives
 
   <\equation*>
-    <big|int><rsub|\<cal-X\>>\<mathd\>y<around*|[|f<rsup|\<ast\>><around*|(|y,t|)>+\<mathi\>\<Delta\>t<big|int><rsub|\<cal-X\>>\<mathd\>x
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<around*|[|f<rsup|\<ast\>><around*|(|y,t|)>+\<mathi\>\<Delta\>t<big|int><rsub|\<cal-X\>>\<mathd\>x
     f<rsup|\<ast\>><around*|(|x,t|)> r<rsup|\<ast\>><around*|(|x,y|)>|]><around*|[|f<around*|(|y,t|)>-\<mathi\>\<Delta\>t<big|int><rsub|\<cal-X\>>\<mathd\>x<rprime|'>
     f<around*|(|x<rprime|'>,t|)> r<around*|(|x<rprime|'>,y|)>|]>=1.
   </equation*>
@@ -364,8 +319,8 @@
   <math|\<Delta\>t>, it implies
 
   <\equation*>
-    <big|int><rsub|\<cal-X\><rsup|2>>\<mathd\>x \<mathd\>y
-    f<rsup|\<ast\>><around*|(|x,t|)>f<around*|(|y,t|)>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<big|int><rsub|\<bbb-R\><rsup|d>>
+    \<mathd\>y f<rsup|\<ast\>><around*|(|x,t|)>f<around*|(|y,t|)>
     <around*|[|r<rsup|\<ast\>><around*|(|x,y|)>-r<around*|(|y,x|)>|]>=0
   </equation*>
 
@@ -386,15 +341,6 @@
 
   <section|Path Integral Formalism>
 
-  In this section and the followings, we focus on the situation where
-  <math|\<cal-X\>=\<bbb-R\><rsup|d>>, on which Fourier transform can be
-  performed.<\footnote>
-    This is critical for our analysis. But I think this can be generalized to
-    any manifold on which the Green's function of Laplacian equation can be
-    solved.
-  </footnote> Thus, given <math|t>, we have wave-function
-  <math|f<around*|(|\<cdummy\>,t|)>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
-
   We are trying to derive a generic path integral formalism. Given a small
   <math|\<Delta\>t\<gtr\>0>, equation <reference|equ:superposition> gives
 
@@ -405,7 +351,7 @@
   </equation*>
 
   We are to convert the <math|<around*|[|\<cdots\>|]>> part into exponential.
-  To do so, we use the inverse Fourier transformations
+  To do so, we take the inverse Fourier transform
 
   <\equation*>
     \<delta\><around*|(|x<rprime|'>-x|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
@@ -425,9 +371,10 @@
   <\equation>
     <wide|r|^><around*|(|x,k|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>\<epsilon\>
     exp<around*|(|-\<mathi\>k<rsub|\<alpha\>>\<epsilon\><rsup|\<alpha\>>|)>
-    r<around*|(|x,x+\<epsilon\>|)>.<label|eq:hamiltonian>
+    r<around*|(|x,x+\<epsilon\>|)><label|eq:hamiltonian>
   </equation>
 
+  is the Fourier transform of <math|\<epsilon\>\<mapsto\>r<around*|(|x,x+\<epsilon\>|)>>.
   Then, the <math|<around*|[|\<cdots\>|]>> part is converted into exponential
   by
 
@@ -481,7 +428,7 @@
 
   If we recognize <math|<around*|(|x<rsub|i+1>-x<rsub|i>|)>/\<Delta\>t> as
   the velocity <math|<wide|x|\<dot\>><rsub|i>>, then the
-  <math|S<around*|(|x,k|)>> can be seen as the Legendre transformation
+  <math|S<around*|(|x,k|)>> can be seen as the Legendre transform
   <math|<wide|x|\<dot\>> p-H<around*|(|x,p|)>>, in which <with|color|dark
   green|<em|<math|k> is proportional to momentum <math|p> and
   <math|<wide|r|^><around*|(|x,k|)>> plays the role of Hamiltonian
@@ -489,10 +436,10 @@
 
   <section|An Useful Expansion>
 
-  In this section, we claim an mathematical theorem that is critical for
+  In this section, we claim an mathematical theorem that is important for
   continuing the journey. It extends a function in Schwartz space (ensuring
-  Fourier transformation), to a generalized function. With this extension,
-  the function can be expanded by a series of generalized functions.
+  Fourier transform), to a generalized function. With this extension, the
+  function can be expanded by a series of generalized functions.
 
   Define the <math|n>-th order <strong|moment> (with <math|n\<geqslant\>0>)
   of a function <math|M<rsub|n>:\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<bbb-C\>>
@@ -557,8 +504,7 @@
   <math|<big|int>\<mathd\>x f<around*|(|x|)>\<varphi\><around*|(|x|)>>). Only
   by applying to an analytic Schwartz function can it make sense.>>
 
-  Moments also relate to Fourier transformation. We have the Fourier
-  transformation
+  Moments also relate to Fourier transform. We have the Fourier transform
 
   <\equation*>
     <wide|f|^><around*|(|k|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
@@ -580,11 +526,13 @@
     <wide|f|^><around*|(|k|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>M<rsub|n><rsup|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|n>><around*|(|f|)><around*|(|k<rsub|\<alpha\><rsub|1>>\<cdots\>k<rsub|\<alpha\><rsub|n>>|)>.
   </equation>
 
-  This relates the moments and the Fourier transformation of a function in
+  This relates the moments and the Fourier transform of a function in
   analytic Schwartz space. <with|color|dark green|<em|We can construct the
-  <math|f> out of a sequence of moments.>> For ensuring convergence, we
-  further demand that <math|<wide|f|^>> is analytic, namely
+  <math|f> by a series of its moments.>> For ensuring convergence, we further
+  demand that <math|<wide|f|^>> is analytic, namely
   <math|<wide|f|^>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>.
+  (TODO: prove that <math|<wide|f|^><rsub|n>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>
+  given <math|f<rsub|n><around*|(|x|)>=<around*|(|\<delta\><rsub|n>\<ast\>f|)><around*|(|x|)>>.)
 
   <section|Expansion of Transition Rate>
 
@@ -676,144 +624,6 @@
   </equation*>
 
   which is exactly the Schr<wide|o|\<ddot\>>dinger equation.
-
-  <section|On Analyticity>
-
-  We have set wave-functions in the analytic Schwartz space in which every
-  function is analytic. At the first sight, analyticity seems too strict. But
-  practically, when we solve Schr<wide|o|\<ddot\>>dinger equation on some
-  explicit instances such as harmonic oscillator or hydrogen atom (in both
-  angular and radical equations), we does restrict ourselves to analytic
-  functions.
-
-  For example, when solving the stationary Schr<wide|o|\<ddot\>>dinger
-  equation of one-dimensional harmonic oscillator, we suppose that
-  wave-function has the form
-
-  <\equation*>
-    f<around*|(|x|)>=exp<around*|(|-x<rsup|2>|)>
-    <around*|[|<big|sum><rsub|n=0><rsup|\<infty\>>a<rsub|n>x<rsup|n>|]>,
-  </equation*>
-
-  where <math|a<rsub|n>>s are to be determined. The factor
-  <math|exp<around*|(|-x<rsup|2>|)>> is employed for an exponentially fast
-  decay as <math|<around*|\||x|\|>\<rightarrow\>\<infty\>> (thus faster than
-  the inverse of any polynomial). And the factor
-  <math|<around*|[|\<cdots\>|]>> is a Taylor series. Namely, <math|f> is in
-  the analytic Schwartz space <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\>|)>>.
-  The energy quantization emerges for ensuring the convergence of the series
-  <math|<big|sum><rsub|n>a<rsub|n>x<rsup|n>>.
-
-  In the traditional textures of quantum mechanics, wave-functions are
-  regarded as elements in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
-  such that <math|<big|int>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>=1>
-  (remark that <math|<around*|\||\<cdots\>|\|>> denotes the norm of complex
-  number). In addition, some order of smoothness are appended so as to make
-  the Schr<wide|o|\<ddot\>>dinger equation (involving a Laplacian)
-  well-defined. Apparently, we have <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>\<subset\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>.
-  But, while solving a Schr<wide|o|\<ddot\>>dinger equation, we only consider
-  the functions in <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>.
-  So, as I think, the space <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>
-  has been sufficient.
-
-  Mathematically, if <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>
-  is dense in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>, then
-  analyticity is fine. It means, we can approximate any function in
-  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> by using a series of
-  analytic Schwartz functions. This condition is much easier to be held yet
-  quite powerful. The key point is that a function has negligible measure on
-  the \Pboundary\Q of <math|\<bbb-R\><rsup|d>>. Precisely, for any
-  <math|\<varepsilon\>\<gtr\>0>, there is an <math|X\<gtr\>0> such that
-
-  <\equation*>
-    <big|int><rsub|\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>>\<mathd\>x
-    <around*|\||f<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>/2
-  </equation*>
-
-  where the set <math|\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>\<assign\><around*|{|x\<in\>\<bbb-R\><rsup|d>:<around*|\<\|\|\>|x|\<\|\|\>>\<gtr\>X|}>>.
-  So, we can simply omit the region <math|\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>>
-  and consider the <math|f> on the closed region
-  <math|U<rsub|X><around*|(|0|)>\<assign\><around*|{|x\<in\>\<bbb-R\><rsup|d>:<around*|\<\|\|\>|x|\<\|\|\>>\<leqslant\>X|}>>.
-  Within this compact region, <hlink|Weierstrass approximation
-  theorem|https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem#Weierstrass_approximation_theorem>
-  claims that <math|f> can be approximate by a polynomial at any precision.
-  Namely, for any <math|\<delta\>\<gtr\>0>, there is a polynomial <math|p>
-  such that
-
-  <\equation*>
-    <around*|\||f<around*|(|x|)>-p<around*|(|x|)>|\|>\<less\>\<delta\>
-  </equation*>
-
-  holds for any <math|x\<in\>U<rsub|X><around*|(|0|)>>. By defining
-  <math|\<delta\>\<assign\>\<varepsilon\>/2<around*|\||U<rsub|X><around*|(|0|)>|\|>>
-  where <math|<around*|\||\<cdots\>|\|>> is used for volume, we get
-
-  <\equation*>
-    <big|int><rsub|U<rsub|X><around*|(|0|)>>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-p<around*|(|x|)>|\|>\<less\>\<delta\>
-    <around*|\||U<rsub|X><around*|(|0|)>|\|>=\<varepsilon\>/2.
-  </equation*>
-
-  But a polynomial cannot be negligible on the \Pboundary\Q
-  <math|\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>>. Instead, it will
-  increase as <math|<around*|\<\|\|\>|x|\<\|\|\>><rsup|n>> where <math|n> is
-  the order of the polynomial. Inspired by the solution of harmonic
-  oscillator, we weight it by <math|exp<around*|(|-<around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>>.
-  Namely, we use <math|p<around*|(|x|)> exp<around*|(|-<around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>>,
-  instead of <math|p<around*|(|x|)>> alone, to approximate <math|f> on
-  <math|\<bbb-R\><rsup|d>>, which means the polynomial
-  <math|p<around*|(|x|)>> approximates <math|f<around*|(|x|)>exp<around*|(|<around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>>
-  in the compact region <math|U<rsub|X><around*|(|0|)>>. In fact, any
-  function <math|w\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>
-  that has a continuous inverse (namely, <math|1/w<around*|(|x|)>> is
-  continuous on <math|x>) can serve as the weight function, and
-  <math|exp<around*|(|-<around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>> is just an
-  instance. We thus conclude, <with|color|dark green|<em|for any function
-  <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
-  <math|\<varepsilon\>\<gtr\>0>, there are a polynomial <math|p> and an
-  analytic Schwartz function <math|w> such that>>
-
-  <\equation>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>.
-  </equation>
-
-  <with|color|dark green|<em|The <math|p<around*|(|x|)>w<around*|(|x|)>> is
-  an analytic Schwartz function.>>
-
-  Besides, we cannot generalize this to <math|<around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>>
-  for any <math|x\<in\>\<bbb-R\><rsup|d>> because we can construct an
-  <math|f> where it equals or approximates to <math|\<delta\><around*|(|x|)>
-  \<varepsilon\>/2<rsup|n>> at distance <math|2<rsup|n>X> from origin. On the
-  \Pboundary\Q <math|\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>>,
-  restriction <math|<big|int><rsub|\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>><around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>>
-  cannot imply <math|<around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<delta\>>
-  for any <math|\<delta\>>. Intuitively, this has been sufficient for our
-  study: on the \Pboundary\Q the difference is bounded by measure, and within
-  the \Pboundary\Q it is bounded at each position (stronger than by measure).
-
-  If, however, <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, then
-  there is <math|X\<gtr\>0> such that <math|<around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>/2>
-  hold for any <math|x\<in\>\<partial\>\<bbb-R\><rsup|d><around*|(|X|)>>,
-  just because both <math|f> and <math|p<around*|(|x|)>w<around*|(|x|)>> tend
-  to vanish on the \Pboundary\Q of <math|\<bbb-R\><rsup|d>>, so
-
-  <\equation*>
-    <around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\><around*|\||f<around*|(|x|)>|\|>+<around*|\||p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>/2,
-  </equation*>
-
-  if we demand both <math|<around*|\||f<around*|(|x|)>|\|>\<less\>\<varepsilon\>/4>
-  and <math|<around*|\||p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>/4>
-  by enlarging <math|X>. Then, we find, <with|color|dark green|<em|for any
-  function <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> and any
-  <math|\<varepsilon\>\<gtr\>0>, there are a polynomial <math|p> and an
-  analytic Schwartz function <math|w> such that>>
-
-  <\equation>
-    <around*|\||f<around*|(|x|)>-p<around*|(|x|)>w<around*|(|x|)>|\|>\<less\>\<varepsilon\>
-  </equation>
-
-  <with|color|dark green|holds for any <math|x\<in\>\<bbb-R\><rsup|d>>.>
 
   <section|Locality Imports a Cut-Off on Moments>
 
@@ -1031,7 +841,7 @@
   system. A corollary of axiom <reference|axiom:prob> is that, given a
   wave-function <math|f> and an observable
   <math|O:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-R\>>, the observed value is
-  the expactation <math|\<bbb-E\><rsub|f><around*|[|O|]>\<assign\><big|int>\<mathd\>x
+  the expectation <math|\<bbb-E\><rsub|f><around*|[|O|]>\<assign\><big|int>\<mathd\>x
   <around*|\||f<around*|(|x|)>|\|><rsup|2>O<around*|(|x|)>>, since
   <math|<around*|\||f<around*|(|x|)>|\|><rsup|2>> represents the probability
   density that the system is found at configuration <math|x>. When time is
@@ -1083,7 +893,7 @@
   </equation*>
 
   The coefficient guarantees the normalization of <math|f>. By axiom
-  <reference|axiom:prob2>, we have
+  <reference|axiom:prob>, we have
 
   <\equation*>
     \<bbb-E\><rsub|f><around*|[|x<around*|(|0|)>|]>\<assign\><big|int><rsub|\<bbb-R\>>\<mathd\>x
@@ -1173,7 +983,7 @@
   <\align>
     <tformat|<table|<row|<cell|\<bbb-E\><rsub|f><around*|[|v<around*|(|0|)>|]>=>|<cell|<big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|f<around*|(|x,0|)>+\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!>
     R<rsup|\<ast\>><rsub|N><around*|(|x|)>\<partial\><rsup|N>f<around*|(|x,0|)>\<Delta\>t|]><around*|[|f<around*|(|x,0|)>-\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!>
-    R<rsub|N><around*|(|x|)>\<partial\><rsup|N>f<around*|(|x,0|)>\<Delta\>t|]><frac|x|\<Delta\>t>>>|<row|<cell|=>|<cell|\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|R<rsup|\<ast\>><rsub|N><around*|(|x|)>-
+    R<rsub|N><around*|(|x|)>\<partial\><rsup|N>f<around*|(|x,0|)>\<Delta\>t|]><frac|x|\<Delta\>t>>>|<row|<cell|=>|<cell|\<mathi\>\<Delta\>t<frac|<around*|(|-1|)><rsup|N>|N!><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|R<rsup|\<ast\>><rsub|N><around*|(|x|)>-
     R<rsub|N><around*|(|x|)>|]>\<partial\><rsup|N>f<around*|(|x,0|)>x+\<omicron\><around*|(|\<Delta\>t|)>.>>>>
   </align>
 
@@ -1185,7 +995,7 @@
   we get
 
   <\equation*>
-    \<bbb-E\><rsub|f><around*|[|v<around*|(|0|)>|]>=<frac|<around*|(|-1|)><rsup|N>|N!><big|int><rsub|\<bbb-R\>>\<mathd\>x
+    \<bbb-E\><rsub|f><around*|[|v<around*|(|0|)>|]>=\<Delta\>t<frac|<around*|(|-1|)><rsup|N>|N!><big|int><rsub|\<bbb-R\>>\<mathd\>x
     A<around*|(|x|)>\<partial\><rsup|N>f<around*|(|x,0|)>x+\<omicron\><around*|(|\<Delta\>t|)>,
   </equation*>
 
@@ -1193,7 +1003,7 @@
   leading to a violation of parity symmetry, because the velocity has a
   favored direction even though the distribution (or wave-function) has not.
   For simplicity, we assume the parity symmetry in this section, and consider
-  the case where <math|N> is even.
+  the case where <math|N> is even. TODO: consider when <math|N> is odd.
 
   Then, using the famous formula of variance,
 
@@ -1305,7 +1115,6 @@
     <associate|auto-1|<tuple|1|1>>
     <associate|auto-10|<tuple|10|7>>
     <associate|auto-11|<tuple|11|8>>
-    <associate|auto-12|<tuple|12|?>>
     <associate|auto-2|<tuple|2|1>>
     <associate|auto-3|<tuple|3|1>>
     <associate|auto-4|<tuple|4|2>>
@@ -1331,8 +1140,6 @@
     <associate|footnote-1|<tuple|1|?>>
     <associate|footnote-10|<tuple|10|?>>
     <associate|footnote-11|<tuple|11|?>>
-    <associate|footnote-12|<tuple|12|?>>
-    <associate|footnote-13|<tuple|13|?>>
     <associate|footnote-2|<tuple|2|?>>
     <associate|footnote-3|<tuple|3|?>>
     <associate|footnote-4|<tuple|4|?>>
@@ -1344,8 +1151,6 @@
     <associate|footnr-1|<tuple|1|?>>
     <associate|footnr-10|<tuple|10|?>>
     <associate|footnr-11|<tuple|11|?>>
-    <associate|footnr-12|<tuple|12|?>>
-    <associate|footnr-13|<tuple|13|?>>
     <associate|footnr-2|<tuple|2|?>>
     <associate|footnr-3|<tuple|3|?>>
     <associate|footnr-4|<tuple|4|?>>
@@ -1354,7 +1159,7 @@
     <associate|footnr-7|<tuple|7|?>>
     <associate|footnr-8|<tuple|8|?>>
     <associate|footnr-9|<tuple|9|?>>
-    <associate|section:Hermitianity on Moments|<tuple|10|?>>
+    <associate|section:Hermitianity on Moments|<tuple|9|?>>
   </collection>
 </references>
 
@@ -1390,25 +1195,21 @@
       of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-7><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>On
-      Analyticity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>Locality
+      Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-8><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Locality
-      Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Hermitianity
+      on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-9><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Hermitianity
-      on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Uncertainty
+      Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-10><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>Uncertainty
-      Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-11><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|12<space|2spc>Summary>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>Summary>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-12><vspace|0.5fn>
+      <no-break><pageref|auto-11><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
