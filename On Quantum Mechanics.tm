@@ -39,20 +39,37 @@
     <no-break><pageref|auto-7><vspace|0.5fn>
 
     <vspace*|1fn><with|font-series|bold|math-font-series|bold|8<space|2spc>Locality
-    Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    Truncates the Moments of Transition Rate>
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-8><vspace|0.5fn>
 
     <vspace*|1fn><with|font-series|bold|math-font-series|bold|9<space|2spc>Hermitianity
-    on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    on the Moments of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-9><vspace|0.5fn>
 
     <vspace*|1fn><with|font-series|bold|math-font-series|bold|10<space|2spc>Uncertainty
     Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-10><vspace|0.5fn>
 
+    <with|par-left|1tab|10.1<space|2spc>Implication on Moments
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-11>>
+
+    <with|par-left|1tab|10.2<space|2spc>When <with|mode|math|N> Is Even
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-12>>
+
+    <with|par-left|1tab|10.3<space|2spc>When <with|mode|math|N> Is Odd
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-13>>
+
+    <with|par-left|1tab|10.4<space|2spc>Generalizations
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-14>>
+
     <vspace*|1fn><with|font-series|bold|math-font-series|bold|11<space|2spc>Summary>
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-11><vspace|0.5fn>
+    <no-break><pageref|auto-15><vspace|0.5fn>
   </table-of-contents>
 
   <section|How to Read this Note?>
@@ -625,7 +642,7 @@
 
   which is exactly the Schr<wide|o|\<ddot\>>dinger equation.
 
-  <section|Locality Imports a Cut-Off on Moments>
+  <section|Locality Truncates the Moments of Transition Rate>
 
   We then introduce the third axiom about locality, and discuss what it will
   induce.
@@ -719,10 +736,13 @@
   It also indicates that, for a sufficient large <math|N>, we can keep
   <math|f<around*|(|x|)>> (approximately) invariant when we tune the
   <math|a<rsub|n>>s with <math|n\<gtr\>N> while keep the other
-  <math|a<rsub|n>>s invariant. So, based on the equation
+  <math|a<rsub|n>>s invariant. So, based on the equation (plugging
+  <math|f<around*|(|x|)>=<big|sum><rsub|n>a<rsub|n>x<rsup|n>> into equation
+  <reference|eq:kmanalogy>, and collecting all <math|a<rsub|m>> terms with
+  <math|m\<less\>n> into <math|<around*|[|\<cdots\>|]>>).
 
   <\equation*>
-    \<mathi\><frac|\<partial\>f|\<partial\>t><around*|(|0,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|1|n!>R<rsub|n><around*|(|0|)>a<rsub|n>,
+    \<mathi\><frac|\<partial\>f|\<partial\>t><around*|(|0,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><around*|{|<around*|[|\<cdots\>|]>+<around*|(|-1|)><rsup|n>R<rsub|n><around*|(|0|)>a<rsub|n>|}>,
   </equation*>
 
   if there is not a cut-off to the infinite sequence of
@@ -739,7 +759,8 @@
   integer <math|N<rsub|cut>> such that <math|R<rsub|n>=0> for any
   <math|n\<gtr\>N<rsub|cut>>>>.
 
-  <section|Hermitianity on Moments><label|section:Hermitianity on Moments>
+  <section|Hermitianity on the Moments of Transition
+  Rate><label|section:Hermitianity on Moments>
 
   Now we study the <math|R<rsub|n>>s. We first investigate what Hermitianity
   implies for our generic quantum mechanics. Hermitianity implies
@@ -881,6 +902,8 @@
     reduced Planck's constant.
   </axiom>
 
+  <subsection|Implication on Moments>
+
   In this section, we are to show how uncertainty principle restricts further
   to the transition rate. We first deal with the situation where dimension
   <math|d=1>. Since axiom <reference|axiom:uncert> holds for all
@@ -1002,8 +1025,6 @@
   which may not vanish up to <math|\<omicron\><around*|(|\<Delta\>t|)>>,
   leading to a violation of parity symmetry, because the velocity has a
   favored direction even though the distribution (or wave-function) has not.
-  For simplicity, we assume the parity symmetry in this section, and consider
-  the case where <math|N> is even. TODO: consider when <math|N> is odd.
 
   Then, using the famous formula of variance,
 
@@ -1033,13 +1054,16 @@
     R<rsub|N><rsup|2><around*|(|x|)>=R<rsup|2><rsub|N><around*|(|0|)>+\<partial\>R<rsup|2><rsub|N><around*|(|0|)>x+<frac|1|2>\<partial\><rsup|2>R<rsup|2><rsub|N><around*|(|0|)>x<rsup|2>+\<cdots\>.
   </equation*>
 
-  Then,
+  We arrive at
 
   <\equation*>
     \<bbb-E\><rsub|f><around*|[|v<rsup|2><around*|(|0|)>|]>=<big|sum><rsub|n=0><rsup|\<infty\>><around*|(|<frac|1|N!>|)><rsup|2><frac|\<partial\><rsup|n>R<rsup|2><rsub|N><around*|(|0|)>|n!><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|N>f<around*|(|x,0|)>\<partial\><rsup|N>f<around*|(|x,0|)>-\<partial\><rsup|2N>f<around*|(|x,0|)>f<around*|(|x,0|)>|]>x<rsup|2+n>+\<omicron\><around*|(|1|)>.
   </equation*>
 
-  Using maxima, we compute the term in <math|\<bbb-E\><rsub|f><around*|[|v<rsup|2><around*|(|0|)>|]>>
+  <subsection|When <math|N> Is Even>
+
+  For simplicity, we first consider the case where <math|N> is even. Using
+  maxima, we compute the term in <math|\<bbb-E\><rsub|f><around*|[|v<rsup|2><around*|(|0|)>|]>>
   for each <math|N> and <math|n>.<\footnote>
     First assume <verbatim|assume(\<sigma\> \<gtr\> 0)$>. Define <verbatim|N:
     7$ n: 10$> (for instance), <verbatim|f: (2*%pi*\<sigma\>^2)^(-1/4) *
@@ -1055,6 +1079,12 @@
   diverging when <math|\<sigma\>> tends to zero. The specific case is
   <math|N=2> in which <math|R<rsub|N>> becomes constant. This is the
   canonical situation in physics.
+
+  <subsection|When <math|N> Is Odd>
+
+  TODO
+
+  <subsection|Generalizations>
 
   We can generalize the previous analysis to dimension <math|d\<gtr\>1>, in
   which the covariance matrix of <math|f> is diagonal, such that all
@@ -1113,53 +1143,57 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|10|7>>
-    <associate|auto-11|<tuple|11|8>>
-    <associate|auto-2|<tuple|2|1>>
-    <associate|auto-3|<tuple|3|1>>
-    <associate|auto-4|<tuple|4|2>>
-    <associate|auto-5|<tuple|5|2>>
-    <associate|auto-6|<tuple|6|3>>
-    <associate|auto-7|<tuple|7|4>>
-    <associate|auto-8|<tuple|8|5>>
-    <associate|auto-9|<tuple|9|6>>
-    <associate|axiom:local|<tuple|3|?>>
-    <associate|axiom:prob|<tuple|2|?>>
-    <associate|axiom:sup|<tuple|1|1>>
-    <associate|axiom:uncert|<tuple|4|?>>
-    <associate|axiom:uncert-ext|<tuple|5|?>>
-    <associate|eq:deltaexp|<tuple|9|4>>
-    <associate|eq:expandbymoments|<tuple|14|5>>
-    <associate|eq:hamiltonian|<tuple|4|3>>
-    <associate|eq:hermit|<tuple|3|2>>
-    <associate|eq:kmanalogy|<tuple|13|5>>
-    <associate|eq:moment|<tuple|8|3>>
-    <associate|eq:probtoself|<tuple|2|2>>
-    <associate|eq:transexp|<tuple|12|5>>
-    <associate|equ:superposition|<tuple|1|1>>
-    <associate|footnote-1|<tuple|1|?>>
-    <associate|footnote-10|<tuple|10|?>>
-    <associate|footnote-11|<tuple|11|?>>
-    <associate|footnote-2|<tuple|2|?>>
-    <associate|footnote-3|<tuple|3|?>>
-    <associate|footnote-4|<tuple|4|?>>
-    <associate|footnote-5|<tuple|5|?>>
-    <associate|footnote-6|<tuple|6|?>>
-    <associate|footnote-7|<tuple|7|?>>
-    <associate|footnote-8|<tuple|8|?>>
-    <associate|footnote-9|<tuple|9|?>>
-    <associate|footnr-1|<tuple|1|?>>
-    <associate|footnr-10|<tuple|10|?>>
-    <associate|footnr-11|<tuple|11|?>>
-    <associate|footnr-2|<tuple|2|?>>
-    <associate|footnr-3|<tuple|3|?>>
-    <associate|footnr-4|<tuple|4|?>>
-    <associate|footnr-5|<tuple|5|?>>
-    <associate|footnr-6|<tuple|6|?>>
-    <associate|footnr-7|<tuple|7|?>>
-    <associate|footnr-8|<tuple|8|?>>
-    <associate|footnr-9|<tuple|9|?>>
-    <associate|section:Hermitianity on Moments|<tuple|9|?>>
+    <associate|auto-10|<tuple|10|9>>
+    <associate|auto-11|<tuple|10.1|10>>
+    <associate|auto-12|<tuple|10.2|11>>
+    <associate|auto-13|<tuple|10.3|11>>
+    <associate|auto-14|<tuple|10.4|11>>
+    <associate|auto-15|<tuple|11|12>>
+    <associate|auto-2|<tuple|2|2>>
+    <associate|auto-3|<tuple|3|3>>
+    <associate|auto-4|<tuple|4|3>>
+    <associate|auto-5|<tuple|5|4>>
+    <associate|auto-6|<tuple|6|5>>
+    <associate|auto-7|<tuple|7|6>>
+    <associate|auto-8|<tuple|8|7>>
+    <associate|auto-9|<tuple|9|8>>
+    <associate|axiom:local|<tuple|3|7>>
+    <associate|axiom:prob|<tuple|2|3>>
+    <associate|axiom:sup|<tuple|1|3>>
+    <associate|axiom:uncert|<tuple|4|9>>
+    <associate|axiom:uncert-ext|<tuple|5|12>>
+    <associate|eq:deltaexp|<tuple|9|6>>
+    <associate|eq:expandbymoments|<tuple|14|7>>
+    <associate|eq:hamiltonian|<tuple|4|4>>
+    <associate|eq:hermit|<tuple|3|4>>
+    <associate|eq:kmanalogy|<tuple|13|6>>
+    <associate|eq:moment|<tuple|8|5>>
+    <associate|eq:probtoself|<tuple|2|3>>
+    <associate|eq:transexp|<tuple|12|6>>
+    <associate|equ:superposition|<tuple|1|3>>
+    <associate|footnote-1|<tuple|1|2>>
+    <associate|footnote-10|<tuple|10|10>>
+    <associate|footnote-11|<tuple|11|11>>
+    <associate|footnote-2|<tuple|2|2>>
+    <associate|footnote-3|<tuple|3|2>>
+    <associate|footnote-4|<tuple|4|3>>
+    <associate|footnote-5|<tuple|5|3>>
+    <associate|footnote-6|<tuple|6|4>>
+    <associate|footnote-7|<tuple|7|5>>
+    <associate|footnote-8|<tuple|8|8>>
+    <associate|footnote-9|<tuple|9|9>>
+    <associate|footnr-1|<tuple|1|2>>
+    <associate|footnr-10|<tuple|10|10>>
+    <associate|footnr-11|<tuple|11|11>>
+    <associate|footnr-2|<tuple|2|2>>
+    <associate|footnr-3|<tuple|3|2>>
+    <associate|footnr-4|<tuple|4|3>>
+    <associate|footnr-5|<tuple|5|3>>
+    <associate|footnr-6|<tuple|6|4>>
+    <associate|footnr-7|<tuple|7|5>>
+    <associate|footnr-8|<tuple|8|8>>
+    <associate|footnr-9|<tuple|9|9>>
+    <associate|section:Hermitianity on Moments|<tuple|9|8>>
   </collection>
 </references>
 
@@ -1196,20 +1230,37 @@
       <no-break><pageref|auto-7><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>Locality
-      Imports a Cut-Off on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      Truncates the Moments of Transition Rate>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-8><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Hermitianity
-      on Moments> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      on the Moments of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-9><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Uncertainty
       Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-10><vspace|0.5fn>
 
+      <with|par-left|<quote|1tab>|10.1<space|2spc>Implication on Moments
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-11>>
+
+      <with|par-left|<quote|1tab>|10.2<space|2spc>When
+      <with|mode|<quote|math>|N> Is Even <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-12>>
+
+      <with|par-left|<quote|1tab>|10.3<space|2spc>When
+      <with|mode|<quote|math>|N> Is Odd <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-13>>
+
+      <with|par-left|<quote|1tab>|10.4<space|2spc>Generalizations
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-14>>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>Summary>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-11><vspace|0.5fn>
+      <no-break><pageref|auto-15><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
