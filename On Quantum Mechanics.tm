@@ -94,7 +94,7 @@
     <strong|definition>s).
   </itemize>
 
-  <section|On Wave-Function>
+  <section|Superposition Principle and Time Evolution>
 
   In classical physics, a system with <math|n> classical particles in
   <math|3>-dimensional space can be represented by an element in
@@ -109,146 +109,9 @@
 
   The state of a quantum system is represented by wave-function. A
   <strong|wave-function> is a map from the space of configurations to complex
-  plane, say <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>. In
-  traditional textures, wave-functions are supposed to be square-integrable,
-  thus <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. This is
-  essential for probability interpretation (axiom <reference|axiom:prob>). It
-  is <hlink|well known|https://en.wikipedia.org/wiki/Fourier_transform>,
-  however, that the Fourier transform of a square-integrable function may not
-  be square-integrable again, so that its inverse Fourier transform may not
-  exist. Since Fourier transform is basic in quantum mechanics, we shall seek
-  for a smaller space in which wave-functions live. An ideal substitution is
-  the (complex) Schwartz space. A <strong|Schwartz space>
-  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> contains smooth function
-  <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>> that decays
-  \Pexponentially fast\Q at infinity. Precisely, for any <math|m>-order
-  polynomial <math|P<rsub|m>> and any <math|m>-order partial derivative
-  <math|D<rsup|n>>, with integers <math|m,n\<geqslant\>0>, we have
-
-  <\equation*>
-    lim<rsub|<around*|\<\|\|\>|x|\<\|\|\>>\<rightarrow\>\<infty\>><around*|\||P<rsub|m><around*|(|x|)>D<rsup|n>f<around*|(|x|)>|\|>=0.
-  </equation*>
-
-  Functions in Schwartz space are usually termed as <strong|Schwartz
-  function>s. Fourier transform is an automorphism on Schwartz space. And for
-  any <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
-  <math|\<varepsilon\>\<gtr\>0>, there is a
-  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> such that<\footnote>
-    TODO: give a reference or a proof.
-  </footnote>
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
-  </equation*>
-
-  That is, <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> is a dense
-  subspace in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. It is in this
-  sense that the substitution is plausible.
-
-  Restriction from <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> to
-  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, however, is still
-  insufficient. For example, in solving the stationary
-  Schr<wide|o|\<ddot\>>dinger equation of one-dimensional harmonic
-  oscillator, we suppose that wave-function has the form
-
-  <\equation*>
-    f<around*|(|x|)>=exp<around*|(|-x<rsup|2>|)>
-    <around*|[|<big|sum><rsub|n=0><rsup|\<infty\>>a<rsub|n>x<rsup|n>|]>,
-  </equation*>
-
-  where <math|a<rsub|n>>s are to be determined. The factor
-  <math|exp<around*|(|-x<rsup|2>|)>> is employed for an exponentially fast
-  decay as <math|<around*|\||x|\|>\<rightarrow\>\<infty\>> (thus faster than
-  the inverse of any polynomial). And the factor
-  <math|<around*|[|\<cdots\>|]>> is a Taylor series. Hence, <math|f> is an
-  analytic function in Schwartz space. The energy quantization emerges for
-  ensuring the convergence of the series <math|<big|sum><rsub|n>a<rsub|n>x<rsup|n>>.
-  It indicates that we shall further restrict the space of wave-function to
-  <strong|analytic Schwartz space>, denoted by
-  <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>, which collects all
-  the analytic functions in Schwartz space
-  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>. Analytic functions are
-  dense in Schwartz space, meaning that for any
-  <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> and any
-  <math|\<varepsilon\>\<gtr\>0>, there is a
-  <math|g\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>> such
-  that<\footnote>
-    TODO: give a reference or a proof.
-  </footnote>
-
-  <\equation*>
-    sup<rsub|x\<in\>\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>\<less\>\<varepsilon\>.
-  </equation*>
-
-  Notice that the norms employed for quantifying the approximations are
-  different. While considering <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>\<subset\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
-  we used the norm in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
-  integral on the squared norm of the difference, but in
-  <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>\<subset\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
-  we used the <math|L<rsub|1>>-norm, the supremum on the norm of the
-  difference.
-
-  To prove that analytic functions are dense in Schwartz space, we introduce
-  the convolution for a function <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-  as
-
-  <\equation*>
-    f<rsub|n><around*|(|x|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|x-y|)>f<around*|(|y|)>
-  </equation*>
-
-  by a \Pkernel\Q function
-
-  <\equation*>
-    \<delta\><rsub|n><around*|(|x|)>\<assign\><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|n|2><around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>,
-  </equation*>
-
-  where <math|n=<around*|{|1,2,\<ldots\>|}>>. The <math|\<delta\><rsub|n>>
-  function is recognized as Gaussian with variance <math|1/n>. This
-  construction is fantastic, because derivatives taken on <math|f<rsub|n>>
-  are now converted onto <math|\<delta\><rsub|n>> instead of <math|f>, which
-  is even not necessarily continuous! But, as a Schwartz function, <math|f>
-  has been \Pgood\Q enough; it is uniformly bounded on
-  <math|\<bbb-R\><rsup|d>>. Indeed, <math|f<around*|(|x|)>> is negligible
-  when <math|x> is far from origin, so that we regard <math|f> as compact
-  supported, then <math|f> is uniformly bounded because of its continuity.
-  This also applies to the derivatives of <math|f> since they are also
-  Schwartz functions. Then, analyticity raises from the good properties of
-  <math|\<delta\><rsub|n>>. To show that <math|f<rsub|n><around*|(|x|)>>
-  tends to <math|f<around*|(|x|)>> as <math|n> tends to infinity, we first
-  change the variable of integral by replacing
-  <math|y\<rightarrow\><around*|(|x-y|)>>, thus
-  <math|f<rsub|n><around*|(|x|)>=<big|int>\<mathd\>y
-  \<delta\><rsub|n><around*|(|y|)>f<around*|(|x-y|)>>. Then using
-  <math|<big|int>\<mathd\>x \<delta\><rsub|n><around*|(|y|)>=1>, we find
-
-  <\equation*>
-    f<rsub|n><around*|(|x|)>-f<around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|y|)><around*|[|f<around*|(|x-y|)>-f<around*|(|x|)>|]>.
-  </equation*>
-
-  Notice that <math|\<delta\><rsub|n>> is much sharper a peak at origin as
-  <math|n> goes greater, together with the fact that <math|\<partial\>f> is
-  uniformly bounded, we find, for any <math|\<varepsilon\>\<gtr\>0>, there is
-  an <math|N\<gtr\>0> such that <math|<around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>\<less\>\<varepsilon\>>
-  for any <math|n\<gtr\>N> and <math|x\<in\>\<bbb-R\><rsup|d>>. In other
-  words, we get <math|lim<rsub|n\<rightarrow\>\<infty\>>f<rsub|n>=f>, thus
-  proof ends. This is an elegant proof because we can <em|see> how <math|f>
-  is approximated by a series of analytic functions explicitly.<\footnote>
-    This profound construction is found in the lemma 15.1 of Topological
-    Vector Spaces, Distributions and Kernels written by Francois Treves,
-    1967.
-  </footnote> As a by-product, we also find that <math|\<delta\><rsub|n>> has
-  Dirac's <math|\<delta\>>-function as its limit. In fact,
-  <math|\<delta\>>-function is <em|defined> as the limit of
-  <math|\<delta\><rsub|n>> when it is applied (as convolution) on a Schwartz
-  function.
-
-  <section|Superposition Principle and Time Evolution>
-
-  The first axiom of quantum mechanics, superposition principle, claims the
-  same linearity.
+  plane, say <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>. The first
+  axiom of quantum mechanics, superposition principle, claims that operations
+  on wave-functions shall be linear.
 
   <\axiom>
     [Superposition Principle]<label|axiom:sup> Physical laws that operate on
@@ -356,7 +219,163 @@
     where <math|<wide|H|^>> is the Hamiltonian operator.
   </footnote>
 
-  <section|Path Integral Formalism>
+  Probability interpretation (axiom <reference|axiom:prob>), together with
+  superposition principle (axiom <reference|axiom:sup>), is the direct result
+  of the double-slit experiment of electron. Details can be found in
+  Feynman's Lectures on Physics, Vol 3, chapter 1.
+
+  <section|Analytic Schwartz Space Is Sufficient for Wave-Functions>
+
+  In traditional textures, wave-functions are supposed to be
+  square-integrable, thus <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>.
+  This is essential for probability interpretation (axiom
+  <reference|axiom:prob>). It is <hlink|well
+  known|https://en.wikipedia.org/wiki/Fourier_transform>, however, that the
+  Fourier transform of a square-integrable function may not be
+  square-integrable again, so that its inverse Fourier transform may not
+  exist. Since Fourier transform is basic in quantum mechanics, we shall seek
+  for a smaller space in which wave-functions live. An ideal substitution is
+  the (complex) Schwartz space. A <strong|Schwartz space>
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> contains smooth function
+  <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>> that decays
+  \Pexponentially fast\Q at infinity. Precisely, for any <math|m>-order
+  polynomial <math|P<rsub|m>> and any <math|m>-order partial derivative
+  <math|D<rsup|n>>, with integers <math|m,n\<geqslant\>0>, we have
+
+  <\equation*>
+    lim<rsub|<around*|\<\|\|\>|x|\<\|\|\>>\<rightarrow\>\<infty\>><around*|\||P<rsub|m><around*|(|x|)>D<rsup|n>f<around*|(|x|)>|\|>=0.
+  </equation*>
+
+  Functions in Schwartz space are usually termed as <strong|Schwartz
+  function>s. Fourier transform is an automorphism on Schwartz space. And for
+  any <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
+  <math|\<varepsilon\>\<gtr\>0>, there is a
+  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> such that<\footnote>
+    TODO: give a reference or a proof.
+  </footnote>
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
+  </equation*>
+
+  That is, <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> is a dense
+  subspace in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. It is in this
+  sense that the substitution is plausible. For example, for any real
+  wave-function <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>, when
+  we measure the probability on any area of configuration
+  <math|U\<subset\>\<bbb-R\><rsup|d>>, we can use the approximation
+  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> instead, and the
+  difference is bounded by (TODO: prove the first inequity, our add a
+  resource)
+
+  <\equation*>
+    <around*|\||<big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>-<big|int><rsub|U>\<mathd\>x<around*|\||g<around*|(|x|)>|\|><rsup|2>|\|>\<leqslant\><big|int><rsub|U>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
+  </equation*>
+
+  \;
+
+  Restriction from <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> to
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, however, is still
+  insufficient. For example, in solving the stationary
+  Schr<wide|o|\<ddot\>>dinger equation of one-dimensional harmonic
+  oscillator, we suppose that wave-function has the form
+
+  <\equation*>
+    f<around*|(|x|)>=exp<around*|(|-x<rsup|2>|)>
+    <around*|[|<big|sum><rsub|n=0><rsup|\<infty\>>a<rsub|n>x<rsup|n>|]>,
+  </equation*>
+
+  where <math|a<rsub|n>>s are to be determined. The factor
+  <math|exp<around*|(|-x<rsup|2>|)>> is employed for an exponentially fast
+  decay as <math|<around*|\||x|\|>\<rightarrow\>\<infty\>> (thus faster than
+  the inverse of any polynomial). And the factor
+  <math|<around*|[|\<cdots\>|]>> is a Taylor series. Hence, <math|f> is an
+  analytic function in Schwartz space. The energy quantization emerges for
+  ensuring the convergence of the series <math|<big|sum><rsub|n>a<rsub|n>x<rsup|n>>.
+  It indicates that we shall further restrict the space of wave-function to
+  <strong|analytic Schwartz space>, denoted by
+  <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>, which collects all
+  the analytic functions in Schwartz space
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>. Analytic functions are
+  dense in Schwartz space, meaning that for any
+  <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> and any
+  <math|\<varepsilon\>\<gtr\>0>, there is a
+  <math|g\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>> such
+  that<\footnote>
+    TODO: give a reference or a proof.
+  </footnote>
+
+  <\equation*>
+    sup<rsub|x\<in\>\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>\<less\>\<varepsilon\>.
+  </equation*>
+
+  Notice that the norms employed for quantifying the approximations are
+  different. While considering <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>\<subset\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
+  we used the norm in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
+  integral on the squared norm of the difference, but in
+  <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>\<subset\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
+  we used the <math|L<rsub|1>>-norm, the supremum on the norm of the
+  difference.
+
+  To prove that analytic functions are dense in Schwartz space, we introduce
+  the convolution for a function <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
+  as
+
+  <\equation*>
+    f<rsub|n><around*|(|x|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|x-y|)>f<around*|(|y|)>
+  </equation*>
+
+  by a \Pkernel\Q function
+
+  <\equation*>
+    \<delta\><rsub|n><around*|(|x|)>\<assign\><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|n|2><around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>,
+  </equation*>
+
+  where <math|n=<around*|{|1,2,\<ldots\>|}>>. The <math|\<delta\><rsub|n>>
+  function is recognized as Gaussian with variance <math|1/n>. This
+  construction is fantastic, because derivatives taken on <math|f<rsub|n>>
+  are now converted onto <math|\<delta\><rsub|n>> instead of <math|f>, which
+  is even not necessarily continuous! But, as a Schwartz function, <math|f>
+  has been \Pgood\Q enough; it is uniformly bounded on
+  <math|\<bbb-R\><rsup|d>>. Indeed, <math|f<around*|(|x|)>> is negligible
+  when <math|x> is far from origin, so that we regard <math|f> as compact
+  supported, then <math|f> is uniformly bounded because of its continuity.
+  This also applies to the derivatives of <math|f> since they are also
+  Schwartz functions. Then, analyticity raises from the good properties of
+  <math|\<delta\><rsub|n>>. To show that <math|f<rsub|n><around*|(|x|)>>
+  tends to <math|f<around*|(|x|)>> as <math|n> tends to infinity, we first
+  change the variable of integral by replacing
+  <math|y\<rightarrow\><around*|(|x-y|)>>, thus
+  <math|f<rsub|n><around*|(|x|)>=<big|int>\<mathd\>y
+  \<delta\><rsub|n><around*|(|y|)>f<around*|(|x-y|)>>. Then using
+  <math|<big|int>\<mathd\>x \<delta\><rsub|n><around*|(|y|)>=1>, we find
+
+  <\equation*>
+    f<rsub|n><around*|(|x|)>-f<around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|y|)><around*|[|f<around*|(|x-y|)>-f<around*|(|x|)>|]>.
+  </equation*>
+
+  Notice that <math|\<delta\><rsub|n>> is much sharper a peak at origin as
+  <math|n> goes greater, together with the fact that <math|\<partial\>f> is
+  uniformly bounded, we find, for any <math|\<varepsilon\>\<gtr\>0>, there is
+  an <math|N\<gtr\>0> such that <math|<around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>\<less\>\<varepsilon\>>
+  for any <math|n\<gtr\>N> and <math|x\<in\>\<bbb-R\><rsup|d>>. In other
+  words, we get <math|lim<rsub|n\<rightarrow\>\<infty\>>f<rsub|n>=f>, thus
+  proof ends. This is an elegant proof because we can <em|see> how <math|f>
+  is approximated by a series of analytic functions explicitly.<\footnote>
+    This profound construction is found in the lemma 15.1 of Topological
+    Vector Spaces, Distributions and Kernels written by Francois Treves,
+    1967.
+  </footnote> As a by-product, we also find that <math|\<delta\><rsub|n>> has
+  Dirac's <math|\<delta\>>-function as its limit. In fact,
+  <math|\<delta\>>-function is <em|defined> as the limit of
+  <math|\<delta\><rsub|n>> when it is applied (as convolution) on a Schwartz
+  function.
+
+  <section|Path Integral Formalism Gives Hamiltonian>
 
   We are trying to derive a generic path integral formalism. Given a small
   <math|\<Delta\>t\<gtr\>0>, equation <reference|equ:superposition> gives
@@ -451,7 +470,7 @@
   <math|<wide|r|^><around*|(|x,k|)>> plays the role of Hamiltonian
   <math|H<around*|(|x,p|)>>>>.
 
-  <section|An Useful Expansion>
+  <section|An Useful Formal Expansion>
 
   In this section, we claim an mathematical theorem that is important for
   continuing the journey. It extends a function in Schwartz space (ensuring
