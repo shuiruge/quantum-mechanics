@@ -20,4 +20,5 @@ In short, *just for fun*.
 - Github: https://github.com/shuiruge/quantum-mechanics
 - Gitee: https://gitee.com/shuiruge/quantum-mechanics
 
-They are sync.
+The two repositories are synchronous.
+
