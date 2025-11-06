@@ -15,3 +15,9 @@ In short, *just for fun*.
 - Editing using TeXmacs (together with TeXlive).
 - Run scripts in WxMaxima (the GUI version of Maxima).
 
+## Repository
+
+- Github: https://github.com/shuiruge/quantum-mechanics
+- Gitee: https://gitee.com/shuiruge/quantum-mechanics
+
+They are sync.
