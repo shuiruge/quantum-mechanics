@@ -3,76 +3,94 @@
 <style|article>
 
 <\body>
-  <doc-data|<doc-title|On Quantum Mechanics: A Sketch>>
-
-  <abstract-data|<abstract|We derive the Schr<wide|o|\<ddot\>>dinger equation
-  of quantum mechanics following the steps in stochastic process. As a
-  sketch, detailed proofs are temporally omitted.>>
+  <doc-data|<doc-title|Build Quantum Mechanics from Scratch: A Sketch>>
 
   <\table-of-contents|toc>
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|1<space|2spc>How
-    to Read this Note?> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|1<space|2spc>Introduction>
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-1><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|2<space|2spc>On
-    Wave-Function> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-2><vspace|0.5fn>
+    <with|par-left|1tab|1.1<space|2spc>Motivation
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-2>>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|3<space|2spc>Superposition
+    <with|par-left|1tab|1.2<space|2spc>How to Read this Note?
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-3>>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|2<space|2spc>Superposition
     Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-3><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|4<space|2spc>Probability
-    Interpretation Implies Hermitianity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-4><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|5<space|2spc>Path
-    Integral Formalism> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|3<space|2spc>Probability
+    Interpretation Implies Hermitianity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-5><vspace|0.5fn>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|6<space|2spc>An
-    Useful Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|4<space|2spc>Analytic
+    Schwartz Space Is Sufficient for Wave-Functions>
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-6><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|5<space|2spc>Path
+    Integral Formalism Gives Hamiltonian>
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-7><vspace|0.5fn>
+
+    <vspace*|1fn><with|font-series|bold|math-font-series|bold|6<space|2spc>An
+    Useful Formal Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-8><vspace|0.5fn>
 
     <vspace*|1fn><with|font-series|bold|math-font-series|bold|7<space|2spc>Expansion
     of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-7><vspace|0.5fn>
+    <no-break><pageref|auto-9><vspace|0.5fn>
 
     <vspace*|1fn><with|font-series|bold|math-font-series|bold|8<space|2spc>Locality
     Truncates the Moments of Transition Rate>
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-8><vspace|0.5fn>
+    <no-break><pageref|auto-10><vspace|0.5fn>
 
     <vspace*|1fn><with|font-series|bold|math-font-series|bold|9<space|2spc>Hermitianity
     on the Moments of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-9><vspace|0.5fn>
+    <no-break><pageref|auto-11><vspace|0.5fn>
 
     <vspace*|1fn><with|font-series|bold|math-font-series|bold|10<space|2spc>Uncertainty
     Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-10><vspace|0.5fn>
+    <no-break><pageref|auto-12><vspace|0.5fn>
 
     <with|par-left|1tab|10.1<space|2spc>Implication on Moments
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-11>>
+    <no-break><pageref|auto-13>>
 
     <with|par-left|1tab|10.2<space|2spc>When <with|mode|math|N> Is Even
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-12>>
+    <no-break><pageref|auto-14>>
 
     <with|par-left|1tab|10.3<space|2spc>When <with|mode|math|N> Is Odd
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-13>>
+    <no-break><pageref|auto-15>>
 
     <with|par-left|1tab|10.4<space|2spc>Generalizations
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-14>>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|11<space|2spc>Summary>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-15><vspace|0.5fn>
+    <no-break><pageref|auto-16>>
   </table-of-contents>
 
-  <section|How to Read this Note?>
+  <section|Introduction>
+
+  We derive the Schr<wide|o|\<ddot\>>dinger equation of quantum mechanics
+  from several basic experimental facts. These facts are treated as axioms.
+  In fact, what we will get is a generalized Schr<wide|o|\<ddot\>>dinger
+  equation, which is the most generic equation that these axioms can imply.
+
+  As a sketch, detailed proofs are temporally omitted. The materials are
+  arranged to follow my mind-flow rather than the usual
+  axiom-definition-theorem structure in mathematical textures. This makes it
+  a little like literature.
+
+  <subsection|Motivation>
+
+  <em|Just for fun.>
+
+  <subsection|How to Read this Note?>
 
   Tips for reading this note:
 
@@ -266,8 +284,13 @@
   we measure the probability on any area of configuration
   <math|U\<subset\>\<bbb-R\><rsup|d>>, we can use the approximation
   <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> instead, and the
-  difference is bounded by (TODO: prove the first inequity, our add a
-  resource)
+  difference is bounded by<\footnote>
+    This inequility is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
+    where the norm is defined as <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>,
+    which is recognized as the <math|L<rsup|2>>-norm on <math|U>. It states
+    that the difference between the two sides of a triangle is less than that
+    of the third side.
+  </footnote>
 
   <\equation*>
     <around*|\||<big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>-<big|int><rsub|U>\<mathd\>x<around*|\||g<around*|(|x|)>|\|><rsup|2>|\|>\<leqslant\><big|int><rsub|U>\<mathd\>x
@@ -566,9 +589,10 @@
   analytic Schwartz space. <with|color|dark green|<em|We can construct the
   <math|f> by a series of its moments.>> For ensuring convergence, we further
   demand that <math|<wide|f|^>> is analytic, namely
-  <math|<wide|f|^>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>.
-  (TODO: prove that <math|<wide|f|^><rsub|n>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>
-  given <math|f<rsub|n><around*|(|x|)>=<around*|(|\<delta\><rsub|n>\<ast\>f|)><around*|(|x|)>>.)
+  <math|<wide|f|^>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>.<\footnote>
+    TODO: prove that <math|<wide|f|^><rsub|n>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>
+    given <math|f<rsub|n><around*|(|x|)>=<around*|(|\<delta\><rsub|n>\<ast\>f|)><around*|(|x|)>>.
+  </footnote>
 
   <section|Expansion of Transition Rate>
 
@@ -870,10 +894,10 @@
   </equation*>
 
   Namely, <math|R<rsub|N<rsub|cut>><around*|(|x|)>> is real when
-  <math|N<rsub|cut>> is even, and imaginary otherwise.
-
-  TODO: give a recursive equation that determines the <math|R<rsub|n>>s from
-  <math|R<rsub|N<rsub|cut>>> to <math|R<rsub|0>>.
+  <math|N<rsub|cut>> is even, and imaginary otherwise.<\footnote>
+    TODO: give a recursive equation that determines the <math|R<rsub|n>>s
+    from <math|R<rsub|N<rsub|cut>>> to <math|R<rsub|0>>.
+  </footnote>
 
   <section|Uncertainty Principle>
 
@@ -1146,10 +1170,6 @@
   involves many particles. We can examine this effect in experiments, and use
   it as an axiom. Then, we obtain the same result as before for each
   particle, except for the differences in mass.
-
-  <section|Summary>
-
-  TODO
 </body>
 
 <\initial>
@@ -1162,20 +1182,21 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|10|9>>
-    <associate|auto-11|<tuple|10.1|10>>
-    <associate|auto-12|<tuple|10.2|11>>
-    <associate|auto-13|<tuple|10.3|11>>
-    <associate|auto-14|<tuple|10.4|11>>
-    <associate|auto-15|<tuple|11|12>>
-    <associate|auto-2|<tuple|2|2>>
-    <associate|auto-3|<tuple|3|3>>
-    <associate|auto-4|<tuple|4|3>>
-    <associate|auto-5|<tuple|5|4>>
-    <associate|auto-6|<tuple|6|5>>
-    <associate|auto-7|<tuple|7|6>>
-    <associate|auto-8|<tuple|8|7>>
-    <associate|auto-9|<tuple|9|8>>
+    <associate|auto-10|<tuple|8|9>>
+    <associate|auto-11|<tuple|9|10>>
+    <associate|auto-12|<tuple|10|11>>
+    <associate|auto-13|<tuple|10.1|11>>
+    <associate|auto-14|<tuple|10.2|11>>
+    <associate|auto-15|<tuple|10.3|12>>
+    <associate|auto-16|<tuple|10.4|?>>
+    <associate|auto-2|<tuple|1.1|2>>
+    <associate|auto-3|<tuple|1.2|3>>
+    <associate|auto-4|<tuple|2|3>>
+    <associate|auto-5|<tuple|3|4>>
+    <associate|auto-6|<tuple|4|5>>
+    <associate|auto-7|<tuple|5|6>>
+    <associate|auto-8|<tuple|6|7>>
+    <associate|auto-9|<tuple|7|8>>
     <associate|axiom:local|<tuple|3|7>>
     <associate|axiom:prob|<tuple|2|3>>
     <associate|axiom:sup|<tuple|1|3>>
@@ -1193,6 +1214,9 @@
     <associate|footnote-1|<tuple|1|2>>
     <associate|footnote-10|<tuple|10|10>>
     <associate|footnote-11|<tuple|11|11>>
+    <associate|footnote-12|<tuple|12|?>>
+    <associate|footnote-13|<tuple|13|?>>
+    <associate|footnote-14|<tuple|14|?>>
     <associate|footnote-2|<tuple|2|2>>
     <associate|footnote-3|<tuple|3|2>>
     <associate|footnote-4|<tuple|4|3>>
@@ -1204,6 +1228,9 @@
     <associate|footnr-1|<tuple|1|2>>
     <associate|footnr-10|<tuple|10|10>>
     <associate|footnr-11|<tuple|11|11>>
+    <associate|footnr-12|<tuple|12|?>>
+    <associate|footnr-13|<tuple|13|?>>
+    <associate|footnr-14|<tuple|14|?>>
     <associate|footnr-2|<tuple|2|2>>
     <associate|footnr-3|<tuple|3|2>>
     <associate|footnr-4|<tuple|4|3>>
@@ -1219,67 +1246,73 @@
 <\auxiliary>
   <\collection>
     <\associate|toc>
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>How
-      to Read this Note?> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Introduction>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>On
-      Wave-Function> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-2><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Superposition
-      Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-3><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Probability
-      Interpretation Implies Hermitianity>
+      <with|par-left|<quote|1tab>|1.1<space|2spc>Motivation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2>>
+
+      <with|par-left|<quote|1tab>|1.2<space|2spc>How to Read this Note?
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Superposition
+      Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Path
-      Integral Formalism> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Probability
+      Interpretation Implies Hermitianity>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>An
-      Useful Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Analytic
+      Schwartz Space Is Sufficient for Wave-Functions>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Path
+      Integral Formalism Gives Hamiltonian>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-7><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>An
+      Useful Formal Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-8><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>Expansion
       of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7><vspace|0.5fn>
+      <no-break><pageref|auto-9><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>Locality
       Truncates the Moments of Transition Rate>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8><vspace|0.5fn>
+      <no-break><pageref|auto-10><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Hermitianity
       on the Moments of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-9><vspace|0.5fn>
+      <no-break><pageref|auto-11><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Uncertainty
       Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-10><vspace|0.5fn>
+      <no-break><pageref|auto-12><vspace|0.5fn>
 
       <with|par-left|<quote|1tab>|10.1<space|2spc>Implication on Moments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-11>>
+      <no-break><pageref|auto-13>>
 
       <with|par-left|<quote|1tab>|10.2<space|2spc>When
       <with|mode|<quote|math>|N> Is Even <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-12>>
+      <no-break><pageref|auto-14>>
 
       <with|par-left|<quote|1tab>|10.3<space|2spc>When
       <with|mode|<quote|math>|N> Is Odd <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-13>>
+      <no-break><pageref|auto-15>>
 
       <with|par-left|<quote|1tab>|10.4<space|2spc>Generalizations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-14>>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>Summary>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-15><vspace|0.5fn>
+      <no-break><pageref|auto-16>>
     </associate>
   </collection>
 </auxiliary>
