@@ -1115,6 +1115,9 @@
     <verbatim|at(diff(R2(x), x, n), x=0)/(N!^2)/n! * integrate(integrand, x,
     -inf, inf);> gives the <math|n>-th term in
     <math|\<bbb-E\><rsub|f><around*|[|v<rsup|2><around*|(|0|)>|]>>.
+  </footnote><\footnote>
+    TODO: use sympy instead. It seems that the installed maxima losses some
+    files.
   </footnote> <with|color|dark green|<em|Restricted <math|N> to be positive
   even number, we shall have <math|R<rsub|N><around*|(|x|)>\<propto\>x<rsup|N-2>>
   so as to satisfy the uncertainty principle <reference|axiom:uncert>.>> Any
@@ -1182,63 +1185,65 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|8|9>>
-    <associate|auto-11|<tuple|9|10>>
-    <associate|auto-12|<tuple|10|11>>
-    <associate|auto-13|<tuple|10.1|11>>
+    <associate|auto-10|<tuple|8|7>>
+    <associate|auto-11|<tuple|9|8>>
+    <associate|auto-12|<tuple|10|9>>
+    <associate|auto-13|<tuple|10.1|10>>
     <associate|auto-14|<tuple|10.2|11>>
     <associate|auto-15|<tuple|10.3|12>>
-    <associate|auto-16|<tuple|10.4|?>>
-    <associate|auto-2|<tuple|1.1|2>>
-    <associate|auto-3|<tuple|1.2|3>>
-    <associate|auto-4|<tuple|2|3>>
-    <associate|auto-5|<tuple|3|4>>
-    <associate|auto-6|<tuple|4|5>>
-    <associate|auto-7|<tuple|5|6>>
-    <associate|auto-8|<tuple|6|7>>
-    <associate|auto-9|<tuple|7|8>>
+    <associate|auto-16|<tuple|10.4|12>>
+    <associate|auto-2|<tuple|1.1|1>>
+    <associate|auto-3|<tuple|1.2|1>>
+    <associate|auto-4|<tuple|2|2>>
+    <associate|auto-5|<tuple|3|2>>
+    <associate|auto-6|<tuple|4|3>>
+    <associate|auto-7|<tuple|5|4>>
+    <associate|auto-8|<tuple|6|5>>
+    <associate|auto-9|<tuple|7|6>>
     <associate|axiom:local|<tuple|3|7>>
-    <associate|axiom:prob|<tuple|2|3>>
-    <associate|axiom:sup|<tuple|1|3>>
-    <associate|axiom:uncert|<tuple|4|9>>
+    <associate|axiom:prob|<tuple|2|2>>
+    <associate|axiom:sup|<tuple|1|2>>
+    <associate|axiom:uncert|<tuple|4|10>>
     <associate|axiom:uncert-ext|<tuple|5|12>>
     <associate|eq:deltaexp|<tuple|9|6>>
     <associate|eq:expandbymoments|<tuple|14|7>>
-    <associate|eq:hamiltonian|<tuple|4|4>>
-    <associate|eq:hermit|<tuple|3|4>>
-    <associate|eq:kmanalogy|<tuple|13|6>>
+    <associate|eq:hamiltonian|<tuple|4|5>>
+    <associate|eq:hermit|<tuple|3|3>>
+    <associate|eq:kmanalogy|<tuple|13|7>>
     <associate|eq:moment|<tuple|8|5>>
-    <associate|eq:probtoself|<tuple|2|3>>
+    <associate|eq:probtoself|<tuple|2|2>>
     <associate|eq:transexp|<tuple|12|6>>
-    <associate|equ:superposition|<tuple|1|3>>
+    <associate|equ:superposition|<tuple|1|2>>
     <associate|footnote-1|<tuple|1|2>>
-    <associate|footnote-10|<tuple|10|10>>
-    <associate|footnote-11|<tuple|11|11>>
-    <associate|footnote-12|<tuple|12|?>>
-    <associate|footnote-13|<tuple|13|?>>
-    <associate|footnote-14|<tuple|14|?>>
+    <associate|footnote-10|<tuple|10|8>>
+    <associate|footnote-11|<tuple|11|9>>
+    <associate|footnote-12|<tuple|12|9>>
+    <associate|footnote-13|<tuple|13|10>>
+    <associate|footnote-14|<tuple|14|11>>
+    <associate|footnote-15|<tuple|15|11>>
     <associate|footnote-2|<tuple|2|2>>
-    <associate|footnote-3|<tuple|3|2>>
+    <associate|footnote-3|<tuple|3|3>>
     <associate|footnote-4|<tuple|4|3>>
     <associate|footnote-5|<tuple|5|3>>
     <associate|footnote-6|<tuple|6|4>>
-    <associate|footnote-7|<tuple|7|5>>
-    <associate|footnote-8|<tuple|8|8>>
-    <associate|footnote-9|<tuple|9|9>>
+    <associate|footnote-7|<tuple|7|4>>
+    <associate|footnote-8|<tuple|8|5>>
+    <associate|footnote-9|<tuple|9|6>>
     <associate|footnr-1|<tuple|1|2>>
-    <associate|footnr-10|<tuple|10|10>>
-    <associate|footnr-11|<tuple|11|11>>
-    <associate|footnr-12|<tuple|12|?>>
-    <associate|footnr-13|<tuple|13|?>>
-    <associate|footnr-14|<tuple|14|?>>
+    <associate|footnr-10|<tuple|10|8>>
+    <associate|footnr-11|<tuple|11|9>>
+    <associate|footnr-12|<tuple|12|9>>
+    <associate|footnr-13|<tuple|13|10>>
+    <associate|footnr-14|<tuple|14|11>>
+    <associate|footnr-15|<tuple|15|11>>
     <associate|footnr-2|<tuple|2|2>>
-    <associate|footnr-3|<tuple|3|2>>
+    <associate|footnr-3|<tuple|3|3>>
     <associate|footnr-4|<tuple|4|3>>
     <associate|footnr-5|<tuple|5|3>>
     <associate|footnr-6|<tuple|6|4>>
-    <associate|footnr-7|<tuple|7|5>>
-    <associate|footnr-8|<tuple|8|8>>
-    <associate|footnr-9|<tuple|9|9>>
+    <associate|footnr-7|<tuple|7|4>>
+    <associate|footnr-8|<tuple|8|5>>
+    <associate|footnr-9|<tuple|9|6>>
     <associate|section:Hermitianity on Moments|<tuple|9|8>>
   </collection>
 </references>
