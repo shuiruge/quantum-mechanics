@@ -1,14 +1,13 @@
 <TeXmacs|2.1.4>
 
-<style|article>
+<style|book>
 
 <\body>
   <doc-data|<doc-title|Build Quantum Mechanics from Scratch: A Sketch>>
 
   <\table-of-contents|toc>
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|1<space|2spc>Introduction>
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-1><vspace|0.5fn>
+    1<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-1>
 
     <with|par-left|1tab|1.1<space|2spc>Motivation
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
@@ -18,44 +17,40 @@
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
     <no-break><pageref|auto-3>>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|2<space|2spc>Superposition
-    Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-4><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|3<space|2spc>Probability
-    Interpretation Implies Hermitianity> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-5><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|4<space|2spc>Analytic
-    Schwartz Space Is Sufficient for Wave-Functions>
+    2<space|2spc>Superposition Principle and Time Evolution
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-6><vspace|0.5fn>
+    <no-break><pageref|auto-4>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|5<space|2spc>Path
-    Integral Formalism Gives Hamiltonian>
+    3<space|2spc>Probability Interpretation Implies Hermitianity
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-7><vspace|0.5fn>
+    <no-break><pageref|auto-5>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|6<space|2spc>An
-    Useful Formal Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-8><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|7<space|2spc>Expansion
-    of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-9><vspace|0.5fn>
-
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|8<space|2spc>Locality
-    Truncates the Moments of Transition Rate>
+    4<space|2spc>Analytic Schwartz Space Is Sufficient for Wave-Functions
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-10><vspace|0.5fn>
+    <no-break><pageref|auto-6>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|9<space|2spc>Hermitianity
-    on the Moments of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-11><vspace|0.5fn>
+    5<space|2spc>Path Integral Formalism Gives Hamiltonian
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-7>
 
-    <vspace*|1fn><with|font-series|bold|math-font-series|bold|10<space|2spc>Uncertainty
-    Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-12><vspace|0.5fn>
+    6<space|2spc>An Useful Formal Expansion
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-8>
+
+    7<space|2spc>Expansion of Transition Rate
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-9>
+
+    8<space|2spc>Locality Truncates the Moments of Transition Rate
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-10>
+
+    9<space|2spc>Hermitianity on the Moments of Transition Rate
+    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-11>
+
+    10<space|2spc>Uncertainty Principle <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+    <no-break><pageref|auto-12>
 
     <with|par-left|1tab|10.1<space|2spc>Implication on Moments
     <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
@@ -139,8 +134,8 @@
   An implication of superposition principle is how quantum states (precisely,
   their wave-functions) evolve with time. To give raise to time evolution, we
   have to add time-dependence to wave-function, which makes a wave-function
-  <math|f:\<bbb-R\><rsup|d>\<times\>\<bbb-R\>\<rightarrow\>\<bbb-C\>>, where
-  the second <math|\<bbb-R\>> represents the time-axis. Then, axiom
+  <math|f:\<bbb-R\>\<times\>\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>, where
+  the first <math|\<bbb-R\>> represents the temporal component. Then, axiom
   <reference|axiom:sup> claims that the equation of time evolution (as a
   physical law that operates on a quantum state) shall be linear:
   <math|\<partial\>f/\<partial\>t=L<around*|(|f|)>> where the operation
@@ -155,8 +150,8 @@
   such that
 
   <\equation>
-    \<mathi\><frac|\<partial\>f|\<partial\>t><around*|(|y,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    f<around*|(|x,t|)>r<around*|(|x,y|)>.<label|equ:superposition>
+    \<mathi\><frac|\<partial\>f|\<partial\>t><around*|(|t,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    f<around*|(|t,x|)>r<around*|(|x,y|)>.<label|equ:superposition>
   </equation>
 
   The right hand side can be seen as a generalization of linear
@@ -181,49 +176,47 @@
 
   <\equation>
     <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    f<rsup|\<ast\>><around*|(|x|)>f<around*|(|x|)>=1.<label|eq:probtoself>
+    f<rsup|\<ast\>><around*|(|x|)>f<around*|(|x|)>=1.
   </equation>
 
   Since this equation holds for all wave-functions, time evolution sustains
-  it too. Namely, for a time-dependent wave-function
-  <math|f<around*|(|x,t|)>>,
+  it too. Given a time-dependent wave-function <math|f<around*|(|t,x|)>>, for
+  any <math|t\<in\>\<bbb-R\>>, we have
 
-  <\equation*>
+  <\equation>
     <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    f<rsup|\<ast\>><around*|(|x,t|)>f<around*|(|x,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    f<rsup|\<ast\>><around*|(|x,t<rprime|'>|)>f<around*|(|x,t<rprime|'>|)>=1
-  </equation*>
+    f<rsup|\<ast\>><around*|(|t,x|)>f<around*|(|t,x|)>=1.<label|eq:probtoself>
+  </equation>
 
-  holds for any <math|t,t<rprime|'>\<in\>\<bbb-R\>>. We are to show what this
-  results in the transition rate <math|r> (which determines the time
-  evolution). Equation <reference|eq:probtoself> gives
+  We are to show what this results in the transition rate <math|r> (which
+  determines the time evolution). Equation <reference|equ:superposition>
+  gives
 
   <\equation*>
-    f<around*|(|y,t+\<Delta\>t|)>=f<around*|(|y,t|)>-\<mathi\>\<Delta\>t<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    f<around*|(|x,t|)> r<around*|(|x,y|)>+\<omicron\><around*|(|\<Delta\>t|)>.
+    f<around*|(|t+\<Delta\>t,y|)>=f<around*|(|t,y|)>-\<mathi\>\<Delta\>t<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    f<around*|(|t,x|)> r<around*|(|x,y|)>+\<omicron\><around*|(|\<Delta\>t|)>.
   </equation*>
 
   Plugging into equation <reference|eq:probtoself> for wave-function
-  <math|f<around*|(|\<cdummy\>,t+\<Delta\>t|)>> gives
+  <math|f<around*|(|t+\<Delta\>t,y|)>> gives
 
   <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<around*|[|f<rsup|\<ast\>><around*|(|y,t|)>+\<mathi\>\<Delta\>t<big|int><rsub|\<cal-X\>>\<mathd\>x
-    f<rsup|\<ast\>><around*|(|x,t|)> r<rsup|\<ast\>><around*|(|x,y|)>|]><around*|[|f<around*|(|y,t|)>-\<mathi\>\<Delta\>t<big|int><rsub|\<cal-X\>>\<mathd\>x<rprime|'>
-    f<around*|(|x<rprime|'>,t|)> r<around*|(|x<rprime|'>,y|)>|]>=1.
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<around*|[|f<rsup|\<ast\>><around*|(|t,y|)>+\<mathi\>\<Delta\>t<big|int><rsub|\<cal-X\>>\<mathd\>x
+    f<rsup|\<ast\>><around*|(|t,x|)> r<rsup|\<ast\>><around*|(|x,y|)>|]><around*|[|f<around*|(|t,y|)>-\<mathi\>\<Delta\>t<big|int><rsub|\<cal-X\>>\<mathd\>x<rprime|'>
+    f<around*|(|t,x<rprime|'>|)> r<around*|(|t,x<rprime|'>|)>|]>=1.
   </equation*>
 
   By inserting equation <reference|eq:probtoself> for wave-function
-  <math|f<around*|(|\<cdummy\>,t|)>> and taking derivative on
-  <math|\<Delta\>t>, it implies
+  <math|f<around*|(|t,\<cdummy\>|)>> and taking derivative on
+  <math|\<Delta\>t>, it implies that
 
   <\equation*>
     <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<big|int><rsub|\<bbb-R\><rsup|d>>
-    \<mathd\>y f<rsup|\<ast\>><around*|(|x,t|)>f<around*|(|y,t|)>
+    \<mathd\>y f<rsup|\<ast\>><around*|(|t,x|)>f<around*|(|t,y|)>
     <around*|[|r<rsup|\<ast\>><around*|(|x,y|)>-r<around*|(|y,x|)>|]>=0
   </equation*>
 
-  holds for any <math|f> in <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
-  thus
+  holds for any <math|f>, thus
 
   <\equation>
     r<rsup|\<ast\>><around*|(|x,y|)>=r<around*|(|y,x|)>.<label|eq:hermit>
@@ -242,10 +235,279 @@
   of the double-slit experiment of electron. Details can be found in
   Feynman's Lectures on Physics, Vol 3, chapter 1.
 
+  <section|Taylor Reminder>
+
+  Given a function <math|f\<in\>\<cal-C\><rsup|n><around*|(|\<bbb-R\><rsup|d>|)>>,
+  we are to calculate the reminder <math|h<rsub|n><around*|(|x,x<rsub|0>|)>>
+  in the Taylor expansion at <math|x<rsub|0>>
+
+  <\equation*>
+    f<around*|(|x|)>=f<around*|(|x<rsub|0>|)>+<big|sum><rsub|k=1><rsup|n><frac|1|k!><around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<cdots\>\<partial\><rsub|\<alpha\><rsub|k>>f|)><around*|(|x<rsub|0>|)><big|prod><rsub|i=1><rsup|k><around*|(|x<rsup|\<alpha\><rsub|i>>-x<rsub|0><rsup|\<alpha\><rsub|i>>|)>+h<rsub|n+1><around*|(|x,x<rsub|0>|)>.
+  </equation*>
+
+  We begin at a variation of the fundamental theorem of calculus
+
+  <\equation*>
+    f<around*|(|x|)>-f<around*|(|x<rsub|0>|)>=<big|int><rsub|0><rsup|1>\<mathd\>t
+    <around*|(|\<partial\><rsub|\<alpha\><rsub|1>>f|)><around*|(|x+t<around*|(|x<rsub|0>-x|)>|)><around*|(|x<rsup|\<alpha\><rsub|1>>-x<rsub|0><rsup|\<alpha\><rsub|1>>|)>.
+  </equation*>
+
+  Integration by parts gives
+
+  <\equation*>
+    f<around*|(|x|)>-f<around*|(|x<rsub|0>|)>=<around*|(|\<partial\><rsub|\<alpha\><rsub|1>>f|)><around*|(|x<rsub|0>|)><around*|(|x<rsup|\<alpha\><rsub|1>>-x<rsub|0><rsup|\<alpha\><rsub|1>>|)>+<frac|1|2><big|int><rsub|0><rsup|1>\<mathd\><around*|(|t<rsup|2>|)>
+    <around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<partial\><rsub|\<alpha\><rsub|2>>f|)><around*|(|x+t<around*|(|x<rsub|0>-x|)>|)><around*|(|x<rsup|\<alpha\><rsub|1>>-x<rsub|0><rsup|\<alpha\><rsub|1>>|)><around*|(|x<rsup|\<alpha\><rsub|2>>-x<rsub|0><rsup|\<alpha\><rsub|2>>|)>.
+  </equation*>
+
+  Applying integration by parts on the integral again, we get
+
+  <\align>
+    <tformat|<table|<row|<cell|f<around*|(|x|)>-f<around*|(|x<rsub|0>|)>=>|<cell|
+    <around*|(|\<partial\><rsub|\<alpha\><rsub|1>>f|)><around*|(|x<rsub|0>|)><around*|(|x<rsup|\<alpha\><rsub|1>>-x<rsub|0><rsup|\<alpha\><rsub|1>>|)>>>|<row|<cell|+>|<cell|<frac|1|2!>
+    <around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<partial\><rsub|\<alpha\><rsub|2>>f|)><around*|(|x<rsub|0>|)><around*|(|x<rsup|\<alpha\><rsub|1>>-x<rsub|0><rsup|\<alpha\><rsub|1>>|)><around*|(|x<rsup|\<alpha\><rsub|2>>-x<rsub|0><rsup|\<alpha\><rsub|2>>|)>>>|<row|<cell|+>|<cell|<frac|1|3!><big|int><rsub|0><rsup|1>\<mathd\><around*|(|t<rsup|3>|)>
+    \ <around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<partial\><rsub|\<alpha\><rsub|2>>\<partial\><rsub|\<alpha\><rsub|3>>f|)><around*|(|x+t<around*|(|x<rsub|0>-x|)>|)><around*|(|x<rsup|\<alpha\><rsub|1>>-x<rsub|0><rsup|\<alpha\><rsub|1>>|)><around*|(|x<rsup|\<alpha\><rsub|2>>-x<rsub|0><rsup|\<alpha\><rsub|2>>|)><around*|(|x<rsup|\<alpha\><rsub|3>>-x<rsub|0><rsup|\<alpha\><rsub|3>>|)>.>>>>
+  </align>
+
+  Repeating this process gives
+
+  <\align>
+    <tformat|<table|<row|<cell|f<around*|(|x|)>-f<around*|(|x<rsub|0>|)>=>|<cell|<around*|(|\<partial\><rsub|\<alpha\><rsub|1>>f|)><around*|(|x<rsub|0>|)><around*|(|x<rsup|\<alpha\><rsub|1>>-x<rsub|0><rsup|\<alpha\><rsub|1>>|)>>>|<row|<cell|+>|<cell|<frac|1|2!><around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<partial\><rsub|\<alpha\><rsub|2>>f|)><around*|(|x<rsup|\<alpha\><rsub|1>>-x<rsub|0><rsup|\<alpha\><rsub|1>>|)><around*|(|x<rsup|\<alpha\><rsub|2>>-x<rsub|0><rsup|\<alpha\><rsub|2>>|)>>>|<row|<cell|+>|<cell|\<cdots\>>>|<row|<cell|+>|<cell|<frac|1|n!><big|int><rsub|0><rsup|1>\<mathd\><around*|(|t<rsup|n>|)>
+    <around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<cdots\>\<partial\><rsub|\<alpha\><rsub|n>>f|)><around*|(|x+t<around*|(|x<rsub|0>-x|)>|)><around*|(|x<rsup|\<alpha\><rsub|1>>-x<rsub|0><rsup|\<alpha\><rsub|1>>|)>\<cdots\><around*|(|x<rsup|\<alpha\><rsub|n>>-x<rsub|0><rsup|\<alpha\><rsub|n>>|)>.>>>>
+  </align>
+
+  So, the Taylor reminder reads
+
+  <\equation*>
+    h<rsub|n><around*|(|x,x<rsub|0>|)>=<frac|1|n!><big|prod><rsub|i=1><rsup|n><around*|(|x<rsup|\<alpha\><rsub|i>>-x<rsub|0><rsup|\<alpha\><rsub|i>>|)>\<times\><big|int><rsub|0><rsup|1>\<mathd\><around*|(|t<rsup|n>|)>
+    <around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<cdots\>\<partial\><rsub|\<alpha\><rsub|n>>f|)><around*|(|x+t<around*|(|x<rsub|0>-x|)>|)>.
+  </equation*>
+
+  <section|Analytic Functions are Dense in
+  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>>
+
+  In traditional textures, wave-functions are supposed to be
+  square-integrable, namely <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>.
+  This is essential for probability interpretation (axiom
+  <reference|axiom:prob>). But in quantum mechanics, it is not sufficient.
+  For example, in solving the stationary Schr<wide|o|\<ddot\>>dinger equation
+  of one-dimensional harmonic oscillator, we suppose that wave-function has
+  the form
+
+  <\equation*>
+    f<around*|(|x|)>=exp<around*|(|-x<rsup|2>|)>
+    <around*|[|<big|sum><rsub|n=0><rsup|\<infty\>>a<rsub|n>x<rsup|n>|]>,
+  </equation*>
+
+  where the coefficients <math|<around*|(|a<rsub|0>,a<rsub|1>,\<ldots\>|)>>
+  are to be determined. The factor <math|exp<around*|(|-x<rsup|2>|)>> is
+  employed for an exponentially fast decay as
+  <math|<around*|\||x|\|>\<rightarrow\>\<infty\>> (thus faster than the
+  inverse of any polynomial). And the factor <math|<around*|[|\<cdots\>|]>>
+  is a Taylor series. Hence, <math|f> is an analytic function on its whole
+  domain. The energy quantization emerges for ensuring the convergence of the
+  series <math|<big|sum><rsub|n>a<rsub|n>x<rsup|n>>. It indicates that we
+  shall restrict the wave-functions to be analytic. We are to show that
+  analytic functions are dense in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
+  meaning that for any <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>
+  and any <math|\<varepsilon\>\<gtr\>0>, there is an analytic function
+  <math|g> such that
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
+  </equation*>
+
+  For example, when we measure the probability on any area of configuration
+  <math|U\<subset\>\<bbb-R\><rsup|d>>, we can use the approximation <math|g>
+  instead, because the difference is bounded by
+
+  <\equation*>
+    <around*|\||<big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>-<big|int><rsub|U>\<mathd\>x<around*|\||g<around*|(|x|)>|\|><rsup|2>|\|>\<leqslant\><big|int><rsub|U>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<leqslant\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
+  </equation*>
+
+  The first inequility is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
+  where the norm is defined as <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>,
+  recognized as the <math|L<rsup|2>>-norm on <math|U>. It states that the
+  difference between the two sides of a triangle is less than that of the
+  third side.
+
+  To prove that analytic functions are dense in
+  <math|L<rsub|2><around*|(|\<bbb-R\><rsup|d>|)>>, we introduce the
+  convolution for a function <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>
+  as
+
+  <\equation*>
+    f<rsub|n><around*|(|x|)>\<assign\>\<delta\><rsub|n>\<ast\>f=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|x-y|)>f<around*|(|y|)>,
+  </equation*>
+
+  where <math|n\<in\><around*|{|1,2,\<ldots\>|}>>, and the \Pkernel\Q
+  function is
+
+  <\equation*>
+    \<delta\><rsub|n><around*|(|x|)>\<assign\><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|n|2><big|sum><rsub|\<alpha\>=1><rsup|d><around*|(|x<rsup|\<alpha\>>|)><rsup|2>|)>.
+  </equation*>
+
+  The <math|\<delta\><rsub|n>> function is recognized as Gaussian with
+  variance <math|1/n>. To show that <math|f<rsub|n><around*|(|x|)>> tends to
+  <math|f<around*|(|x|)>> as <math|n> tends to infinity, we first change the
+  variable of integral by replacing <math|y\<rightarrow\><around*|(|x-y|)>>,
+  thus <math|f<rsub|n><around*|(|x|)>=<big|int>\<mathd\>y
+  \<delta\><rsub|n><around*|(|y|)>f<around*|(|x-y|)>>. Then using
+  <math|<big|int>\<mathd\>x \<delta\><rsub|n><around*|(|y|)>=1>, we arrive at
+
+  <\equation*>
+    f<around*|(|x|)>-f<rsub|n><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|y|)><around*|[|f<around*|(|x|)>-f<around*|(|x-y|)>|]>.
+  </equation*>
+
+  Then,
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<around*|(|x|)>-f<rsub|n><around*|(|x|)>|\|><rsup|2>\<leqslant\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|<sqrt|2>y|)><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<around*|(|x-y|)>-f<around*|(|x|)>|\|><rsup|2>.
+  </equation*>
+
+  We are to show that <math|<big|int>\<mathd\>x><math|<around*|\||f<around*|(|x-y|)>-f<around*|(|x|)>|\|><rsup|2>>
+  as a function of <math|y> is continuous. TODO
+
+  Define <math|g<rsub|x><around*|(|y|)>=f<around*|(|x|)>-f<around*|(|x-y|)>>.
+  Notice (the bracket denotes <math|L<rsup|2>>-inner-product)
+
+  \;
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|y|)><around*|[|f<around*|(|x|)>-f<around*|(|x-y|)>|]>=\<langle\>\<delta\><rsub|n>\|g<rsub|x>\<rangle\>.
+  </equation*>
+
+  By Schwartz's inequality, we have
+
+  <\equation*>
+    <around*|\||\<langle\>\<delta\><rsub|n>\|g<rsub|x>\<rangle\>|\|><rsup|2>\<leqslant\><around*|\<\|\|\>|\<delta\><rsub|n>|\<\|\|\>><rsub|2><around*|\<\|\|\>|g<rsub|x>|\<\|\|\>><rsub|2>.
+  </equation*>
+
+  This relation seems useless. STUCK!
+
+  <\equation*>
+    \;
+  </equation*>
+
+  By <hlink|Young's convolution inequality|https://en.wikipedia.org/wiki/Young%27s_convolution_inequality>,
+  TODO
+
+  By the mean value theorem (for multivariables), there is a
+  <math|s\<in\><around*|[|0,1|]>> such that
+
+  <\equation*>
+    <around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>=<big|sum><rsub|\<alpha\>=1><rsup|d><around*|\||<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|y|)>\<partial\><rsub|\<alpha\>>f<around*|(|x-s
+    y|)>y<rsup|\<alpha\>>|\|>.
+  </equation*>
+
+  As a Schwartz function, <math|\<partial\>f> is uniformly bounded, then
+  <math|<around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>> is not
+  greater than
+
+  <\equation*>
+    sup<rsub|\<bbb-R\><rsup|d>><around*|\||\<partial\>f|\|>\<times\><big|sum><rsub|\<alpha\>=1><rsup|d><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|y|)><around*|\||y<rsup|\<alpha\>>|\|>=sup<rsub|\<bbb-R\><rsup|d>><around*|\||\<partial\>f|\|>\<times\>d<sqrt|<frac|2|\<mathpi\>
+    n>>,
+  </equation*>
+
+  which is vanishing as <math|n\<rightarrow\>\<infty\>>.
+
+  To prove that <math|f<rsub|n>> is analytic on the entire
+  <math|\<bbb-R\><rsup|d>>, we have to show that 1) the reminder of Taylor
+  expansion at origin tends to zero, and that 2) the radius of convergence is
+  infinity. To make it clear, we first consider the one-dimensional
+  situation, in which <math|d=1>. Starting at
+
+  <\equation*>
+    f<rsub|n><around*|(|x|)>-f<rsub|n><around*|(|0|)>=<big|int><rsub|0><rsup|x>\<mathd\>y
+    f<rsub|n><rsup|<around*|(|1|)>><around*|(|y|)>.
+  </equation*>
+
+  we take integration by parts on the right hand side, resulting in
+
+  <\equation*>
+    <big|int><rsub|0><rsup|x>\<mathd\>y f<rsub|n><rsup|<around*|(|1|)>><around*|(|y|)>=-<big|int><rsub|0><rsup|x>\<mathd\><around*|(|x-y|)>
+    f<rsub|n><rsup|<around*|(|1|)>><around*|(|y|)>=f<rsub|n><rsup|<around*|(|1|)>><around*|(|x|)>x+<big|int><rsub|0><rsup|x>\<mathd\>y
+    f<rsub|n><rsup|<around*|(|2|)>><around*|(|y|)><around*|(|x-y|)>.
+  </equation*>
+
+  Again, applying integration by parts on the last term gives
+
+  <\equation*>
+    <big|int><rsub|0><rsup|x>\<mathd\>y f<rsub|n><rsup|<around*|(|2|)>><around*|(|y|)><around*|(|x-y|)>=-<frac|1|2><big|int><rsub|0><rsup|x>\<mathd\><around*|(|x-y|)><rsup|2>
+    f<rsub|n><rsup|<around*|(|2|)>><around*|(|y|)>=<frac|1|2>f<rsub|n><rsup|<around*|(|2|)>><around*|(|x|)>x<rsup|2>+<frac|1|2><big|int><rsub|0><rsup|x>\<mathd\>y
+    f<rsub|n><rsup|<around*|(|3|)>><around*|(|y|)><around*|(|x-y|)><rsup|2>.
+  </equation*>
+
+  Repeating this process, we get
+
+  <\equation*>
+    f<rsub|n><around*|(|x|)>-f<rsub|n><around*|(|0|)>=<big|sum><rsub|k=1><rsup|m><frac|1|k!>f<rsub|n><rsup|<around*|(|k|)>><around*|(|x|)>x<rsup|k>+h<rsub|m><around*|(|x|)>,
+  </equation*>
+
+  where the residue of Taylor expansion reads
+
+  <\equation*>
+    h<rsub|m><around*|(|x|)>\<assign\><frac|1|m!><big|int><rsub|0><rsup|x>\<mathd\>y
+    f<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)><around*|(|x-y|)><rsup|m>.
+  </equation*>
+
+  We are to show that, for any <math|x\<in\>\<bbb-R\>> given,
+  <math|h<rsub|m><around*|(|x|)>\<rightarrow\>0> as
+  <math|m\<rightarrow\>\<infty\>>. Since
+
+  <\equation*>
+    <around*|\||h<rsub|m><around*|(|x|)>|\|>\<leqslant\><frac|1|m!><big|int><rsub|0><rsup|x>\<mathd\>y
+    <around*|\||f<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)>|\|><around*|\||x-y|\|><rsup|m>\<leqslant\><frac|1|m!>sup<rsub|<around*|[|0,x|]>><around*|\||f<rsub|n><rsup|<around*|(|m+1|)>>|\|>
+    <around*|\||x|\|><rsup|m+1>,
+  </equation*>
+
+  we are to prove that the supremum is bounded by a polynomial of <math|x> (a
+  polynomial of linear order in <math|m> will be surpassed by the factorial
+  <math|m!>, so we will find <math|h<rsub|m><around*|(|x|)>\<rightarrow\>0>
+  as <math|m\<rightarrow\>\<infty\>>). We have, by replacing
+  <math|<around*|(|y-z|)>\<rightarrow\>z>,
+
+  <\equation*>
+    f<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)>=
+    <big|int><rsub|\<bbb-R\>>\<mathd\>z P<rsub|m+1><around*|(|y-z|)>\<delta\><rsub|n><around*|(|y-z|)>f<around*|(|z|)>=<big|int><rsub|\<bbb-R\>>\<mathd\>z
+    P<rsub|m+1><around*|(|z|)>\<delta\><rsub|n><around*|(|z|)>f<around*|(|y-z|)>,
+  </equation*>
+
+  where <math|y\<in\><around*|[|0,x|]>> and <math|P<rsub|m+1>> is an
+  <math|<around*|(|m+1|)>>-order polynomial. Since the Schwartz function
+  <math|f> has been bounded on <math|\<bbb-R\>>, the problem simplifies to
+  estimate the expression
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\>>\<mathd\>z<around*|\||P<rsub|m+1><around*|(|z|)>|\|>\<delta\><rsub|n><around*|(|z|)>.
+  </equation*>
+
+  It is recognized as the momentum of normal distribution with zero mean and
+  variance <math|1/n>? TODO
+
+  This is an elegant proof because we can <em|see> how <math|f> is
+  approximated by a series of analytic functions explicitly.<\footnote>
+    This profound construction is found in the lemma 15.1 of <em|Topological
+    Vector Spaces, Distributions and Kernels> written by Francois Treves,
+    1967.
+  </footnote> As a by-product, we also find that <math|\<delta\><rsub|n>> has
+  Dirac's <math|\<delta\>>-function as its limit. In fact,
+  <math|\<delta\>>-function is <em|defined> as the limit of
+  <math|\<delta\><rsub|n>> when it is applied (as convolution) on a Schwartz
+  function.
+
   <section|Analytic Schwartz Space Is Sufficient for Wave-Functions>
 
   In traditional textures, wave-functions are supposed to be
-  square-integrable, thus <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>.
+  square-integrable, namely <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>.
   This is essential for probability interpretation (axiom
   <reference|axiom:prob>). It is <hlink|well
   known|https://en.wikipedia.org/wiki/Fourier_transform>, however, that the
@@ -279,25 +541,25 @@
 
   That is, <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> is a dense
   subspace in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. It is in this
-  sense that the substitution is plausible. For example, for any real
-  wave-function <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>, when
-  we measure the probability on any area of configuration
+  sense that the substitution <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
+  is plausible. For example, for any wave-function
+  <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>, when we measure the
+  probability on any area of configuration
   <math|U\<subset\>\<bbb-R\><rsup|d>>, we can use the approximation
-  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> instead, and the
-  difference is bounded by<\footnote>
-    This inequility is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
-    where the norm is defined as <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>,
-    which is recognized as the <math|L<rsup|2>>-norm on <math|U>. It states
-    that the difference between the two sides of a triangle is less than that
-    of the third side.
-  </footnote>
+  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> instead, because the
+  difference is bounded by
 
   <\equation*>
     <around*|\||<big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>-<big|int><rsub|U>\<mathd\>x<around*|\||g<around*|(|x|)>|\|><rsup|2>|\|>\<leqslant\><big|int><rsub|U>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<leqslant\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
     <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
   </equation*>
 
-  \;
+  The first inequility is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
+  where the norm is defined as <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>,
+  recognized as the <math|L<rsup|2>>-norm on <math|U>. It states that the
+  difference between the two sides of a triangle is less than that of the
+  third side.
 
   Restriction from <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> to
   <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, however, is still
@@ -310,25 +572,22 @@
     <around*|[|<big|sum><rsub|n=0><rsup|\<infty\>>a<rsub|n>x<rsup|n>|]>,
   </equation*>
 
-  where <math|a<rsub|n>>s are to be determined. The factor
-  <math|exp<around*|(|-x<rsup|2>|)>> is employed for an exponentially fast
-  decay as <math|<around*|\||x|\|>\<rightarrow\>\<infty\>> (thus faster than
-  the inverse of any polynomial). And the factor
-  <math|<around*|[|\<cdots\>|]>> is a Taylor series. Hence, <math|f> is an
-  analytic function in Schwartz space. The energy quantization emerges for
-  ensuring the convergence of the series <math|<big|sum><rsub|n>a<rsub|n>x<rsup|n>>.
-  It indicates that we shall further restrict the space of wave-function to
-  <strong|analytic Schwartz space>, denoted by
-  <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>, which collects all
-  the analytic functions in Schwartz space
+  where the coefficients <math|<around*|(|a<rsub|0>,a<rsub|1>,\<ldots\>|)>>
+  are to be determined. The factor <math|exp<around*|(|-x<rsup|2>|)>> is
+  employed for an exponentially fast decay as
+  <math|<around*|\||x|\|>\<rightarrow\>\<infty\>> (thus faster than the
+  inverse of any polynomial). And the factor <math|<around*|[|\<cdots\>|]>>
+  is a Taylor series. Hence, <math|f> is an analytic function in Schwartz
+  space. The energy quantization emerges for ensuring the convergence of the
+  series <math|<big|sum><rsub|n>a<rsub|n>x<rsup|n>>. It indicates that we
+  shall further restrict the space of wave-functions to <strong|analytic
+  Schwartz space>, denoted by <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>,
+  which collects all the analytic functions in Schwartz space
   <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>. Analytic functions are
   dense in Schwartz space, meaning that for any
   <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> and any
   <math|\<varepsilon\>\<gtr\>0>, there is a
-  <math|g\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>> such
-  that<\footnote>
-    TODO: give a reference or a proof.
-  </footnote>
+  <math|g\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>> such that
 
   <\equation*>
     sup<rsub|x\<in\>\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>\<less\>\<varepsilon\>.
@@ -348,49 +607,128 @@
 
   <\equation*>
     f<rsub|n><around*|(|x|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|x-y|)>f<around*|(|y|)>
+    \<delta\><rsub|n><around*|(|x-y|)>f<around*|(|y|)>,
   </equation*>
 
-  by a \Pkernel\Q function
+  where <math|n\<in\><around*|{|1,2,\<ldots\>|}>>, and the \Pkernel\Q
+  function is
 
   <\equation*>
-    \<delta\><rsub|n><around*|(|x|)>\<assign\><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|n|2><around*|\<\|\|\>|x|\<\|\|\>><rsup|2>|)>,
+    \<delta\><rsub|n><around*|(|x|)>\<assign\><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|n|2><big|sum><rsub|\<alpha\>=1><rsup|d><around*|(|x<rsup|\<alpha\>>|)><rsup|2>|)>.
   </equation*>
 
-  where <math|n=<around*|{|1,2,\<ldots\>|}>>. The <math|\<delta\><rsub|n>>
-  function is recognized as Gaussian with variance <math|1/n>. This
-  construction is fantastic, because derivatives taken on <math|f<rsub|n>>
-  are now converted onto <math|\<delta\><rsub|n>> instead of <math|f>, which
-  is even not necessarily continuous! But, as a Schwartz function, <math|f>
-  has been \Pgood\Q enough; it is uniformly bounded on
-  <math|\<bbb-R\><rsup|d>>. Indeed, <math|f<around*|(|x|)>> is negligible
-  when <math|x> is far from origin, so that we regard <math|f> as compact
-  supported, then <math|f> is uniformly bounded because of its continuity.
-  This also applies to the derivatives of <math|f> since they are also
-  Schwartz functions. Then, analyticity raises from the good properties of
-  <math|\<delta\><rsub|n>>. To show that <math|f<rsub|n><around*|(|x|)>>
-  tends to <math|f<around*|(|x|)>> as <math|n> tends to infinity, we first
-  change the variable of integral by replacing
-  <math|y\<rightarrow\><around*|(|x-y|)>>, thus
-  <math|f<rsub|n><around*|(|x|)>=<big|int>\<mathd\>y
+  The <math|\<delta\><rsub|n>> function is recognized as Gaussian with
+  variance <math|1/n>. To show that <math|f<rsub|n><around*|(|x|)>> tends to
+  <math|f<around*|(|x|)>> as <math|n> tends to infinity, we first change the
+  variable of integral by replacing <math|y\<rightarrow\><around*|(|x-y|)>>,
+  thus <math|f<rsub|n><around*|(|x|)>=<big|int>\<mathd\>y
   \<delta\><rsub|n><around*|(|y|)>f<around*|(|x-y|)>>. Then using
-  <math|<big|int>\<mathd\>x \<delta\><rsub|n><around*|(|y|)>=1>, we find
+  <math|<big|int>\<mathd\>x \<delta\><rsub|n><around*|(|y|)>=1>, we arrive at
 
   <\equation*>
     f<rsub|n><around*|(|x|)>-f<around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
     \<delta\><rsub|n><around*|(|y|)><around*|[|f<around*|(|x-y|)>-f<around*|(|x|)>|]>.
   </equation*>
 
-  Notice that <math|\<delta\><rsub|n>> is much sharper a peak at origin as
-  <math|n> goes greater, together with the fact that <math|\<partial\>f> is
-  uniformly bounded, we find, for any <math|\<varepsilon\>\<gtr\>0>, there is
-  an <math|N\<gtr\>0> such that <math|<around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>\<less\>\<varepsilon\>>
-  for any <math|n\<gtr\>N> and <math|x\<in\>\<bbb-R\><rsup|d>>. In other
-  words, we get <math|lim<rsub|n\<rightarrow\>\<infty\>>f<rsub|n>=f>, thus
-  proof ends. This is an elegant proof because we can <em|see> how <math|f>
-  is approximated by a series of analytic functions explicitly.<\footnote>
-    This profound construction is found in the lemma 15.1 of Topological
-    Vector Spaces, Distributions and Kernels written by Francois Treves,
+  By the mean value theorem (for multivariables), there is a
+  <math|s\<in\><around*|[|0,1|]>> such that
+
+  <\equation*>
+    <around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>=<big|sum><rsub|\<alpha\>=1><rsup|d><around*|\||<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|y|)>\<partial\><rsub|\<alpha\>>f<around*|(|x-s
+    y|)>y<rsup|\<alpha\>>|\|>.
+  </equation*>
+
+  As a Schwartz function, <math|\<partial\>f> is uniformly bounded, then
+  <math|<around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>> is not
+  greater than
+
+  <\equation*>
+    sup<rsub|\<bbb-R\><rsup|d>><around*|\||\<partial\>f|\|>\<times\><big|sum><rsub|\<alpha\>=1><rsup|d><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|y|)><around*|\||y<rsup|\<alpha\>>|\|>=sup<rsub|\<bbb-R\><rsup|d>><around*|\||\<partial\>f|\|>\<times\>d<sqrt|<frac|2|\<mathpi\>
+    n>>,
+  </equation*>
+
+  which is vanishing as <math|n\<rightarrow\>\<infty\>>.
+
+  To prove that <math|f<rsub|n>> is analytic on the entire
+  <math|\<bbb-R\><rsup|d>>, we have to show that 1) the reminder of Taylor
+  expansion at origin tends to zero, and that 2) the radius of convergence is
+  infinity. To make it clear, we first consider the one-dimensional
+  situation, in which <math|d=1>. Starting at
+
+  <\equation*>
+    f<rsub|n><around*|(|x|)>-f<rsub|n><around*|(|0|)>=<big|int><rsub|0><rsup|x>\<mathd\>y
+    f<rsub|n><rsup|<around*|(|1|)>><around*|(|y|)>.
+  </equation*>
+
+  we take integration by parts on the right hand side, resulting in
+
+  <\equation*>
+    <big|int><rsub|0><rsup|x>\<mathd\>y f<rsub|n><rsup|<around*|(|1|)>><around*|(|y|)>=-<big|int><rsub|0><rsup|x>\<mathd\><around*|(|x-y|)>
+    f<rsub|n><rsup|<around*|(|1|)>><around*|(|y|)>=f<rsub|n><rsup|<around*|(|1|)>><around*|(|x|)>x+<big|int><rsub|0><rsup|x>\<mathd\>y
+    f<rsub|n><rsup|<around*|(|2|)>><around*|(|y|)><around*|(|x-y|)>.
+  </equation*>
+
+  Again, applying integration by parts on the last term gives
+
+  <\equation*>
+    <big|int><rsub|0><rsup|x>\<mathd\>y f<rsub|n><rsup|<around*|(|2|)>><around*|(|y|)><around*|(|x-y|)>=-<frac|1|2><big|int><rsub|0><rsup|x>\<mathd\><around*|(|x-y|)><rsup|2>
+    f<rsub|n><rsup|<around*|(|2|)>><around*|(|y|)>=<frac|1|2>f<rsub|n><rsup|<around*|(|2|)>><around*|(|x|)>x<rsup|2>+<frac|1|2><big|int><rsub|0><rsup|x>\<mathd\>y
+    f<rsub|n><rsup|<around*|(|3|)>><around*|(|y|)><around*|(|x-y|)><rsup|2>.
+  </equation*>
+
+  Repeating this process, we get
+
+  <\equation*>
+    f<rsub|n><around*|(|x|)>-f<rsub|n><around*|(|0|)>=<big|sum><rsub|k=1><rsup|m><frac|1|k!>f<rsub|n><rsup|<around*|(|k|)>><around*|(|x|)>x<rsup|k>+h<rsub|m><around*|(|x|)>,
+  </equation*>
+
+  where the residue of Taylor expansion reads
+
+  <\equation*>
+    h<rsub|m><around*|(|x|)>\<assign\><frac|1|m!><big|int><rsub|0><rsup|x>\<mathd\>y
+    f<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)><around*|(|x-y|)><rsup|m>.
+  </equation*>
+
+  We are to show that, for any <math|x\<in\>\<bbb-R\>> given,
+  <math|h<rsub|m><around*|(|x|)>\<rightarrow\>0> as
+  <math|m\<rightarrow\>\<infty\>>. Since
+
+  <\equation*>
+    <around*|\||h<rsub|m><around*|(|x|)>|\|>\<leqslant\><frac|1|m!><big|int><rsub|0><rsup|x>\<mathd\>y
+    <around*|\||f<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)>|\|><around*|\||x-y|\|><rsup|m>\<leqslant\><frac|1|m!>sup<rsub|<around*|[|0,x|]>><around*|\||f<rsub|n><rsup|<around*|(|m+1|)>>|\|>
+    <around*|\||x|\|><rsup|m+1>,
+  </equation*>
+
+  we are to prove that the supremum is bounded by a polynomial of <math|x> (a
+  polynomial of linear order in <math|m> will be surpassed by the factorial
+  <math|m!>, so we will find <math|h<rsub|m><around*|(|x|)>\<rightarrow\>0>
+  as <math|m\<rightarrow\>\<infty\>>). We have, by replacing
+  <math|<around*|(|y-z|)>\<rightarrow\>z>,
+
+  <\equation*>
+    f<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)>=
+    <big|int><rsub|\<bbb-R\>>\<mathd\>z P<rsub|m+1><around*|(|y-z|)>\<delta\><rsub|n><around*|(|y-z|)>f<around*|(|z|)>=<big|int><rsub|\<bbb-R\>>\<mathd\>z
+    P<rsub|m+1><around*|(|z|)>\<delta\><rsub|n><around*|(|z|)>f<around*|(|y-z|)>,
+  </equation*>
+
+  where <math|y\<in\><around*|[|0,x|]>> and <math|P<rsub|m+1>> is an
+  <math|<around*|(|m+1|)>>-order polynomial. Since the Schwartz function
+  <math|f> has been bounded on <math|\<bbb-R\>>, the problem simplifies to
+  estimate the expression
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\>>\<mathd\>z<around*|\||P<rsub|m+1><around*|(|z|)>|\|>\<delta\><rsub|n><around*|(|z|)>.
+  </equation*>
+
+  It is recognized as the momentum of normal distribution with zero mean and
+  variance <math|1/n>? TODO
+
+  This is an elegant proof because we can <em|see> how <math|f> is
+  approximated by a series of analytic functions explicitly.<\footnote>
+    This profound construction is found in the lemma 15.1 of <em|Topological
+    Vector Spaces, Distributions and Kernels> written by Francois Treves,
     1967.
   </footnote> As a by-product, we also find that <math|\<delta\><rsub|n>> has
   Dirac's <math|\<delta\>>-function as its limit. In fact,
@@ -1178,82 +1516,85 @@
 <\initial>
   <\collection>
     <associate|bg-color|#c7edcc>
-    <associate|page-medium|beamer>
+    <associate|page-medium|paper>
+    <associate|page-orientation|portrait>
   </collection>
 </initial>
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|8|7>>
-    <associate|auto-11|<tuple|9|8>>
-    <associate|auto-12|<tuple|10|9>>
-    <associate|auto-13|<tuple|10.1|10>>
-    <associate|auto-14|<tuple|10.2|11>>
-    <associate|auto-15|<tuple|10.3|12>>
-    <associate|auto-16|<tuple|10.4|12>>
-    <associate|auto-2|<tuple|1.1|1>>
-    <associate|auto-3|<tuple|1.2|1>>
-    <associate|auto-4|<tuple|2|2>>
-    <associate|auto-5|<tuple|3|2>>
-    <associate|auto-6|<tuple|4|3>>
-    <associate|auto-7|<tuple|5|4>>
-    <associate|auto-8|<tuple|6|5>>
-    <associate|auto-9|<tuple|7|6>>
-    <associate|axiom:local|<tuple|3|7>>
-    <associate|axiom:prob|<tuple|2|2>>
-    <associate|axiom:sup|<tuple|1|2>>
-    <associate|axiom:uncert|<tuple|4|10>>
-    <associate|axiom:uncert-ext|<tuple|5|12>>
-    <associate|eq:deltaexp|<tuple|9|6>>
-    <associate|eq:expandbymoments|<tuple|14|7>>
-    <associate|eq:hamiltonian|<tuple|4|5>>
-    <associate|eq:hermit|<tuple|3|3>>
-    <associate|eq:kmanalogy|<tuple|13|7>>
-    <associate|eq:moment|<tuple|8|5>>
-    <associate|eq:probtoself|<tuple|2|2>>
-    <associate|eq:transexp|<tuple|12|6>>
-    <associate|equ:superposition|<tuple|1|2>>
-    <associate|footnote-1|<tuple|1|2>>
-    <associate|footnote-10|<tuple|10|8>>
-    <associate|footnote-11|<tuple|11|9>>
-    <associate|footnote-12|<tuple|12|9>>
-    <associate|footnote-13|<tuple|13|10>>
-    <associate|footnote-14|<tuple|14|11>>
-    <associate|footnote-15|<tuple|15|11>>
-    <associate|footnote-2|<tuple|2|2>>
-    <associate|footnote-3|<tuple|3|3>>
-    <associate|footnote-4|<tuple|4|3>>
-    <associate|footnote-5|<tuple|5|3>>
-    <associate|footnote-6|<tuple|6|4>>
-    <associate|footnote-7|<tuple|7|4>>
-    <associate|footnote-8|<tuple|8|5>>
-    <associate|footnote-9|<tuple|9|6>>
-    <associate|footnr-1|<tuple|1|2>>
-    <associate|footnr-10|<tuple|10|8>>
-    <associate|footnr-11|<tuple|11|9>>
-    <associate|footnr-12|<tuple|12|9>>
-    <associate|footnr-13|<tuple|13|10>>
-    <associate|footnr-14|<tuple|14|11>>
-    <associate|footnr-15|<tuple|15|11>>
-    <associate|footnr-2|<tuple|2|2>>
-    <associate|footnr-3|<tuple|3|3>>
-    <associate|footnr-4|<tuple|4|3>>
-    <associate|footnr-5|<tuple|5|3>>
-    <associate|footnr-6|<tuple|6|4>>
-    <associate|footnr-7|<tuple|7|4>>
-    <associate|footnr-8|<tuple|8|5>>
-    <associate|footnr-9|<tuple|9|6>>
-    <associate|section:Hermitianity on Moments|<tuple|9|8>>
+    <associate|auto-1|<tuple|1|5>>
+    <associate|auto-10|<tuple|8|12>>
+    <associate|auto-11|<tuple|9|13>>
+    <associate|auto-12|<tuple|10|14>>
+    <associate|auto-13|<tuple|11|14>>
+    <associate|auto-14|<tuple|12|16>>
+    <associate|auto-15|<tuple|12.1|16>>
+    <associate|auto-16|<tuple|12.2|16>>
+    <associate|auto-17|<tuple|12.3|?>>
+    <associate|auto-18|<tuple|12.4|?>>
+    <associate|auto-2|<tuple|1.1|5>>
+    <associate|auto-3|<tuple|1.2|5>>
+    <associate|auto-4|<tuple|2|6>>
+    <associate|auto-5|<tuple|3|6>>
+    <associate|auto-6|<tuple|4|7>>
+    <associate|auto-7|<tuple|5|9>>
+    <associate|auto-8|<tuple|6|10>>
+    <associate|auto-9|<tuple|7|11>>
+    <associate|axiom:local|<tuple|3|12>>
+    <associate|axiom:prob|<tuple|2|6>>
+    <associate|axiom:sup|<tuple|1|6>>
+    <associate|axiom:uncert|<tuple|4|14>>
+    <associate|axiom:uncert-ext|<tuple|5|16>>
+    <associate|eq:deltaexp|<tuple|10|10>>
+    <associate|eq:expandbymoments|<tuple|15|11>>
+    <associate|eq:hamiltonian|<tuple|5|9>>
+    <associate|eq:hermit|<tuple|4|7>>
+    <associate|eq:kmanalogy|<tuple|14|11>>
+    <associate|eq:moment|<tuple|9|10>>
+    <associate|eq:probtoself|<tuple|3|6>>
+    <associate|eq:transexp|<tuple|13|11>>
+    <associate|equ:superposition|<tuple|1|6>>
+    <associate|firstHeading|<tuple|4|?>>
+    <associate|footnote-1|<tuple|1|6>>
+    <associate|footnote-10|<tuple|10|14>>
+    <associate|footnote-11|<tuple|11|15>>
+    <associate|footnote-12|<tuple|12|16>>
+    <associate|footnote-13|<tuple|13|16>>
+    <associate|footnote-14|<tuple|14|?>>
+    <associate|footnote-15|<tuple|15|?>>
+    <associate|footnote-2|<tuple|2|6>>
+    <associate|footnote-3|<tuple|3|7>>
+    <associate|footnote-4|<tuple|4|7>>
+    <associate|footnote-5|<tuple|5|9>>
+    <associate|footnote-6|<tuple|6|9>>
+    <associate|footnote-7|<tuple|7|11>>
+    <associate|footnote-8|<tuple|8|13>>
+    <associate|footnote-9|<tuple|9|14>>
+    <associate|footnr-1|<tuple|1|6>>
+    <associate|footnr-10|<tuple|10|14>>
+    <associate|footnr-11|<tuple|11|15>>
+    <associate|footnr-12|<tuple|12|16>>
+    <associate|footnr-13|<tuple|13|16>>
+    <associate|footnr-14|<tuple|14|?>>
+    <associate|footnr-15|<tuple|15|?>>
+    <associate|footnr-2|<tuple|2|6>>
+    <associate|footnr-3|<tuple|3|7>>
+    <associate|footnr-4|<tuple|4|7>>
+    <associate|footnr-5|<tuple|5|9>>
+    <associate|footnr-6|<tuple|6|9>>
+    <associate|footnr-7|<tuple|7|11>>
+    <associate|footnr-8|<tuple|8|13>>
+    <associate|footnr-9|<tuple|9|14>>
+    <associate|section:Hermitianity on Moments|<tuple|11|13>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|toc>
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Introduction>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-1><vspace|0.5fn>
+      1<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-1>
 
       <with|par-left|<quote|1tab>|1.1<space|2spc>Motivation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
@@ -1263,45 +1604,41 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Superposition
-      Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Probability
-      Interpretation Implies Hermitianity>
+      2<space|2spc>Superposition Principle and Time Evolution
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5><vspace|0.5fn>
+      <no-break><pageref|auto-4>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Analytic
-      Schwartz Space Is Sufficient for Wave-Functions>
+      3<space|2spc>Probability Interpretation Implies Hermitianity
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-6><vspace|0.5fn>
+      <no-break><pageref|auto-5>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Path
-      Integral Formalism Gives Hamiltonian>
+      4<space|2spc>Analytic Schwartz Space Is Sufficient for Wave-Functions
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7><vspace|0.5fn>
+      <no-break><pageref|auto-6>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>An
-      Useful Formal Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>Expansion
-      of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-9><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>Locality
-      Truncates the Moments of Transition Rate>
+      5<space|2spc>Path Integral Formalism Gives Hamiltonian
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-10><vspace|0.5fn>
+      <no-break><pageref|auto-7>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Hermitianity
-      on the Moments of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-11><vspace|0.5fn>
+      6<space|2spc>An Useful Formal Expansion
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-8>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Uncertainty
-      Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-12><vspace|0.5fn>
+      7<space|2spc>Expansion of Transition Rate
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-9>
+
+      8<space|2spc>Locality Truncates the Moments of Transition Rate
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-10>
+
+      9<space|2spc>Hermitianity on the Moments of Transition Rate
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-11>
+
+      10<space|2spc>Uncertainty Principle
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-12>
 
       <with|par-left|<quote|1tab>|10.1<space|2spc>Implication on Moments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>

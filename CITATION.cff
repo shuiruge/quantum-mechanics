@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+authors:
+- family-names: "Jiang"
+  given-names: "Peng-xu"
+  orcid: "https://orcid.org/0009-0006-4302-8638"
+title: "Quantum Mechanics from Scratch"
+url: "https://github.com/shuiruge/quantum-mechanics"
+
