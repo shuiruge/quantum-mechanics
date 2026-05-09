@@ -1,73 +1,9 @@
 <TeXmacs|2.1.4>
 
-<style|book>
+<style|article>
 
 <\body>
   <doc-data|<doc-title|Build Quantum Mechanics from Scratch: A Sketch>>
-
-  <\table-of-contents|toc>
-    1<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-1>
-
-    <with|par-left|1tab|1.1<space|2spc>Motivation
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-2>>
-
-    <with|par-left|1tab|1.2<space|2spc>How to Read this Note?
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-3>>
-
-    2<space|2spc>Superposition Principle and Time Evolution
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-4>
-
-    3<space|2spc>Probability Interpretation Implies Hermitianity
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-5>
-
-    4<space|2spc>Analytic Schwartz Space Is Sufficient for Wave-Functions
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-6>
-
-    5<space|2spc>Path Integral Formalism Gives Hamiltonian
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-7>
-
-    6<space|2spc>An Useful Formal Expansion
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-8>
-
-    7<space|2spc>Expansion of Transition Rate
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-9>
-
-    8<space|2spc>Locality Truncates the Moments of Transition Rate
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-10>
-
-    9<space|2spc>Hermitianity on the Moments of Transition Rate
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-11>
-
-    10<space|2spc>Uncertainty Principle <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-12>
-
-    <with|par-left|1tab|10.1<space|2spc>Implication on Moments
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-13>>
-
-    <with|par-left|1tab|10.2<space|2spc>When <with|mode|math|N> Is Even
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-14>>
-
-    <with|par-left|1tab|10.3<space|2spc>When <with|mode|math|N> Is Odd
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-15>>
-
-    <with|par-left|1tab|10.4<space|2spc>Generalizations
-    <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-    <no-break><pageref|auto-16>>
-  </table-of-contents>
 
   <section|Introduction>
 
@@ -1523,78 +1459,76 @@
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|5>>
-    <associate|auto-10|<tuple|8|12>>
-    <associate|auto-11|<tuple|9|13>>
-    <associate|auto-12|<tuple|10|14>>
-    <associate|auto-13|<tuple|11|14>>
-    <associate|auto-14|<tuple|12|16>>
-    <associate|auto-15|<tuple|12.1|16>>
-    <associate|auto-16|<tuple|12.2|16>>
-    <associate|auto-17|<tuple|12.3|?>>
-    <associate|auto-18|<tuple|12.4|?>>
-    <associate|auto-2|<tuple|1.1|5>>
-    <associate|auto-3|<tuple|1.2|5>>
-    <associate|auto-4|<tuple|2|6>>
-    <associate|auto-5|<tuple|3|6>>
-    <associate|auto-6|<tuple|4|7>>
-    <associate|auto-7|<tuple|5|9>>
-    <associate|auto-8|<tuple|6|10>>
-    <associate|auto-9|<tuple|7|11>>
-    <associate|axiom:local|<tuple|3|12>>
-    <associate|axiom:prob|<tuple|2|6>>
-    <associate|axiom:sup|<tuple|1|6>>
-    <associate|axiom:uncert|<tuple|4|14>>
-    <associate|axiom:uncert-ext|<tuple|5|16>>
-    <associate|eq:deltaexp|<tuple|10|10>>
-    <associate|eq:expandbymoments|<tuple|15|11>>
-    <associate|eq:hamiltonian|<tuple|5|9>>
-    <associate|eq:hermit|<tuple|4|7>>
-    <associate|eq:kmanalogy|<tuple|14|11>>
-    <associate|eq:moment|<tuple|9|10>>
-    <associate|eq:probtoself|<tuple|3|6>>
-    <associate|eq:transexp|<tuple|13|11>>
-    <associate|equ:superposition|<tuple|1|6>>
-    <associate|firstHeading|<tuple|4|?>>
-    <associate|footnote-1|<tuple|1|6>>
-    <associate|footnote-10|<tuple|10|14>>
-    <associate|footnote-11|<tuple|11|15>>
-    <associate|footnote-12|<tuple|12|16>>
-    <associate|footnote-13|<tuple|13|16>>
-    <associate|footnote-14|<tuple|14|?>>
-    <associate|footnote-15|<tuple|15|?>>
-    <associate|footnote-2|<tuple|2|6>>
-    <associate|footnote-3|<tuple|3|7>>
-    <associate|footnote-4|<tuple|4|7>>
-    <associate|footnote-5|<tuple|5|9>>
-    <associate|footnote-6|<tuple|6|9>>
-    <associate|footnote-7|<tuple|7|11>>
-    <associate|footnote-8|<tuple|8|13>>
-    <associate|footnote-9|<tuple|9|14>>
-    <associate|footnr-1|<tuple|1|6>>
-    <associate|footnr-10|<tuple|10|14>>
-    <associate|footnr-11|<tuple|11|15>>
-    <associate|footnr-12|<tuple|12|16>>
-    <associate|footnr-13|<tuple|13|16>>
-    <associate|footnr-14|<tuple|14|?>>
-    <associate|footnr-15|<tuple|15|?>>
-    <associate|footnr-2|<tuple|2|6>>
-    <associate|footnr-3|<tuple|3|7>>
-    <associate|footnr-4|<tuple|4|7>>
-    <associate|footnr-5|<tuple|5|9>>
-    <associate|footnr-6|<tuple|6|9>>
-    <associate|footnr-7|<tuple|7|11>>
-    <associate|footnr-8|<tuple|8|13>>
-    <associate|footnr-9|<tuple|9|14>>
-    <associate|section:Hermitianity on Moments|<tuple|11|13>>
+    <associate|auto-1|<tuple|1|1>>
+    <associate|auto-10|<tuple|8|8>>
+    <associate|auto-11|<tuple|9|9>>
+    <associate|auto-12|<tuple|10|10>>
+    <associate|auto-13|<tuple|11|11>>
+    <associate|auto-14|<tuple|12|12>>
+    <associate|auto-15|<tuple|12.1|13>>
+    <associate|auto-16|<tuple|12.2|14>>
+    <associate|auto-17|<tuple|12.3|15>>
+    <associate|auto-18|<tuple|12.4|15>>
+    <associate|auto-2|<tuple|1.1|1>>
+    <associate|auto-3|<tuple|1.2|1>>
+    <associate|auto-4|<tuple|2|1>>
+    <associate|auto-5|<tuple|3|2>>
+    <associate|auto-6|<tuple|4|3>>
+    <associate|auto-7|<tuple|5|3>>
+    <associate|auto-8|<tuple|6|5>>
+    <associate|auto-9|<tuple|7|7>>
+    <associate|axiom:local|<tuple|3|10>>
+    <associate|axiom:prob|<tuple|2|2>>
+    <associate|axiom:sup|<tuple|1|2>>
+    <associate|axiom:uncert|<tuple|4|13>>
+    <associate|axiom:uncert-ext|<tuple|5|15>>
+    <associate|eq:deltaexp|<tuple|10|9>>
+    <associate|eq:expandbymoments|<tuple|15|10>>
+    <associate|eq:hamiltonian|<tuple|5|8>>
+    <associate|eq:hermit|<tuple|4|2>>
+    <associate|eq:kmanalogy|<tuple|14|10>>
+    <associate|eq:moment|<tuple|9|8>>
+    <associate|eq:probtoself|<tuple|3|2>>
+    <associate|eq:transexp|<tuple|13|9>>
+    <associate|equ:superposition|<tuple|1|2>>
+    <associate|footnote-1|<tuple|1|1>>
+    <associate|footnote-10|<tuple|10|12>>
+    <associate|footnote-11|<tuple|11|12>>
+    <associate|footnote-12|<tuple|12|13>>
+    <associate|footnote-13|<tuple|13|14>>
+    <associate|footnote-14|<tuple|14|14>>
+    <associate|footnote-2|<tuple|2|2>>
+    <associate|footnote-3|<tuple|3|2>>
+    <associate|footnote-4|<tuple|4|5>>
+    <associate|footnote-5|<tuple|5|5>>
+    <associate|footnote-6|<tuple|6|7>>
+    <associate|footnote-7|<tuple|7|8>>
+    <associate|footnote-8|<tuple|8|9>>
+    <associate|footnote-9|<tuple|9|11>>
+    <associate|footnr-1|<tuple|1|1>>
+    <associate|footnr-10|<tuple|10|12>>
+    <associate|footnr-11|<tuple|11|12>>
+    <associate|footnr-12|<tuple|12|13>>
+    <associate|footnr-13|<tuple|13|14>>
+    <associate|footnr-14|<tuple|14|14>>
+    <associate|footnr-2|<tuple|2|2>>
+    <associate|footnr-3|<tuple|3|2>>
+    <associate|footnr-4|<tuple|4|5>>
+    <associate|footnr-5|<tuple|5|5>>
+    <associate|footnr-6|<tuple|6|7>>
+    <associate|footnr-7|<tuple|7|8>>
+    <associate|footnr-8|<tuple|8|9>>
+    <associate|footnr-9|<tuple|9|11>>
+    <associate|section:Hermitianity on Moments|<tuple|11|11>>
   </collection>
 </references>
 
 <\auxiliary>
   <\collection>
     <\associate|toc>
-      1<space|2spc>Introduction <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-1>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|1<space|2spc>Introduction>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-1><vspace|0.5fn>
 
       <with|par-left|<quote|1tab>|1.1<space|2spc>Motivation
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
@@ -1604,57 +1538,70 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3>>
 
-      2<space|2spc>Superposition Principle and Time Evolution
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Superposition
+      Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Probability
+      Interpretation Implies Hermitianity>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4>
+      <no-break><pageref|auto-5><vspace|0.5fn>
 
-      3<space|2spc>Probability Interpretation Implies Hermitianity
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Taylor
+      Reminder> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-6><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Analytic
+      Functions are Dense in <with|mode|<quote|math>|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5>
+      <no-break><pageref|auto-7><vspace|0.5fn>
 
-      4<space|2spc>Analytic Schwartz Space Is Sufficient for Wave-Functions
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>Analytic
+      Schwartz Space Is Sufficient for Wave-Functions>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-6>
+      <no-break><pageref|auto-8><vspace|0.5fn>
 
-      5<space|2spc>Path Integral Formalism Gives Hamiltonian
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>Path
+      Integral Formalism Gives Hamiltonian>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7>
+      <no-break><pageref|auto-9><vspace|0.5fn>
 
-      6<space|2spc>An Useful Formal Expansion
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>An
+      Useful Formal Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-10><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Expansion
+      of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-11><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Locality
+      Truncates the Moments of Transition Rate>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8>
+      <no-break><pageref|auto-12><vspace|0.5fn>
 
-      7<space|2spc>Expansion of Transition Rate
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>Hermitianity
+      on the Moments of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-13><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|12<space|2spc>Uncertainty
+      Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-14><vspace|0.5fn>
+
+      <with|par-left|<quote|1tab>|12.1<space|2spc>Implication on Moments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-9>
-
-      8<space|2spc>Locality Truncates the Moments of Transition Rate
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-10>
-
-      9<space|2spc>Hermitianity on the Moments of Transition Rate
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-11>
-
-      10<space|2spc>Uncertainty Principle
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-12>
-
-      <with|par-left|<quote|1tab>|10.1<space|2spc>Implication on Moments
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-13>>
-
-      <with|par-left|<quote|1tab>|10.2<space|2spc>When
-      <with|mode|<quote|math>|N> Is Even <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-14>>
-
-      <with|par-left|<quote|1tab>|10.3<space|2spc>When
-      <with|mode|<quote|math>|N> Is Odd <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-15>>
 
-      <with|par-left|<quote|1tab>|10.4<space|2spc>Generalizations
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <with|par-left|<quote|1tab>|12.2<space|2spc>When
+      <with|mode|<quote|math>|N> Is Even <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-16>>
+
+      <with|par-left|<quote|1tab>|12.3<space|2spc>When
+      <with|mode|<quote|math>|N> Is Odd <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-17>>
+
+      <with|par-left|<quote|1tab>|12.4<space|2spc>Generalizations
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-18>>
     </associate>
   </collection>
 </auxiliary>
