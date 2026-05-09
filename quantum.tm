@@ -155,12 +155,12 @@
   <section|Analytic Schwartz Space Is Sufficient for Wavefunctions (TODO)>
 
   In traditional textures, wavefunctions are supposed to be
-  square-integrable, namely <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>.
-  This is essential for probability interpretation (axiom
-  <reference|axiom:prob>). It is <hlink|well
-  known|https://en.wikipedia.org/wiki/Fourier_transform>, however, that the
-  Fourier transform of a square-integrable function may not be
-  square-integrable again, so that its inverse Fourier transform may not
+  square-integrable, namely wavefunction is in the square-integrable space
+  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. This is essential for
+  probability interpretation (axiom <reference|axiom:prob>). It is
+  <hlink|well known|https://en.wikipedia.org/wiki/Fourier_transform>,
+  however, that the Fourier transform of a square-integrable function may not
+  be square-integrable again, so that its inverse Fourier transform may not
   exist. Since Fourier transform is basic in quantum mechanics, we shall seek
   for a smaller space in which wavefunctions live. An ideal substitution is
   the (complex) Schwartz space. A <strong|Schwartz space>
@@ -168,50 +168,22 @@
   <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>> that decays
   \Pexponentially fast\Q at infinity. Precisely, for any <math|m>-order
   polynomial <math|P<rsub|m>> and any <math|m>-order partial derivative
-  <math|D<rsup|n>>, with integers <math|m,n\<geqslant\>0>, we have
+  <math|\<partial\><rsup|n>>,<\footnote>
+    For example, <math|\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>><rsup|2>>
+    is <math|3>-order partial derivative, and
+    <math|\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>><rsup|2>\<partial\><rsub|\<gamma\>><rsup|9>>
+    is <math|12>-order.
+  </footnote> with integers <math|m,n\<geqslant\>0>, we have
 
   <\equation*>
-    lim<rsub|<around*|\<\|\|\>|x|\<\|\|\>>\<rightarrow\>\<infty\>><around*|\||P<rsub|m><around*|(|x|)>D<rsup|n>f<around*|(|x|)>|\|>=0.
+    lim<rsub|<around*|\<\|\|\>|x|\<\|\|\>>\<rightarrow\>\<infty\>><around*|\||P<rsub|m><around*|(|x|)>\<partial\><rsup|n>f<around*|(|x|)>|\|>=0.
   </equation*>
 
   Functions in Schwartz space are usually termed as <strong|Schwartz
-  function>s. Fourier transform is an automorphism on Schwartz space. And for
-  any <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
-  <math|\<varepsilon\>\<gtr\>0>, there is a
-  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> such that<\footnote>
-    TODO: give a reference or a proof.
-  </footnote>
+  function>s. Fourier transform is an automorphism on Schwartz space.
 
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
-  </equation*>
-
-  That is, <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> is a dense
-  subspace in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. It is in this
-  sense that the substitution <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-  is plausible. For example, for any wavefunction
-  <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>, when we measure the
-  probability on any area of configuration
-  <math|U\<subset\>\<bbb-R\><rsup|d>>, we can use the approximation
-  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> instead, because the
-  difference is bounded by
-
-  <\equation*>
-    <around*|\||<big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>-<big|int><rsub|U>\<mathd\>x<around*|\||g<around*|(|x|)>|\|><rsup|2>|\|>\<leqslant\><big|int><rsub|U>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<leqslant\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
-  </equation*>
-
-  The first inequility is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
-  where the norm is defined as <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>,
-  recognized as the <math|L<rsup|2>>-norm on <math|U>. It states that the
-  difference between the two sides of a triangle is less than that of the
-  third side.
-
-  Restriction from <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> to
-  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, however, is still
-  insufficient. For example, in solving the stationary
+  Restriction from square-integrable space to Schwartz space, however, is
+  still insufficient. For example, in solving the stationary
   Schr<wide|o|\<ddot\>>dinger equation of one-dimensional harmonic
   oscillator, we suppose that wave-function has the form
 
@@ -231,31 +203,50 @@
   shall further restrict the space of wave-functions to <strong|analytic
   Schwartz space>, denoted by <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>,
   which collects all the analytic functions in Schwartz space
-  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>. Analytic functions are
-  dense in Schwartz space, meaning that for any
-  <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> and any
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
+
+  Analytic Schwartz functions are dense in square-integrable space, meaning
+  that for any <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
   <math|\<varepsilon\>\<gtr\>0>, there is a
   <math|g\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>> such that
 
   <\equation*>
-    sup<rsub|x\<in\>\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|>\<less\>\<varepsilon\>.
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
   </equation*>
 
-  Notice that the norms employed for quantifying the approximations are
-  different. While considering <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>\<subset\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
-  we used the norm in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
-  integral on the squared norm of the difference, but in
-  <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>\<subset\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
-  we used the <math|L<rsub|1>>-norm, the supremum on the norm of the
-  difference.
-
-  To prove that analytic functions are dense in Schwartz space, we introduce
-  the convolution for a function <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-  as
+  For example, for any wavefunction <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
+  when we measure the probability on any area of configuration
+  <math|U\<subset\>\<bbb-R\><rsup|d>>, we can use its approximation
+  <math|g\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>> instead,
+  because the difference is bounded by
 
   <\equation*>
-    f<rsub|n><around*|(|x|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|x-y|)>f<around*|(|y|)>,
+    <around*|\||<big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>-<big|int><rsub|U>\<mathd\>x<around*|\||g<around*|(|x|)>|\|><rsup|2>|\|>\<leqslant\><big|int><rsub|U>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<leqslant\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
+  </equation*>
+
+  The first inequility is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
+  where the norm is defined as <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>,
+  recognized as the <math|L<rsup|2>>-norm on <math|U>. It states that the
+  difference between the two sides of a triangle is less than that of the
+  third side. It is in this sense that the substitution
+  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>
+  is plausible.
+
+  \;
+
+  TODO:
+
+  To prove that analytic functions are dense in square-integrable space, we
+  first approxmate an <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>
+  by a compact support function <math|<wide|f|~>>, just using the definition
+  of improper integral. Then, we introduce the convolution
+
+  <\equation*>
+    g<rsub|n><around*|(|x|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|x-y|)><wide|f|~><around*|(|y|)>,
   </equation*>
 
   where <math|n\<in\><around*|{|1,2,\<ldots\>|}>>, and the \Pkernel\Q
@@ -266,77 +257,36 @@
   </equation*>
 
   The <math|\<delta\><rsub|n>> function is recognized as Gaussian with
-  variance <math|1/n>. To show that <math|f<rsub|n><around*|(|x|)>> tends to
-  <math|f<around*|(|x|)>> as <math|n> tends to infinity, we first change the
-  variable of integral by replacing <math|y\<rightarrow\><around*|(|x-y|)>>,
-  thus <math|f<rsub|n><around*|(|x|)>=<big|int>\<mathd\>y
-  \<delta\><rsub|n><around*|(|y|)>f<around*|(|x-y|)>>. Then using
+  variance <math|1/n>. To show that <math|g<rsub|n><around*|(|x|)>> tends to
+  <math|<wide|f|~><around*|(|x|)>> as <math|n> tends to infinity, we first
+  change the variable of integral by replacing
+  <math|y\<rightarrow\><around*|(|x-y|)>>, thus
+  <math|g<rsub|n><around*|(|x|)>=<big|int>\<mathd\>y
+  \<delta\><rsub|n><around*|(|y|)><wide|f|~><around*|(|x-y|)>>. Then using
   <math|<big|int>\<mathd\>x \<delta\><rsub|n><around*|(|y|)>=1>, we arrive at
 
   <\equation*>
-    f<rsub|n><around*|(|x|)>-f<around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|y|)><around*|[|f<around*|(|x-y|)>-f<around*|(|x|)>|]>.
+    g<rsub|n><around*|(|x|)>-<wide|f|~><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|y|)><around*|[|<wide|f|~><around*|(|x-y|)>-<wide|f|~><around*|(|x|)>|]>.
   </equation*>
 
-  By the mean value theorem (for multivariables), there is a
-  <math|s\<in\><around*|[|0,1|]>> such that
+  TODO
 
-  <\equation*>
-    <around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>=<big|sum><rsub|\<alpha\>=1><rsup|d><around*|\||<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|y|)>\<partial\><rsub|\<alpha\>>f<around*|(|x-s
-    y|)>y<rsup|\<alpha\>>|\|>.
-  </equation*>
-
-  As a Schwartz function, <math|\<partial\>f> is uniformly bounded, then
-  <math|<around*|\||f<rsub|n><around*|(|x|)>-f<around*|(|x|)>|\|>> is not
-  greater than
-
-  <\equation*>
-    sup<rsub|\<bbb-R\><rsup|d>><around*|\||\<partial\>f|\|>\<times\><big|sum><rsub|\<alpha\>=1><rsup|d><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|y|)><around*|\||y<rsup|\<alpha\>>|\|>=sup<rsub|\<bbb-R\><rsup|d>><around*|\||\<partial\>f|\|>\<times\>d<sqrt|<frac|2|\<mathpi\>
-    n>>,
-  </equation*>
-
-  which is vanishing as <math|n\<rightarrow\>\<infty\>>.
-
-  To prove that <math|f<rsub|n>> is analytic on the entire
+  To prove that <math|g<rsub|n>> is analytic on the entire
   <math|\<bbb-R\><rsup|d>>, we have to show that 1) the reminder of Taylor
   expansion at origin tends to zero, and that 2) the radius of convergence is
   infinity. To make it clear, we first consider the one-dimensional
-  situation, in which <math|d=1>. Starting at
+  situation, in which <math|d=1>. We have
 
   <\equation*>
-    f<rsub|n><around*|(|x|)>-f<rsub|n><around*|(|0|)>=<big|int><rsub|0><rsup|x>\<mathd\>y
-    f<rsub|n><rsup|<around*|(|1|)>><around*|(|y|)>.
-  </equation*>
-
-  we take integration by parts on the right hand side, resulting in
-
-  <\equation*>
-    <big|int><rsub|0><rsup|x>\<mathd\>y f<rsub|n><rsup|<around*|(|1|)>><around*|(|y|)>=-<big|int><rsub|0><rsup|x>\<mathd\><around*|(|x-y|)>
-    f<rsub|n><rsup|<around*|(|1|)>><around*|(|y|)>=f<rsub|n><rsup|<around*|(|1|)>><around*|(|x|)>x+<big|int><rsub|0><rsup|x>\<mathd\>y
-    f<rsub|n><rsup|<around*|(|2|)>><around*|(|y|)><around*|(|x-y|)>.
-  </equation*>
-
-  Again, applying integration by parts on the last term gives
-
-  <\equation*>
-    <big|int><rsub|0><rsup|x>\<mathd\>y f<rsub|n><rsup|<around*|(|2|)>><around*|(|y|)><around*|(|x-y|)>=-<frac|1|2><big|int><rsub|0><rsup|x>\<mathd\><around*|(|x-y|)><rsup|2>
-    f<rsub|n><rsup|<around*|(|2|)>><around*|(|y|)>=<frac|1|2>f<rsub|n><rsup|<around*|(|2|)>><around*|(|x|)>x<rsup|2>+<frac|1|2><big|int><rsub|0><rsup|x>\<mathd\>y
-    f<rsub|n><rsup|<around*|(|3|)>><around*|(|y|)><around*|(|x-y|)><rsup|2>.
-  </equation*>
-
-  Repeating this process, we get
-
-  <\equation*>
-    f<rsub|n><around*|(|x|)>-f<rsub|n><around*|(|0|)>=<big|sum><rsub|k=1><rsup|m><frac|1|k!>f<rsub|n><rsup|<around*|(|k|)>><around*|(|x|)>x<rsup|k>+h<rsub|m><around*|(|x|)>,
+    g<rsub|n><around*|(|x|)>-g<rsub|n><around*|(|0|)>=<big|sum><rsub|k=1><rsup|m><frac|1|k!>g<rsub|n><rsup|<around*|(|k|)>><around*|(|x|)>x<rsup|k>+h<rsub|m><around*|(|x|)>,
   </equation*>
 
   where the residue of Taylor expansion reads
 
   <\equation*>
     h<rsub|m><around*|(|x|)>\<assign\><frac|1|m!><big|int><rsub|0><rsup|x>\<mathd\>y
-    f<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)><around*|(|x-y|)><rsup|m>.
+    g<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)><around*|(|x-y|)><rsup|m>.
   </equation*>
 
   We are to show that, for any <math|x\<in\>\<bbb-R\>> given,
@@ -345,7 +295,7 @@
 
   <\equation*>
     <around*|\||h<rsub|m><around*|(|x|)>|\|>\<leqslant\><frac|1|m!><big|int><rsub|0><rsup|x>\<mathd\>y
-    <around*|\||f<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)>|\|><around*|\||x-y|\|><rsup|m>\<leqslant\><frac|1|m!>sup<rsub|<around*|[|0,x|]>><around*|\||f<rsub|n><rsup|<around*|(|m+1|)>>|\|>
+    <around*|\||g<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)>|\|><around*|\||x-y|\|><rsup|m>\<leqslant\><frac|1|m!>sup<rsub|<around*|[|0,x|]>><around*|\||g<rsub|n><rsup|<around*|(|m+1|)>>|\|>
     <around*|\||x|\|><rsup|m+1>,
   </equation*>
 
@@ -356,15 +306,15 @@
   <math|<around*|(|y-z|)>\<rightarrow\>z>,
 
   <\equation*>
-    f<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)>=
-    <big|int><rsub|\<bbb-R\>>\<mathd\>z P<rsub|m+1><around*|(|y-z|)>\<delta\><rsub|n><around*|(|y-z|)>f<around*|(|z|)>=<big|int><rsub|\<bbb-R\>>\<mathd\>z
-    P<rsub|m+1><around*|(|z|)>\<delta\><rsub|n><around*|(|z|)>f<around*|(|y-z|)>,
+    g<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)>=
+    <big|int><rsub|\<bbb-R\>>\<mathd\>z P<rsub|m+1><around*|(|y-z|)>\<delta\><rsub|n><around*|(|y-z|)><wide|f|~><around*|(|z|)>=<big|int><rsub|\<bbb-R\>>\<mathd\>z
+    P<rsub|m+1><around*|(|z|)>\<delta\><rsub|n><around*|(|z|)><wide|f|~><around*|(|y-z|)>,
   </equation*>
 
   where <math|y\<in\><around*|[|0,x|]>> and <math|P<rsub|m+1>> is an
-  <math|<around*|(|m+1|)>>-order polynomial. Since the Schwartz function
-  <math|f> has been bounded on <math|\<bbb-R\>>, the problem simplifies to
-  estimate the expression
+  <math|<around*|(|m+1|)>>-order polynomial. Since the <math|<wide|f|~>> has
+  been bounded on <math|\<bbb-R\>>, the problem simplifies to estimate the
+  expression
 
   <\equation*>
     <big|int><rsub|\<bbb-R\>>\<mathd\>z<around*|\||P<rsub|m+1><around*|(|z|)>|\|>\<delta\><rsub|n><around*|(|z|)>.
@@ -1219,68 +1169,63 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|10|8>>
-    <associate|auto-11|<tuple|10.1|9>>
-    <associate|auto-12|<tuple|10.2|10>>
+    <associate|auto-10|<tuple|10|9>>
+    <associate|auto-11|<tuple|10.1|10>>
+    <associate|auto-12|<tuple|10.2|11>>
     <associate|auto-13|<tuple|10.3|11>>
-    <associate|auto-14|<tuple|10.4|12>>
-    <associate|auto-15|<tuple|A|13>>
-    <associate|auto-16|<tuple|10.4|14>>
-    <associate|auto-17|<tuple|A|14>>
-    <associate|auto-18|<tuple|11|14>>
-    <associate|auto-19|<tuple|13.4|?>>
+    <associate|auto-14|<tuple|10.4|11>>
+    <associate|auto-15|<tuple|A|12>>
     <associate|auto-2|<tuple|2|1>>
-    <associate|auto-21|<tuple|14|?>>
     <associate|auto-3|<tuple|3|1>>
-    <associate|auto-4|<tuple|4|1>>
-    <associate|auto-5|<tuple|5|2>>
-    <associate|auto-6|<tuple|6|2>>
-    <associate|auto-7|<tuple|7|3>>
-    <associate|auto-8|<tuple|8|5>>
-    <associate|auto-9|<tuple|9|7>>
-    <associate|axiom:local|<tuple|3|10>>
-    <associate|axiom:prob|<tuple|2|2>>
+    <associate|auto-4|<tuple|4|2>>
+    <associate|auto-5|<tuple|5|4>>
+    <associate|auto-6|<tuple|6|5>>
+    <associate|auto-7|<tuple|7|6>>
+    <associate|auto-8|<tuple|8|7>>
+    <associate|auto-9|<tuple|9|8>>
+    <associate|axiom:local|<tuple|3|7>>
+    <associate|axiom:prob|<tuple|2|1>>
     <associate|axiom:sup|<tuple|1|1>>
-    <associate|axiom:uncert|<tuple|4|12>>
-    <associate|axiom:uncert-ext|<tuple|5|15>>
-    <associate|eq:deltaexp|<tuple|10|9>>
-    <associate|eq:expandbymoments|<tuple|15|10>>
-    <associate|eq:hamiltonian|<tuple|5|7>>
+    <associate|axiom:uncert|<tuple|4|9>>
+    <associate|axiom:uncert-ext|<tuple|5|12>>
+    <associate|eq:deltaexp|<tuple|10|6>>
+    <associate|eq:expandbymoments|<tuple|15|7>>
+    <associate|eq:hamiltonian|<tuple|5|4>>
     <associate|eq:hermit|<tuple|4|2>>
-    <associate|eq:kmanalogy|<tuple|14|9>>
-    <associate|eq:moment|<tuple|9|8>>
+    <associate|eq:kmanalogy|<tuple|14|6>>
+    <associate|eq:moment|<tuple|9|5>>
     <associate|eq:probtoself|<tuple|3|2>>
-    <associate|eq:transexp|<tuple|13|9>>
+    <associate|eq:transexp|<tuple|13|6>>
     <associate|equ:superposition|<tuple|1|1>>
     <associate|footnote-1|<tuple|1|1>>
-    <associate|footnote-10|<tuple|10|12>>
-    <associate|footnote-11|<tuple|11|12>>
-    <associate|footnote-12|<tuple|12|13>>
-    <associate|footnote-13|<tuple|13|14>>
-    <associate|footnote-14|<tuple|14|14>>
+    <associate|footnote-10|<tuple|10|9>>
+    <associate|footnote-11|<tuple|11|10>>
+    <associate|footnote-12|<tuple|12|11>>
+    <associate|footnote-13|<tuple|13|11>>
+    <associate|footnote-14|<tuple|14|?>>
     <associate|footnote-2|<tuple|2|1>>
     <associate|footnote-3|<tuple|3|2>>
-    <associate|footnote-4|<tuple|4|5>>
-    <associate|footnote-5|<tuple|5|5>>
-    <associate|footnote-6|<tuple|6|7>>
-    <associate|footnote-7|<tuple|7|8>>
-    <associate|footnote-8|<tuple|8|9>>
-    <associate|footnote-9|<tuple|9|11>>
+    <associate|footnote-4|<tuple|4|2>>
+    <associate|footnote-5|<tuple|5|4>>
+    <associate|footnote-6|<tuple|6|5>>
+    <associate|footnote-7|<tuple|7|6>>
+    <associate|footnote-8|<tuple|8|8>>
+    <associate|footnote-9|<tuple|9|9>>
     <associate|footnr-1|<tuple|1|1>>
-    <associate|footnr-10|<tuple|10|12>>
-    <associate|footnr-11|<tuple|11|12>>
-    <associate|footnr-12|<tuple|12|13>>
-    <associate|footnr-13|<tuple|13|14>>
-    <associate|footnr-14|<tuple|14|14>>
+    <associate|footnr-10|<tuple|10|9>>
+    <associate|footnr-11|<tuple|11|10>>
+    <associate|footnr-12|<tuple|12|11>>
+    <associate|footnr-13|<tuple|13|11>>
+    <associate|footnr-14|<tuple|14|?>>
     <associate|footnr-2|<tuple|2|1>>
     <associate|footnr-3|<tuple|3|2>>
-    <associate|footnr-4|<tuple|4|5>>
-    <associate|footnr-5|<tuple|5|5>>
-    <associate|footnr-6|<tuple|6|7>>
-    <associate|footnr-7|<tuple|7|8>>
-    <associate|footnr-8|<tuple|8|9>>
-    <associate|footnr-9|<tuple|9|11>>
-    <associate|section:Hermitianity on Moments|<tuple|9|11>>
+    <associate|footnr-4|<tuple|4|2>>
+    <associate|footnr-5|<tuple|5|4>>
+    <associate|footnr-6|<tuple|6|5>>
+    <associate|footnr-7|<tuple|7|6>>
+    <associate|footnr-8|<tuple|8|8>>
+    <associate|footnr-9|<tuple|9|9>>
+    <associate|section:Hermitianity on Moments|<tuple|9|8>>
   </collection>
 </references>
 
@@ -1291,78 +1236,65 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|1.1<space|2spc>Motivation
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-2>>
-
-      <with|par-left|<quote|1tab>|1.2<space|2spc>How to Read this Note?
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-3>>
-
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Superposition
       Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4><vspace|0.5fn>
+      <no-break><pageref|auto-2><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Probability
       Interpretation Implies Hermitianity>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Analytic
+      Schwartz Space Is Sufficient for Wavefunctions (TODO)>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-4><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Path
+      Integral Formalism Gives Hamiltonian>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Taylor
-      Reminder> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>An
+      Useful Formal Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Analytic
-      Functions are Dense in <with|mode|<quote|math>|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>Expansion
+      of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-7><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>Analytic
-      Schwartz Space Is Sufficient for Wave-Functions>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>Locality
+      Truncates the Moments of Transition Rate>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-8><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>Path
-      Integral Formalism Gives Hamiltonian>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Hermitianity
+      on the Moments of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-9><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>An
-      Useful Formal Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Uncertainty
+      Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-10><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Expansion
-      of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-11><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Locality
-      Truncates the Moments of Transition Rate>
+      <with|par-left|<quote|1tab>|10.1<space|2spc>Implication on Moments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-12><vspace|0.5fn>
+      <no-break><pageref|auto-11>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>Hermitianity
-      on the Moments of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-13><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|12<space|2spc>Uncertainty
-      Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-14><vspace|0.5fn>
-
-      <with|par-left|<quote|1tab>|12.1<space|2spc>Implication on Moments
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-15>>
-
-      <with|par-left|<quote|1tab>|12.2<space|2spc>When
+      <with|par-left|<quote|1tab>|10.2<space|2spc>When
       <with|mode|<quote|math>|N> Is Even <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-16>>
+      <no-break><pageref|auto-12>>
 
-      <with|par-left|<quote|1tab>|12.3<space|2spc>When
+      <with|par-left|<quote|1tab>|10.3<space|2spc>When
       <with|mode|<quote|math>|N> Is Odd <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-17>>
+      <no-break><pageref|auto-13>>
 
-      <with|par-left|<quote|1tab>|12.4<space|2spc>Generalizations
+      <with|par-left|<quote|1tab>|10.4<space|2spc>Generalizations
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-18>>
+      <no-break><pageref|auto-14>>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
+      A<space|2spc>Taylor Reminder> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-15><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
