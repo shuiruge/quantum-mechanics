@@ -12,7 +12,7 @@
   In fact, what we will get is a generalized Schr<wide|o|\<ddot\>>dinger
   equation, which is the most generic equation that these axioms can imply.
 
-  Conventions:
+  <subsection|Conventions>
 
   <\itemize>
     <item><strong|Definitions> are in bold font.
@@ -24,25 +24,42 @@
     <item><with|color|red|Questions> are in red color.
 
     <item><with|color|dark green|Conclusions> are in green color.
-
-    <item>When the index <math|\<alpha\>=<around*|(|\<alpha\><rsub|1>,\<ldots\>,\<alpha\><rsub|n>|)>>
-    is a vector, then <math|\<partial\><rsub|\<alpha\>><rsup|n>f<around*|(|x|)>\<assign\><around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<cdots\>\<partial\><rsub|\<alpha\><rsub|n>>f|)><around*|(|x|)>>.
-
-    <item>Einstein's convention of summation:
-    <math|v<rsub|\<alpha\>>w<rsup|\<alpha\>>> and
-    <math|<big|sum><rsub|\<alpha\>><around*|(|v<rsup|\<alpha\>>|)><rsup|2>>.
-
-    <item>When <math|x,k\<in\>\<bbb-R\><rsup|d>>, we denote <math|x
-    k\<assign\>x<rsup|\<alpha\>>k<rsub|\<alpha\>>>.
   </itemize>
+
+  <subsection|Abbreviations>
+
+  Because we are doing high-dimensional calculus, abbreviations are essential
+  for not falling in the \Pdebauchery of formulae\Q.
+
+  When <math|x,y\<in\>\<bbb-R\><rsup|d>>, denote <math|x
+  y=x\<cdot\>y=<big|sum><rsub|\<alpha\>=1><rsup|d>x<rsup|\<alpha\>>y<rsup|\<alpha\>>>.
+  Furthermore, we use multi-dimensional index
+  <math|\<alpha\>=<around*|(|\<alpha\><rsub|1>,\<ldots\>,\<alpha\><rsub|n>|)>>
+  for abbreviating partial derivative <math|<around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<cdots\>\<partial\><rsub|\<alpha\><rsub|n>>f|)><around*|(|x|)>>
+  to <math|\<partial\><rsub|\<alpha\>><rsup|n>f<around*|(|x|)>>, and
+  abbreviating tensor (generalization of vector to multiple indices)
+  <math|M<rsup|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|n>> to
+  M<rsup|\<alpha\>>>. For example, the product
+  <math|v<rsup|\<alpha\><rsub|1>>*\<cdots\>*v<rsup|\<alpha\><rsub|n>>> can be
+  abbreviated as <math|v<rsup|\<alpha\>>>.
+
+  Einstein's convention of summation is an elegant abbreviation for
+  high-dimensional calculus and tensor analysis. It neglects the
+  <math|\<Sigma\><rsub|\<alpha\>>> in <math|<big|sum><rsub|\<alpha\>>v<rsub|\<alpha\>>w<rsup|\<alpha\>>>,
+  abbreviated to be <math|v<rsub|\<alpha\>>w<rsup|\<alpha\>>>. The indices
+  are \Pbalanced\Q, one superscript, and the other subscript. The convention
+  does not apply to the \Punbalanced\Q summation such as
+  <math|<big|sum><rsub|\<alpha\>>v<rsup|\<alpha\>>w<rsup|\<alpha\>>>, because
+  both indices are superscripts.
 
   <section|Probability Interpretation and Wavefunction>
 
-  In classical Newtonian world, the states of a system with <math|n>
-  particles are represented by elements in <math|\<bbb-R\><rsup|6n>>, or a
-  <strong|phase>, <math|3n> for positions and <math|3n> for velocities or
-  momenta. The time evolution is thus a trajectory in the phase space, namely
-  a map <math|\<bbb-R\>\<rightarrow\>\<bbb-R\><rsup|6n>>.
+  In classical Newtonian world, the states of a physical system with <math|n>
+  particles are represented by elements in <math|\<bbb-R\><rsup|6n>>, or
+  <strong|phase>s, <math|3n> dimensions for positions and <math|3n> for
+  velocities (or momenta). The time evolution is thus a trajectory in the
+  phase space, namely a map <math|\<bbb-R\>\<rightarrow\>\<bbb-R\><rsup|6n>>
+  (with time as the domain).
 
   But for a quantum system, the states are represented by wavefunctions. A
   <strong|wavefunction> is a map from the positions of particles, together
@@ -88,18 +105,55 @@
   <math|<big|sum><rsub|i=1><rsup|n>\<varphi\><rsub|i> r<rsub|i j>>. The
   imaginary <math|\<mathi\>> is employed for convenience.
 
+  A direct result of axiom <reference|axiom:prob> is that probabilistic
+  density shall be normalized. Namely, for any wave-function
+  <math|\<varphi\>> and any <math|t\<in\>\<bbb-R\>>, we shall have
+
+  <\equation>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    \<varphi\><rsup|\<ast\>><around*|(|x,t|)>\<varphi\><around*|(|x,t|)>=1.<label|eq:probtoself>
+  </equation>
+
+  Taking derivative on <math|t> gives
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    <frac|\<partial\>\<varphi\><rsup|\<ast\>>|\<partial\>t><around*|(|x,t|)>\<varphi\><around*|(|x,t|)>+<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    \<varphi\><rsup|\<ast\>><around*|(|x,t|)><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=0.
+  </equation*>
+
+  Inserting equation <reference|equ:superposition> gives
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<big|int><rsub|\<bbb-R\><rsup|d>>
+    \<mathd\>y \<varphi\><rsup|\<ast\>><around*|(|x,t|)>\<varphi\><around*|(|y,t|)>
+    <around*|[|r<rsup|\<ast\>><around*|(|x,y|)>-r<around*|(|y,x|)>|]>=0.
+  </equation*>
+
+  Since <math|\<varphi\>> is arbitrary, we obtain
+
+  <\equation>
+    r<rsup|\<ast\>><around*|(|x,y|)>=r<around*|(|y,x|)>.
+  </equation>
+
+  That is, complex conjugating <math|r> is simply swapping its arguments. We
+  call such function <strong|Hermitian>.
+
   Probability interpretation (axiom <reference|axiom:prob>), together with
   superposition principle (axiom <reference|axiom:sup>), is the direct result
   of the double-slit experiment of electron. Details can be found in
   Feynman's Lectures on Physics, Vol 3, chapter 1.
 
-  <section|Analytic Schwartz Space Is Sufficient for Wavefunctions (TODO)>
+  <section|Analytic Schwartz Space Is Dense in Square-Integrable Space>
 
-  In traditional textures, wavefunctions are supposed to be
-  square-integrable, namely wavefunction is in the square-integrable space
-  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. This is essential for
-  probability interpretation (axiom <reference|axiom:prob>). It is
-  <hlink|well known|https://en.wikipedia.org/wiki/Fourier_transform>,
+  Before calculations, we first address where wavefunctions live. Probability
+  interpretation (axiom <reference|axiom:prob>) demands that wavefunctions
+  are square-integrable. Namely, wavefunction is in the square-integrable
+  space <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. But this is far from
+  sufficient. Many mathematical tools are essential for evaluating quantum
+  mechanics. Two of the many are Fourier transform and Taylor series.
+
+  It is <hlink|well known|https://en.wikipedia.org/wiki/Fourier_transform>,
   however, that the Fourier transform of a square-integrable function may not
   be square-integrable again, so that its inverse Fourier transform may not
   exist. Since Fourier transform is basic in quantum mechanics, we shall seek
@@ -121,30 +175,31 @@
   </equation*>
 
   Functions in Schwartz space are usually termed as <strong|Schwartz
-  function>s. Fourier transform is an automorphism on Schwartz space.
+  function>s. Fourier transform is an automorphism on Schwartz space. A
+  function that is consistent with its Taylor series is analytical. It
+  indicates that we shall further restrict the space of wavefunctions to
+  <strong|analytic Schwartz space>, denoted by
+  <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>, which collects all
+  the analytic functions in Schwartz space
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
 
-  Restriction from square-integrable space to Schwartz space, however, is
-  still insufficient. For example, in solving the stationary
-  Schr<wide|o|\<ddot\>>dinger equation of one-dimensional harmonic
-  oscillator, we suppose that wave-function has the form
+  For example, in traditional textures, solving the stationary
+  Schr<wide|o|\<ddot\>>dinger equation of one-dimensional harmonic oscillator
+  needs the expansion of wavefunction
 
   <\equation*>
-    f<around*|(|x|)>=exp<around*|(|-x<rsup|2>|)>
+    \<varphi\><around*|(|x|)>=exp<around*|(|-x<rsup|2>|)>
     <around*|[|<big|sum><rsub|n=0><rsup|\<infty\>>a<rsub|n>x<rsup|n>|]>,
   </equation*>
 
   where the coefficients <math|<around*|(|a<rsub|0>,a<rsub|1>,\<ldots\>|)>>
   are to be determined. The factor <math|exp<around*|(|-x<rsup|2>|)>> is
   employed for an exponentially fast decay as
-  <math|<around*|\||x|\|>\<rightarrow\>\<infty\>> (thus faster than the
-  inverse of any polynomial). And the factor <math|<around*|[|\<cdots\>|]>>
-  is a Taylor series. Hence, <math|f> is an analytic function in Schwartz
-  space. The energy quantization emerges for ensuring the convergence of the
-  series <math|<big|sum><rsub|n>a<rsub|n>x<rsup|n>>. It indicates that we
-  shall further restrict the space of wave-functions to <strong|analytic
-  Schwartz space>, denoted by <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>,
-  which collects all the analytic functions in Schwartz space
-  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
+  <math|<around*|\||x|\|>\<rightarrow\>\<infty\>> (thus <math|\<varphi\>> is
+  a Schwartz function). And the factor <math|<around*|[|\<cdots\>|]>> is a
+  Taylor series. Hence, <math|f> is an analytic function in Schwartz space.
+  The energy quantization emerges for ensuring the convergence of the series
+  <math|<big|sum><rsub|n>a<rsub|n>x<rsup|n>>.
 
   Analytic Schwartz functions are dense in square-integrable space, meaning
   that for any <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
@@ -157,7 +212,7 @@
   </equation*>
 
   For example, for any wavefunction <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
-  when we measure the probability on any area of configuration
+  when we measure the probability on any area of positions
   <math|U\<subset\>\<bbb-R\><rsup|d>>, we can use its approximation
   <math|g\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>> instead,
   because the difference is bounded by
@@ -168,112 +223,16 @@
     <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
   </equation*>
 
-  The first inequility is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
+  The first inequality is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
   where the norm is defined as <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>,
   recognized as the <math|L<rsup|2>>-norm on <math|U>. It states that the
   difference between the two sides of a triangle is less than that of the
   third side. It is in this sense that the substitution
   <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>
-  is plausible.
+  is plausible. Proof of the statement that analytic Schwartz functions are
+  dense in square-integrable space is given in the appendices TODO.
 
-  \;
-
-  TODO:
-
-  To prove that analytic functions are dense in square-integrable space, we
-  first approxmate an <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>
-  by a compact support function <math|<wide|f|~>>, just using the definition
-  of improper integral. Then, we introduce the convolution
-
-  <\equation*>
-    g<rsub|n><around*|(|x|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|x-y|)><wide|f|~><around*|(|y|)>,
-  </equation*>
-
-  where <math|n\<in\><around*|{|1,2,\<ldots\>|}>>, and the \Pkernel\Q
-  function is
-
-  <\equation*>
-    \<delta\><rsub|n><around*|(|x|)>\<assign\><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|n|2><big|sum><rsub|\<alpha\>=1><rsup|d><around*|(|x<rsup|\<alpha\>>|)><rsup|2>|)>.
-  </equation*>
-
-  The <math|\<delta\><rsub|n>> function is recognized as Gaussian with
-  variance <math|1/n>. To show that <math|g<rsub|n><around*|(|x|)>> tends to
-  <math|<wide|f|~><around*|(|x|)>> as <math|n> tends to infinity, we first
-  change the variable of integral by replacing
-  <math|y\<rightarrow\><around*|(|x-y|)>>, thus
-  <math|g<rsub|n><around*|(|x|)>=<big|int>\<mathd\>y
-  \<delta\><rsub|n><around*|(|y|)><wide|f|~><around*|(|x-y|)>>. Then using
-  <math|<big|int>\<mathd\>x \<delta\><rsub|n><around*|(|y|)>=1>, we arrive at
-
-  <\equation*>
-    g<rsub|n><around*|(|x|)>-<wide|f|~><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|y|)><around*|[|<wide|f|~><around*|(|x-y|)>-<wide|f|~><around*|(|x|)>|]>.
-  </equation*>
-
-  TODO
-
-  To prove that <math|g<rsub|n>> is analytic on the entire
-  <math|\<bbb-R\><rsup|d>>, we have to show that 1) the reminder of Taylor
-  expansion at origin tends to zero, and that 2) the radius of convergence is
-  infinity. To make it clear, we first consider the one-dimensional
-  situation, in which <math|d=1>. We have
-
-  <\equation*>
-    g<rsub|n><around*|(|x|)>-g<rsub|n><around*|(|0|)>=<big|sum><rsub|k=1><rsup|m><frac|1|k!>g<rsub|n><rsup|<around*|(|k|)>><around*|(|x|)>x<rsup|k>+h<rsub|m><around*|(|x|)>,
-  </equation*>
-
-  where the residue of Taylor expansion reads
-
-  <\equation*>
-    h<rsub|m><around*|(|x|)>\<assign\><frac|1|m!><big|int><rsub|0><rsup|x>\<mathd\>y
-    g<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)><around*|(|x-y|)><rsup|m>.
-  </equation*>
-
-  We are to show that, for any <math|x\<in\>\<bbb-R\>> given,
-  <math|h<rsub|m><around*|(|x|)>\<rightarrow\>0> as
-  <math|m\<rightarrow\>\<infty\>>. Since
-
-  <\equation*>
-    <around*|\||h<rsub|m><around*|(|x|)>|\|>\<leqslant\><frac|1|m!><big|int><rsub|0><rsup|x>\<mathd\>y
-    <around*|\||g<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)>|\|><around*|\||x-y|\|><rsup|m>\<leqslant\><frac|1|m!>sup<rsub|<around*|[|0,x|]>><around*|\||g<rsub|n><rsup|<around*|(|m+1|)>>|\|>
-    <around*|\||x|\|><rsup|m+1>,
-  </equation*>
-
-  we are to prove that the supremum is bounded by a polynomial of <math|x> (a
-  polynomial of linear order in <math|m> will be surpassed by the factorial
-  <math|m!>, so we will find <math|h<rsub|m><around*|(|x|)>\<rightarrow\>0>
-  as <math|m\<rightarrow\>\<infty\>>). We have, by replacing
-  <math|<around*|(|y-z|)>\<rightarrow\>z>,
-
-  <\equation*>
-    g<rsub|n><rsup|<around*|(|m+1|)>><around*|(|y|)>=
-    <big|int><rsub|\<bbb-R\>>\<mathd\>z P<rsub|m+1><around*|(|y-z|)>\<delta\><rsub|n><around*|(|y-z|)><wide|f|~><around*|(|z|)>=<big|int><rsub|\<bbb-R\>>\<mathd\>z
-    P<rsub|m+1><around*|(|z|)>\<delta\><rsub|n><around*|(|z|)><wide|f|~><around*|(|y-z|)>,
-  </equation*>
-
-  where <math|y\<in\><around*|[|0,x|]>> and <math|P<rsub|m+1>> is an
-  <math|<around*|(|m+1|)>>-order polynomial. Since the <math|<wide|f|~>> has
-  been bounded on <math|\<bbb-R\>>, the problem simplifies to estimate the
-  expression
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\>>\<mathd\>z<around*|\||P<rsub|m+1><around*|(|z|)>|\|>\<delta\><rsub|n><around*|(|z|)>.
-  </equation*>
-
-  It is recognized as the momentum of normal distribution with zero mean and
-  variance <math|1/n>? TODO
-
-  This is an elegant proof because we can <em|see> how <math|f> is
-  approximated by a series of analytic functions explicitly.<\footnote>
-    This profound construction is found in the lemma 15.1 of <em|Topological
-    Vector Spaces, Distributions and Kernels> written by Francois Treves,
-    1967.
-  </footnote> As a by-product, we also find that <math|\<delta\><rsub|n>> has
-  Dirac's <math|\<delta\>>-function as its limit. In fact,
-  <math|\<delta\>>-function is <em|defined> as the limit of
-  <math|\<delta\><rsub|n>> when it is applied (as convolution) on a Schwartz
-  function.
+  TODO: can we approximate <math|r\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|2d>|)>>?
 
   <section|Path Integral Formalism>
 
@@ -296,11 +255,11 @@
 
   and
 
-  <\equation*>
+  <\equation>
     r<around*|(|x,x<rprime|'>|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
     exp<around*|(|\<mathi\>k<around*|(|x<rprime|'>-x|)>|)>
-    <wide|r|^><around*|(|x,k|)>,
-  </equation*>
+    <wide|r|^><around*|(|x,k|)>,<label|eq:r-fourier>
+  </equation>
 
   in which
 
@@ -317,7 +276,7 @@
   <\align>
     <tformat|<table|<row|<cell|<around*|[|\<cdots\>|]>=>|<cell|<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
     exp<around*|(|\<mathi\>k<around*|(|x<rprime|'>-x|)>|)><around*|[|1-\<mathi\><wide|r|^><around*|(|x,k|)>\<Delta\>t|]>>>|<row|<cell|=>|<cell|<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|(|\<mathi\>k<around*|(|x<rprime|'>-x|)>-\<mathi\><wide|r|^><around*|(|x,k|)>\<Delta\>t|)>+\<omicron\><around*|(|\<Delta\>t|)>>>>>
+    exp<around*|{|\<mathi\>k<around*|(|x<rprime|'>-x|)>-\<mathi\><wide|r|^><around*|(|x,k|)>\<Delta\>t|}>+\<omicron\><around*|(|\<Delta\>t|)>>>>>
   </align>
 
   Plugging back to <math|\<varphi\><around*|(|x<rprime|'>,t+\<Delta\>t|)>
@@ -325,26 +284,22 @@
 
   <\equation*>
     \<varphi\><around*|(|x<rprime|'>,t+\<Delta\>t|)>=<big|int><rsub|\<bbb-R\><rsup|2d>><frac|\<mathd\>x\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-    \<varphi\><around*|(|x,t|)>exp<around*|(|\<mathi\>k<around*|(|x<rprime|'>-x|)>-\<mathi\><wide|r|^><around*|(|x,k|)>\<Delta\>t|)>+\<omicron\><around*|(|\<Delta\>t|)>
+    \<varphi\><around*|(|x,t|)>exp<around*|{|\<mathi\>k<around*|(|x<rprime|'>-x|)>-\<mathi\><wide|r|^><around*|(|x,k|)>\<Delta\>t|}>+\<omicron\><around*|(|\<Delta\>t|)>
   </equation*>
 
   Re-denoting <math|x<rsub|0>\<assign\>x>,
   <math|x<rsub|1>\<assign\>x<rprime|'>>, <math|k<rsub|0>\<assign\>k>,
 
   <\equation*>
-    f<around*|(|x<rsub|1>,t+\<Delta\>t|)>=<big|int><rsub|\<bbb-R\><rsup|2d>><frac|\<mathd\>x<rsub|0>\<mathd\>k<rsub|0>|<around*|(|2\<mathpi\>|)><rsup|d>>
-    \<varphi\><around*|(|x<rsub|0>,t|)>exp<around*|(|\<mathi\>k<rsub|0><around*|(|x<rprime|'><rsub|0>-x<rsub|0>|)>-\<mathi\><wide|r|^><around*|(|x<rsub|0>,k<rsup|0>|)>\<Delta\>t|)>+\<omicron\><around*|(|\<Delta\>t|)>
+    \<varphi\><around*|(|x<rsub|1>,t+\<Delta\>t|)>=<big|int><rsub|\<bbb-R\><rsup|2d>><frac|\<mathd\>x<rsub|0>\<mathd\>k<rsub|0>|<around*|(|2\<mathpi\>|)><rsup|d>>
+    \<varphi\><around*|(|x<rsub|0>,t|)>exp<around*|{|\<mathi\>k<rsub|0><around*|(|x<rprime|'><rsub|0>-x<rsub|0>|)>-\<mathi\><wide|r|^><around*|(|x<rsub|0>,k<rsup|0>|)>\<Delta\>t|}>+\<omicron\><around*|(|\<Delta\>t|)>
   </equation*>
 
-  Repeating this process <math|N> times, we arrive at<\footnote>
-    We have to show that the residue is an
-    <math|\<omicron\><around*|(|N\<Delta\>t|)>>, but this is far from
-    trivial.
-  </footnote>
+  Repeating this process <math|N> times, we arrive at
 
   <\equation>
-    f<around*|(|x<rsub|N>,t+N \<Delta\>t|)>=<big|int>D<around*|(|x,k|)>
-    f<around*|(|x<rsub|0>,t|)> exp<around*|(|\<mathi\>S<around*|(|x,k|)>|)>+\<omicron\><around*|(|N\<Delta\>t|)>,
+    \<varphi\><around*|(|x<rsub|N>,t+N \<Delta\>t|)>=<big|int>D<around*|(|x,k|)>
+    \<varphi\><around*|(|x<rsub|0>,t|)> exp<around*|(|\<mathi\>S<around*|(|x,k|)>|)>+\<omicron\><around*|(|\<Delta\>t|)>,
   </equation>
 
   where the integral
@@ -368,12 +323,12 @@
   <math|<wide|r|^><around*|(|x,k|)>> plays the role of Hamiltonian
   <math|H<around*|(|x,p|)>>>>.
 
-  <section|An Useful Formal Expansion>
+  <section|Some Useful Expansions>
 
-  In this section, we claim an mathematical theorem that is important for
-  continuing the journey. It extends a function in Schwartz space (ensuring
-  Fourier transform), to a generalized function. With this extension, the
-  function can be expanded by a series of generalized functions.
+  In this section, we claim some useful expansions that are essential for
+  continuing our journey. They extend a function in Schwartz space to a
+  generalized function. With this extension, the function can be expressed as
+  a series of generalized functions.
 
   Define the <math|n>-th order <strong|moment> (with <math|n\<geqslant\>0>)
   of a function <math|M<rsub|n>:\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<bbb-C\>>
@@ -381,23 +336,22 @@
 
   <\equation>
     M<rsub|n><rsup|\<alpha\>><around*|(|f|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    f<around*|(|x|)> <around*|(|x<rsup|\<alpha\><rsub|1>>\<cdots\>x<rsup|\<alpha\><rsub|n>>|)>,<label|eq:moment>
+    f<around*|(|x|)> x<rsup|\<alpha\>>,<label|eq:moment>
   </equation>
 
-  where <math|\<alpha\>\<assign\><around*|(|\<alpha\><rsub|1>,\<ldots\>,\<alpha\><rsub|n>|)>>.
-  Since <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, the moment
-  <math|M<rsub|n><around*|(|f|)>> is finite for any <math|n>. Denote
-  <math|\<cal-S\><rsub|A>> the subspace of Schwartz space in which every
-  function is analytic, termed as <strong|analytic Schwartz space>. Then, for
-  an arbitrary function <math|\<varphi\>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>,
+  where <math|\<alpha\>\<assign\><around*|(|\<alpha\><rsub|1>,\<ldots\>,\<alpha\><rsub|n>|)>>
+  and <math|x<rsup|\<alpha\>>\<assign\><around*|(|x<rsup|\<alpha\><rsub|1>>\<cdots\>x<rsup|\<alpha\><rsub|n>>|)>>
+  (recall the abbreviations). Since <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
+  the moment <math|M<rsub|n><around*|(|f|)>> is finite for any <math|n>.
+  Then, for an arbitrary \Ptest function\Q
+  <math|\<varphi\>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>,
   Taylor expanding at origin gives
 
   <\equation*>
     <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x f<around*|(|x|)>
     \<varphi\><around*|(|x|)>=<big|sum><rsub|n=0><rsup|+\<infty\>><frac|1|n!>
-    <around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x f<around*|(|x|)>
-    <around*|(|x<rsup|\<alpha\><rsub|1>>\<cdots\>x<rsup|\<alpha\><rsub|n>>|)>|]>
-    \<partial\><rsup|n><rsub|\<alpha\>>\<varphi\><around*|(|0|)>=<big|sum><rsub|n=0><rsup|+\<infty\>><frac|1|n!>
+    <around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    f<around*|(|x|)>x<rsup|\<alpha\>>|]> \<partial\><rsup|n><rsub|\<alpha\>>\<varphi\><around*|(|0|)>=<big|sum><rsub|n=0><rsup|+\<infty\>><frac|1|n!>
     M<rsub|n><rsup|\<alpha\>><around*|(|f|)>
     \<partial\><rsup|n><rsub|\<alpha\>>\<varphi\><around*|(|0|)>.
   </equation*>
@@ -426,7 +380,7 @@
     M<rsub|n><rsup|\<alpha\>><around*|(|f|)>\<partial\><rsup|n><rsub|\<alpha\>>\<delta\><around*|(|x|)>|]>\<varphi\><around*|(|x|)>.
   </equation*>
 
-  Since <math|\<varphi\>> is arbitrary, we finall arrive at
+  Since <math|\<varphi\>> is arbitrary, we finally arrive at
 
   <\equation>
     f<around*|(|x|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|n>|n!>
@@ -436,7 +390,10 @@
   <with|color|dark green|<em|It shall be read as a formal expansion, or an
   \Palgorithm\Q (with which we obtain a valid expression of
   <math|<big|int>\<mathd\>x f<around*|(|x|)>\<varphi\><around*|(|x|)>>). Only
-  by applying to an analytic Schwartz function can it make sense.>>
+  by applying to an analytic Schwartz function can it make sense.>> The
+  partial derivatives of Dirac's delta function have the property:
+  <math|\<partial\><rsup|n>\<delta\>> is odd when <math|n> is odd, it is even
+  when <math|n> is even.
 
   Moments also relate to Fourier transform. We have the Fourier transform
 
@@ -445,33 +402,31 @@
     exp<around*|(|-\<mathi\>k x|)>f<around*|(|x|)>.
   </equation*>
 
-  Taking derivatives on <math|k> gives
+  Taking derivatives on <math|k> at origin gives
 
-  <\align>
-    <tformat|<table|<row|<cell|\<partial\><rsup|n><rsub|\<alpha\>><wide|f|^><around*|(|0|)>=>|<cell|lim<rsub|k\<rightarrow\>0><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    exp<around*|(|-\<mathi\>k x|)>f<around*|(|x|)><around*|(|-\<mathi\>|)><rsup|n><around*|(|x<rsup|\<alpha\><rsub|1>>\<cdots\>x<rsup|\<alpha\><rsub|n>>|)>>>|<row|<cell|=>|<cell|<around*|(|-\<mathi\>|)><rsup|n><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    f<around*|(|x|)><around*|(|x<rsup|\<alpha\><rsub|1>>\<cdots\>x<rsup|\<alpha\><rsub|n>>|)>.>>>>
-  </align>
+  <\equation*>
+    \<partial\><rsup|n><rsub|\<alpha\>><wide|f|^><around*|(|0|)>=<around*|(|-\<mathi\>|)><rsup|n><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    f<around*|(|x|)>x<rsup|\<alpha\>>=<around*|(|-\<mathi\>|)><rsup|n>M<rsub|n><rsup|\<alpha\>><around*|(|f|)>.
+  </equation*>
 
   Namely, the Taylor expansion coefficient of <math|<wide|f|^>> is
   <math|<around*|(|-\<mathi\>|)><rsup|n>M<rsub|n><around*|(|f|)>>, and
 
   <\equation>
-    <wide|f|^><around*|(|k|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>M<rsub|n><rsup|\<alpha\>><around*|(|f|)><around*|(|k<rsub|\<alpha\><rsub|1>>\<cdots\>k<rsub|\<alpha\><rsub|n>>|)>.
+    <wide|f|^><around*|(|k|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>M<rsub|n><rsup|\<alpha\>><around*|(|f|)>k<rsub|\<alpha\>>,<label|eq:momentexpansion>
   </equation>
 
+  where <math|k<rsub|\<alpha\>>\<assign\><around*|(|k<rsub|\<alpha\><rsub|1>>\<cdots\>k<rsub|\<alpha\><rsub|n>>|)>>.
   This relates the moments and the Fourier transform of a function in
-  analytic Schwartz space. <with|color|dark green|<em|We can construct the
-  <math|f> by a series of its moments.>> For ensuring convergence, we further
-  demand that <math|<wide|f|^>> is analytic, namely
-  <math|<wide|f|^>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>.<\footnote>
-    TODO: prove that <math|<wide|f|^><rsub|n>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>
-    given <math|f<rsub|n><around*|(|x|)>=<around*|(|\<delta\><rsub|n>\<ast\>f|)><around*|(|x|)>>.
+  Schwartz space. <with|color|dark green|<em|We can construct the <math|f> by
+  a series of its moments.>><\footnote>
+    <with|color|red|For ensuring convergence, we have to demand that
+    <math|<wide|f|^>> is analytic. When does it hold?>
   </footnote>
 
   <section|Expansion of Transition Rate>
 
-  Now we apply the expansion derived in the previous section to transition
+  Now we apply the expansions derived in the previous section to transition
   rate <math|r<around*|(|x,y|)>>. Denote <math|R<rsub|n><around*|(|x|)>> as
   the <math|n>-th order moment of the map
   <math|\<epsilon\>\<mapsto\>r<around*|(|x,x+\<epsilon\>|)>>, that is (moment
@@ -479,10 +434,11 @@
 
   <\equation>
     R<rsub|n><rsup|\<alpha\>><around*|(|x|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>\<epsilon\>
-    <around*|(|\<epsilon\><rsup|\<alpha\><rsub|1>>\<cdots\>\<epsilon\><rsup|\<alpha\><rsub|n>>|)>r<around*|(|x,x+\<epsilon\>|)>,
+    r<around*|(|x,x+\<epsilon\>|)>\<epsilon\><rsup|\<alpha\>>,
   </equation>
 
-  where <math|\<alpha\>\<assign\><around*|(|\<alpha\><rsub|1>,\<ldots\>,\<alpha\><rsub|n>|)>>.
+  where <math|\<alpha\>\<assign\><around*|(|\<alpha\><rsub|1>,\<ldots\>,\<alpha\><rsub|n>|)>>
+  and <math|\<epsilon\><rsup|\<alpha\>>\<assign\><around*|(|\<epsilon\><rsup|\<alpha\><rsub|1>>\<cdots\>\<epsilon\><rsup|\<alpha\><rsub|n>>|)>>.
   Using equation <reference|eq:deltaexp>, we directly get
 
   <\equation>
@@ -504,8 +460,7 @@
 
   Using the parity of <math|\<partial\><rsup|n>\<delta\>>, we change
   <math|y-x> to <math|x-y> in <math|\<partial\><rsup|n><rsub|\<alpha\>>\<delta\><around*|(|y-x|)>>.
-  Then, after integration by parts, we integrate over <math|w>, which results
-  in
+  Then, after integration by parts, we integrate over <math|x>, resulting in
 
   <\equation>
     \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|n>|n!>
@@ -516,30 +471,20 @@
   process.
 
   Interestingly, the Taylor expansion of the \PHamiltonian\Q
-  <math|<wide|r|^><around*|(|x,k|)>> also relates to the moments
-  <math|R<rsub|n>>s (the <math|<wide|r|^><around*|(|x,k|)>> is defined by
-  equation <reference|eq:hamiltonian>). Indeed, if we Taylor expand
-  <math|<wide|r|^><around*|(|x,k|)>> by <math|k> at origin, then the
-  coefficient is
-
-  <\equation*>
-    lim<rsub|k\<rightarrow\>0><frac|\<partial\>|\<partial\>k<rsub|\<alpha\><rsub|1>>>\<cdots\><frac|\<partial\>|\<partial\>k<rsub|\<alpha\><rsub|n>>><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>\<epsilon\>
-    exp<around*|(|-\<mathi\>k\<epsilon\>|)>r<around*|(|x,x+\<epsilon\>|)>=<around*|(|-\<mathi\>|)><rsup|n><around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>\<epsilon\>
-    <around*|(|\<epsilon\><rsup|\<alpha\><rsub|1>>\<cdots\>\<epsilon\><rsup|\<alpha\><rsub|n>>|)>r<around*|(|x,x+\<epsilon\>|)>|]>.
-  </equation*>
-
-  The <math|<around*|[|\<cdots\>|]>> is recognized as <math|R<rsub|n>>. So,
-  <math|<wide|r|^><around*|(|x,k|)>> can be Taylor expanded as
+  <math|<wide|r|^><around*|(|x,k|)>>, defined by equation
+  <reference|eq:hamiltonian>, also relates to the moments <math|R<rsub|n>>s.
+  Directly, equation <reference|eq:momentexpansion> gives (again, replacing
+  the <math|f> by <math|\<epsilon\>\<mapsto\>r<around*|(|x,x+\<epsilon\>|)>>)
 
   <\equation>
-    <wide|r|^><around*|(|x,k|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsub|n><rsup|\<alpha\>><around*|(|x|)><around*|(|k<rsub|\<alpha\><rsub|1>>\<cdots\>k<rsub|\<alpha\><rsub|n>>|)>.<label|eq:expandbymoments>
+    <wide|r|^><around*|(|x,k|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsub|n><rsup|\<alpha\>><around*|(|x|)>k<rsub|\<alpha\>>.<label|eq:expandbymoments>
   </equation>
 
   Again, the details of <math|S<around*|(|x,k|)>> can be completely
   determined by the moments <math|R<rsub|n>>s.
 
-  Comparing with the traditional Hamiltonian
-  <math|<wide|r|^><around*|(|x,k|)>=k<rsup|2>/<around*|(|2m|)>+V<around*|(|x|)>>,
+  So, consider the traditional Hamiltonian
+  <math|<wide|r|^><around*|(|x,p|)>=p<rsup|2>/<around*|(|2m|)>+V<around*|(|x|)>>,
   we have all <math|R<rsub|n><around*|(|x|)>=0> except for
   <math|R<rsub|0><around*|(|x|)>=V<around*|(|x|)>> and
   <math|R<rsub|2><around*|(|x|)>=-1/m>. Equation <reference|eq:transexp>
@@ -569,7 +514,7 @@
   </axiom>
 
   Shall not confuse time evolution with collapse, which is proven to be
-  non-local. Axiom <reference|axiom:local> implies that equation
+  non-local. Axiom <reference|axiom:local> claims that equation
   <reference|equ:superposition> is local. To make this clear, we consider an
   example, in which <math|R<rsub|n><around*|(|x|)>=c<rsup|n>> for some
   constant <math|c>, and set the dimension <math|d=1>. Then, the time
@@ -623,7 +568,7 @@
   moments.
 
   Before proving, we first declare a property of analytic function. Consider
-  the Taylor expansion of <math|\<varphi\>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\>,\<bbb-C\>|)>>
+  the Taylor expansion of <math|\<varphi\>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\>|)>>
   at origin
 
   <\equation*>
@@ -681,115 +626,87 @@
   <section|Hermitianity on the Moments of Transition
   Rate><label|section:Hermitianity on Moments>
 
-  A direct result of axiom <reference|axiom:prob> is that probabilistic
-  density shall be normalized. Namely, for any wave-function
-  <math|\<varphi\>> and any <math|t\<in\>\<bbb-R\>>, we shall have
-
-  <\equation>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    \<varphi\><rsup|\<ast\>><around*|(|x,t|)>\<varphi\><around*|(|x,t|)>=1.<label|eq:probtoself>
-  </equation>
-
-  Taking derivative on <math|t> gives
+  Now we study the relation between <math|R<rsub|n>>s and their complex
+  conjugations. By conjugating equation <reference|eq:hamiltonian> and
+  applying the Hermitianity of <math|r>, we get
 
   <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <frac|\<partial\>\<varphi\><rsup|\<ast\>>|\<partial\>t><around*|(|x,t|)>\<varphi\><around*|(|x,t|)>+<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    \<varphi\><rsup|\<ast\>><around*|(|x,t|)><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=0.
+    <wide|r|^><rsup|\<ast\>><around*|(|x,k|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>\<epsilon\>
+    exp<around*|(|\<mathi\>k\<epsilon\>|)>
+    r<rsup|\<ast\>><around*|(|x,x+\<epsilon\>|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>\<epsilon\>
+    exp<around*|(|\<mathi\>k\<epsilon\>|)> r<around*|(|x+\<epsilon\>,x|)>.
   </equation*>
 
-  Inserting equation <reference|equ:superposition> gives
+  Then, applying equation <reference|eq:r-fourier> to
+  <math|r<around*|(|x+\<epsilon\>,x|)>> gives
 
   <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<big|int><rsub|\<bbb-R\><rsup|d>>
-    \<mathd\>y \<varphi\><rsup|\<ast\>><around*|(|x,t|)>\<varphi\><around*|(|y,t|)>
-    <around*|[|r<rsup|\<ast\>><around*|(|x,y|)>-r<around*|(|y,x|)>|]>=0.
+    <wide|r|^><rsup|\<ast\>><around*|(|x,k|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k<rprime|'><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>\<epsilon\>|<around*|(|2\<mathpi\>|)><rsup|d>>
+    exp<around*|(|\<mathi\><around*|(|k-k<rprime|'>|)>\<epsilon\>|)>
+    <wide|r|^><around*|(|x+\<epsilon\>,k<rprime|'>|)>.
   </equation*>
 
-  Since <math|\<varphi\>> is arbitrary, we obtain
-
-  <\equation>
-    r<rsup|\<ast\>><around*|(|x,y|)>=r<around*|(|y,x|)>.
-  </equation>
-
-  That is, <with|color|dark cyan|<math|r<around*|(|x,y|)>> is Hermitian>.
-
-  Now we study the <math|R<rsub|n>>s. We have the expansions
+  Taylor expanding <math|><math|r<around*|(|x+\<epsilon\>,x|)>> by
+  <math|\<epsilon\>> at its origin
 
   <\equation*>
-    r<rsup|\<ast\>><around*|(|x,x+\<epsilon\>|)>=<big|sum><rsub|n=0><rsup|+\<infty\>><frac|<around*|(|-1|)><rsup|n>|n!><around*|(|R<rsub|n><rsup|\<ast\>>|)><rsup|\<alpha\>><around*|(|x|)><around*|(|\<partial\><rsup|n><rsub|\<alpha\>>\<delta\>|)><around*|(|\<epsilon\>|)>,
+    <wide|r|^><rsup|\<ast\>><around*|(|x,k|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|1|n!><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k<rprime|'><frac|\<partial\><rsup|n><wide|r|^>|\<partial\>x<rsup|\<alpha\>>><around*|(|x,k<rprime|'>|)>\<times\><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>\<epsilon\>|<around*|(|2\<mathpi\>|)><rsup|d>>
+    \ exp<around*|(|\<mathi\><around*|(|k-k<rprime|'>|)>\<epsilon\>|)>\<epsilon\><rsup|\<alpha\>>.
+  </equation*>
+
+  The last integral is evaluated to be <math|<around*|(|-\<mathi\>|)><rsup|n>\<partial\><rsup|n><rsub|\<alpha\>>\<delta\><around*|(|k-k<rprime|'>|)>>.
+  Thus,
+
+  <\equation*>
+    <wide|r|^><rsup|\<ast\>><around*|(|x,k|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k<rprime|'><frac|\<partial\><rsup|n><wide|r|^>|\<partial\>x<rsup|\<alpha\>>><around*|(|x,k<rprime|'>|)>\<partial\><rsup|n><rsub|\<alpha\>>\<delta\><around*|(|k-k<rprime|'>|)>.
+  </equation*>
+
+  Then, by integration by parts (recall the parity of
+  <math|\<partial\><rsup|n>\<delta\>>), we arrive at
+
+  <\equation>
+    <wide|r|^><rsup|\<ast\>><around*|(|x,k|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!><frac|\<partial\><rsup|2n><wide|r|^>|\<partial\>x<rsup|\<alpha\>>\<partial\>k<rsub|\<alpha\>>><around*|(|x,k|)>.
+  </equation>
+
+  Since <math|<around*|(|-\<mathi\>|)><rsup|n>R<rsub|n><around*|(|x|)>>s are
+  the coefficients of Taylor expansion of <math|<wide|r|^><around*|(|x,k|)>>
+  by <math|k> (equation <reference|eq:expandbymoments>), we find
+
+  <\equation*>
+    <around*|(|R<rsup|\<alpha\>><rsub|m>|)><rsup|\<ast\>><around*|(|x|)>=<around*|(|-\<mathi\>|)><rsup|m><frac|\<partial\><rsup|m><wide|r|^><rsup|\<ast\>>|\<partial\>k<rsub|\<alpha\>>><around*|(|x,0|)>=<around*|(|-\<mathi\>|)><rsup|m><big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!><frac|\<partial\><rsup|n>|\<partial\>x<rsup|\<beta\>>><frac|\<partial\><rsup|m+n><wide|r|^>|\<partial\>k<rsub|\<alpha\>>\<partial\>k<rsub|\<beta\>>><around*|(|x,0|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|m+n>|n!>\<partial\><rsup|n><rsub|\<beta\>>R<rsup|\<alpha\>\<beta\>><rsub|m+n><around*|(|x|)>.
+  </equation*>
+
+  Recall that <math|R<rsub|n>=0> for any <math|n\<gtr\>N<rsub|cut>>, we
+  finally get
+
+  <\equation>
+    <around*|(|R<rsup|\<alpha\>><rsub|m>|)><rsup|\<ast\>><around*|(|x|)>=<big|sum><rsub|n=0><rsup|N<rsub|cut>-m><frac|<around*|(|-1|)><rsup|m+n>|n!>\<partial\><rsup|n><rsub|\<beta\>>R<rsup|\<alpha\>\<beta\>><rsub|m+n><around*|(|x|)>.
+  </equation>
+
+  For example, when <math|N<rsub|cut>=2>, we have
+
+  <\equation*>
+    R<rsub|0><rsup|\<ast\>><around*|(|x|)>=R<rsub|0><around*|(|x|)>-\<partial\><rsub|\<alpha\>>R<rsup|\<alpha\>><rsub|1><around*|(|x|)>+<frac|1|2>\<partial\><rsup|2><rsub|\<alpha\>>R<rsup|\<alpha\>><rsub|2><around*|(|x|)>,
+  </equation*>
+
+  <\equation*>
+    <around*|(|R<rsub|1><rsup|\<alpha\>>|)><rsup|*\<ast\>><around*|(|x|)>=-R<rsub|1><rsup|\<alpha\>><around*|(|x|)>+\<partial\><rsub|\<beta\>>R<rsup|\<alpha\>\<beta\>><rsub|2><around*|(|x|)>,
   </equation*>
 
   and
 
   <\equation*>
-    r<around*|(|x+\<epsilon\>,x|)>=r<around*|(|x+\<epsilon\>,<around*|(|x+\<epsilon\>|)>-\<epsilon\>|)>=<big|sum><rsub|n=0><rsup|+\<infty\>><frac|1|n!>R<rsub|n><rsup|\<alpha\>><around*|(|x+\<epsilon\>|)><around*|(|\<partial\><rsup|n><rsub|\<alpha\>>\<delta\>|)><around*|(|\<epsilon\>|)>,
+    <around*|(|R<rsub|2><rsup|\<alpha\>>|)><rsup|\<ast\>><around*|(|x|)>=R<rsup|\<alpha\>><rsub|2><around*|(|x|)>,
   </equation*>
 
-  where we have used the relation <math|<around*|(|-1|)><rsup|n><around*|(|\<partial\><rsup|n><rsub|\<alpha\>>\<delta\>|)><around*|(|-\<epsilon\>|)>=<around*|(|\<partial\><rsup|n><rsub|\<alpha\>>\<delta\>|)><around*|(|\<epsilon\>|)>>.
-  Then <math|<around*|[|r<rsup|\<ast\>><around*|(|x,x+\<epsilon\>|)>-r<around*|(|x+\<epsilon\>,x|)>|]>=0>
-  gives,
-
-  <\equation*>
-    <big|sum><rsub|n=0><rsup|+\<infty\>><frac|1|n!><around*|[|<around*|(|-1|)><rsup|n><around*|(|R<rsub|n><rsup|\<ast\>>|)><rsup|\<alpha\>><around*|(|x|)>-R<rsub|n><rsup|\<alpha\>><around*|(|x+\<epsilon\>|)>|]><around*|(|\<partial\><rsup|n><rsub|\<alpha\>>\<delta\>|)><around*|(|\<epsilon\>|)>=0.
-  </equation*>
-
-  Applying on an arbitrary function <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>,\<bbb-C\>|)>>
-  (integrating over <math|\<epsilon\>>), we get (after integration by parts)
-
-  <\equation*>
-    <big|sum><rsub|n=0><rsup|+\<infty\>><frac|1|n!><around*|[|<around*|(|R<rsub|n><rsup|\<ast\>>|)><rsup|\<alpha\>><around*|(|x|)>\<partial\><rsup|n><rsub|\<alpha\>>\<varphi\><around*|(|0|)>+<around*|(|-1|)><rsup|n+1>\<partial\><rsup|n><rsub|\<alpha\>><around*|[|R<rsub|n><rsup|\<alpha\>><around*|(|x|)>\<varphi\><around*|(|0|)>|]>|]>=0.
-  </equation*>
-
-  This is what the Hermitianity of transition rate <math|r> induces on the
-  relation between moments <math|R<rsub|n>>s and their complex conjugations
-  <math|R<rsub|n><rsup|\<ast\>>>s.
-
-  Expanding this summation term by term, the left hand side becomes
-
-  <\align>
-    <tformat|<table|<row|<cell|<around*|\<llbracket\>|n=0|\<rrbracket\>>=>|<cell|<around*|(|R<rsub|0><rsup|\<ast\>>|)><around*|(|x|)>\<varphi\><around*|(|0|)>-R<rsub|0><rsup|\<alpha\>><around*|(|x|)>\<varphi\><around*|(|0|)>>>|<row|<cell|<around*|\<llbracket\>|n=1|\<rrbracket\>>+>|<cell|<around*|(|R<rsub|1><rsup|\<ast\>>|)><rsup|\<alpha\>><around*|(|x|)>\<partial\><rsub|\<alpha\>>\<varphi\><around*|(|0|)>+\<partial\><rsub|\<alpha\>>R<rsub|1><rsup|\<alpha\>><around*|(|x|)>\<varphi\><around*|(|x|)>+R<rsub|1><rsup|\<alpha\>><around*|(|x|)>\<partial\><rsub|\<alpha\>>\<varphi\><around*|(|0|)>>>|<row|<cell|<around*|\<llbracket\>|n=2|\<rrbracket\>>+>|<cell|<frac|1|2><around*|(|R<rsub|2><rsup|\<ast\>>|)><rsup|\<alpha\>\<beta\>><around*|(|x|)>\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>>\<varphi\><around*|(|0|)>-<frac|1|2>\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>>R<rsub|2><rsup|\<alpha\>\<beta\>><around*|(|x|)>\<varphi\><around*|(|0|)>-\<partial\><rsub|\<alpha\>>R<rsub|2><rsup|\<alpha\>\<beta\>><around*|(|x|)>\<partial\><rsub|\<beta\>>\<varphi\><around*|(|0|)>-<frac|1|2>R<rsub|2><rsup|\<alpha\>\<beta\>><around*|(|x|)>\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>>\<varphi\><around*|(|0|)>>>|<row|<cell|<around*|\<llbracket\>|n\<gtr\>2|\<rrbracket\>>+>|<cell|\<cdots\>>>>>
-  </align>
-
-  Let us examine this temporal result. For simplicity, we set
-  <math|R<rsub|n>=0> for any <math|n\<gtr\>2>. If <math|R<rsub|2>> is
-  constant, then it implies <math|R<rsub|2>\<in\>\<bbb-R\>> (hint: collecting
-  the term proportional to <math|\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>>\<varphi\><around*|(|0|)>>).
-  It in turn leads to <math|R<rsub|1><rsup|\<ast\>><around*|(|x|)>=-R<rsub|1><around*|(|x|)>>,
-  namely <math|R<rsub|1><around*|(|x|)>> is purely imaginary (this is a
-  surprise). And then, <math|R<rsub|0><around*|(|x|)>=R<rsub|0><rsup|\<ast\>><around*|(|x|)>+\<partial\><rsub|\<alpha\>>R<rsub|1><rsup|\<alpha\>><around*|(|x|)>>.
-  If further take <math|R<rsub|1>> as constant, then we get
-  <math|R<rsub|0>:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-R\>>. This is the
-  situation in the traditional Hamiltonian with dissipation.<\footnote>
-    If <math|R<rsub|1>\<neq\>0>, such that
-    <math|<wide|r|^><around*|(|x,k|)>=k<rsup|2>/<around*|(|2m|)>+\<mu\>k+V<around*|(|x|)>>
-    for some constant <math|\<mu\>>, then the time-reversal symmetry breaks.
-    Indeed, <math|\<mu\>k> serves as a friction term. But we usually treat
-    systems with dissipation as incomplete.
-  </footnote> This is the quantum mechanical analogy of Langevin process,
-  where <math|R<rsub|n>> is cut-off at <math|n=2> (such that
-  <math|R<rsub|n>=0> for any <math|n\<gtr\>2>) and <math|R<rsub|2>> is
-  constant.
-
-  Recall that the moments <math|R<rsub|n>>s are cut-off by
-  <math|N<rsub|cut>>. The term that proportional to
-  <math|\<partial\><rsup|N<rsub|cut>>\<varphi\><around*|(|0|)>> is
-
-  <\equation*>
-    <around*|[|<around*|(|R<rsub|N<rsub|cut>><rsup|\<ast\>>|)><rsup|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|N<rsub|cut>>><around*|(|x|)>+<around*|(|-1|)><rsup|N<rsub|cut>>R<rsub|N<rsub|cut>><rsup|\<alpha\><rsub|1>\<cdots\>\<alpha\><rsub|N<rsub|cut>>><around*|(|x|)>|]><around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<cdots\>\<partial\><rsub|\<alpha\><rsub|N<rsub|cut>>>\<varphi\>|)><around*|(|0|)>=0.
-  </equation*>
-
-  It implies
+  that is, <math|R<rsub|2>> is real. Generally, we have
 
   <\equation*>
     R<rsub|N<rsub|cut>><rsup|\<ast\>><around*|(|x|)>=<around*|(|-1|)><rsup|N<rsub|cut>>R<rsub|N<rsub|cut>><around*|(|x|)>.
   </equation*>
 
-  Namely, <math|R<rsub|N<rsub|cut>><around*|(|x|)>> is real when
-  <math|N<rsub|cut>> is even, and imaginary otherwise.<\footnote>
-    TODO: give a recursive equation that determines the <math|R<rsub|n>>s
-    from <math|R<rsub|N<rsub|cut>>> to <math|R<rsub|0>>.
-  </footnote>
+  That is, <math|R<rsub|N<rsub|cut>>> is real when <math|N<rsub|cut>> is
+  even, otherwise purely imaginary.
 
   <section|Uncertainty Principle>
 
@@ -1125,55 +1042,52 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|1>>
-    <associate|auto-10|<tuple|10|8>>
-    <associate|auto-11|<tuple|10.1|9>>
-    <associate|auto-12|<tuple|10.2|9>>
-    <associate|auto-13|<tuple|10.3|11>>
-    <associate|auto-14|<tuple|10.4|11>>
-    <associate|auto-15|<tuple|A|11>>
-    <associate|auto-16|<tuple|A|12>>
-    <associate|auto-2|<tuple|2|1>>
-    <associate|auto-3|<tuple|3|1>>
-    <associate|auto-4|<tuple|4|2>>
-    <associate|auto-5|<tuple|5|3>>
-    <associate|auto-6|<tuple|6|4>>
-    <associate|auto-7|<tuple|7|5>>
-    <associate|auto-8|<tuple|8|6>>
-    <associate|auto-9|<tuple|9|7>>
+    <associate|auto-10|<tuple|8|6>>
+    <associate|auto-11|<tuple|9|7>>
+    <associate|auto-12|<tuple|10|8>>
+    <associate|auto-13|<tuple|10.1|8>>
+    <associate|auto-14|<tuple|10.2|10>>
+    <associate|auto-15|<tuple|10.3|10>>
+    <associate|auto-16|<tuple|10.4|10>>
+    <associate|auto-17|<tuple|A|11>>
+    <associate|auto-2|<tuple|1.1|1>>
+    <associate|auto-3|<tuple|1.2|1>>
+    <associate|auto-4|<tuple|2|1>>
+    <associate|auto-5|<tuple|3|1>>
+    <associate|auto-6|<tuple|4|2>>
+    <associate|auto-7|<tuple|5|3>>
+    <associate|auto-8|<tuple|6|4>>
+    <associate|auto-9|<tuple|7|5>>
     <associate|axiom:local|<tuple|3|6>>
     <associate|axiom:prob|<tuple|1|1>>
-    <associate|axiom:sup|<tuple|2|1>>
-    <associate|axiom:uncert|<tuple|4|9>>
-    <associate|axiom:uncert-ext|<tuple|5|11>>
-    <associate|eq:deltaexp|<tuple|7|5>>
-    <associate|eq:expandbymoments|<tuple|12|6>>
-    <associate|eq:hamiltonian|<tuple|2|3>>
-    <associate|eq:kmanalogy|<tuple|11|6>>
-    <associate|eq:moment|<tuple|6|4>>
-    <associate|eq:probtoself|<tuple|13|7>>
-    <associate|eq:transexp|<tuple|10|5>>
-    <associate|equ:superposition|<tuple|1|1>>
+    <associate|axiom:sup|<tuple|2|2>>
+    <associate|axiom:uncert|<tuple|4|8>>
+    <associate|axiom:uncert-ext|<tuple|5|10>>
+    <associate|eq:deltaexp|<tuple|10|4>>
+    <associate|eq:expandbymoments|<tuple|15|5>>
+    <associate|eq:hamiltonian|<tuple|5|3>>
+    <associate|eq:kmanalogy|<tuple|14|5>>
+    <associate|eq:moment|<tuple|9|4>>
+    <associate|eq:momentexpansion|<tuple|11|5>>
+    <associate|eq:probtoself|<tuple|2|2>>
+    <associate|eq:r-fourier|<tuple|4|3>>
+    <associate|eq:transexp|<tuple|13|5>>
+    <associate|equ:superposition|<tuple|1|2>>
     <associate|footnote-1|<tuple|1|2>>
-    <associate|footnote-10|<tuple|10|11>>
-    <associate|footnote-2|<tuple|2|3>>
-    <associate|footnote-3|<tuple|3|4>>
-    <associate|footnote-4|<tuple|4|5>>
-    <associate|footnote-5|<tuple|5|8>>
-    <associate|footnote-6|<tuple|6|9>>
-    <associate|footnote-7|<tuple|7|9>>
-    <associate|footnote-8|<tuple|8|10>>
-    <associate|footnote-9|<tuple|9|11>>
+    <associate|footnote-2|<tuple|2|5>>
+    <associate|footnote-3|<tuple|3|7>>
+    <associate|footnote-4|<tuple|4|8>>
+    <associate|footnote-5|<tuple|5|9>>
+    <associate|footnote-6|<tuple|6|10>>
+    <associate|footnote-7|<tuple|7|10>>
     <associate|footnr-1|<tuple|1|2>>
-    <associate|footnr-10|<tuple|10|11>>
-    <associate|footnr-2|<tuple|2|3>>
-    <associate|footnr-3|<tuple|3|4>>
-    <associate|footnr-4|<tuple|4|5>>
-    <associate|footnr-5|<tuple|5|8>>
-    <associate|footnr-6|<tuple|6|9>>
-    <associate|footnr-7|<tuple|7|9>>
-    <associate|footnr-8|<tuple|8|10>>
-    <associate|footnr-9|<tuple|9|11>>
-    <associate|section:Hermitianity on Moments|<tuple|9|8>>
+    <associate|footnr-2|<tuple|2|5>>
+    <associate|footnr-3|<tuple|3|7>>
+    <associate|footnr-4|<tuple|4|8>>
+    <associate|footnr-5|<tuple|5|9>>
+    <associate|footnr-6|<tuple|6|10>>
+    <associate|footnr-7|<tuple|7|10>>
+    <associate|section:Hermitianity on Moments|<tuple|9|7>>
   </collection>
 </references>
 
@@ -1184,67 +1098,71 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-1><vspace|0.5fn>
 
+      <with|par-left|<quote|1tab>|1.1<space|2spc>Conventions
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-2>>
+
+      <with|par-left|<quote|1tab>|1.2<space|2spc>Abbreviations
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-3>>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|2<space|2spc>Probability
       Interpretation and Wavefunction> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-2><vspace|0.5fn>
+      <no-break><pageref|auto-4><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>Superposition
       Principle and Time Evolution> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-3><vspace|0.5fn>
+      <no-break><pageref|auto-5><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Analytic
-      Schwartz Space Is Sufficient for Wavefunctions (TODO)>
+      Schwartz Space Is Dense in Square-Integrable Space>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-4><vspace|0.5fn>
+      <no-break><pageref|auto-6><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Path
       Integral Formalism> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5><vspace|0.5fn>
+      <no-break><pageref|auto-7><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>An
-      Useful Formal Expansion> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-6><vspace|0.5fn>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|6<space|2spc>Some
+      Useful Expansions> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-8><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|7<space|2spc>Expansion
       of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7><vspace|0.5fn>
+      <no-break><pageref|auto-9><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|8<space|2spc>Locality
       Truncates the Moments of Transition Rate>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Hermitianity>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-9><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Hermitianity
-      on the Moments of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-10><vspace|0.5fn>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|11<space|2spc>Uncertainty
-      Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|9<space|2spc>Hermitianity
+      on the Moments of Transition Rate> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-11><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|11.1<space|2spc>Implication on Moments
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-12>>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|10<space|2spc>Uncertainty
+      Principle> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-12><vspace|0.5fn>
 
-      <with|par-left|<quote|1tab>|11.2<space|2spc>When
-      <with|mode|<quote|math>|N> Is Even <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <with|par-left|<quote|1tab>|10.1<space|2spc>Implication on Moments
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-13>>
 
-      <with|par-left|<quote|1tab>|11.3<space|2spc>When
-      <with|mode|<quote|math>|N> Is Odd <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <with|par-left|<quote|1tab>|10.2<space|2spc>When
+      <with|mode|<quote|math>|N> Is Even <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-14>>
 
-      <with|par-left|<quote|1tab>|11.4<space|2spc>Generalizations
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <with|par-left|<quote|1tab>|10.3<space|2spc>When
+      <with|mode|<quote|math>|N> Is Odd <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-15>>
+
+      <with|par-left|<quote|1tab>|10.4<space|2spc>Generalizations
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-16>>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
       A<space|2spc>Taylor Reminder> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-16><vspace|0.5fn>
+      <no-break><pageref|auto-17><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
