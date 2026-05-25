@@ -12,16 +12,14 @@ In short, *just for fun*.
 
 ## File Structure
 
-- main.tm: The TeXmacs file of the note.
+- quantum.tm: The TeXmacs file of the note.
 - public
-  - main.pdf: The PDF output of the note.
+  - quantum.pdf: The PDF output of the note.
 - scripts: Includes the codes in the note.
-  - uncert.wxmx: The maxima (using GUI WxMaxima) codes in the section about uncertainty principle.
 
 ## How to Contribute
 
-- Editing using TeXmacs (together with TeXlive).
-- Run scripts in WxMaxima (the GUI version of Maxima).
+- Edit using TeXmacs (together with TeXlive).
 
 ## Repository
 
