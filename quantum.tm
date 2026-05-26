@@ -7,7 +7,7 @@
 
   <section|Introduction>
 
-  We derive the Schr<wide|o|\<ddot\>>dinger equation of quantum mechanics
+  We derive the Schr<wide|o|\<ddot\>>dinger's equation of quantum mechanics
   from several basic experimental facts. These facts are treated as axioms.
   In fact, what we will get is a generalized Schr<wide|o|\<ddot\>>dinger
   equation, which is the most generic equation that these axioms can imply.
@@ -146,7 +146,7 @@
   of the double-slit experiment of electron. Details can be found in
   Feynman's Lectures on Physics, Vol 3, chapter 1.
 
-  <section|Analytic Schwartz Space Is Dense in Square-Integrable Space>
+  <section|Wavefunction Is Entire Schwartz Function>
 
   Before calculations, we first address where wavefunctions live. Probability
   interpretation (axiom <reference|axiom:prob>) demands that wavefunctions
@@ -178,16 +178,17 @@
 
   Functions in Schwartz space are usually termed as <strong|Schwartz
   function>s. Fourier transform is an automorphism on Schwartz space. A
-  function that is consistent with its Taylor series is analytical. It
-  indicates that we shall further restrict the space of wavefunctions to
-  <strong|analytic Schwartz space>, denoted by
-  <math|\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>, which collects all
-  the analytic functions in Schwartz space
+  function that is <em|everywhere> consistent with its Taylor series is
+  <strong|entire> (shall not confuse with the entire function in complex
+  analysis, where the domain is complex space). It indicates that we shall
+  further restrict the space of wavefunctions to <strong|entire Schwartz
+  space>, denoted by <math|\<cal-S\><rsub|E><around*|(|\<bbb-R\><rsup|d>|)>>,
+  which collects all the entire functions in Schwartz space
   <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
 
   For example, in traditional textures, solving the stationary
-  Schr<wide|o|\<ddot\>>dinger equation of one-dimensional harmonic oscillator
-  needs the expansion of wavefunction
+  Schr<wide|o|\<ddot\>>dinger's equation of one-dimensional harmonic
+  oscillator needs the expansion of wavefunction
 
   <\equation*>
     \<varphi\><around*|(|x|)>=exp<around*|(|-x<rsup|2>|)>
@@ -199,14 +200,14 @@
   employed for an exponentially fast decay as
   <math|<around*|\||x|\|>\<rightarrow\>\<infty\>> (thus <math|\<varphi\>> is
   a Schwartz function). And the factor <math|<around*|[|\<cdots\>|]>> is a
-  Taylor series. Hence, <math|f> is an analytic function in Schwartz space.
-  The energy quantization emerges for ensuring the convergence of the series
+  Taylor series. Hence, <math|f> is an entire function in Schwartz space. The
+  energy quantization emerges for ensuring the convergence of the series
   <math|<big|sum><rsub|n>a<rsub|n>x<rsup|n>>.
 
-  Analytic Schwartz functions are dense in square-integrable space, meaning
+  Entire Schwartz functions are dense in square-integrable space, meaning
   that for any <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
   <math|\<varepsilon\>\<gtr\>0>, there is a
-  <math|g\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>> such that
+  <math|g\<in\>\<cal-S\><rsub|E><around*|(|\<bbb-R\><rsup|d>|)>> such that
 
   <\equation*>
     <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
@@ -216,7 +217,7 @@
   For example, for any wavefunction <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
   when we measure the probability on any area of positions
   <math|U\<subset\>\<bbb-R\><rsup|d>>, we can use its approximation
-  <math|g\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>> instead,
+  <math|g\<in\>\<cal-S\><rsub|E><around*|(|\<bbb-R\><rsup|d>|)>> instead,
   because the difference is bounded by
 
   <\equation*>
@@ -230,14 +231,17 @@
   recognized as the <math|L<rsup|2>>-norm on <math|U>. It states that the
   difference between the two sides of a triangle is less than that of the
   third side. It is in this sense that the substitution
-  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>
-  is plausible. Proof of the statement that analytic Schwartz functions are
+  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><rsub|E><around*|(|\<bbb-R\><rsup|d>|)>>
+  is plausible. Proof of the statement that entire Schwartz functions are
   dense in square-integrable space is given in appendices
   <reference|appendix:schwartz-dense> and
   <reference|appendix:analytic-dense>.
 
   <with|color|red|Can we approximate the kernel such that
-  <math|r\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|2d>|)>>?>
+  <math|r\<in\>\<cal-S\><rsub|E><around*|(|\<bbb-R\><rsup|2d>|)>>?>
+
+  We can apply the previous discussion to the kernel <math|r>. First, we
+  claim that <math|r<around*|(|x,\<cdummy\>|)>>\ 
 
   <section|Path Integral Formalism>
 
@@ -321,12 +325,13 @@
       r<around*|(|x<rprime|'>,y|)>\<delta\><around*|(|x-x<rprime|'>|)>,
     </equation*>
 
-    which goes back to <math|r<around*|(|x,y|)>>. The <math|<wide|r|^>> and
-    <math|<wide|r|^><rprime|'>> are the Fourier transform of <math|r>
-    performed on each of its arguments. But, as we will see in section
-    <reference|section:Expanding Kernel as Generalized Function>, only
-    <math|<wide|r|^>> is relevant to the moments of kernel (thus to
-    Schr<wide|o|\<ddot\>>dinger's equation).
+    which goes back to <math|r<around*|(|x,y|)>>. The
+    <math|<wide|r|^><rprime|'>> and <math|<wide|r|^>> are the Fourier
+    transform of <math|r> performed on each of its arguments respectively.
+    But, because time evolution (equation <reference|equ:superposition>)
+    integrates over the second argument, only <math|<wide|r|^>> is relevant
+    to our task (as we will see in section <reference|section:Expanding
+    Kernel as Generalized Function>).
   </footnote>
 
   <\equation>
@@ -393,7 +398,7 @@
   <section|Expanding Kernel as Generalized Function><label|section:Expanding
   Kernel as Generalized Function>
 
-  Given any \Ptest function\Q <math|\<varphi\>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\><rsup|d>|)>>,
+  Given any \Ptest function\Q <math|\<varphi\>\<in\>\<cal-S\><rsub|E><around*|(|\<bbb-R\><rsup|d>|)>>,
   Taylor expanding <math|\<varphi\>> at <math|x> makes
 
   <\equation*>
@@ -456,7 +461,7 @@
   <with|color|dark green|<em|It shall be read as a formal expansion, or an
   \Palgorithm\Q (with which we obtain a valid expression of
   <math|<big|int>\<mathd\>x f<around*|(|x|)>\<varphi\><around*|(|x|)>>). Only
-  by applying to an analytic Schwartz function can it make sense.>> It claims
+  by applying to an entire Schwartz function can it make sense.>> It claims
   that the kernel <math|r>, thus the time evolution of wavefunction (equation
   <reference|equ:superposition>), is completely determined by the moments
   <math|R<rsub|n>>s.
@@ -507,9 +512,9 @@
   determined by the moments <math|R<rsub|n>>s.
 
   So, consider the traditional Hamiltonian
-  <math|<wide|r|^><around*|(|x,p|)>=p<rsup|2>/<around*|(|2m|)>+V<around*|(|x|)>>,
-  all <math|R<rsub|n>>s vanish except for
-  <math|R<rsub|0><around*|(|x|)>=V<around*|(|x|)>> and
+  <math|<wide|r|^><around*|(|x,p|)>=p<rsup|2>/<around*|(|2m|)>+V<around*|(|x|)>>
+  (in the natural units where <math|\<hbar\>=1>), all <math|R<rsub|n>>s
+  vanish except for <math|R<rsub|0><around*|(|x|)>=V<around*|(|x|)>> and
   <math|R<rsub|2><around*|(|x|)>=-1/m>. Equation <reference|eq:transexp>
   implies
 
@@ -569,7 +574,7 @@
     \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=\<cal-L\><around*|(|\<varphi\><around*|(|x,t|)>,<frac|\<partial\>\<varphi\>|\<partial\>x><around*|(|x,t|)>,<frac|\<partial\><rsup|2>\<varphi\>|\<partial\>x<rsup|2>><around*|(|x,t|)>,\<ldots\>,<frac|\<partial\><rsup|n>\<varphi\>|\<partial\>x<rsup|n>><around*|(|x,t|)>|)>,
   </equation*>
 
-  where <math|\<cal-L\>> is an analytic function. This is easy to understand
+  where <math|\<cal-L\>> is an entire function. This is easy to understand
   because to compute <math|<around*|(|\<partial\><rsup|n>\<varphi\>/\<partial\>x<rsup|n>|)><around*|(|0,t|)>>
   using numerical method with difference <math|\<Delta\>x>, only
   <math|\<varphi\><around*|(|x,t|)>> with
@@ -602,8 +607,8 @@
   are infinite many <math|R<rsub|n>>s that are not vanishing), time evolution
   of wavefunction is non-local. This then imports a cut-off on moments.
 
-  Before proving, we first declare a property of analytic function. Consider
-  the Taylor expansion of <math|\<varphi\>\<in\>\<cal-S\><rsub|A><around*|(|\<bbb-R\>|)>>
+  Before proving, we first declare a property of entire function. Consider
+  the Taylor expansion of <math|\<varphi\>\<in\>\<cal-S\><rsub|E><around*|(|\<bbb-R\>|)>>
   at origin
 
   <\equation*>
@@ -612,10 +617,10 @@
 
   The information of <math|\<varphi\>> is completely encoded in the infinite
   sequence of <math|a<rsub|n>>s. This is the result of a theorem which claims
-  that two analytic functions are equal if they agree in any interval (hence
-  we can obtain the Taylor series of the function within the interval). What
-  if we only know a portion of the infinite sequence of <math|a<rsub|n>>s?
-  For example, if we only know the <math|a<rsub|0>>, then only the value of
+  that two entire functions are equal if they agree in any interval (hence we
+  can obtain the Taylor series of the function within the interval). What if
+  we only know a portion of the infinite sequence of <math|a<rsub|n>>s? For
+  example, if we only know the <math|a<rsub|0>>, then only the value of
   <math|\<varphi\><around*|(|x|)>> at <math|x=0> is determined. Further, if
   we also know the <math|a<rsub|1>>, then we can give a good approximation to
   <math|\<varphi\><around*|(|x|)>> in a very tiny neighborhood at <math|x=0>,
@@ -630,7 +635,7 @@
   we know more and more <math|a<rsub|n>>s. Until knowing the whole sequence
   of <math|a<rsub|n>>s, we realize the complete picture of
   <math|\<varphi\><around*|(|x|)>> (based on the previous theorem about
-  analytic function).
+  entire function).
 
   It also indicates that, for a sufficient large <math|N>, we can keep
   <math|\<varphi\><around*|(|x|)>> (approximately) invariant when we tune the
@@ -848,7 +853,7 @@
     exp<around*|(|-<frac|x<rsup|2>|2\<sigma\><rsup|2>>|)>x<rsup|2>=\<sigma\><rsup|2>.
   </equation*>
 
-  \;
+  Thus, <math|\<Delta\>X=<sqrt|Var<rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>>=\<sigma\>>.
 
   To evaluate <math|\<Delta\>V<around*|(|0|)>>, we have to use time evolution
   equation to calculate <math|X> at time <math|\<Delta\>t>. By equation
@@ -895,7 +900,7 @@
   </align>
 
   Inserting <math|<around*|(|\<partial\>\<varphi\>/\<partial\>t|)>> and
-  considering <math|\<sigma\>\<rightarrow\>0> again, we get\ 
+  considering the limit <math|\<sigma\>\<rightarrow\>0> again, we get\ 
 
   <\equation*>
     \<varphi\><around*|(|x,\<Delta\>t|)>=\<varphi\><around*|(|x,0|)>-\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!>
@@ -940,7 +945,11 @@
   the velocity has a favored direction even though the distribution (or
   wavefunction) has not. So, from now on, we only consider when <math|N> is
   even. For any random variable <math|R>, we have the formula
-  <math|Var<around*|[|R|]>=\<bbb-E\><around*|[|R<rsup|2>|]>-\<bbb-E\><rsup|2><around*|[|R|]>>.
+
+  <\equation*>
+    Var<around*|[|R|]>=\<bbb-E\><around*|[|<around*|(|R-\<bbb-E\><around*|[|R|]>|)><rsup|2>|]>=\<bbb-E\><around*|[|R<rsup|2>-2\<bbb-E\><around*|[|R|]>R-\<bbb-E\><rsup|2><around*|[|R|]>|]>=\<bbb-E\><around*|[|R<rsup|2>|]>-\<bbb-E\><rsup|2><around*|[|R|]>.
+  </equation*>
+
   Then, we find (recall that <math|\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>=V<around*|(|0|)>=0>
   when <math|N> is even)
 
@@ -965,7 +974,7 @@
   <math|\<varphi\>> share the same (highest) order of <math|1/\<sigma\>>,
   surpassing all the terms that we have neglected (which have lower order of
   <math|1/\<sigma\>>) as <math|\<sigma\>> tends to zero. Assume that
-  <math|R<rsub|N>> is analytic, so that we can Taylor expand
+  <math|R<rsub|N>> is entire, so that we can Taylor expand
   <math|R<rsup|2><rsub|N>> at origin, as
 
   <\equation*>
@@ -994,9 +1003,29 @@
     R<rsub|N><around*|(|x|)>\<propto\>x<rsup|N-2>.
   </equation>
 
+  So, uncertainty principle restricts the highest order moment to be an
+  explicit power function.
+
   The specific case is <math|N=2> in which <math|R<rsub|N>> becomes constant.
-  This is the canonical situation in physics. So, uncertainty principle
-  restricts the highest order moment to be an explicit power function.
+  This corresponds to the canonical situation in physics. To determine this
+  constant, we have (set <math|N=2>, <math|n=0>)
+
+  <\equation*>
+    \<Delta\>V<around*|(|0|)>=<frac|<around*|\||R<rsub|2>|\|>|2><sqrt|<big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|2>\<varphi\><around*|(|x,0|)>\<partial\><rsup|2>\<varphi\><around*|(|x,0|)>-<frac|1|2>\<varphi\><around*|(|x,0|)>\<partial\><rsup|4>\<varphi\><around*|(|x,0|)>|]>x<rsup|2>>=<frac|<around*|\||R<rsub|2>|\|>|2><sqrt|<frac|23|32
+    \<sigma\><rsup|2>>>,
+  </equation*>
+
+  where the integral is evaluated by computer. Then, by uncertainty
+  principle, <math|\<Delta\>X<around*|(|0|)>\<Delta\>V<around*|(|0|)>=<sqrt|23/32><around*|\||R<rsub|2>|\|>/2\<sim\>\<hbar\>/<around*|(|2m|)>>,
+  implying
+
+  <\equation>
+    <around*|\||R<rsub|2>|\|>\<sim\><sqrt|<frac|32|23>><frac|\<hbar\>|m>\<approx\>1.18
+    <frac|\<hbar\>|m>.
+  </equation>
+
+  This is consistent with the traditional Hamiltonian where
+  <math|R<rsub|2>=-\<hbar\>/m>.
 
   We can generalize the previous analysis to dimension <math|d\<gtr\>1>, in
   which the covariance matrix of <math|f> is diagonal, such that all
@@ -1059,7 +1088,7 @@
   <appendix|Schwartz Functions are Dense in Square-Integrable
   Space><label|appendix:schwartz-dense>
 
-  <appendix|Analytic Functions are Dense in Schwartz
+  <appendix|Entire Functions are Dense in Schwartz
   Space><label|appendix:analytic-dense>
 
   <appendix|Computing the Uncertainty of Velocity><label|appendix:compute-uncert>
@@ -1085,12 +1114,13 @@
   <\verbatim-code>
     targetIntegral[sigma_, N_, n_] := Simplify[Integrate[(D[f[x, sigma], {x,
     N}]^2 - f[x, sigma]* D[f[x, sigma], {x, 2*N}] / 2) * x^(n+2), {x,
-    -Infinity, Infinity}, Assumptions-\<gtr\>{Element[sigma, Reals]}]];
+    -Infinity, Infinity}, Assumptions-\<gtr\>{Element[sigma, Reals], sigma
+    \<gtr\> 0}]];
   </verbatim-code>
 
-  where we have to assert that <verbatim|sigma> is a real number. Then, we
-  try (we have to re-denote <math|N> by <verbatim|m> because <verbatim|N> has
-  been a keyword of Mathematica)
+  where we have to assert that <verbatim|sigma> is a positive real number.
+  Then, we try (we have to re-denote <math|N> by <verbatim|m> because
+  <verbatim|N> has been a keyword of Mathematica)
 
   <\verbatim-code>
     Table[{{m, n}, targetIntegral[sigma, m, n]}, {m, {2, 4, 6, 8}}, {n, 0,
@@ -1099,6 +1129,10 @@
 
   which outputs the <math|<around*|(|N,n|)>> pairs and the corresponding
   integrals.
+
+  <appendix|From Quantum to Classical>
+
+  \;
 </body>
 
 <\initial>
@@ -1121,6 +1155,7 @@
     <associate|auto-13|<tuple|B|15>>
     <associate|auto-14|<tuple|C|17>>
     <associate|auto-15|<tuple|D|19>>
+    <associate|auto-16|<tuple|E|?>>
     <associate|auto-2|<tuple|1.1|3>>
     <associate|auto-3|<tuple|1.2|3>>
     <associate|auto-4|<tuple|2|3>>
@@ -1150,11 +1185,13 @@
     <associate|footnote-3|<tuple|3|5>>
     <associate|footnote-4|<tuple|4|8>>
     <associate|footnote-5|<tuple|5|11>>
+    <associate|footnote-6|<tuple|6|?>>
     <associate|footnr-1|<tuple|1|4>>
     <associate|footnr-2|<tuple|2|5>>
     <associate|footnr-3|<tuple|3|5>>
     <associate|footnr-4|<tuple|4|8>>
     <associate|footnr-5|<tuple|5|11>>
+    <associate|footnr-6|<tuple|6|?>>
     <associate|section:Expanding Kernel as Generalized Function|<tuple|6|6>>
     <associate|section:Hermitianity on Moments|<tuple|8|9>>
   </collection>
