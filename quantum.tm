@@ -1039,6 +1039,8 @@
   The previous analysis, then, is taken on each dimension individually,
   resulting in exactly the same result for each dimension.
 
+  <section|From Quantum to Classical (TODO)>
+
   <appendix|Taylor Reminder>
 
   Given a function <math|f\<in\>\<cal-C\><rsup|n><around*|(|\<bbb-R\><rsup|d>|)>>,
@@ -1125,7 +1127,7 @@
 
   <\verbatim-code>
     list = Flatten[Table[{{m, n}, targetIntegral[sigma, m, n]}, {m, {2, 4, 6,
-    8}}, {n, 0, 15}], 1]
+    8, 10}}, {n, 0, 30}], 1]
   </verbatim-code>
 
   which outputs a list of <math|<around*|(|N,n|)>> pairs and the
@@ -1139,8 +1141,6 @@
 
   The <verbatim|MatchQ> function matches the integrals (as the second
   element) that are proportional to <math|1/\<sigma\><rsup|2>>.
-
-  <appendix|From Quantum to Classical>
 
   \;
 </body>
@@ -1162,11 +1162,11 @@
     <associate|auto-10|<tuple|8|9>>
     <associate|auto-11|<tuple|9|10>>
     <associate|auto-12|<tuple|10|13>>
-    <associate|auto-13|<tuple|A|15>>
-    <associate|auto-14|<tuple|B|17>>
-    <associate|auto-15|<tuple|C|19>>
-    <associate|auto-16|<tuple|D|?>>
-    <associate|auto-17|<tuple|E|?>>
+    <associate|auto-13|<tuple|11|15>>
+    <associate|auto-14|<tuple|A|17>>
+    <associate|auto-15|<tuple|B|19>>
+    <associate|auto-16|<tuple|C|?>>
+    <associate|auto-17|<tuple|D|?>>
     <associate|auto-2|<tuple|1.1|3>>
     <associate|auto-3|<tuple|1.2|3>>
     <associate|auto-4|<tuple|2|3>>
