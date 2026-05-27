@@ -237,11 +237,11 @@
   <reference|appendix:schwartz-dense> and
   <reference|appendix:analytic-dense>.
 
-  <with|color|red|Can we approximate the kernel such that
-  <math|r\<in\>\<cal-S\><rsub|E><around*|(|\<bbb-R\><rsup|2d>|)>>?>
+  <section|Kernel Is Entire Schwartz Function Too (TODO)>
 
   We can apply the previous discussion to the kernel <math|r>. First, we
-  claim that <math|r<around*|(|x,\<cdummy\>|)>>\ 
+  claim that <math|r<around*|(|x,\<cdummy\>|)>> is square-integratable
+  function.
 
   <section|Path Integral Formalism>
 
@@ -512,9 +512,9 @@
   determined by the moments <math|R<rsub|n>>s.
 
   So, consider the traditional Hamiltonian
-  <math|<wide|r|^><around*|(|x,p|)>=p<rsup|2>/<around*|(|2m|)>+V<around*|(|x|)>>
-  (in the natural units where <math|\<hbar\>=1>), all <math|R<rsub|n>>s
-  vanish except for <math|R<rsub|0><around*|(|x|)>=V<around*|(|x|)>> and
+  <math|<wide|r|^><around*|(|x,p|)>=p<rsup|2>/<around*|(|2m|)>+V<around*|(|x|)>>,
+  all <math|R<rsub|n>>s vanish except for
+  <math|R<rsub|0><around*|(|x|)>=V<around*|(|x|)>> and
   <math|R<rsub|2><around*|(|x|)>=-1/m>. Equation <reference|eq:transexp>
   implies
 
@@ -530,7 +530,8 @@
     \<varphi\><around*|(|y,t|)><around*|[|V<around*|(|x|)>\<delta\><around*|(|y-x|)>-<frac|1|2m>\<nabla\><rsup|2>\<delta\><around*|(|y-x|)>|]>=-<frac|1|2m>\<nabla\><rsup|2>\<varphi\><around*|(|x,t|)>+V<around*|(|x|)>\<varphi\><around*|(|x,t|)>,
   </equation*>
 
-  which is exactly the Schr<wide|o|\<ddot\>>dinger equation.
+  which is exactly the Schr<wide|o|\<ddot\>>dinger equation (in the natural
+  units where Planck's constant <math|\<hbar\>=1>).
 
   <section|Locality Truncates the Moments>
 
@@ -1123,12 +1124,21 @@
   <verbatim|N> has been a keyword of Mathematica)
 
   <\verbatim-code>
-    Table[{{m, n}, targetIntegral[sigma, m, n]}, {m, {2, 4, 6, 8}}, {n, 0,
-    15}]
+    list = Flatten[Table[{{m, n}, targetIntegral[sigma, m, n]}, {m, {2, 4, 6,
+    8}}, {n, 0, 15}], 1]
   </verbatim-code>
 
-  which outputs the <math|<around*|(|N,n|)>> pairs and the corresponding
-  integrals.
+  which outputs a list of <math|<around*|(|N,n|)>> pairs and the
+  corresponding integrals, each element has the format <verbatim|{{N,n},
+  integral}>. To filter the valid items, in which the integral is
+  proportional to <math|1/\<sigma\><rsup|2>>, we append
+
+  <\verbatim-code>
+    result = Select[list, MatchQ[#[[2]], _*sigma^-2] &]
+  </verbatim-code>
+
+  The <verbatim|MatchQ> function matches the integrals (as the second
+  element) that are proportional to <math|1/\<sigma\><rsup|2>>.
 
   <appendix|From Quantum to Classical>
 
@@ -1151,11 +1161,12 @@
     <associate|auto-1|<tuple|1|3>>
     <associate|auto-10|<tuple|8|9>>
     <associate|auto-11|<tuple|9|10>>
-    <associate|auto-12|<tuple|A|13>>
-    <associate|auto-13|<tuple|B|15>>
-    <associate|auto-14|<tuple|C|17>>
-    <associate|auto-15|<tuple|D|19>>
-    <associate|auto-16|<tuple|E|?>>
+    <associate|auto-12|<tuple|10|13>>
+    <associate|auto-13|<tuple|A|15>>
+    <associate|auto-14|<tuple|B|17>>
+    <associate|auto-15|<tuple|C|19>>
+    <associate|auto-16|<tuple|D|?>>
+    <associate|auto-17|<tuple|E|?>>
     <associate|auto-2|<tuple|1.1|3>>
     <associate|auto-3|<tuple|1.2|3>>
     <associate|auto-4|<tuple|2|3>>
@@ -1192,8 +1203,8 @@
     <associate|footnr-4|<tuple|4|8>>
     <associate|footnr-5|<tuple|5|11>>
     <associate|footnr-6|<tuple|6|?>>
-    <associate|section:Expanding Kernel as Generalized Function|<tuple|6|6>>
-    <associate|section:Hermitianity on Moments|<tuple|8|9>>
+    <associate|section:Expanding Kernel as Generalized Function|<tuple|7|6>>
+    <associate|section:Hermitianity on Moments|<tuple|9|9>>
   </collection>
 </references>
 
