@@ -237,14 +237,7 @@
   <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><rsub|E><around*|(|\<bbb-R\><rsup|d>|)>>
   is plausible. Proof of the statement that rapidly decreasing entire
   functions are dense in square-integrable space is given in appendices
-  <reference|appendix:schwartz-dense> and
-  <reference|appendix:analytic-dense>.
-
-  <section|Kernel Is Rapidly Decreasing and Entire Too (TODO)>
-
-  We can apply the previous discussion to the kernel <math|r>. First, we
-  claim that <math|r<around*|(|x,\<cdummy\>|)>> is square-integrable
-  function.
+  <reference|appendix:dense>.
 
   <section|Path Integral Formalism><label|section:Path Integral Formalism>
 
@@ -277,42 +270,6 @@
 
     <\equation*>
       r<around*|(|x,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)>\<times\><around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<rprime|'>
-      exp<around*|(|-\<mathi\>k<around*|(|x-y<rprime|'>|)>|)>
-      r<around*|(|x,y<rprime|'>|)>|]>.
-    </equation*>
-
-    Re-arrange the right hand side as
-
-    <\equation*>
-      <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<rprime|'>
-      r<around*|(|x,y<rprime|'>|)><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-      exp<around*|(|\<mathi\>k<around*|(|y<rprime|'>-y|)>|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<rprime|'>
-      r<around*|(|x,y<rprime|'>|)>\<delta\><around*|(|y<rprime|'>-y|)>,
-    </equation*>
-
-    which goes back to <math|r<around*|(|x,y|)>>, indicating that equations
-    <reference|eq:r-fourier> and <reference|eq:hamiltonian> are consistent.
-  </footnote> <\footnote>
-    We can also define
-
-    <\equation*>
-      <wide|r|^><rprime|'><around*|(|k,y|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-      exp<around*|(|-\<mathi\>k<around*|(|x-y|)>|)> r<around*|(|x,y|)>.
-    </equation*>
-
-    Thus,
-
-    <\equation*>
-      r<around*|(|x,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)><wide|r|^><rprime|'><around*|(|k,y|)>.
-    </equation*>
-
-    Indeed, by plugging <math|<wide|r|^><rprime|'><around*|(|k,y|)>> into the
-    right hand side of <math|r<around*|(|x,y|)>>,
-
-    <\equation*>
-      r<around*|(|x,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
       exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)>\<times\><around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<rprime|'>
       exp<around*|(|-\<mathi\>k<around*|(|x<rprime|'>-y|)>|)>
       r<around*|(|x<rprime|'>,y|)>|]>.
@@ -327,13 +284,70 @@
       r<around*|(|x<rprime|'>,y|)>\<delta\><around*|(|x-x<rprime|'>|)>,
     </equation*>
 
-    which goes back to <math|r<around*|(|x,y|)>>. The
-    <math|<wide|r|^><rprime|'>> and <math|<wide|r|^>> are the Fourier
-    transform of <math|r> performed on each of its arguments respectively.
-    But, because time evolution (equation <reference|equ:superposition>)
-    integrates over the second argument, only <math|<wide|r|^>> is relevant
-    to our task (as we will see in section <reference|section:Expanding
-    Kernel as Generalized Function>).
+    which goes back to <math|r<around*|(|x,y|)>>, indicating that equations
+    <reference|eq:r-fourier> and <reference|eq:hamiltonian> are consistent.
+  </footnote> <\footnote>
+    Alternatively, we can define
+
+    <\equation*>
+      <wide|r|~><around*|(|x,k|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+      exp<around*|(|-\<mathi\>k<around*|(|x-y|)>|)> r<around*|(|x,y|)>.
+    </equation*>
+
+    Thus,
+
+    <\equation*>
+      r<around*|(|x,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
+      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)><wide|r|~><around*|(|x,k|)>.
+    </equation*>
+
+    Indeed, by plugging <math|<wide|r|~><around*|(|x,k|)>> into the right
+    hand side of <math|r<around*|(|x,y|)>>,
+
+    <\equation*>
+      r<around*|(|x,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
+      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)>\<times\><around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<rprime|'>
+      exp<around*|(|-\<mathi\>k<around*|(|x-y<rprime|'>|)>|)>
+      r<around*|(|x,y<rprime|'>|)>|]>.
+    </equation*>
+
+    Re-arrange the right hand side as
+
+    <\equation*>
+      <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<rprime|'>
+      r<around*|(|x,y<rprime|'>|)><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
+      exp<around*|(|\<mathi\>k<around*|(|y<rprime|'>-y|)>|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<rprime|'>
+      r<around*|(|x,y<rprime|'>|)>\<delta\><around*|(|y<rprime|'>-y|)>,
+    </equation*>
+
+    which goes back to <math|r<around*|(|x,y|)>> again. The <math|<wide|r|^>>
+    and <math|<wide|r|~>> are the Fourier transform of <math|r> performed on
+    each of its arguments respectively. In fact, <math|<wide|r|^>> and
+    <math|<wide|r|~>> are the same. Indeed, recalling the Hermitianity of
+    <math|r>, we have
+
+    <\equation*>
+      <wide|r|^><rsup|\<ast\>><around*|(|k,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)>
+      r<rsup|\<ast\>><around*|(|x,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)>r<around*|(|y,x|)>.
+    </equation*>
+
+    Exchanging <math|x> and <math|y> makes
+
+    <\equation*>
+      <wide|r|^><rsup|\<ast\>><around*|(|k,x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+      exp<around*|(|-\<mathi\>k<around*|(|x-y|)>|)>r<around*|(|x,y|)>,
+    </equation*>
+
+    which is just the <math|<wide|r|~><around*|(|x,k|)>>. So, we have
+
+    <\equation*>
+      <wide|r|^><rsup|\<ast\>><around*|(|k,x|)>=<wide|r|~><around*|(|x,k|)>.
+    </equation*>
+
+    Once again, we find that the two arguments of <math|r<around*|(|x,y|)>>
+    are not independent.
   </footnote>
 
   <\equation>
@@ -506,9 +520,9 @@
   <math|R<rsub|2><around*|(|x|)>=-1/m>. Equation <reference|eq:transexp>
   implies
 
-  <\equation*>
-    \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<frac|-1|2m>\<nabla\><rsup|2>\<varphi\><around*|(|x,t|)>+V<around*|(|x|)>\<varphi\><around*|(|x,t|)>,
-  </equation*>
+  <\equation>
+    \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=-<frac|1|2m>\<nabla\><rsup|2>\<varphi\><around*|(|x,t|)>+V<around*|(|x|)>\<varphi\><around*|(|x,t|)>,
+  </equation>
 
   which is exactly the Schr<wide|o|\<ddot\>>dinger equation (in the natural
   units where Planck's constant <math|\<hbar\>=1>).
@@ -666,11 +680,12 @@
     r<around*|(|x,y|)><around*|(|x-y|)><rsup|\<alpha\>>.
   </equation*>
 
-  Remark that the integral is the symmetry of
+  Remark that the integral is symmetric to
   <math|R<rsup|\<alpha\>><rsub|n><around*|(|y|)>>, which shares the same
-  integrand but integrating over <math|x> instead. In equation
+  integrand (namely <math|r<around*|(|x,y|)><around*|(|x-y|)><rsup|\<alpha\>>>),
+  but integrating over <math|x> instead. In equation
   <reference|equ:superposition>, Taylor expanding
-  <math|\<varphi\><around*|(|y,t|)>> at <math|y=x> gives
+  <math|\<varphi\><around*|(|y,t|)>> by <math|y> at <math|x> gives
 
   <\equation*>
     \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
@@ -682,9 +697,9 @@
   <math|<around*|(|R<rsub|n><rsup|\<alpha\>>|)><rsup|\<ast\>><around*|(|x|)>>.
   Hence,
 
-  <\equation*>
+  <\equation>
     \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|1|n!><around*|(|R<rsub|n><rsup|\<alpha\>>|)><rsup|\<ast\>><around*|(|x|)>\<partial\><rsup|n><rsub|\<alpha\>>\<varphi\><around*|(|x,t|)>.
-  </equation*>
+  </equation>
 
   Comparing with equation <reference|eq:transexp>, this equation looks
   simpler.
@@ -739,9 +754,9 @@
   is odd when <math|n> is odd, otherwise even) and then integrating over
   <math|k<rprime|'>>, we arrive at
 
-  <\equation>
+  <\equation*>
     <wide|r|^><rsup|\<ast\>><around*|(|k,y|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!><frac|\<partial\><rsup|2n><wide|r|^>|\<partial\>k<rsub|\<alpha\>>\<partial\>y<rsup|\<alpha\>>><around*|(|k,y|)>.
-  </equation>
+  </equation*>
 
   Since <math|<around*|(|-\<mathi\>|)><rsup|n>R<rsub|n><around*|(|y|)>>s are
   the coefficients of Taylor expansion of <math|<wide|r|^><around*|(|k,y|)>>
@@ -784,13 +799,11 @@
   <section|Uncertainty Principle Restricts the Highest Order Moment>
 
   An <strong|observable> is a real function of the particle positions of a
-  quantum system, such as <math|F:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-R\><rsup|n>>
-  for some positive integer <math|n>. A corollary of axiom
-  <reference|axiom:prob> is that, given a wavefunction <math|\<varphi\>> and
-  an observable <math|F>, <math|<around*|\||\<varphi\><around*|(|x,t|)>|\|><rsup|2>>
-  represents the probability density that the particles are found on
-  positions <math|x> at time <math|t>, hence the observed value is the
-  expectation
+  quantum system. A corollary of axiom <reference|axiom:prob> is that, given
+  a wavefunction <math|\<varphi\>> and an observable <math|F>,
+  <math|<around*|\||\<varphi\><around*|(|x,t|)>|\|><rsup|2>> represents the
+  probability density that the particles are found on positions <math|x> at
+  time <math|t>, hence the observed value is the expectation
 
   <\equation>
     \<bbb-E\><rsub|\<varphi\>><around*|[|F|]><around*|(|t|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
@@ -807,11 +820,11 @@
   \;
 
   For a single particle system, we use <math|X> to denote the position of the
-  particle, thus a with <math|X<around*|(|x|)>=x>. The uncertainty of
-  position is given by
+  particle, thus <math|X<around*|(|x|)>=x>. Apparently, <math|X> is an
+  observable. Its uncertainty is given by
 
   <\equation>
-    \<Delta\>X<around*|(|t|)>\<assign\><sqrt|Var<rsub|\<varphi\>><around*|[|X|]><around*|(|t|)>>.
+    \<Delta\>X<around*|(|t|)>\<assign\><sqrt|Var<rsub|\<varphi\>><around*|[|X|]><around*|(|t|)>>.<label|eq:deltax>
   </equation>
 
   Having observed the particle position at time <math|t> and
@@ -822,16 +835,16 @@
     V<around*|(|t|)>\<assign\>lim<rsub|\<Delta\>t\<rightarrow\>0><frac|\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|t+\<Delta\>t|)>-\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|t|)>|\<Delta\>t>.
   </equation>
 
-  The uncertainty of velocity is hard to determine, because of ends (particle
-  positions at time <math|t> and <math|t+\<Delta\>t>) are uncertain. The key
-  is fixing the position at time <math|t> by
+  The uncertainty of velocity is hard to determine, because both ends
+  (particle positions at time <math|t> and <math|t+\<Delta\>t>) are
+  uncertain. The key is fixing the position at time <math|t> by
   <math|\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|t|)>>, and
   measuring the uncertainty caused by the position at time
-  <math|t+\<Delta\>t>, that is, <em|the uncertainty induced by time
-  evolution>. Having considered thus, we have
+  <math|t+\<Delta\>t>. That is, <em|the uncertainty induced by time
+  evolution>. Thus, we have
 
   <\equation>
-    \<Delta\>V<around*|(|t|)>\<assign\><sqrt|lim<rsub|\<Delta\>t\<rightarrow\>0>Var<rsub|\<varphi\>><around*|[|<frac|X-\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|t|)>|\<Delta\>t>|]><around*|(|t+\<Delta\>t|)>>.
+    \<Delta\>V<around*|(|t|)>\<assign\><sqrt|lim<rsub|\<Delta\>t\<rightarrow\>0>Var<rsub|\<varphi\>><around*|[|<frac|X-\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|t|)>|\<Delta\>t>|]><around*|(|t+\<Delta\>t|)>>.<label|eq:deltav>
   </equation>
 
   Have clarified the uncertainties of particle position and velocity, we can
@@ -870,7 +883,7 @@
     exp<around*|(|-<frac|x<rsup|2>|2\<sigma\><rsup|2>>|)>x=0,
   </equation*>
 
-  then
+  and
 
   <\equation*>
     Var<rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>\<assign\><big|int><rsub|\<bbb-R\>>\<mathd\>x
@@ -878,7 +891,8 @@
     exp<around*|(|-<frac|x<rsup|2>|2\<sigma\><rsup|2>>|)>x<rsup|2>=\<sigma\><rsup|2>.
   </equation*>
 
-  Thus, <math|\<Delta\>X=<sqrt|Var<rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>>=\<sigma\>>.
+  Then, equation <reference|eq:deltax> gives
+  <math|\<Delta\>X=<sqrt|Var<rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>>=\<sigma\>>.
 
   To evaluate <math|\<Delta\>V<around*|(|0|)>>, we have to use time evolution
   equation to calculate <math|X> at time <math|\<Delta\>t>. By equation
@@ -975,14 +989,14 @@
     Var<around*|[|R|]>=\<bbb-E\><around*|[|<around*|(|R-\<bbb-E\><around*|[|R|]>|)><rsup|2>|]>=\<bbb-E\><around*|[|R<rsup|2>-2\<bbb-E\><around*|[|R|]>R-\<bbb-E\><rsup|2><around*|[|R|]>|]>=\<bbb-E\><around*|[|R<rsup|2>|]>-\<bbb-E\><rsup|2><around*|[|R|]>.
   </equation*>
 
-  Then, we find (recall that <math|\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>=V<around*|(|0|)>=0>
-  when <math|N> is even)
+  Applying to equation <reference|eq:deltav> gives
 
   <\equation*>
-    \<Delta\>V<rsup|2><around*|(|0|)>=lim<rsub|\<Delta\>t\<rightarrow\>0>\<bbb-E\><rsub|\<varphi\>><around*|[|<around*|(|<frac|X-\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>|\<Delta\>t>|)><rsup|2>|]><around*|(|\<Delta\>t|)>-V<rsup|2><around*|(|0|)>=lim<rsub|\<Delta\>t\<rightarrow\>0><frac|\<bbb-E\><rsub|\<varphi\>><around*|[|X<rsup|2>|]><around*|(|\<Delta\>t|)>|\<Delta\>t<rsup|2>>.
+    \<Delta\>V<rsup|2><around*|(|0|)>=lim<rsub|\<Delta\>t\<rightarrow\>0>\<bbb-E\><rsub|\<varphi\>><around*|[|<around*|(|<frac|X-\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>|\<Delta\>t>|)><rsup|2>|]><around*|(|\<Delta\>t|)>-V<rsup|2><around*|(|0|)>=lim<rsub|\<Delta\>t\<rightarrow\>0><frac|\<bbb-E\><rsub|\<varphi\>><around*|[|X<rsup|2>|]><around*|(|\<Delta\>t|)>|\<Delta\>t<rsup|2>>,
   </equation*>
 
-  Since <math|R<rsub|N>> has been real, we have
+  where we have used <math|\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>=V<around*|(|0|)>=0>
+  when <math|N> is even. Since <math|R<rsub|N>> has been real, we have
 
   <\align>
     <tformat|<table|<row|<cell|\<bbb-E\><rsub|\<varphi\>><around*|[|X<rsup|2>|]><around*|(|\<Delta\>t|)>=>|<cell|<big|int><rsub|\<bbb-R\>>\<mathd\>x
@@ -1112,11 +1126,62 @@
     <around*|(|\<partial\><rsub|\<alpha\><rsub|1>>\<cdots\>\<partial\><rsub|\<alpha\><rsub|n>>f|)><around*|(|x+t<around*|(|x<rsub|0>-x|)>|)>.
   </equation>
 
-  <appendix|Rapidly Decreasing Functions are Dense in Square-Integrable
-  Space><label|appendix:schwartz-dense>
+  <appendix|Rapidly Decreasing Entire Functions are Dense in
+  Square-Integrable Space (TODO)><label|appendix:dense>
 
-  <appendix|Approximating Rapidly Decreasing Function Using Entire
-  Functions><label|appendix:analytic-dense>
+  A function <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>> is
+  square-integrable if
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    f<rsup|\<ast\>><around*|(|x|)>f<around*|(|x|)>\<less\>\<infty\>.
+  </equation*>
+
+  This is a improper integral, thus defined by
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>=lim<rsub|R\<rightarrow\>\<infty\>><big|int><rsub|B<around*|(|R|)>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>,
+  </equation*>
+
+  where <math|B<around*|(|R|)>\<assign\><around*|[|-R,R|]><rsup|d>> denotes
+  the <math|d>-dimensional \Pbox\Q. In other words, for any
+  <math|\<varepsilon\>\<gtr\>0>, there exists <math|R<rsub|\<star\>>\<gtr\>0>
+  and <math|\<delta\>\<gtr\>0>, such that for any
+  <math|R\<gtr\>R<rsub|\<star\>>> and <math|0\<less\>\<Delta\>x\<less\>\<delta\>>,
+
+  <\equation*>
+    <around*|\||<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>-<big|int><rsub|B<around*|(|R|)>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>|\|>\<less\>\<varepsilon\>.
+  </equation*>
+
+  So, for any <math|\<varepsilon\>\<gtr\>0>, we can construct a compact
+  supported function <math|g<rsub|R>:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>,
+  which consists with <math|f> within the box <math|B<around*|(|R|)>> and
+  vanishes outside. TODO
+
+  \;
+
+  \;
+
+  Consider the convolution
+
+  <\equation*>
+    f<rsub|n><around*|(|x|)>=<around*|(|\<delta\><rsub|n>\<ast\>f|)><around*|(|x|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|x-y|)>f<around*|(|y|)>,
+  </equation*>
+
+  where <math|n> is a positive integer and
+
+  <\equation*>
+    \<delta\><rsub|n><around*|(|x|)>\<assign\><frac|1|<around*|(|<sqrt|2\<mathpi\>>n|)><rsup|d>>exp<around*|(|-<frac|x<rsup|2>|2n>|)>,
+  </equation*>
+
+  that is, the probabilistic density function of normal distribution with
+  zero mean and variance <math|n>. By young's inequality for convolution, we
+  have
+
+  <\equation*>
+    <around*|\<\|\|\>|\<delta\><rsub|n>\<ast\>f|\<\|\|\>><rsub|\<infty\>>\<leqslant\><around*|\<\|\|\>|\<delta\><rsub|n>|\<\|\|\>><rsub|2><around*|\<\|\|\>|f|\<\|\|\>><rsub|2>.
+  </equation*>
 
   <appendix|Computing the Uncertainty of Velocity><label|appendix:compute-uncert>
 
@@ -1179,37 +1244,36 @@
 
 <\references>
   <\collection>
-    <associate|appendix:analytic-dense|<tuple|C|19>>
-    <associate|appendix:compute-uncert|<tuple|D|21>>
-    <associate|appendix:schwartz-dense|<tuple|B|17>>
+    <associate|appendix:compute-uncert|<tuple|C|19>>
+    <associate|appendix:dense|<tuple|B|17>>
     <associate|auto-1|<tuple|1|3>>
-    <associate|auto-10|<tuple|8|8>>
-    <associate|auto-11|<tuple|9|9>>
-    <associate|auto-12|<tuple|10|10>>
-    <associate|auto-13|<tuple|11|13>>
-    <associate|auto-14|<tuple|A|15>>
-    <associate|auto-15|<tuple|B|17>>
-    <associate|auto-16|<tuple|C|19>>
-    <associate|auto-17|<tuple|D|21>>
+    <associate|auto-10|<tuple|8|9>>
+    <associate|auto-11|<tuple|9|10>>
+    <associate|auto-12|<tuple|10|13>>
+    <associate|auto-13|<tuple|A|15>>
+    <associate|auto-14|<tuple|B|17>>
+    <associate|auto-15|<tuple|C|19>>
     <associate|auto-2|<tuple|1.1|3>>
     <associate|auto-3|<tuple|1.2|3>>
     <associate|auto-4|<tuple|2|3>>
     <associate|auto-5|<tuple|3|3>>
     <associate|auto-6|<tuple|4|4>>
     <associate|auto-7|<tuple|5|5>>
-    <associate|auto-8|<tuple|6|5>>
-    <associate|auto-9|<tuple|7|7>>
+    <associate|auto-8|<tuple|6|7>>
+    <associate|auto-9|<tuple|7|8>>
     <associate|axiom:local|<tuple|3|8>>
     <associate|axiom:prob|<tuple|1|3>>
     <associate|axiom:sup|<tuple|2|4>>
-    <associate|axiom:uncert|<tuple|4|10>>
+    <associate|axiom:uncert|<tuple|4|11>>
     <associate|eq:action|<tuple|8|7>>
-    <associate|eq:deltavel|<tuple|20|12>>
-    <associate|eq:gaussianwavefunction|<tuple|19|11>>
+    <associate|eq:deltav|<tuple|19|11>>
+    <associate|eq:deltavel|<tuple|21|12>>
+    <associate|eq:deltax|<tuple|17|11>>
+    <associate|eq:gaussianwavefunction|<tuple|20|11>>
     <associate|eq:hamiltonian|<tuple|5|6>>
     <associate|eq:moment|<tuple|9|7>>
-    <associate|eq:momentexpansion|<tuple|11|7>>
-    <associate|eq:pathint|<tuple|6|6>>
+    <associate|eq:momentexpansion|<tuple|11|8>>
+    <associate|eq:pathint|<tuple|6|7>>
     <associate|eq:probtoself|<tuple|2|4>>
     <associate|eq:r-fourier|<tuple|4|5>>
     <associate|eq:transexp|<tuple|10|7>>
@@ -1218,19 +1282,19 @@
     <associate|footnote-2|<tuple|2|5>>
     <associate|footnote-3|<tuple|3|6>>
     <associate|footnote-4|<tuple|4|6>>
-    <associate|footnote-5|<tuple|5|8>>
-    <associate|footnote-6|<tuple|6|11>>
-    <associate|footnote-7|<tuple|7|?>>
+    <associate|footnote-5|<tuple|5|7>>
+    <associate|footnote-6|<tuple|6|8>>
+    <associate|footnote-7|<tuple|7|11>>
     <associate|footnr-1|<tuple|1|4>>
     <associate|footnr-2|<tuple|2|5>>
     <associate|footnr-3|<tuple|3|6>>
     <associate|footnr-4|<tuple|4|6>>
-    <associate|footnr-5|<tuple|5|8>>
-    <associate|footnr-6|<tuple|6|11>>
-    <associate|footnr-7|<tuple|7|?>>
-    <associate|section:Expanding Kernel as Generalized Function|<tuple|7|7>>
-    <associate|section:Hermitianity on Moments|<tuple|9|9>>
-    <associate|section:Path Integral Formalism|<tuple|6|5>>
+    <associate|footnr-5|<tuple|5|7>>
+    <associate|footnr-6|<tuple|6|8>>
+    <associate|footnr-7|<tuple|7|11>>
+    <associate|section:Expanding Kernel as Generalized Function|<tuple|6|7>>
+    <associate|section:Hermitianity on Moments|<tuple|8|9>>
+    <associate|section:Path Integral Formalism|<tuple|5|5>>
   </collection>
 </references>
 
@@ -1260,52 +1324,43 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6>
 
-      5<space|2spc>Kernel Is Raplidly Decreasing and Entire Too (TODO)
+      5<space|2spc>Path Integral Formalism
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-7>
 
-      6<space|2spc>Path Integral Formalism
+      6<space|2spc>From Integral to Differential
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-8>
 
-      7<space|2spc>From Integral to Differential
+      7<space|2spc>Locality Truncates the Moments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-9>
 
-      8<space|2spc>Locality Truncates the Moments
+      8<space|2spc>Hermitianity on the Moments of Transition Rate
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-10>
 
-      9<space|2spc>Hermitianity on the Moments of Transition Rate
+      9<space|2spc>Uncertainty Principle Restricts the Highest Order Moment
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-11>
 
-      10<space|2spc>Uncertainty Principle Restricts the Highest Order Moment
+      10<space|2spc>From Quantum to Classical (TODO)
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-12>
 
-      11<space|2spc>From Quantum to Classical (TODO)
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-13>
-
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
       A<space|2spc>Taylor Reminder> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-13><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
+      B<space|2spc>Rapidly Decreasing Entire Functions are Dense in
+      Square-Integrable Space (TODO)> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-14><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      B<space|2spc>Raplidly Decreasing Functions are Dense in
-      Square-Integrable Space> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-15><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      C<space|2spc>Approximating Raplidly Decreasing Function Using Entire
-      Functions> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-16><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      D<space|2spc>Computing the Uncertainty of Velocity>
+      C<space|2spc>Computing the Uncertainty of Velocity>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-17><vspace|0.5fn>
+      <no-break><pageref|auto-15><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
