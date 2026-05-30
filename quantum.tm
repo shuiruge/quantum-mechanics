@@ -242,7 +242,8 @@
   <section|Path Integral Formalism><label|section:Path Integral Formalism>
 
   We are trying to derive a generic path integral formalism. Given a small
-  <math|\<Delta\>t\<gtr\>0>, equation <reference|equ:superposition> gives
+  <math|\<Delta\>t\<gtr\>0>, time evolution (equation
+  <reference|equ:superposition>) gives
 
   <\equation*>
     \<varphi\><around*|(|x,t+\<Delta\>t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<around*|[|\<delta\><around*|(|x-y|)>-\<mathi\>
@@ -286,11 +287,13 @@
 
     which goes back to <math|r<around*|(|x,y|)>>, indicating that equations
     <reference|eq:r-fourier> and <reference|eq:hamiltonian> are consistent.
+    <with|color|red|But, before Fourier transform, we have to prove that
+    <math|r> can be approximated by rapidly decreasing functions.>
   </footnote> <\footnote>
     Alternatively, we can define
 
     <\equation*>
-      <wide|r|~><around*|(|x,k|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+      <wide|r|\<check\>><around*|(|x,k|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
       exp<around*|(|-\<mathi\>k<around*|(|x-y|)>|)> r<around*|(|x,y|)>.
     </equation*>
 
@@ -298,11 +301,11 @@
 
     <\equation*>
       r<around*|(|x,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)><wide|r|~><around*|(|x,k|)>.
+      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)><wide|r|\<check\>><around*|(|x,k|)>.
     </equation*>
 
-    Indeed, by plugging <math|<wide|r|~><around*|(|x,k|)>> into the right
-    hand side of <math|r<around*|(|x,y|)>>,
+    Indeed, plugging <math|<wide|r|\<check\>><around*|(|x,k|)>> into the
+    right hand side of <math|r<around*|(|x,y|)>>,
 
     <\equation*>
       r<around*|(|x,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
@@ -321,10 +324,10 @@
     </equation*>
 
     which goes back to <math|r<around*|(|x,y|)>> again. The <math|<wide|r|^>>
-    and <math|<wide|r|~>> are the Fourier transform of <math|r> performed on
-    each of its arguments respectively. In fact, <math|<wide|r|^>> and
-    <math|<wide|r|~>> are the same. Indeed, recalling the Hermitianity of
-    <math|r>, we have
+    and <math|<wide|r|\<check\>>> are the Fourier transform of <math|r>
+    performed on each of its arguments respectively. In fact,
+    <math|<wide|r|^>> and <wide|r|\<check\>> are the same object. Indeed,
+    recalling the Hermitianity of <math|r>, we have
 
     <\equation*>
       <wide|r|^><rsup|\<ast\>><around*|(|k,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
@@ -340,10 +343,10 @@
       exp<around*|(|-\<mathi\>k<around*|(|x-y|)>|)>r<around*|(|x,y|)>,
     </equation*>
 
-    which is just the <math|<wide|r|~><around*|(|x,k|)>>. So, we have
+    which is just the <math|<wide|r|\<check\>><around*|(|x,k|)>>. So, we have
 
     <\equation*>
-      <wide|r|^><rsup|\<ast\>><around*|(|k,x|)>=<wide|r|~><around*|(|x,k|)>.
+      <wide|r|^><rsup|\<ast\>><around*|(|k,x|)>=<wide|r|\<check\>><around*|(|x,k|)>.
     </equation*>
 
     Once again, we find that the two arguments of <math|r<around*|(|x,y|)>>
@@ -433,8 +436,8 @@
   Generalized Function>
 
   Given a \Ptest function\Q <math|\<psi\>\<in\>\<cal-S\><rsub|E><around*|(|\<bbb-R\><rsup|d>|)>>,
-  we can calculate its \Pinner product\Q with equation
-  <reference|equ:superposition>, as
+  we can calculate its \Pinner product\Q with time evolution (equation
+  <reference|equ:superposition>), as
 
   <\equation*>
     <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x\<psi\><around*|(|x|)><around*|[|\<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>|]>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
@@ -502,7 +505,11 @@
   The integral is recognized as <math|R<rsub|n><rsup|\<alpha\>><around*|(|y|)>>.
   So, we find <math|<around*|(|-\<mathi\>|)><rsup|n>R<rsub|n><rsup|\<alpha\>><around*|(|y|)>>s
   the Taylor coefficients of <math|<wide|r|^><around*|(|k,y|)>> expanded by
-  <math|k> at its origin. Namely,
+  <math|k> at its origin. Namely,<\footnote>
+    <with|color|red|But, we have to prove that
+    <math|<wide|r|^><around*|(|k,y|)>> is entire on <math|k>, so that its
+    Taylor series converge to itself.>
+  </footnote>
 
   <\equation>
     <wide|r|^><around*|(|k,y|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsup|\<alpha\>><rsub|n><around*|(|y|)>k<rsub|\<alpha\>>,<label|eq:momentexpansion>
@@ -527,7 +534,8 @@
   which is exactly the Schr<wide|o|\<ddot\>>dinger equation (in the natural
   units where Planck's constant <math|\<hbar\>=1>).
 
-  <section|Locality Truncates the Moments>
+  <section|Locality Truncates the Moments><label|section:Locality Truncates
+  the Moments>
 
   We then introduce the third axiom about locality, and discuss what it will
   induce.
@@ -537,11 +545,11 @@
   </axiom>
 
   Shall not confuse time evolution with collapse, which is proven to be
-  non-local. Axiom <reference|axiom:local> claims that equation
-  <reference|equ:superposition> is local. To make this clear, we consider an
-  example, in which <math|R<rsub|n><around*|(|x|)>=c<rsup|n>> for some
-  constant <math|c>, and set the dimension <math|d=1> for simplicity. Then,
-  time evolution (equation <reference|eq:transexp>) at <math|x=0> is
+  non-local. Axiom <reference|axiom:local> claims that time evolution
+  (equation <reference|equ:superposition>) is local. To make this clear, we
+  consider an example, in which <math|R<rsub|n><around*|(|x|)>=c<rsup|n>> for
+  some constant <math|c>, and set the dimension <math|d=1> for simplicity.
+  Then, time evolution (equation <reference|eq:transexp>) at <math|x=0> is
 
   <\equation*>
     \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|0,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-c|)><rsup|n>|n!>
@@ -659,8 +667,8 @@
   integer <math|N<rsub|cut>> such that <math|R<rsub|n>=0> for any
   <math|n\<gtr\>N<rsub|cut>>>>.
 
-  <section|Hermitianity on the Moments of Transition
-  Rate><label|section:Hermitianity on Moments>
+  <section|Hermitianity on the Moments><label|section:Hermitianity on
+  Moments>
 
   The complex conjugation of moment is given by
 
@@ -683,8 +691,8 @@
   Remark that the integral is symmetric to
   <math|R<rsup|\<alpha\>><rsub|n><around*|(|y|)>>, which shares the same
   integrand (namely <math|r<around*|(|x,y|)><around*|(|x-y|)><rsup|\<alpha\>>>),
-  but integrating over <math|x> instead. In equation
-  <reference|equ:superposition>, Taylor expanding
+  but integrating over <math|x> instead. In time evolution (equation
+  <reference|equ:superposition>), Taylor expanding
   <math|\<varphi\><around*|(|y,t|)>> by <math|y> at <math|x> gives
 
   <\equation*>
@@ -706,9 +714,9 @@
 
   Now we study the relation between <math|R<rsub|n>>s and their complex
   conjugations. Direct calculation is found tedious. Instead, we start at
-  evaluating <math|<wide|r|^><rsup|\<ast\>>>. By conjugating equation
-  <reference|eq:hamiltonian> and applying the Hermitianity of <math|r>, we
-  get
+  evaluating <math|<wide|r|^><rsup|\<ast\>>>. By conjugating the definition
+  of <math|<wide|r|^>> (equation <reference|eq:hamiltonian>) and applying the
+  Hermitianity of <math|r>, we get
 
   <\equation*>
     <wide|r|^><rsup|\<ast\>><around*|(|k,y|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
@@ -774,8 +782,8 @@
     <around*|(|R<rsup|\<alpha\>><rsub|m>|)><rsup|\<ast\>><around*|(|y|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|m+n>|n!><frac|\<partial\><rsup|n>|\<partial\>x<rsup|\<beta\>>><around*|[|<around*|(|-\<mathi\>|)><rsup|m+n>R<rsup|\<alpha\>\<beta\>><rsub|m+n><around*|(|y|)>|]>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|m+n>|n!>\<partial\><rsup|n><rsub|\<beta\>>R<rsup|\<alpha\>\<beta\>><rsub|m+n><around*|(|x|)>.
   </equation*>
 
-  Recall that <math|R<rsub|n>=0> for any <math|n\<gtr\>N<rsub|cut>>, we
-  finally arrive at
+  Recall that <math|R<rsub|n>=0> for any <math|n\<gtr\>N<rsub|cut>> (section
+  <reference|section:Locality Truncates the Moments>), we finally arrive at
 
   <\equation>
     <around*|(|R<rsup|\<alpha\>><rsub|m>|)><rsup|\<ast\>><around*|(|x|)>=<big|sum><rsub|n=0><rsup|N<rsub|cut>-m><frac|<around*|(|-1|)><rsup|m+n>|n!>\<partial\><rsup|n><rsub|\<beta\>>R<rsup|\<alpha\>\<beta\>><rsub|m+n><around*|(|x|)>.
@@ -799,18 +807,19 @@
   <section|Uncertainty Principle Restricts the Highest Order Moment>
 
   An <strong|observable> is a real function of the particle positions of a
-  quantum system. A corollary of axiom <reference|axiom:prob> is that, given
-  a wavefunction <math|\<varphi\>> and an observable <math|F>,
+  quantum system. A corollary of probability interpretation (axiom
+  <reference|axiom:prob>) is that, given a wavefunction <math|\<varphi\>>,
   <math|<around*|\||\<varphi\><around*|(|x,t|)>|\|><rsup|2>> represents the
   probability density that the particles are found on positions <math|x> at
-  time <math|t>, hence the observed value is the expectation
+  time <math|t>, hence the observed value of an observable <math|F> is the
+  expectation
 
   <\equation>
     \<bbb-E\><rsub|\<varphi\>><around*|[|F|]><around*|(|t|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <around*|\||\<varphi\><around*|(|x,t|)>|\|><rsup|2>F<around*|(|x|)>.
+    <around*|\||\<varphi\><around*|(|x,t|)>|\|><rsup|2>F<around*|(|x|)>,
   </equation>
 
-  And the variance
+  with uncertainty characterized by variance
 
   <\equation>
     Var<rsub|\<varphi\>><around*|[|F|]><around*|(|t|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
@@ -824,28 +833,53 @@
   observable. Its uncertainty is given by
 
   <\equation>
-    \<Delta\>X<around*|(|t|)>\<assign\><sqrt|Var<rsub|\<varphi\>><around*|[|X|]><around*|(|t|)>>.<label|eq:deltax>
+    \<Delta\>X<rsup|\<alpha\>><around*|(|t|)>\<assign\><sqrt|Var<rsub|\<varphi\>><around*|[|X<rsup|\<alpha\>>|]><around*|(|t|)>>.<label|eq:deltax>
   </equation>
 
   Having observed the particle position at time <math|t> and
-  <math|t+\<Delta\>t> subsequently, we can obtain the velocity of the
-  particle
+  <math|t+\<Delta\>t> subsequently, we can evaluate the velocity of the
+  particle by the observed positions, as
 
   <\equation>
-    V<around*|(|t|)>\<assign\>lim<rsub|\<Delta\>t\<rightarrow\>0><frac|\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|t+\<Delta\>t|)>-\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|t|)>|\<Delta\>t>.
+    V<rsup|\<alpha\>><around*|(|t|)>\<assign\>lim<rsub|\<Delta\>t\<rightarrow\>0><frac|\<bbb-E\><rsub|\<varphi\>><around*|[|X<rsup|\<alpha\>>|]><around*|(|t+\<Delta\>t|)>-\<bbb-E\><rsub|\<varphi\>><around*|[|X<rsup|\<alpha\>>|]><around*|(|t|)>|\<Delta\>t>.<label|eq:v>
   </equation>
 
-  The uncertainty of velocity is hard to determine, because both ends
+  But the uncertainty of velocity is hard to determine, because both ends
   (particle positions at time <math|t> and <math|t+\<Delta\>t>) are
-  uncertain. The key is fixing the position at time <math|t> by
-  <math|\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|t|)>>, and
-  measuring the uncertainty caused by the position at time
-  <math|t+\<Delta\>t>. That is, <em|the uncertainty induced by time
-  evolution>. Thus, we have
+  uncertain. So, for evaluating the uncertainty of velocity, we have to fix
+  the position of particle at time <math|t> and measure the uncertainty
+  caused by the position at time <math|t+\<Delta\>t>. That is, <em|the
+  uncertainty induced by time evolution>. This, however, is improper because
+  it makes the wavefunction of the particle ill-defined. Indeed, by fixing
+  the particle at position <math|x<rsub|0>>, we must have
+  <math|\<varphi\><around*|(|x,t|)>=exp<around*|(|\<mathi\>\<omega\><around*|(|x,t|)>|)><sqrt|\<delta\><around*|(|x-x<rsub|0>|)>>>
+  for some real function <math|\<omega\>>. Then,
+  <math|<around*|(|\<partial\>\<varphi\>/\<partial\>x|)>> is ill-defined
+  because it is proportional to <math|1/<sqrt|\<delta\><around*|(|x-x<rsub|0>|)>>>
+  (if viewing <math|\<delta\>> as a function on which derivative rules hold
+  still), which is <math|1/0> except for <math|x=x<rsub|0>>. Instead, we have
+  to consider the series of function that converge to <math|\<delta\>>
+  function, such as
+
+  <\equation*>
+    \<delta\><rsub|a><around*|(|x-x<rsub|0>|)>\<assign\><around*|(|<frac|a|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|a
+    x<rsup|2>|2>|)>,
+  </equation*>
+
+  where <math|a> is a positive number and
+  <math|\<delta\><rsub|a>\<rightarrow\>\<delta\>> when <math|a> tends to
+  infinity. Then, we have <math|\<varphi\><rsub|a><around*|(|x,t|)>=<sqrt|\<delta\><rsub|a><around*|(|x-x<rsub|0>|)>>>,
+  where the irrelevant phase <math|\<omega\><around*|(|x,t|)>> is omitted.
+  Using this <math|\<varphi\><rsub|a>>, we can define the uncertainty of
+  velocity caused by the uncertainty of position at time <math|t+\<Delta\>t>,
+  as
 
   <\equation>
-    \<Delta\>V<around*|(|t|)>\<assign\><sqrt|lim<rsub|\<Delta\>t\<rightarrow\>0>Var<rsub|\<varphi\>><around*|[|<frac|X-\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|t|)>|\<Delta\>t>|]><around*|(|t+\<Delta\>t|)>>.<label|eq:deltav>
+    \<Delta\>V<rsup|\<alpha\>><around*|(|t|)>\<assign\>lim<rsub|\<Delta\>t\<rightarrow\>0>lim<rsub|a\<rightarrow\>\<infty\>><sqrt|Var<rsub|\<varphi\><rsub|a>><around*|[|<frac|X<rsup|\<alpha\>>-\<bbb-E\><rsub|\<varphi\><rsub|a>><around*|[|X<rsup|\<alpha\>>|]><around*|(|t|)>|\<Delta\>t>|]><around*|(|t+\<Delta\>t|)>>,<label|eq:deltav>
   </equation>
+
+  where <math|x<rsub|0>> is replaced by the observed position
+  <math|\<bbb-E\><around*|[|X|]><around*|(|t|)>>.
 
   Have clarified the uncertainties of particle position and velocity, we can
   claim uncertainty principle as follow.
@@ -856,7 +890,7 @@
     the uncertainties of position and of velocity have the relation
 
     <\equation*>
-      \<Delta\>X<around*|(|t|)>\<Delta\>V<around*|(|t|)>\<sim\>\<hbar\>/<around*|(|2m|)>,
+      \<Delta\>X<rsup|\<alpha\>><around*|(|t|)>\<Delta\>V<rsup|\<alpha\>><around*|(|t|)>\<sim\>\<hbar\>/<around*|(|2m|)>,
     </equation*>
 
     where <math|m> is the mass of the particle, and <math|\<hbar\>> is the
@@ -864,157 +898,146 @@
   </axiom>
 
   In the rest of this section, we investigate how uncertainty principle
-  restricts further to the kernel. We first deal with the situation where
-  dimension <math|d=1>. Since axiom <reference|axiom:uncert> holds for all
-  wavefunctions of a single particle, we choose <math|\<varphi\>> to be
-  Gaussian at <math|t=0>, that is
+  restricts further to the kernel. Since all directions are independent, we
+  just need to deal with the situation where dimension <math|d=1>. Without
+  loosing generality, we set <math|t=0>. In this situation,
 
   <\equation>
-    \<varphi\><around*|(|x,0|)>=<around*|(|2\<mathpi\>\<sigma\><rsup|2>|)><rsup|-1/4>
-    exp<around*|(|-<frac|x<rsup|2>|4\<sigma\><rsup|2>>|)>.<label|eq:gaussianwavefunction>
+    \<varphi\><rsub|a><around*|(|x,0|)>=<around*|(|<frac|a|2\<mathpi\>>|)><rsup|d/4>exp<around*|(|-<frac|a
+    x<rsup|2>|4>|)>.<label|eq:gaussianwavefunction>
   </equation>
 
-  The coefficient guarantees the normalization of <math|\<varphi\>>. By axiom
-  <reference|axiom:prob>, we have
+  The coefficient guarantees the normalization of <math|\<varphi\><rsub|a>>.
+  By axiom <reference|axiom:prob>, we have
 
   <\equation*>
-    \<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>\<assign\><big|int><rsub|\<bbb-R\>>\<mathd\>x
-    \<varphi\><rsup|\<ast\>><around*|(|x,0|)>\<varphi\><around*|(|x,0|)>x=<frac|1|<sqrt|2\<mathpi\>\<sigma\><rsup|2>>><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    exp<around*|(|-<frac|x<rsup|2>|2\<sigma\><rsup|2>>|)>x=0,
+    \<bbb-E\><rsub|\<varphi\><rsub|a>><around*|[|X|]><around*|(|0|)>\<assign\><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|\||\<varphi\><rsub|a><around*|(|x,0|)>|\|><rsup|2>x=<sqrt|<frac|a|2\<mathpi\>>><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    exp<around*|(|-<frac|a x<rsup|2>|2>|)>x=0,
   </equation*>
 
   and
 
   <\equation*>
-    Var<rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>\<assign\><big|int><rsub|\<bbb-R\>>\<mathd\>x
-    \<varphi\><rsup|\<ast\>><around*|(|x,0|)>\<varphi\><around*|(|x,0|)>x<rsup|2>=<frac|1|<sqrt|2\<mathpi\>\<sigma\><rsup|2>>><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    exp<around*|(|-<frac|x<rsup|2>|2\<sigma\><rsup|2>>|)>x<rsup|2>=\<sigma\><rsup|2>.
+    Var<rsub|\<varphi\><rsub|a>><around*|[|X|]><around*|(|0|)>\<assign\><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|\||\<varphi\><rsub|a><around*|(|x,0|)>|\|><rsup|2>x<rsup|2>=<sqrt|<frac|a|2\<mathpi\>>><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    exp<around*|(|-<frac|a x<rsup|2>|2>|)>x<rsup|2>=<frac|1|a>.
   </equation*>
 
   Then, equation <reference|eq:deltax> gives
-  <math|\<Delta\>X=<sqrt|Var<rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>>=\<sigma\>>.
+  <math|\<Delta\>X<around*|(|0|)>=<sqrt|Var<rsub|\<varphi\><rsub|a>><around*|[|X|]><around*|(|0|)>>=<sqrt|1/n>>.
 
   To evaluate <math|\<Delta\>V<around*|(|0|)>>, we have to use time evolution
-  equation to calculate <math|X> at time <math|\<Delta\>t>. By equation
-  <reference|eq:transexp>, we have (for brevity, we omit the subscript
-  <math|cut> in <math|N<rsub|cut>>)
+  equation to calculate <math|X> at time <math|\<Delta\>t>. By time evolution
+  (equation <reference|eq:transexp>), we have (for brevity, we omit the
+  subscript <math|cut> in <math|N<rsub|cut>>)
 
   <\equation*>
-    \<varphi\><around*|(|x,\<Delta\>t|)>=\<varphi\><around*|(|x,0|)>-\<mathi\>\<Delta\>t<big|sum><rsub|n=0><rsup|N><frac|<around*|(|-1|)><rsup|n>|n!>
-    R<rsub|n><around*|(|x|)>\<partial\><rsup|n>\<varphi\><around*|(|x,0|)>-<frac|\<mathi\>|2>\<Delta\>t<rsup|2><big|sum><rsub|n=0><rsup|N><big|sum><rsub|n<rprime|'>=0><rsup|N>\<cdots\>.
+    \<varphi\><rsub|a><around*|(|x,\<Delta\>t|)>=\<varphi\><rsub|a><around*|(|x,0|)>-\<mathi\>\<Delta\>t<big|sum><rsub|n=0><rsup|N><frac|<around*|(|-1|)><rsup|n>|n!>\<partial\><rsup|n>
+    <around*|[|R<rsub|n><around*|(|x|)>\<varphi\><rsub|a><around*|(|x,0|)>|]>+\<cdots\>.
   </equation*>
 
-  We have to evaluate up to <math|\<omicron\><around*|(|\<Delta\>t<rsup|2>|)>>,
-  so as to give the variance of velocity which scales as
-  <math|x<rsup|2><around*|(|\<Delta\>t|)>/\<Delta\>t<rsup|2>>. But this would
-  be too complicated (the double summation). For simplification, we consider
-  a \Pfree particle\Q where all <math|R<rsub|n>>s except for <math|R<rsub|N>>
-  are vanishing. This is the situation when <math|\<sigma\>> tends to zero,
-  because there are more <math|\<sigma\>> factors in the denominator if there
-  are more derivatives on <math|f>, and as <math|\<sigma\>> tends to zero,
-  the term proportional to <math|R<rsub|N><around*|(|x|)>\<partial\><rsup|N><around*|[|f<around*|(|x,0|)>|]>>
-  surpasses all the other terms.<\footnote>
+  This expansion is too complicated. But, by noticing that
+  <math|\<partial\><rsup|n>\<varphi\><rsub|a><around*|(|x,0|)>=<with|font|cal|O><around*|(|<sqrt|a>|)>>,
+  as <math|a> tends to infinity, the term <math|<around*|(|-1|)><rsup|N>/N!
+  R<rsub|N><around*|(|x|)>\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>>
+  will surpass all the others in the summation, and the particle becomes
+  \Pfree\Q.<\footnote>
     In the traditional approach of quantum mechanics,
-    <math|\<sigma\>\<rightarrow\>0> indicates that the momentum is large
+    <math|n\<rightarrow\>\<infty\>> indicates that the momentum is large
     (since momentum is proportional to <math|\<partial\>/\<partial\>x>), so
     the term with the highest order of momentum will dominates the time
     evolution. When the momentum is large enough, the kinetic term dominates
     Hamiltonian, the potential becomes omittable, making the particle free
     (namely, unconstrained by potential).
   </footnote> In this situation, time evolution (equation
-  <reference|equ:superposition>) reduces to
+  <reference|eq:transexp>) reduces to
 
   <\equation*>
-    \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<frac|<around*|(|-1|)><rsup|N>|N!>
-    R<rsub|N><around*|(|x|)>\<partial\><rsup|N>\<varphi\><around*|(|x,t|)>.
+    \<mathi\><frac|\<partial\>\<varphi\><rsub|a>|\<partial\>t><around*|(|x,t|)>=<frac|<around*|(|-1|)><rsup|N>|N!>
+    R<rsub|N><around*|(|x|)>\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,t|)>.
   </equation*>
 
   Hence, up to <math|\<omicron\><around*|(|\<Delta\>t<rsup|2>|)>> (we will
-  see why <math|\<omicron\><around*|(|\<Delta\>t|)>> is insufficient),
+  find that expanding to <math|\<omicron\><around*|(|\<Delta\>t|)>> is
+  insufficient),
 
   <\align>
-    <tformat|<table|<row|<cell|\<varphi\><around*|(|x,\<Delta\>t|)>=>|<cell|\<varphi\><around*|(|x,0|)>+<frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,0|)>\<Delta\>t+<frac|1|2><frac|\<partial\><rsup|2>\<varphi\>|\<partial\>t<rsup|2>><around*|(|x,0|)>\<Delta\>t<rsup|2>+\<omicron\><around*|(|\<Delta\>t<rsup|2>|)>>>|<row|<cell|=>|<cell|\<varphi\><around*|(|x,0|)>-\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!>
-    R<rsub|N><around*|(|x|)>\<partial\><rsup|N>\<varphi\><around*|(|x,0|)>\<Delta\>t-<frac|\<mathi\>|2><frac|<around*|(|-1|)><rsup|N>|N!>
-    R<rsub|N><around*|(|x|)>\<partial\><rsup|N><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,0|)>\<Delta\>t<rsup|2>+\<omicron\><around*|(|\<Delta\>t<rsup|2>|)>.>>>>
+    <tformat|<table|<row|<cell|\<varphi\><rsub|a><around*|(|x,\<Delta\>t|)>=>|<cell|\<varphi\><rsub|a><around*|(|x,0|)>+<frac|\<partial\>\<varphi\><rsub|a>|\<partial\>t><around*|(|x,0|)>\<Delta\>t+<frac|1|2><frac|\<partial\><rsup|2>\<varphi\><rsub|a>|\<partial\>t<rsup|2>><around*|(|x,0|)>\<Delta\>t<rsup|2>+\<omicron\><around*|(|\<Delta\>t<rsup|2>|)>>>|<row|<cell|=>|<cell|\<varphi\><rsub|a><around*|(|x,0|)>-\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!>
+    R<rsub|N><around*|(|x|)>\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>\<Delta\>t-<frac|\<mathi\>|2><frac|<around*|(|-1|)><rsup|N>|N!>
+    R<rsub|N><around*|(|x|)>\<partial\><rsup|N><frac|\<partial\>\<varphi\><rsub|a>|\<partial\>t><around*|(|x,0|)>\<Delta\>t<rsup|2>+\<omicron\><around*|(|\<Delta\>t<rsup|2>|)>.>>>>
   </align>
 
-  Inserting <math|<around*|(|\<partial\>\<varphi\>/\<partial\>t|)>> and
-  considering the surpassing again, we get\ 
+  Inserting <math|<around*|(|\<partial\>\<varphi\><rsub|a>/\<partial\>t|)>>
+  and considering the surpassing again, we get\ 
 
   <\equation*>
-    \<varphi\><around*|(|x,\<Delta\>t|)>=\<varphi\><around*|(|x,0|)>-\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!>
-    R<rsub|N><around*|(|x|)>\<partial\><rsup|N>\<varphi\><around*|(|x,0|)>\<Delta\>t-<frac|1|2><around*|[|<frac|<around*|(|-1|)><rsup|N>|N!>R<rsub|N><around*|(|x|)>|]><rsup|2>\<partial\><rsup|2N>\<varphi\><around*|(|x,0|)>\<Delta\>t<rsup|2>+\<omicron\><around*|(|\<Delta\>t<rsup|2>|)>.
+    \<varphi\><rsub|a><around*|(|x,\<Delta\>t|)>=\<varphi\><rsub|a><around*|(|x,0|)>-\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!>
+    R<rsub|N><around*|(|x|)>\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>\<Delta\>t-<frac|1|2><around*|[|<frac|<around*|(|-1|)><rsup|N>|N!>R<rsub|N><around*|(|x|)>|]><rsup|2>\<partial\><rsup|2N>\<varphi\><rsub|a><around*|(|x,0|)>\<Delta\>t<rsup|2>+\<omicron\><around*|(|\<Delta\>t<rsup|2>|)>.
   </equation*>
 
-  \;
+  This is sufficient for our task.
 
-  Once obtained <math|\<varphi\><around*|(|x,\<Delta\>t|)>>, we can calculate
-  <math|\<Delta\>V<around*|(|0|)>>. First, we evaluate
-  <math|V<around*|(|0|)>> as
-
-  <\equation*>
-    V<around*|(|0|)>=lim<rsub|\<Delta\>t\<rightarrow\>0>\<bbb-E\><rsub|\<varphi\>><around*|[|<frac|X-\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>|\<Delta\>t>|]><around*|(|\<Delta\>t|)>=lim<rsub|\<Delta\>t\<rightarrow\>0><frac|\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|\<Delta\>t|)>-\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>|\<Delta\>t>.
-  </equation*>
-
-  Directly inserting <math|\<varphi\><around*|(|x,\<Delta\>t|)>> results in
-
-  <\align>
-    <tformat|<table|<row|<cell|\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|\<Delta\>t|)>=>|<cell|<big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|\||\<varphi\><around*|(|x,\<Delta\>t|)>|\|><rsup|2>x>>|<row|<cell|=>|<cell|\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>+\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!><big|int><rsub|\<bbb-R\>>\<mathd\>x\<varphi\><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><around*|(|x,0|)><around*|[|R<rsup|\<ast\>><rsub|N><around*|(|x|)>-R<rsub|N><around*|(|x|)>|]>x\<Delta\>t+\<omicron\><around*|(|\<Delta\>t|)>.>>>>
-  </align>
-
-  Hence,
+  We first calculate <math|V<around*|(|0|)>>. Directly inserting
+  <math|\<varphi\><rsub|a><around*|(|x,\<Delta\>t|)>> to its definition
+  (equation <reference|eq:v>), we get
 
   <\equation*>
     V<around*|(|0|)>=\<mathi\><frac|<around*|(|-1|)><rsup|N>|N!><big|int><rsub|\<bbb-R\>>\<mathd\>x\<varphi\><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><around*|(|x,0|)><around*|[|R<rsup|\<ast\>><rsub|N><around*|(|x|)>-R<rsub|N><around*|(|x|)>|]>x.
   </equation*>
 
-  When <math|N> is even, <math|R<rsub|N>> is real (see section
+  When <math|N> is even, <math|R<rsub|N>> is real (a result in section
   <reference|section:Hermitianity on Moments>), we find
   <math|V<around*|(|0|)>=0>. But when <math|N> is odd, <math|R<rsub|N>> is
-  purely imaginary. In this situation, denote
+  purely imaginary. In this case, denoting
   <math|R<rsub|N><around*|(|x|)>=\<mathi\>A<around*|(|x|)>/2>, we get
 
   <\equation*>
     V<around*|(|0|)>=<frac|<around*|(|-1|)><rsup|N>|N!><big|int><rsub|\<bbb-R\>>\<mathd\>x
-    \<varphi\><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><around*|(|x,0|)>A<around*|(|x|)>
+    \<varphi\><rsub|a><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>A<around*|(|x|)>
     x,
   </equation*>
 
   which may not vanish, leading to a violation of parity symmetry, because
   the velocity has a favored direction even though the distribution (or
   wavefunction) has not. So, from now on, we only consider when <math|N> is
-  even. For any random variable <math|R>, we have the formula
+  even.
+
+  Now, we are to calculate <math|\<Delta\>V<around*|(|0|)>>. For any random
+  variable <math|R>, we have the formula
 
   <\equation*>
     Var<around*|[|R|]>=\<bbb-E\><around*|[|<around*|(|R-\<bbb-E\><around*|[|R|]>|)><rsup|2>|]>=\<bbb-E\><around*|[|R<rsup|2>-2\<bbb-E\><around*|[|R|]>R-\<bbb-E\><rsup|2><around*|[|R|]>|]>=\<bbb-E\><around*|[|R<rsup|2>|]>-\<bbb-E\><rsup|2><around*|[|R|]>.
   </equation*>
 
-  Applying to equation <reference|eq:deltav> gives
+  Applying to <math|\<Delta\>V<around*|(|0|)>> (equation
+  <reference|eq:deltav>), we find
 
   <\equation*>
-    \<Delta\>V<rsup|2><around*|(|0|)>=lim<rsub|\<Delta\>t\<rightarrow\>0>\<bbb-E\><rsub|\<varphi\>><around*|[|<around*|(|<frac|X-\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>|\<Delta\>t>|)><rsup|2>|]><around*|(|\<Delta\>t|)>-V<rsup|2><around*|(|0|)>=lim<rsub|\<Delta\>t\<rightarrow\>0><frac|\<bbb-E\><rsub|\<varphi\>><around*|[|X<rsup|2>|]><around*|(|\<Delta\>t|)>|\<Delta\>t<rsup|2>>,
+    \<Delta\>V<rsup|2><around*|(|0|)>=lim<rsub|\<Delta\>t\<rightarrow\>0>lim<rsub|a\<rightarrow\>\<infty\>><frac|\<bbb-E\><rsub|\<varphi\><rsub|a>><around*|[|X<rsup|2>|]><around*|(|\<Delta\>t|)>|\<Delta\>t<rsup|2>>,
   </equation*>
 
-  where we have used <math|\<bbb-E\><rsub|\<varphi\>><around*|[|X|]><around*|(|0|)>=V<around*|(|0|)>=0>
-  when <math|N> is even. Since <math|R<rsub|N>> has been real, we have
+  where we have used <math|\<bbb-E\><rsub|\<varphi\><rsub|a>><around*|[|X|]><around*|(|0|)>=V<around*|(|0|)>=0>
+  when <math|N> is even. Since <math|R<rsub|N>> has been real,
 
-  <\align>
-    <tformat|<table|<row|<cell|\<bbb-E\><rsub|\<varphi\>><around*|[|X<rsup|2>|]><around*|(|\<Delta\>t|)>=>|<cell|<big|int><rsub|\<bbb-R\>>\<mathd\>x
-    \<varphi\><rsup|\<ast\>><around*|(|x,\<Delta\>t|)>\<varphi\><around*|(|x,\<Delta\>t|)>x<rsup|2>>>|<row|<cell|=>|<cell|<around*|(|<frac|1|N!>|)><rsup|2><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|N>\<varphi\><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><around*|(|x,0|)>-<frac|1|2>\<varphi\><around*|(|x,0|)>\<partial\><rsup|2N>\<varphi\><around*|(|x,0|)>|]>R<rsub|N><rsup|2><around*|(|x|)>x<rsup|2>\<Delta\>t<rsup|2>+\<omicron\><around*|(|\<Delta\>t<rsup|2>|)>.>>>>
-  </align>
+  <\small>
+    <\align>
+      <tformat|<table|<row|<cell|\<bbb-E\><rsub|\<varphi\><rsub|a>><around*|[|X<rsup|2>|]><around*|(|\<Delta\>t|)>=>|<cell|<big|int><rsub|\<bbb-R\>>\<mathd\>x
+      \<varphi\><rsub|a><rsup|\<ast\>><around*|(|x,\<Delta\>t|)>\<varphi\><rsub|a><around*|(|x,\<Delta\>t|)>x<rsup|2>>>|<row|<cell|=>|<cell|<frac|1|n>+<around*|(|<frac|1|N!>|)><rsup|2><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>-<frac|1|2>\<varphi\><rsub|a><around*|(|x,0|)>\<partial\><rsup|2N>\<varphi\><rsub|a><around*|(|x,0|)>|]>R<rsub|N><rsup|2><around*|(|x|)>x<rsup|2>\<Delta\>t<rsup|2>+\<omicron\><around*|(|\<Delta\>t<rsup|2>|)>.>>>>
+    </align>
+  </small>
 
   So,
 
   <\equation*>
-    \<Delta\>V<rsup|2><around*|(|0|)>=<around*|(|<frac|1|N!>|)><rsup|2><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|N>\<varphi\><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><around*|(|x,0|)>-<frac|1|2>\<varphi\><around*|(|x,0|)>\<partial\><rsup|2N>\<varphi\><around*|(|x,0|)>|]>R<rsub|N><rsup|2><around*|(|x|)>x<rsup|2>.
+    \<Delta\>V<rsup|2><around*|(|0|)>=<around*|(|<frac|1|N!>|)><rsup|2><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>-<frac|1|2>\<varphi\><rsub|a><around*|(|x,0|)>\<partial\><rsup|2N>\<varphi\><rsub|a><around*|(|x,0|)>|]>R<rsub|N><rsup|2><around*|(|x|)>x<rsup|2>.
   </equation*>
 
   As we have expected, the terms that involve the partial derivatives of
-  <math|\<varphi\>> share the <em|same> (highest) order of
-  <math|1/\<sigma\>>, surpassing all the terms that we have neglected (which
-  have lower order of <math|1/\<sigma\>>) as <math|\<sigma\>> tends to zero.
-  Assume that <math|R<rsub|N>> is entire, so that we can Taylor expand
-  <math|R<rsup|2><rsub|N>> at origin, as
+  <math|\<varphi\><rsub|a>> share the <em|same> (highest) order of <math|a>,
+  surpassing all the terms that we have neglected (which have lower order of
+  <math|a>) as <math|a> tends to infinity. Taylor expand
+  <math|R<rsup|2><rsub|N>> at origin, as<\footnote>
+    <with|color|red|As long as <math|R<rsub|N>> is entire.>
+  </footnote>
 
   <\equation*>
     R<rsub|N><rsup|2><around*|(|x|)>=R<rsup|2><rsub|N><around*|(|0|)>+\<partial\>R<rsup|2><rsub|N><around*|(|0|)>x+<frac|1|2>\<partial\><rsup|2>R<rsup|2><rsub|N><around*|(|0|)>x<rsup|2>+\<cdots\>.
@@ -1023,16 +1046,16 @@
   We arrive at
 
   <\equation>
-    \<Delta\>V<rsup|2><around*|(|0|)>=<around*|(|<frac|1|N!>|)><rsup|2><big|sum><rsub|n=0><rsup|\<infty\>><frac|\<partial\><rsup|n>R<rsup|2><rsub|N><around*|(|0|)>|n!><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|N>\<varphi\><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><around*|(|x,0|)>-<frac|1|2>\<varphi\><around*|(|x,0|)>\<partial\><rsup|2N>\<varphi\><around*|(|x,0|)>|]>x<rsup|2+n>.<label|eq:deltavel>
+    \<Delta\>V<rsup|2><around*|(|0|)>=<around*|(|<frac|1|N!>|)><rsup|2><big|sum><rsub|n=0><rsup|\<infty\>><frac|\<partial\><rsup|n>R<rsup|2><rsub|N><around*|(|0|)>|n!><big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>-<frac|1|2>\<varphi\><rsub|a><around*|(|x,0|)>\<partial\><rsup|2N>\<varphi\><rsub|a><around*|(|x,0|)>|]>x<rsup|2+n>.<label|eq:deltavel>
   </equation>
 
   With the aid of computer, we evaluate the term in
   <math|\<Delta\>V<rsup|2><around*|(|0|)>> for each <math|N> and <math|n>
   (see appendix <reference|appendix:compute-uncert>. To satisfy uncertainty
   principle (axiom <reference|axiom:uncert>),
-  <math|\<Delta\>V<rsup|2><around*|(|0|)>> shall be proportional to
-  <math|1/\<sigma\><rsup|2>>, so that <math|\<Delta\>X\<Delta\>V> is
-  independent of <math|\<sigma\>>. Such terms are found when
+  <math|\<Delta\>V<rsup|2><around*|(|0|)>> shall be proportional to <math|a>,
+  so that <math|\<Delta\>X<around*|(|0|)>\<Delta\>V<around*|(|0|)>> is
+  independent of <math|a>. Such terms are found when
   <math|<around*|(|N,n|)>\<in\><around*|{|<around*|(|2,0|)>,<around*|(|4,4|)>,<around*|(|6,8|)>,<around*|(|8,12|)>,\<ldots\>|}>>,
   indicating a relation <math|n=4<around*|(|N/2-1|)>=2N-4>. So, we have
   <math|\<partial\><rsup|n>R<rsup|2><rsub|N><around*|(|0|)>=0> except for
@@ -1043,15 +1066,17 @@
   </equation>
 
   So, uncertainty principle restricts the highest order moment to be an
-  explicit power function.
+  explicit power function. But, it cannot say anything about the
+  <math|R<rsub|n>>s with <math|n\<less\>N> because, as <math|a> tends to
+  infinity, which is essential for defining uncertainty principle, these
+  <math|R<rsub|n>>s become \Pnon-perceptible\Q.
 
   The specific case is <math|N=2> in which <math|R<rsub|N>> becomes constant.
   This corresponds to the canonical situation in physics. To determine this
   constant, we have (set <math|N=2>, <math|n=0>)
 
   <\equation*>
-    \<Delta\>V<around*|(|0|)>=<frac|<around*|\||R<rsub|2>|\|>|2><sqrt|<big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|2>\<varphi\><around*|(|x,0|)>\<partial\><rsup|2>\<varphi\><around*|(|x,0|)>-<frac|1|2>\<varphi\><around*|(|x,0|)>\<partial\><rsup|4>\<varphi\><around*|(|x,0|)>|]>x<rsup|2>>=<frac|<around*|\||R<rsub|2>|\|>|2><sqrt|<frac|23|32
-    \<sigma\><rsup|2>>>,
+    \<Delta\>V<around*|(|0|)>=<frac|<around*|\||R<rsub|2>|\|>|2><sqrt|<big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|2>\<varphi\><around*|(|x,0|)>\<partial\><rsup|2>\<varphi\><around*|(|x,0|)>-<frac|1|2>\<varphi\><around*|(|x,0|)>\<partial\><rsup|4>\<varphi\><around*|(|x,0|)>|]>x<rsup|2>>=<frac|<around*|\||R<rsub|2>|\|>|2><sqrt|<frac|23|32>a>,
   </equation*>
 
   where the integral is evaluated by computer. Then, by uncertainty
@@ -1065,17 +1090,6 @@
 
   This is consistent with the traditional Hamiltonian where
   <math|R<rsub|2>=-\<hbar\>/m>.
-
-  We can generalize the previous analysis to dimension <math|d\<gtr\>1>, in
-  which the covariance matrix of <math|f> is diagonal, such that all
-  dimensions are independent. Namely,
-
-  <\equation*>
-    \<varphi\><around*|(|x,0|)>=<big|prod><rsub|\<alpha\>=1><rsup|d><around*|(|2\<mathpi\><around*|(|\<sigma\><rsup|\<alpha\>>|)><rsup|2>|)><rsup|-1/4>exp<around*|(|-<frac|1|4><around*|(|<frac|x<rsup|\<alpha\>>|\<sigma\><rsup|\<alpha\>>>|)><rsup|2>|)>.
-  </equation*>
-
-  The previous analysis, then, is taken on each dimension individually,
-  resulting in exactly the same result for each dimension.
 
   <section|From Quantum to Classical (TODO)>
 
@@ -1190,7 +1204,7 @@
   evaluate
 
   <\equation*>
-    <big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|N>\<varphi\><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><around*|(|x,0|)>-<frac|1|2>\<varphi\><around*|(|x,0|)>\<partial\><rsup|2N>\<varphi\><around*|(|x,0|)>|]>x<rsup|2+n>,
+    <big|int><rsub|\<bbb-R\>>\<mathd\>x<around*|[|\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>\<partial\><rsup|N>\<varphi\><rsub|a><around*|(|x,0|)>-<frac|1|2>\<varphi\><rsub|a><around*|(|x,0|)>\<partial\><rsup|2N>\<varphi\><rsub|a><around*|(|x,0|)>|]>x<rsup|2+n>,
   </equation*>
 
   where <math|\<varphi\>> is given by equation
@@ -1198,40 +1212,37 @@
   <math|\<varphi\>> (re-denoted by <math|f>) as
 
   <\verbatim-code>
-    f[x_, sigma_] := (2*Pi*sigma^2)^(-1/4)*Exp[-x^2/4/sigma^2];
+    f[x_, a_] := (a/2/Pi)^(1/4)*Exp[-a*x^2/4];
   </verbatim-code>
 
   Then, input the target integral as
 
   <\verbatim-code>
-    targetIntegral[sigma_, N_, n_] := Simplify[Integrate[(D[f[x, sigma], {x,
-    N}]^2 - f[x, sigma]* D[f[x, sigma], {x, 2*N}] / 2) * x^(n+2), {x,
-    -Infinity, Infinity}, Assumptions-\<gtr\>{Element[sigma, Reals], sigma
-    \<gtr\> 0}]];
+    targetIntegral[a_, N_, n_] := Simplify[Integrate[(D[f[x, a], {x, N}]^2 -
+    f[x, a]* D[f[x, a], {x, 2*N}] / 2) * x^(n+2), {x, -Infinity, Infinity},
+    Assumptions-\<gtr\>{Element[a, Reals], a \<gtr\> 0}]];
   </verbatim-code>
 
-  where we have to assert that <verbatim|sigma> is a positive real number.
-  Then, we try (we have to re-denote <math|N> by <verbatim|m> because
-  <verbatim|N> has been a keyword of Mathematica)
+  where we have to assert that <verbatim|a> is a positive real number. Then,
+  we try (we have to re-denote <math|N> by <verbatim|m> because <verbatim|N>
+  has been a keyword of Mathematica)
 
   <\verbatim-code>
-    list = Flatten[Table[{{m, n}, targetIntegral[sigma, m, n]}, {m, {2, 4, 6,
-    8, 10}}, {n, 0, 30}], 1]
+    list = Flatten[Table[{{m, n}, targetIntegral[a, m, n]}, {m, {2, 4, 6, 8,
+    10}}, {n, 0, 30}], 1]
   </verbatim-code>
 
   which outputs a list of <math|<around*|(|N,n|)>> pairs and the
   corresponding integrals, each element has the format <verbatim|{{N,n},
   integral}>. To filter the valid items, in which the integral is
-  proportional to <math|1/\<sigma\><rsup|2>>, we append
+  proportional to <math|a>, we append
 
   <\verbatim-code>
-    result = Select[list, MatchQ[#[[2]], _*sigma^-2] &]
+    result = Select[list, MatchQ[#[[2]], _*a] &]
   </verbatim-code>
 
   The <verbatim|MatchQ> function matches the integrals (as the second
-  element) that are proportional to <math|1/\<sigma\><rsup|2>>.
-
-  \;
+  element) that are proportional to <math|a>.
 </body>
 
 <\initial>
@@ -1277,6 +1288,7 @@
     <associate|eq:probtoself|<tuple|2|4>>
     <associate|eq:r-fourier|<tuple|4|5>>
     <associate|eq:transexp|<tuple|10|7>>
+    <associate|eq:v|<tuple|18|?>>
     <associate|equ:superposition|<tuple|1|4>>
     <associate|footnote-1|<tuple|1|4>>
     <associate|footnote-2|<tuple|2|5>>
@@ -1285,6 +1297,8 @@
     <associate|footnote-5|<tuple|5|7>>
     <associate|footnote-6|<tuple|6|8>>
     <associate|footnote-7|<tuple|7|11>>
+    <associate|footnote-8|<tuple|8|?>>
+    <associate|footnote-9|<tuple|9|?>>
     <associate|footnr-1|<tuple|1|4>>
     <associate|footnr-2|<tuple|2|5>>
     <associate|footnr-3|<tuple|3|6>>
@@ -1292,8 +1306,11 @@
     <associate|footnr-5|<tuple|5|7>>
     <associate|footnr-6|<tuple|6|8>>
     <associate|footnr-7|<tuple|7|11>>
+    <associate|footnr-8|<tuple|8|?>>
+    <associate|footnr-9|<tuple|9|?>>
     <associate|section:Expanding Kernel as Generalized Function|<tuple|6|7>>
     <associate|section:Hermitianity on Moments|<tuple|8|9>>
+    <associate|section:Locality Truncates the Moments|<tuple|7|?>>
     <associate|section:Path Integral Formalism|<tuple|5|5>>
   </collection>
 </references>
