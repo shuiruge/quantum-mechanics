@@ -93,8 +93,20 @@
   their wavefunctions) evolve with time. Axiom <reference|axiom:sup> implies
   that the equation of time evolution (as a physical law that operates on a
   quantum state) shall be linear: <math|\<partial\>\<varphi\>/\<partial\>t=L<around*|(|\<varphi\>|)>>
-  where the operation <math|L> is linear. Mathematically, linearity imports a
-  kernel <math|r:\<bbb-R\><rsup|d>\<times\>\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>
+  where the operation <math|L> is linear.<\footnote>
+    You may wonder why it is not <math|<around*|(|\<partial\><rsup|2>\<varphi\>/\<partial\>t<rsup|2>|)>=L<around*|(|\<varphi\>|)>>
+    instead, which is linear in wavefunction too. If so, wavefunction at a
+    given time cannot fully characterize the system at that time, just like
+    knowing the particle position at time <math|t> is insufficient for
+    predicting the subsequent position at <math|<around*|(|t+\<mathd\>t|)>>
+    in classical physics, for which velocity or momentum is also essential.
+    But just like the time evolution of a classical system at a given time is
+    fully characterized by the phase at that time, so that the (Hamiltonian)
+    dynamics is first order in time derivative, wavefunction has fully
+    characterized a quantum system (claimed in axiom <reference|axiom:prob>)
+    so that its time evolution is first order in time derivative too.
+  </footnote> Mathematically, linearity imports a kernel
+  <math|r:\<bbb-R\><rsup|d>\<times\>\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>
   such that
 
   <\equation>
@@ -107,9 +119,10 @@
   <math|<big|sum><rsub|j>r<rsub|i j> \<varphi\><rsub|j>>. The imaginary
   <math|\<mathi\>> is employed for convenience.
 
-  A direct result of axiom <reference|axiom:prob> is that probabilistic
-  density shall be normalized. Namely, for any wave-function
-  <math|\<varphi\>> and any <math|t\<in\>\<bbb-R\>>, we shall have
+  A direct result of probability interpretation (axiom
+  <reference|axiom:prob>) is that probabilistic density shall be normalized.
+  Namely, for any wave-function <math|\<varphi\>> and any
+  <math|t\<in\>\<bbb-R\>>, we shall have
 
   <\equation>
     <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
@@ -292,10 +305,11 @@
   </footnote> <\footnote>
     Alternatively, we can define
 
-    <\equation*>
+    <\equation>
       <wide|r|\<check\>><around*|(|x,k|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-      exp<around*|(|-\<mathi\>k<around*|(|x-y|)>|)> r<around*|(|x,y|)>.
-    </equation*>
+      exp<around*|(|-\<mathi\>k<around*|(|x-y|)>|)>
+      r<around*|(|x,y|)>.<label|eq:r-fourier-alt>
+    </equation>
 
     Thus,
 
@@ -345,9 +359,9 @@
 
     which is just the <math|<wide|r|\<check\>><around*|(|x,k|)>>. So, we have
 
-    <\equation*>
+    <\equation>
       <wide|r|^><rsup|\<ast\>><around*|(|k,x|)>=<wide|r|\<check\>><around*|(|x,k|)>.
-    </equation*>
+    </equation>
 
     Once again, we find that the two arguments of <math|r<around*|(|x,y|)>>
     are not independent.
@@ -488,7 +502,11 @@
 
   That is, we convert the integral equation <reference|equ:superposition> to
   a differential equation. In practice, differential equation is much more
-  convenient than its integral correspondence for doing calculus.
+  convenient than its integral correspondence for doing calculus. In summary,
+  we have three equivalent formalisms that describe the time evolution of
+  wavefunction: the original integral equation <reference|equ:superposition>,
+  the path integral <reference|eq:pathint>, and now the differential equation
+  <reference|eq:transexp>.
 
   Interestingly, the Taylor expansion of the \PHamiltonian\Q
   <math|<wide|r|^><around*|(|k,y|)>>, defined by equation
@@ -988,8 +1006,7 @@
     V<rsup|\<alpha\>><around*|(|0|)>\<assign\>lim<rsub|\<Delta\>t\<rightarrow\>0>lim<rsub|a\<rightarrow\>\<infty\>>\<bbb-E\><rsub|\<varphi\><rsub|a>><around*|[|<frac|X<rsup|\<alpha\>>-\<bbb-E\><rsub|\<varphi\><rsub|a>><around*|[|X<rsup|\<alpha\>>|]><around*|(|0|)>|\<Delta\>t>|]><around*|(|\<Delta\>t|)>.
   </equation*>
 
-  Directly inserting <math|\<varphi\><rsub|a><around*|(|x,\<Delta\>t|)>> to
-  its definition (equation <reference|eq:v>), we find
+  Inserting <math|\<varphi\><rsub|a><around*|(|x,\<Delta\>t|)>> gives
 
   <\equation*>
     V<rsup|\<alpha\>><around*|(|0|)>=lim<rsub|a\<rightarrow\>\<infty\>><frac|2<around*|(|-1|)><rsup|N>|N!><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
@@ -1122,6 +1139,94 @@
 
   <section|From Quantum to Classical (TODO)>
 
+  Observe uncertainty principle (axiom <reference|axiom:uncert>), we can
+  absorb the <em|universal> Planck's constant <math|\<hbar\>> by re-scaling
+  coordinates. Namely, by re-defining (or replacing)
+  <math|x<rprime|'>\<assign\>x/\<hbar\>> and
+  <math|t<rprime|'>\<assign\>t/\<hbar\>>, hence velocity
+  <math|v<rprime|'>=\<mathd\>x<rprime|'>/\<mathd\>t<rprime|'>=\<mathd\>x/\<mathd\>t=v>.
+  Uncertainty principle turns to be
+
+  <\equation*>
+    \<Delta\>X<rprime|'><rsup|\<alpha\>><around*|(|0|)>\<Delta\>V<rprime|'><rsup|\<alpha\>><around*|(|0|)>\<sim\>1/<around*|(|2m|)>.
+  </equation*>
+
+  Here, we do not absorb the constant <math|m> because it is not universal:
+  different particles may have different masses. Under this re-scaled
+  coordinates, we cannot \Pperceive\Q <math|\<hbar\>>, which hence will not
+  appear in time evolution. Explicitly, using
+  <math|<around*|(|x<rprime|'>,t<rprime|'>|)>>-coordinates, <math|\<hbar\>>
+  will be absent in the three equivalent formalisms of time evolution:
+  integral equation <reference|equ:superposition>, path integral
+  <reference|eq:pathint>, and differential equation <reference|eq:transexp>.
+  Now, by converting back to <math|<around*|(|x,t|)>>-coordinates, equation
+  <reference|eq:transexp> turns to be
+
+  \;
+
+  <\equation>
+    \<mathi\>\<hbar\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<hbar\>|)><rsup|n>|n!>\<partial\><rsup|n><rsub|\<alpha\>><around*|[|R<rsup|\<alpha\>><rsub|n><around*|(|x|)>\<varphi\><around*|(|x,t|)>|]>,<label|eq:transexp-hbar>
+  </equation>
+
+  where the <math|R<rsub|n>>s depend on <math|\<hbar\>> in such a way that
+  <math|R<rsub|n><around*|(|x|)>=R<rprime|'><rsub|n><around*|(|x/\<hbar\>|)>>
+  for some <math|\<hbar\>>-independent <math|R<rprime|'><rsub|n>>. Also for
+  path integral, we have (inserting the expansion
+  <reference|eq:momentexpansion>)
+
+  <\equation>
+    \<varphi\><around*|(|x<rsub|N>,t+N\<Delta\>t|)>=<big|int>D<around*|(|k,x|)>
+    exp<around*|(|<frac|\<mathi\>|\<hbar\>>S<around*|(|k,x|)>|)>\<varphi\><around*|(|x<rsub|0>,t|)>+\<omicron\><around*|(|\<Delta\>t|)>,<label|eq:pathint-hbar>
+  </equation>
+
+  where the <math|1/\<hbar\>> is extracted from the <math|\<Delta\>t> factor
+  in <math|S<around*|(|k,x|)>>, so that \<hbar\> is absent in (inserting the
+  expansion <reference|eq:momentexpansion> into the <math|S<around*|(|k,x|)>>
+  given by equation <reference|eq:action>)
+
+  <\equation*>
+    S<around*|(|k,x|)>=<big|sum><rsub|i=0><rsup|N-1>\<Delta\>t<around*|[|k<rsub|i><around*|(|<frac|x<rsub|i+1>-x<rsub|i>|\<Delta\>t>|)>-<big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsup|\<alpha\>><rsub|n><around*|(|x<rsub|i>|)><around*|(|k<rsub|i>|)><rsub|\<alpha\>>|]>,
+  </equation*>
+
+  except for in the <math|R<rsub|n>>s.
+
+  Planck's constant <math|\<hbar\>> characterizes the scale of quantum world.
+  To go back to classical world, we zoom out. While doing so, the quantum
+  scale becomes smaller and smaller. So, going back to classical world means
+  <math|\<hbar\>\<rightarrow\>0>. Stationary phase approximation (see
+  appendix <reference|appendix:Stationary Phase Approximation>) claims that,
+  as <math|\<hbar\>> tends to zero, the main contribution to path integral is
+  the path that has \Pstationary phase\Q, that is the
+  <math|<around*|(|k<rsub|\<star\>>,x<rsub|\<star\>>|)>> such that, for each
+  <math|i\<in\><around*|{|0,\<ldots\>,N-1|}>> and
+  <math|\<alpha\>\<in\><around*|{|1,\<ldots\>,d|}>>,
+
+  <\equation*>
+    <frac|\<partial\>S|\<partial\><around*|(|k<rsub|i>|)><rsub|\<alpha\>>><around*|(|k<rsub|\<star\>>,x<rsub|\<star\>>|)>=<frac|\<partial\>S|\<partial\>x<rsub|i><rsup|\<alpha\>>><around*|(|k<rsub|\<star\>>,x<rsub|\<star\>>|)>=0.
+  </equation*>
+
+  In the continuous version, where vectors <math|k> and <math|x> are replaced
+  by unary functions <math|k<around*|(|t|)>> and <math|x<around*|(|t|)>>,
+  this corresponds to functional variations
+
+  <\equation*>
+    <frac|\<delta\>S|\<delta\>k<rsub|\<alpha\>><around*|(|t|)>><around*|[|k<rsub|\<star\>>,x<rsub|\<star\>>|]>=<frac|\<delta\>S|\<delta\>x<rsup|\<alpha\>><around*|(|t|)>><around*|[|k<rsub|\<star\>>,x<rsub|\<star\>>|]>=0,
+  </equation*>
+
+  where we have replaced <math|i> to continuous <math|t> and square brackets
+  instead of parentheses for emphasizing that <math|S> is a functional, as
+
+  <\equation*>
+    S<around*|(|k,x|)>=<big|int><rsub|0><rsup|T>\<mathd\>t<around*|[|k<around*|(|t|)><wide|x|\<dot\>><around*|(|t|)>-<big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsup|\<alpha\>><rsub|n><around*|(|x<around*|(|t|)>|)>k<rsub|\<alpha\>><around*|(|t|)>|]>.
+  </equation*>
+
+  These are the Hamiltonian equations in classical mechanics.
+
+  A final remark about the moments. Recall that <math|\<hbar\>> appears in
+  <math|R<rsub|n><around*|(|x|)>> by association <math|x/\<hbar\>>. When
+  <math|\<hbar\>> tends to zero, <math|R<rsub|n><around*|(|x|)>>s are given
+  by <math|<around*|\||x|\|>\<gg\>1>. TODO
+
   <appendix|Taylor Reminder>
 
   Given a function <math|f\<in\>\<cal-C\><rsup|n><around*|(|\<bbb-R\><rsup|d>|)>>,
@@ -1225,6 +1330,9 @@
   <\equation*>
     <around*|\<\|\|\>|\<delta\><rsub|n>\<ast\>f|\<\|\|\>><rsub|\<infty\>>\<leqslant\><around*|\<\|\|\>|\<delta\><rsub|n>|\<\|\|\>><rsub|2><around*|\<\|\|\>|f|\<\|\|\>><rsub|2>.
   </equation*>
+
+  <appendix|Stationary Phase Approximation><label|appendix:Stationary Phase
+  Approximation>
 </body>
 
 <\initial>
@@ -1237,12 +1345,12 @@
 
 <\references>
   <\collection>
-    <associate|appendix:compute-uncert|<tuple|C|19>>
+    <associate|appendix:Stationary Phase Approximation|<tuple|C|19>>
     <associate|appendix:dense|<tuple|B|17>>
     <associate|auto-1|<tuple|1|3>>
     <associate|auto-10|<tuple|8|9>>
     <associate|auto-11|<tuple|9|11>>
-    <associate|auto-12|<tuple|10|13>>
+    <associate|auto-12|<tuple|10|14>>
     <associate|auto-13|<tuple|A|15>>
     <associate|auto-14|<tuple|B|17>>
     <associate|auto-15|<tuple|C|19>>
@@ -1256,45 +1364,48 @@
     <associate|auto-9|<tuple|7|8>>
     <associate|axiom:local|<tuple|3|8>>
     <associate|axiom:prob|<tuple|1|3>>
-    <associate|axiom:sup|<tuple|2|4>>
+    <associate|axiom:sup|<tuple|2|3>>
     <associate|axiom:uncert|<tuple|4|11>>
-    <associate|eq:action|<tuple|8|7>>
-    <associate|eq:deltav|<tuple|18|11>>
-    <associate|eq:deltavel|<tuple|23|13>>
-    <associate|eq:deltax|<tuple|17|11>>
-    <associate|eq:gaussianwavefunction|<tuple|19|11>>
-    <associate|eq:hamiltonian|<tuple|5|6>>
-    <associate|eq:moment|<tuple|9|7>>
-    <associate|eq:momentexpansion|<tuple|11|8>>
-    <associate|eq:pathint|<tuple|6|7>>
+    <associate|eq:action|<tuple|10|7>>
+    <associate|eq:deltav|<tuple|20|11>>
+    <associate|eq:deltax|<tuple|19|11>>
+    <associate|eq:gaussianwavefunction|<tuple|21|11>>
+    <associate|eq:hamiltonian|<tuple|7|6>>
+    <associate|eq:moment|<tuple|11|7>>
+    <associate|eq:momentexpansion|<tuple|13|8>>
+    <associate|eq:pathint|<tuple|8|7>>
+    <associate|eq:pathint-hbar|<tuple|26|14>>
     <associate|eq:probtoself|<tuple|2|4>>
     <associate|eq:r-fourier|<tuple|4|5>>
-    <associate|eq:standard|<tuple|20|?>>
-    <associate|eq:transexp|<tuple|10|7>>
-    <associate|eq:v|<tuple|18|11>>
+    <associate|eq:r-fourier-alt|<tuple|5|6>>
+    <associate|eq:standard|<tuple|22|12>>
+    <associate|eq:transexp|<tuple|12|7>>
+    <associate|eq:transexp-hbar|<tuple|25|14>>
     <associate|equ:superposition|<tuple|1|4>>
     <associate|footnote-1|<tuple|1|4>>
-    <associate|footnote-10|<tuple|10|?>>
-    <associate|footnote-11|<tuple|11|?>>
-    <associate|footnote-2|<tuple|2|5>>
-    <associate|footnote-3|<tuple|3|6>>
+    <associate|footnote-10|<tuple|10|12>>
+    <associate|footnote-11|<tuple|11|13>>
+    <associate|footnote-12|<tuple|12|13>>
+    <associate|footnote-2|<tuple|2|4>>
+    <associate|footnote-3|<tuple|3|5>>
     <associate|footnote-4|<tuple|4|6>>
-    <associate|footnote-5|<tuple|5|7>>
-    <associate|footnote-6|<tuple|6|8>>
+    <associate|footnote-5|<tuple|5|6>>
+    <associate|footnote-6|<tuple|6|7>>
     <associate|footnote-7|<tuple|7|8>>
-    <associate|footnote-8|<tuple|8|12>>
-    <associate|footnote-9|<tuple|9|13>>
+    <associate|footnote-8|<tuple|8|8>>
+    <associate|footnote-9|<tuple|9|11>>
     <associate|footnr-1|<tuple|1|4>>
-    <associate|footnr-10|<tuple|10|?>>
-    <associate|footnr-11|<tuple|11|?>>
-    <associate|footnr-2|<tuple|2|5>>
-    <associate|footnr-3|<tuple|3|6>>
+    <associate|footnr-10|<tuple|10|12>>
+    <associate|footnr-11|<tuple|11|13>>
+    <associate|footnr-12|<tuple|12|13>>
+    <associate|footnr-2|<tuple|2|4>>
+    <associate|footnr-3|<tuple|3|5>>
     <associate|footnr-4|<tuple|4|6>>
-    <associate|footnr-5|<tuple|5|7>>
-    <associate|footnr-6|<tuple|6|8>>
+    <associate|footnr-5|<tuple|6|6>>
+    <associate|footnr-6|<tuple|6|7>>
     <associate|footnr-7|<tuple|7|8>>
-    <associate|footnr-8|<tuple|8|12>>
-    <associate|footnr-9|<tuple|9|13>>
+    <associate|footnr-8|<tuple|8|8>>
+    <associate|footnr-9|<tuple|9|11>>
     <associate|section:Expanding Kernel as Generalized Function|<tuple|6|7>>
     <associate|section:Hermitianity on Moments|<tuple|8|9>>
     <associate|section:Locality Truncates the Moments|<tuple|7|8>>
@@ -1362,7 +1473,7 @@
       <no-break><pageref|auto-14><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      C<space|2spc>Computing the Uncertainty of Velocity>
+      C<space|2spc>Stationary Phase Approximation>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-15><vspace|0.5fn>
     </associate>
