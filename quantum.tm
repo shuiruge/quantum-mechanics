@@ -493,7 +493,15 @@
   making it clear. Since <math|\<psi\>> is an arbitrary function in
   <math|\<cal-S\><rsub|E><around*|(|\<bbb-R\><rsup|d>|)>>, we have<\footnote>
     This is a quantum analogy of the Kramers\UMoyal expansion in stochastic
-    process.
+    process, which has the form
+
+    <\equation*>
+      <frac|\<partial\>p|\<partial\>t><around*|(|x,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|n>|n!>\<partial\><rsup|n><rsub|\<alpha\>><around*|[|R<rsup|\<alpha\>><rsub|n><around*|(|x|)>p<around*|(|x,t|)>|]>.
+    </equation*>
+
+    Here, the <math|p> is a probability density function that represents the
+    stochastic process. Remark that the only difference between the two
+    equations is the imaginary factor before temporal derivative.
   </footnote>
 
   <\equation>
@@ -1139,27 +1147,28 @@
 
   <section|From Quantum to Classical (TODO)>
 
-  Observe uncertainty principle (axiom <reference|axiom:uncert>), we can
-  absorb the <em|universal> Planck's constant <math|\<hbar\>> by re-scaling
-  coordinates. Namely, by re-defining (or replacing)
+  Uncertainty principle (axiom <reference|axiom:uncert>) is the unique axiom
+  which gives raise to the <em|universal> Planck's constant <math|\<hbar\>>.
+  Observing uncertainty principle, we can absorb \<hbar\> by re-scaling
+  coordinates. Explicitly, by re-defining (or replacing)
   <math|x<rprime|'>\<assign\>x/\<hbar\>> and
   <math|t<rprime|'>\<assign\>t/\<hbar\>>, hence velocity
-  <math|v<rprime|'>=\<mathd\>x<rprime|'>/\<mathd\>t<rprime|'>=\<mathd\>x/\<mathd\>t=v>.
-  Uncertainty principle turns to be
+  <math|v<rprime|'>=\<mathd\>x<rprime|'>/\<mathd\>t<rprime|'>=\<mathd\>x/\<mathd\>t=v>,
+  uncertainty principle turns to be
 
   <\equation*>
-    \<Delta\>X<rprime|'><rsup|\<alpha\>><around*|(|0|)>\<Delta\>V<rprime|'><rsup|\<alpha\>><around*|(|0|)>\<sim\>1/<around*|(|2m|)>.
+    \<Delta\>X<rprime|'><rsup|\<alpha\>><around*|(|t<rprime|'>|)>\<Delta\>V<rprime|'><rsup|\<alpha\>><around*|(|t<rprime|'>|)>\<sim\>1/<around*|(|2m|)>.
   </equation*>
 
-  Here, we do not absorb the constant <math|m> because it is not universal:
-  different particles may have different masses. Under this re-scaled
-  coordinates, we cannot \Pperceive\Q <math|\<hbar\>>, which hence will not
-  appear in time evolution. Explicitly, using
+  Here, we do not absorb the other constant, the mass <math|m>, because it is
+  not universal: different particles may have different masses. Under this
+  re-scaled coordinates, we cannot \Pperceive\Q <math|\<hbar\>> at all, which
+  hence will not appear in time evolution. Namely, using
   <math|<around*|(|x<rprime|'>,t<rprime|'>|)>>-coordinates, <math|\<hbar\>>
-  will be absent in the three equivalent formalisms of time evolution:
-  integral equation <reference|equ:superposition>, path integral
-  <reference|eq:pathint>, and differential equation <reference|eq:transexp>.
-  Now, by converting back to <math|<around*|(|x,t|)>>-coordinates, equation
+  will be absent in the three equivalent formalisms of time evolution
+  (equations <reference|equ:superposition>, <reference|eq:pathint>, and
+  <reference|eq:transexp>). By converting back to
+  <math|<around*|(|x,t|)>>-coordinates, for example, equation
   <reference|eq:transexp> turns to be
 
   \;
@@ -1171,61 +1180,143 @@
   where the <math|R<rsub|n>>s depend on <math|\<hbar\>> in such a way that
   <math|R<rsub|n><around*|(|x|)>=R<rprime|'><rsub|n><around*|(|x/\<hbar\>|)>>
   for some <math|\<hbar\>>-independent <math|R<rprime|'><rsub|n>>. Also for
-  path integral, we have (inserting the expansion
-  <reference|eq:momentexpansion>)
+  path integral, we have
 
   <\equation>
     \<varphi\><around*|(|x<rsub|N>,t+N\<Delta\>t|)>=<big|int>D<around*|(|k,x|)>
     exp<around*|(|<frac|\<mathi\>|\<hbar\>>S<around*|(|k,x|)>|)>\<varphi\><around*|(|x<rsub|0>,t|)>+\<omicron\><around*|(|\<Delta\>t|)>,<label|eq:pathint-hbar>
   </equation>
 
-  where the <math|1/\<hbar\>> is extracted from the <math|\<Delta\>t> factor
-  in <math|S<around*|(|k,x|)>>, so that \<hbar\> is absent in (inserting the
-  expansion <reference|eq:momentexpansion> into the <math|S<around*|(|k,x|)>>
-  given by equation <reference|eq:action>)
+  where, by inserting the expansion <reference|eq:momentexpansion> into the
+  <math|S<around*|(|k,x|)>> given by equation <reference|eq:action>,
 
   <\equation*>
-    S<around*|(|k,x|)>=<big|sum><rsub|i=0><rsup|N-1>\<Delta\>t<around*|[|k<rsub|i><around*|(|<frac|x<rsub|i+1>-x<rsub|i>|\<Delta\>t>|)>-<big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsup|\<alpha\>><rsub|n><around*|(|x<rsub|i>|)><around*|(|k<rsub|i>|)><rsub|\<alpha\>>|]>,
+    S<around*|(|k,x|)>=<big|sum><rsub|i=0><rsup|N-1>\<Delta\>t<around*|[|k<rsub|i><around*|(|<frac|x<rsub|i+1>-x<rsub|i>|\<Delta\>t>|)>-<big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsup|\<alpha\>><rsub|n><around*|(|x<rsub|i>|)><around*|(|k<rsub|i>|)><rsub|\<alpha\>>|]>.
   </equation*>
 
-  except for in the <math|R<rsub|n>>s.
+  The <math|1/\<hbar\>> in equation <reference|eq:pathint-hbar> is extracted
+  from the <math|\<Delta\>t> factor in <math|S<around*|(|k,x|)>>. Hence,
+  \<hbar\> is absent in <math|S<around*|(|k,x|)>> except for in the
+  <math|R<rsub|n>>s.
 
-  Planck's constant <math|\<hbar\>> characterizes the scale of quantum world.
-  To go back to classical world, we zoom out. While doing so, the quantum
-  scale becomes smaller and smaller. So, going back to classical world means
-  <math|\<hbar\>\<rightarrow\>0>. Stationary phase approximation (see
+  The re-scaling of coordinates indicates that Planck's constant
+  <math|\<hbar\>> characterizes the scale of quantum world. The quantum
+  scales for both space and time have the order of <math|\<hbar\>>. And we
+  cannot observe the quantum world directly using naked eyes because
+  <math|\<hbar\>> is an extremely small number. To go back to classical
+  world, we zoom out. While doing so, the quantum scale becomes smaller and
+  smaller. In mathematics, we can regard going back to classical world as
+  tending <math|\<hbar\>> to zero. Stationary phase approximation (see
   appendix <reference|appendix:Stationary Phase Approximation>) claims that,
-  as <math|\<hbar\>> tends to zero, the main contribution to path integral is
-  the path that has \Pstationary phase\Q, that is the
-  <math|<around*|(|k<rsub|\<star\>>,x<rsub|\<star\>>|)>> such that, for each
-  <math|i\<in\><around*|{|0,\<ldots\>,N-1|}>> and
-  <math|\<alpha\>\<in\><around*|{|1,\<ldots\>,d|}>>,
+  as <math|\<hbar\>> tends to zero, path integral is dominated by the
+  \Ppath\Q that has \Pstationary phase\Q, that is the
+  <math|<around*|(|k<rsub|\<star\>>,x<rsub|\<star\>>|)>> such that
 
   <\equation*>
-    <frac|\<partial\>S|\<partial\><around*|(|k<rsub|i>|)><rsub|\<alpha\>>><around*|(|k<rsub|\<star\>>,x<rsub|\<star\>>|)>=<frac|\<partial\>S|\<partial\>x<rsub|i><rsup|\<alpha\>>><around*|(|k<rsub|\<star\>>,x<rsub|\<star\>>|)>=0.
+    <frac|\<partial\>S|\<partial\><around*|(|k<rsub|i>|)><rsub|\<alpha\>>><around*|(|k<rsub|\<star\>>,x<rsub|\<star\>>|)>=<frac|\<partial\>S|\<partial\>x<rsub|i><rsup|\<alpha\>>><around*|(|k<rsub|\<star\>>,x<rsub|\<star\>>|)>=0,
   </equation*>
 
-  In the continuous version, where vectors <math|k> and <math|x> are replaced
-  by unary functions <math|k<around*|(|t|)>> and <math|x<around*|(|t|)>>,
-  this corresponds to functional variations
+  for each <math|i\<in\><around*|{|0,\<ldots\>,N-1|}>> and
+  <math|\<alpha\>\<in\><around*|{|1,\<ldots\>,d|}>>. Conversely, this system
+  of equations, named <strong|equations of motion>, furnishes the classical
+  (discrete) trajectory of particles, <math|<around*|(|k<rsub|\<star\>>,x<rsub|\<star\>>|)>>.
+  In the continuous version, the discrete index <math|i> is replaced by a
+  continous variable <math|t\<in\><around*|[|0,T|]>> for some
+  <math|T\<in\>\<bbb-R\>>. Then, <math|k<rsub|i>> and <math|x<rsub|i>> come
+  to be functions <math|k<around*|(|t|)>> and <math|x<around*|(|t|)>>
+  respectively. Accordingly, <math|S<around*|(|k,x|)>> becomes a functional,
+  as
+
+  <\equation*>
+    S<around*|[|k,x|]>=<big|int><rsub|0><rsup|T>\<mathd\>t<around*|[|k<around*|(|t|)><wide|x|\<dot\>><around*|(|t|)>-<big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsup|\<alpha\>><rsub|n><around*|(|x<around*|(|t|)>|)>k<rsub|\<alpha\>><around*|(|t|)>|]>,
+  </equation*>
+
+  where we use square brackets instead of parentheses for emphasizing that
+  <math|S> is a functional. The equations of motion become
 
   <\equation*>
     <frac|\<delta\>S|\<delta\>k<rsub|\<alpha\>><around*|(|t|)>><around*|[|k<rsub|\<star\>>,x<rsub|\<star\>>|]>=<frac|\<delta\>S|\<delta\>x<rsup|\<alpha\>><around*|(|t|)>><around*|[|k<rsub|\<star\>>,x<rsub|\<star\>>|]>=0,
   </equation*>
 
-  where we have replaced <math|i> to continuous <math|t> and square brackets
-  instead of parentheses for emphasizing that <math|S> is a functional, as
+  for each <math|t> and index <math|\<alpha\>>. It is recognized as the
+  Hamiltonian equations in classical mechanics. Indeed, if denote
 
   <\equation*>
-    S<around*|(|k,x|)>=<big|int><rsub|0><rsup|T>\<mathd\>t<around*|[|k<around*|(|t|)><wide|x|\<dot\>><around*|(|t|)>-<big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsup|\<alpha\>><rsub|n><around*|(|x<around*|(|t|)>|)>k<rsub|\<alpha\>><around*|(|t|)>|]>.
+    H<around*|(|k,x|)>\<assign\><big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsup|\<alpha\>><rsub|n><around*|(|x|)>k<rsub|\<alpha\>>,
   </equation*>
 
-  These are the Hamiltonian equations in classical mechanics.
+  then by variation, we have
 
-  A final remark about the moments. Recall that <math|\<hbar\>> appears in
-  <math|R<rsub|n><around*|(|x|)>> by association <math|x/\<hbar\>>. When
-  <math|\<hbar\>> tends to zero, <math|R<rsub|n><around*|(|x|)>>s are given
-  by <math|<around*|\||x|\|>\<gg\>1>. TODO
+  <\equation*>
+    <frac|\<delta\>S|\<delta\>k<around*|(|t|)>>=<wide|x|\<dot\>><around*|(|t|)>-<frac|\<partial\>H|\<partial\>k><around*|(|k<around*|(|t|)>,x<around*|(|t|)>|)>=0\<Rightarrow\><wide|x|\<dot\>><around*|(|t|)>=<frac|\<partial\>H|\<partial\>k><around*|(|k<around*|(|t|)>,x<around*|(|t|)>|)>,
+  </equation*>
+
+  and
+
+  <\equation*>
+    <frac|\<delta\>S|\<delta\>x<around*|(|t|)>>=-<wide|k|\<dot\>><around*|(|t|)>-<frac|\<partial\>H|\<partial\>x><around*|(|k<around*|(|t|)>,x<around*|(|t|)>|)>=0\<Rightarrow\><wide|k|\<dot\>><around*|(|t|)>=-<frac|\<partial\>H|\<partial\>x><around*|(|k<around*|(|t|)>,x<around*|(|t|)>|)>.
+  </equation*>
+
+  The right hand sides of <math|\<Rightarrow\>> are exactly the Hamiltonian
+  equations.
+
+  Last words about the moments. Recall that <math|\<hbar\>> appears in
+  <math|R<rsub|n><around*|(|x|)>> as combination <math|x/\<hbar\>>. For
+  example, in the traditional Hamiltonian, <math|R<rsub|0>> represents the
+  potential, which describes how the particles interact with each other and
+  how they interact with the experimental apparatus. Recall that
+  <math|V<around*|(|x|)>=V<rprime|'><around*|(|x/\<hbar\>|)>> for some
+  <math|\<hbar\>>-independent <math|V<rprime|'>>, say
+  <math|V<rprime|'><around*|(|x|)>=sin<around*|(|\<omega\> x|)>> for some
+  constant <math|\<omega\>>, thus <math|V<around*|(|x|)>=sin<around*|(|\<omega\>x/\<hbar\>|)>>.
+  We have <math|<around*|(|\<mathd\>V/\<mathd\>x|)><around*|(|x|)>=<around*|(|1/\<hbar\>|)><around*|(|\<mathd\>V<rprime|'>/\<mathd\>x|)><around*|(|x/\<hbar\>|)>=<around*|(|\<omega\>/\<hbar\>|)>cos<around*|(|\<omega\>
+  x/\<hbar\>|)>>, which oscillates by frequency <math|\<omega\>/\<hbar\>> and
+  amplitude <math|\<omega\>/\<hbar\>>. We have to expect that the potential
+  is slowly varying. Precisely, we must have <math|\<omega\>\<sim\>\<hbar\>>.
+
+  <section|Drafts (TODO)>
+
+  Consider
+
+  \;
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    \<delta\><rsub|L><around*|(|z-x|)><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<frac|\<partial\>|\<partial\>t><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    \<delta\><rsub|L><around*|(|z-x|)>\<varphi\><around*|(|x,t|)>=<frac|\<partial\>\<varphi\><rsub|L>|\<partial\>t><around*|(|z,t|)>,
+  </equation*>
+
+  where <math|\<varphi\><rsub|L>\<assign\>\<delta\><rsub|L>\<ast\>\<varphi\>>.
+  On the other hand, integration by parts gives
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    \<delta\><rsub|L><around*|(|z-x|)><frac|\<partial\><rsup|n>|\<partial\>x<rsup|\<alpha\>>><around*|[|R<rsub|n><rsup|\<alpha\>><around*|(|x|)>\<varphi\><around*|(|x,t|)>|]>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    \<partial\><rsup|n><rsub|\<alpha\>>\<delta\><rsub|L><around*|(|z-x|)><around*|[|R<rsub|n><rsup|\<alpha\>><around*|(|x|)>\<varphi\><around*|(|x,t|)>|]>.
+  </equation*>
+
+  The right hand side can be written as
+
+  <\equation*>
+    <frac|\<partial\><rsup|n>|\<partial\>z<rsup|\<alpha\>>><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x\<delta\><rsub|L><around*|(|z-x|)><around*|[|R<rsub|n><rsup|\<alpha\>><around*|(|x|)>\<varphi\><around*|(|x,t|)>|]>.
+  </equation*>
+
+  If the scale of varying of <math|R<rsub|n>>s are much greater than
+  <math|L>, namely <math|1/<around*|\<\|\|\>|\<partial\>R<rsub|n>|\<\|\|\>><rsub|\<infty\>>\<gg\>L>,
+  then we have a sequence of approximations, as
+
+  <\align>
+    <tformat|<table|<row|<cell|>|<cell|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x\<delta\><rsub|L><around*|(|z-x|)><around*|[|R<rsub|n><rsup|\<alpha\>><around*|(|x|)>\<varphi\><around*|(|x,t|)>|]>>>|<row|<cell|\<approx\>>|<cell|<big|int><rsub|U<rsub|3L><around*|(|z|)>>\<mathd\>x\<delta\><rsub|L><around*|(|z-x|)><around*|[|R<rsub|n><rsup|\<alpha\>><around*|(|x|)>\<varphi\><around*|(|x,t|)>|]>>>|<row|<cell|\<approx\>>|<cell|R<rsub|n><rsup|\<alpha\>><around*|(|z|)><big|int><rsub|U<rsub|3L><around*|(|z|)>>\<mathd\>x\<delta\><rsub|L><around*|(|z-x|)>\<varphi\><around*|(|x,t|)>>>|<row|<cell|\<approx\>>|<cell|R<rsub|n><rsup|\<alpha\>><around*|(|z|)><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x\<delta\><rsub|L><around*|(|z-x|)>\<varphi\><around*|(|x,t|)>>>|<row|<cell|=>|<cell|R<rsub|n><rsup|\<alpha\>><around*|(|z|)>\<varphi\><rsub|L><around*|(|z,t|)>.>>>>
+  </align>
+
+  Altogether, we have the approximation
+
+  <\equation*>
+    \<mathi\><frac|\<partial\>\<varphi\><rsub|L>|\<partial\>t><around*|(|x,t|)>\<approx\><big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-1|)><rsup|n>|n!>\<partial\><rsup|n><rsub|\<alpha\>><around*|[|R<rsup|\<alpha\>><rsub|n><around*|(|x|)>\<varphi\><rsub|L><around*|(|x,t|)>|]>.
+  </equation*>
+
+  Strict calculation involves Hermitian polynormial, which brings unecessary
+  complexity. We may have the relations <math|1/<around*|\<\|\|\>|\<partial\>R<rsub|n>|\<\|\|\>><rsub|\<infty\>>\<gg\>L\<gg\>\<hbar\>>.
 
   <appendix|Taylor Reminder>
 
@@ -1345,15 +1436,16 @@
 
 <\references>
   <\collection>
-    <associate|appendix:Stationary Phase Approximation|<tuple|C|19>>
-    <associate|appendix:dense|<tuple|B|17>>
+    <associate|appendix:Stationary Phase Approximation|<tuple|C|21>>
+    <associate|appendix:dense|<tuple|B|19>>
     <associate|auto-1|<tuple|1|3>>
     <associate|auto-10|<tuple|8|9>>
-    <associate|auto-11|<tuple|9|11>>
-    <associate|auto-12|<tuple|10|14>>
-    <associate|auto-13|<tuple|A|15>>
-    <associate|auto-14|<tuple|B|17>>
-    <associate|auto-15|<tuple|C|19>>
+    <associate|auto-11|<tuple|9|10>>
+    <associate|auto-12|<tuple|10|13>>
+    <associate|auto-13|<tuple|11|17>>
+    <associate|auto-14|<tuple|A|19>>
+    <associate|auto-15|<tuple|B|21>>
+    <associate|auto-16|<tuple|C|?>>
     <associate|auto-2|<tuple|1.1|3>>
     <associate|auto-3|<tuple|1.2|3>>
     <associate|auto-4|<tuple|2|3>>
@@ -1378,7 +1470,7 @@
     <associate|eq:probtoself|<tuple|2|4>>
     <associate|eq:r-fourier|<tuple|4|5>>
     <associate|eq:r-fourier-alt|<tuple|5|6>>
-    <associate|eq:standard|<tuple|22|12>>
+    <associate|eq:standard|<tuple|22|11>>
     <associate|eq:transexp|<tuple|12|7>>
     <associate|eq:transexp-hbar|<tuple|25|14>>
     <associate|equ:superposition|<tuple|1|4>>
@@ -1459,7 +1551,7 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-11>
 
-      10<space|2spc>From Quantum to Classical (TODO)
+      10<space|2spc>From Quantum to Classical
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-12>
 
