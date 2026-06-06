@@ -1,0 +1,1077 @@
+\documentclass{book}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry,amsmath,amssymb,hyperref,xcolor,alltt,pslatex}
+\geometry{portrait}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\assign}{:=}
+\newcommand{\mathd}{\mathrm{d}}
+\newcommand{\mathi}{\mathrm{i}}
+\newcommand{\mathpi}{\pi}
+\newcommand{\tmcolor}[2]{{\color{#1}{#2}}}
+\newcommand{\tmem}[1]{{\em #1\/}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmstrong}[1]{\textbf{#1}}
+\newenvironment{tmcode}[1][]{\begin{alltt} }{\end{alltt}}
+\newtheorem{axiom}{Axiom}
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+\title{Build Quantum Mechanics from Scratch}
+
+\maketitle
+
+\section{Introduction}
+
+We derive the Schr\"{o}dinger's equation of quantum mechanics from several
+basic experimental facts. These facts are treated as axioms. In fact, what we
+will get is a generalized Schr\"{o}dinger equation, which is the most generic
+equation that these axioms can imply.
+
+\subsection{Conventions}
+
+\begin{itemize}
+  \item {\tmstrong{Definitions}} are in bold font.
+  
+  \item {\tmem{Important}} statements are in italic font.
+  
+  \item Only important equations are numbered.
+  
+  \item \tmcolor{red}{Questions} are in red color.
+  
+  \item {\color[HTML]{008000}Conclusions} are in green color.
+\end{itemize}
+
+\subsection{Abbreviations}
+
+Because we are doing high-dimensional calculus, abbreviations are essential
+for not falling in the ``debauchery of formulae''.
+
+When $x, y \in \mathbb{R}^d$, denote $x y = x \cdot y = \sum_{\alpha}
+x^{\alpha} y^{\alpha}$. Thus, $x^2 = x \cdot x = \sum_{\alpha}
+(x^{\alpha})^2$. Furthermore, we use multi-dimensional index $\alpha =
+(\alpha_1, \ldots, \alpha_n)$ for abbreviating partial derivative
+$(\partial_{\alpha_1} \cdots \partial_{\alpha_n} f) (x)$ to
+$\partial_{\alpha}^n f (x)$, and abbreviating tensor (generalization of vector
+to multiple indices) $A^{\alpha_1 \cdots \alpha_n} \tmop{to} A^{\alpha}$, and
+$B_{\beta_1 \cdots \beta_n}$ to $B_{\beta}$. For example, the product
+$v^{\alpha_1} \times \cdots \times v^{\alpha_n}$ can be abbreviated as
+$v^{\alpha}$.
+
+Einstein's convention of summation is an elegant abbreviation for
+high-dimensional calculus and tensor analysis. It neglects the
+$\Sigma_{\alpha}$ in $\sum_{\alpha} v_{\alpha} w^{\alpha}$, abbreviated to be
+$v_{\alpha} w^{\alpha}$. The indices are ``balanced'', one superscript, and
+the other subscript. The convention does not apply to the ``unbalanced''
+summation such as $\sum_{\alpha} v^{\alpha} w^{\alpha}$, because both indices
+are superscripts.
+
+\section{Probability Interpretation and Wavefunction}
+
+In classical Newtonian world, the states of a physical system with $n$
+particles are represented by elements in $\mathbb{R}^{6 n}$, or
+{\tmstrong{phase}}s, $3 n$ dimensions for positions and $3 n$ for velocities
+(or momenta). The time evolution is thus a trajectory in the phase space,
+namely a map $\mathbb{R} \rightarrow \mathbb{R}^{6 n}$ (with time as the
+domain).
+
+But for a quantum system, the states are represented by wavefunctions. A
+{\tmstrong{wavefunction}} is a map from the positions of particles, together
+with time, to complex plane. Thus, a wavefunction maps $\mathbb{R}^d \times
+\mathbb{R} \rightarrow \mathbb{C}$ where $d = 3 n$. The first axiom claims how
+wavefunctions characterize a quantum system.
+
+\begin{axiom}
+  [Probability Interpretation]\label{axiom:prob} The states of a quantum
+  system are represented by wavefunctions. And given a wavefunction $\varphi$,
+  the probabilistic density that the particles are found in positions $x$ at
+  time $t$ is given by $| \varphi (x, t) |^2 = \varphi^{\ast} (x, t) \varphi
+  (x, t)$.
+\end{axiom}
+
+\section{Superposition Principle and Time Evolution}
+
+The second axiom of quantum mechanics, superposition principle, claims that
+operations on wavefunctions shall be linear (so that wavefunctions can be
+superpositioned).
+
+\begin{axiom}
+  [Superposition Principle]\label{axiom:sup} Physical laws that operate on
+  quantum states shall be linear.
+\end{axiom}
+
+An implication of superposition principle is how quantum states (precisely,
+their wavefunctions) evolve with time. Axiom \ref{axiom:sup} implies that the
+equation of time evolution (as a physical law that operates on a quantum
+state) shall be linear: $\partial \varphi / \partial t = L (\varphi)$ where
+the operation $L$ is linear.\footnote{You may wonder why it is not
+$(\partial^2 \varphi / \partial t^2) = L (\varphi)$ instead, which is linear
+in wavefunction too. If so, wavefunction at a given time cannot fully
+characterize the system at that time, just like knowing the particle position
+at time $t$ is insufficient for predicting the subsequent position at $(t +
+\mathd t)$ in classical physics, for which velocity or momentum is also
+essential. But just like the time evolution of a classical system at a given
+time is fully characterized by the phase at that time, so that the
+(Hamiltonian) dynamics is first order in time derivative, wavefunction has
+fully characterized a quantum system (claimed in axiom \ref{axiom:prob}) so
+that its time evolution is first order in time derivative too.}
+Mathematically, linearity imports a kernel $r : \mathbb{R}^d \times
+\mathbb{R}^d \rightarrow \mathbb{C}$ such that
+\begin{equation}
+  \mathi \frac{\partial \varphi}{\partial t} (x, t) = \int_{\mathbb{R}^d}
+  \mathd y r (x, y) \varphi (y, t) . \label{equ:superposition}
+\end{equation}
+The right hand side can be seen as a generalization of linear transformation
+in $\mathbb{R}^n$ like vector-matrix product $\sum_j r_{i j} \varphi_j$. The
+imaginary $\mathi$ is employed for convenience.
+
+A direct result of probability interpretation (axiom \ref{axiom:prob}) is that
+probabilistic density shall be normalized. Namely, for any wave-function
+$\varphi$ and any $t \in \mathbb{R}$, we shall have
+\begin{equation}
+  \int_{\mathbb{R}^d} \mathd x \varphi^{\ast} (x, t) \varphi (x, t) = 1.
+  \label{eq:probtoself}
+\end{equation}
+Taking derivative on $t$ gives
+\[ \int_{\mathbb{R}^d} \mathd x \frac{\partial \varphi^{\ast}}{\partial t} (x,
+   t) \varphi (x, t) + \int_{\mathbb{R}^d} \mathd x \varphi^{\ast} (x, t)
+   \frac{\partial \varphi}{\partial t} (x, t) = 0. \]
+Replacing $(\partial \varphi / \partial t)$ by equation
+\ref{equ:superposition} (and its complex conjugation),
+\[ \int_{\mathbb{R}^d} \mathd x \int_{\mathbb{R}^d} \mathd y \varphi (x, t)
+   [r^{\ast} (x, y) - r (y, x)] \varphi^{\ast} (y, t) = 0. \]
+Since $\varphi$ is arbitrary, we obtain
+\begin{equation}
+  r^{\ast} (x, y) = r (y, x) .
+\end{equation}
+That is, complex conjugating $r$ is simply swapping its arguments. We call
+such function {\tmstrong{Hermitian}}. The two arguments of $r$ are not
+independent.
+
+Probability interpretation (axiom \ref{axiom:prob}), together with
+superposition principle (axiom \ref{axiom:sup}), is the direct result of the
+double-slit experiment of electron. Details can be found in Feynman's Lectures
+on Physics, Vol 3, chapter 1.
+
+\section{Wavefunction Is Rapidly Decreasing and Entire}
+
+Before calculations, we first address where wavefunctions live. Probability
+interpretation (axiom \ref{axiom:prob}) demands that wavefunctions are
+square-integrable. Namely, wavefunction is in the square-integrable space $L^2
+(\mathbb{R}^d)$. But this is far from sufficient. Many mathematical tools are
+essential for evaluating quantum mechanics. Two of the many are Fourier
+transform and Taylor series.
+
+It is \href{https://en.wikipedia.org/wiki/Fourier\_transform}{well known},
+however, that the Fourier transform of a square-integrable function may not be
+square-integrable again, so that its inverse Fourier transform may not exist.
+Since Fourier transform is basic in quantum mechanics, we shall seek for a
+smaller space in which wavefunctions live. An ideal substitution is the
+(complex) rapidly decreasing functions. {\tmstrong{Rapidly decreasing
+function}} is a smooth function $f : \mathbb{R}^d \rightarrow \mathbb{C}$ that
+decays ``exponentially fast'' at infinity. Precisely, for any $m$-order
+polynomial $P_m$ and any $m$-order partial derivative $\partial^n$,
+\footnote{For example, $\partial_{\alpha} \partial_{\beta}^2$ is $3$-order
+partial derivative, and $\partial_{\alpha} \partial_{\beta}^2
+\partial_{\gamma}^9$ is $12$-order.} with integers $m, n \geqslant 0$, we have
+\[ \lim_{\| x \| \rightarrow \infty} | P_m (x) \partial^n f (x) | = 0. \]
+Fourier transform on a rapidly decreasing function results in a rapidly
+decreasing function.\footnote{This was first found by Laurent Schwartz in
+1949, in his paper ``Théorie des distributions et transformation de
+Fourier''. The space of rapidly decreasing functions is now called
+{\tmstrong{Schwartz space}}, denoted by $\mathcal{S} (\mathbb{R}^d)$. Thus,
+Fourier transform is a linear automorphism in Schwartz space.} Further, a
+function that is {\tmem{everywhere}} consistent with its Taylor series is
+{\tmstrong{entire}} (shall not confuse with the entire function in complex
+analysis, where the domain is complex space). It indicates that we shall
+further restrict wavefunctions to be entire. Denote $\mathcal{S}_E
+(\mathbb{R}^d)$ as the collection of all the rapidly decreasing entire
+functions.
+
+For example, in traditional textures, solving the stationary Schr\"{o}dinger's
+equation of one-dimensional harmonic oscillator needs the expansion of
+wavefunction
+\[ \varphi (x) = \exp (- x^2)  \left[ \sum_{n = 0}^{\infty} a_n x^n \right],
+\]
+where the coefficients $(a_0, a_1, \ldots)$ are to be determined. The factor
+$\exp (- x^2)$ is employed for an exponentially fast decay as $| x |
+\rightarrow \infty$. And the factor $[\cdots]$ is a Taylor series. Hence, $f$
+is both rapidly decreasing and entire. The energy quantization emerges for
+ensuring the convergence of the series $\sum_n a_n x^n$.
+
+Rapidly decreasing entire functions are dense in square-integrable space,
+meaning that for any $f \in L^2 (\mathbb{R}^d)$ and any $\varepsilon > 0$,
+there is a $g \in \mathcal{S}_E (\mathbb{R}^d)$ such that
+\[ \int_{\mathbb{R}^d} \mathd x | f (x) - g (x) |^2 < \varepsilon . \]
+For example, for any wavefunction $f \in L^2 (\mathbb{R}^d)$, when we measure
+the probability on any area of positions $U \subset \mathbb{R}^d$, we can use
+its approximation $g \in \mathcal{S}_E (\mathbb{R}^d)$ instead, because the
+difference is bounded by
+\[ \left| \int_U \mathd x | f (x) |^2 - \int_U \mathd x | g (x) |^2 \right|
+   \leqslant \int_U \mathd x | f (x) - g (x) |^2 \leqslant \int_{\mathbb{R}^d}
+   \mathd x | f (x) - g (x) |^2 < \varepsilon . \]
+The first inequality is equivalent to $| \| f \| - \| g \| | \leqslant \| f -
+g \|$, where the norm is defined as $\| f \| \assign \int_U \mathd x | f (x)
+|^2$, recognized as the $L^2$-norm on $U$. It states that the difference
+between the two sides of a triangle is less than that of the third side. It is
+in this sense that the substitution $L^2 (\mathbb{R}^d) \rightarrow
+\mathcal{S}_E (\mathbb{R}^d)$ is plausible. Proof of the statement that
+rapidly decreasing entire functions are dense in square-integrable space is
+given in appendices \ref{appendix:dense}.
+
+\section{Path Integral Formalism}\label{section:Path Integral Formalism}
+
+We are trying to derive a generic path integral formalism. Given a small
+$\Delta t > 0$, time evolution (equation \ref{equ:superposition}) gives
+\[ \varphi (x, t + \Delta t) = \int_{\mathbb{R}^d} \mathd y [\delta (x - y) -
+   \mathi r (x, y) \Delta t] \varphi (y, t) + \omicron (\Delta t) . \]
+We are to convert the $[\cdots]$ part into exponential. To do so, we take the
+inverse Fourier transform
+\[ \delta (x - y) = \int_{\mathbb{R}^d} \frac{\mathd k}{(2 \mathpi)^d} \exp
+   (\mathi k (x - y)), \]
+and
+\begin{equation}
+  r (x, y) = \int_{\mathbb{R}^d} \frac{\mathd k}{(2 \mathpi)^d} \exp (\mathi k
+  (x - y)) \hat{r} (k, y), \label{eq:r-fourier}
+\end{equation}
+in which\footnote{Indeed, by inserting equation \ref{eq:hamiltonian} into
+equation \ref{eq:r-fourier}, we get
+\[ r (x, y) = \int_{\mathbb{R}^d} \frac{\mathd k}{(2 \mathpi)^d} \exp (\mathi
+   k (x - y)) \times \left[ \int_{\mathbb{R}^d} \mathd x' \exp (- \mathi k (x'
+   - y)) r (x', y) \right] . \]
+Re-arrange the right hand side as
+\[ \int_{\mathbb{R}^d} \mathd x' r (x', y) \int_{\mathbb{R}^d} \frac{\mathd
+   k}{(2 \mathpi)^d} \exp (\mathi k (x - x')) = \int_{\mathbb{R}^d} \mathd x'
+   r (x', y) \delta (x - x'), \]
+which goes back to $r (x, y)$, indicating that equations \ref{eq:r-fourier}
+and \ref{eq:hamiltonian} are consistent. \tmcolor{red}{But, before Fourier
+transform, we have to prove that $r$ can be approximated by rapidly decreasing
+functions.}} \footnote{Alternatively, we can define
+\begin{equation}
+  \check{r} (x, k) \assign \int_{\mathbb{R}^d} \mathd y \exp (- \mathi k (x -
+  y)) r (x, y) . \label{eq:r-fourier-alt}
+\end{equation}
+Thus,
+\[ r (x, y) = \int_{\mathbb{R}^d} \frac{\mathd k}{(2 \mathpi)^d} \exp (\mathi
+   k (x - y)) \check{r} (x, k) . \]
+Indeed, plugging $\check{r} (x, k)$ into the right hand side of $r (x, y)$,
+\[ r (x, y) = \int_{\mathbb{R}^d} \frac{\mathd k}{(2 \mathpi)^d} \exp (\mathi
+   k (x - y)) \times \left[ \int_{\mathbb{R}^d} \mathd y' \exp (- \mathi k (x
+   - y')) r (x, y') \right] . \]
+Re-arrange the right hand side as
+\[ \int_{\mathbb{R}^d} \mathd y' r (x, y') \int_{\mathbb{R}^d} \frac{\mathd
+   k}{(2 \mathpi)^d} \exp (\mathi k (y' - y)) = \int_{\mathbb{R}^d} \mathd y'
+   r (x, y') \delta (y' - y), \]
+which goes back to $r (x, y)$ again. The $\hat{r}$ and $\check{r}$ are the
+Fourier transform of $r$ performed on each of its arguments respectively. In
+fact, $\hat{r}$ and \v{r} are the same object. Indeed, recalling the
+Hermitianity of $r$, we have
+\[ \hat{r}^{\ast} (k, y) = \int_{\mathbb{R}^d} \mathd x \exp (\mathi k (x -
+   y)) r^{\ast} (x, y) = \int_{\mathbb{R}^d} \mathd x \exp (\mathi k (x - y))
+   r (y, x) . \]
+Exchanging $x$ and $y$ makes
+\[ \hat{r}^{\ast} (k, x) = \int_{\mathbb{R}^d} \mathd y \exp (- \mathi k (x -
+   y)) r (x, y), \]
+which is just the $\check{r} (x, k)$. So, we have
+\begin{equation}
+  \hat{r}^{\ast} (k, x) = \check{r} (x, k) .
+\end{equation}
+Once again, we find that the two arguments of $r (x, y)$ are not independent.}
+\begin{equation}
+  \hat{r} (k, y) \assign \int_{\mathbb{R}^d} \mathd x \exp (- \mathi k (x -
+  y)) r (x, y) . \label{eq:hamiltonian}
+\end{equation}
+Then, the $[\cdots]$ part is converted into exponential by
+
+\begin{align}
+  {}[\cdots] = & \int_{\mathbb{R}^d} \frac{\mathd k}{(2 \mathpi)^d} \exp
+  (\mathi k (x - y)) [1 - \mathi \hat{r} (k, y) \Delta t] \nonumber\\
+  = & \int_{\mathbb{R}^d} \frac{\mathd k}{(2 \mathpi)^d} \exp \{ \mathi k (x -
+  y) - \mathi \hat{r} (k, y) \Delta t \} + \omicron (\Delta t) \nonumber
+\end{align}
+
+Plugging back to $\varphi (x, t + \Delta t) $results in
+\[ \varphi (x, t + \Delta t) = \int_{\mathbb{R}^d} \mathd y
+   \int_{\mathbb{R}^d} \frac{\mathd k}{(2 \mathpi)^d} \exp \{ \mathi k (x - y)
+   - \mathi \hat{r} (k, y) \Delta t \} \varphi (y, t) + \omicron (\Delta t) .
+\]
+Now, we have converted the $[\cdots]$ part into exponential, as a starting
+point of constructing path integral.
+
+After re-denoting $x_1 \assign x$, $x_0 \assign y$, $k_0 \assign k$, it
+becomes
+\[ \varphi (x_1, t + \Delta t) = \int_{\mathbb{R}^d} \mathd x_0
+   \int_{\mathbb{R}^d} \frac{\mathd k_0}{(2 \mathpi)^d} \exp \{ \mathi k_0
+   (x_1 - x_0) - \mathi \hat{r} (k_0, x_0) \Delta t \} \varphi (x_0, t) +
+   \omicron (\Delta t) . \]
+The same (replacing $x_1$ by $x_2$, and $x_0$ by $x_1$),
+\[ \varphi (x_2, t + 2 \Delta t) = \int_{\mathbb{R}^d} \mathd x_1
+   \int_{\mathbb{R}^d} \frac{\mathd k_1}{(2 \mathpi)^d} \exp \{ \mathi k_1
+   (x_2 - x_1) - \mathi \hat{r} (k_1, x_1) \Delta t \} \varphi (x_1, t +
+   \Delta t) + \omicron (\Delta t) . \]
+By inserting $\varphi (x_1, t + \Delta t)$, we find
+
+\begin{align}
+  \varphi (x_2, t + 2 \Delta t) = & \int_{\mathbb{R}^d} \mathd x_1
+  \int_{\mathbb{R}^d} \frac{\mathd k_1}{(2 \mathpi)^d} \exp \{ \mathi k_1 (x_2
+  - x_1) - \mathi \hat{r} (k_1, x_1) \Delta t \} \times \nonumber\\
+  \times & \int_{\mathbb{R}^d} \mathd x_0 \int_{\mathbb{R}^d} \frac{\mathd
+  k_0}{(2 \mathpi)^d} \exp \{ \mathi k_0 (x_1 - x_0) - \mathi \hat{r} (k_0,
+  x_0) \Delta t \} \varphi (x_0, t) \nonumber\\
+  & + \omicron (\Delta t) . \nonumber
+\end{align}
+
+After repeating this $N$ times, we arrive at
+\begin{equation}
+  \varphi (x_N, t + N \Delta t) = \int D (k, x) \exp (\mathi S (k, x)) \varphi
+  (x_0, t) + \omicron (\Delta t), \label{eq:pathint}
+\end{equation}
+in which
+\begin{equation}
+  \int D (k, x) \assign \prod_{i = 0}^{N - 1} \int_{\mathbb{R}^d} \frac{\mathd
+  k_i}{(2 \mathpi)^d}  \int_{\mathbb{R}^d} \mathd x_i
+\end{equation}
+and
+\begin{equation}
+  S (k, x) \assign \sum_{i = 0}^{N - 1} \Delta t \left[ k_i \left( \frac{x_{i
+  + 1} - x_i}{\Delta t} \right) - \hat{r} (k_i, x_i) \right] .
+  \label{eq:action}
+\end{equation}
+If we recognize $(x_{i + 1} - x_i) / \Delta t$ as the velocity $\dot{x}
+(t_i)$, then $S (k, x)$ can be seen as the Legendre transform $\int [p (t)
+\dot{x} (t) - H (p (t), x (t))] \mathd t$, in which
+{\color[HTML]{008000}{\tmem{$k$ is analogy to momentum $p$ and $\hat{r} (k,
+x)$ plays the role of Hamiltonian $H (p, x)$}}}.
+
+\section{From Integral to Differential}\label{section:Expanding Kernel as
+Generalized Function}
+
+Given a ``test function'' $\psi \in \mathcal{S}_E (\mathbb{R}^d)$, we can
+calculate its ``inner product'' with time evolution (equation
+\ref{equ:superposition}), as
+\[ \int_{\mathbb{R}^d} \mathd x \psi (x) \left[ \mathi \frac{\partial
+   \varphi}{\partial t} (x, t) \right] = \int_{\mathbb{R}^d} \mathd x
+   \int_{\mathbb{R}^d} \mathd y \psi (x) r (x, y) \varphi (y, t) . \]
+In the right hand side, Taylor expanding $\psi$ at $y$ makes
+\[ \int_{\mathbb{R}^d} \mathd x \psi (x) \left[ \mathi \frac{\partial
+   \varphi}{\partial t} (x, t) \right] = \sum_{n = 0}^{\infty} \frac{1}{n!}
+   \int_{\mathbb{R}^d} \mathd x \int_{\mathbb{R}^d} \mathd y
+   \partial^n_{\alpha} \psi (y) (x - y)^{\alpha} r (x, y) \varphi (y, t), \]
+where $\alpha \assign (\alpha_1, \ldots, \alpha_n)$ and $(x - y)^{\alpha}
+\assign (x - y)^{\alpha_1} \times \cdots \times (x - y)^{\alpha_n}$ (recall
+the abbreviations). Define the {\tmstrong{moment}}
+\begin{equation}
+  R_n^{\alpha} (y) \assign \int_{\mathbb{R}^d} \mathd x r (x, y) (x -
+  y)^{\alpha} . \label{eq:moment}
+\end{equation}
+Then, integrating over $x$ gives
+\[ \int_{\mathbb{R}^d} \mathd x \psi (x) \left[ \mathi \frac{\partial
+   \varphi}{\partial t} (x, t) \right] = \sum_{n = 0}^{\infty} \frac{1}{n!}
+   \int_{\mathbb{R}^d} \mathd y \partial^n_{\alpha} \psi (y) R^{\alpha}_n (y)
+   \varphi (y, t) . \]
+After integration by parts and then omitting the boundary (since $\psi$ is
+rapidly decreasing), we get
+\[ \int_{\mathbb{R}^d} \mathd y \psi (y) \left[ \mathi \frac{\partial
+   \varphi}{\partial t} (y, t) \right] = \sum_{n = 0}^{\infty} \frac{(-
+   1)^n}{n!} \int_{\mathbb{R}^d} \mathd y \psi (y) \partial^n_{\alpha}
+   [R^{\alpha}_n (y) \varphi (y, t)], \]
+where we have replaced $x$ by $y$ in the left hand side for making it clear.
+Since $\psi$ is an arbitrary function in $\mathcal{S}_E (\mathbb{R}^d)$, we
+have\footnote{This is a quantum analogy of the Kramers--Moyal expansion in
+stochastic process, which has the form
+\[ \frac{\partial p}{\partial t} (x, t) = \sum_{n = 0}^{\infty} \frac{(-
+   1)^n}{n!} \partial^n_{\alpha} [R^{\alpha}_n (x) p (x, t)] . \]
+Here, the $p$ is a probability density function that represents the stochastic
+process. Remark that the only difference between the two equations is the
+imaginary factor before temporal derivative.}
+\begin{equation}
+  \mathi \frac{\partial \varphi}{\partial t} (x, t) = \sum_{n = 0}^{\infty}
+  \frac{(- 1)^n}{n!} \partial^n_{\alpha} [R^{\alpha}_n (x) \varphi (x, t)] .
+  \label{eq:transexp}
+\end{equation}
+That is, we convert the integral equation \ref{equ:superposition} to a
+differential equation. In practice, differential equation is much more
+convenient than its integral correspondence for doing calculus. In summary, we
+have three equivalent formalisms that describe the time evolution of
+wavefunction: the original integral equation \ref{equ:superposition}, the path
+integral \ref{eq:pathint}, and now the differential equation
+\ref{eq:transexp}.
+
+Interestingly, the Taylor expansion of the ``Hamiltonian'' $\hat{r} (k, y)$,
+defined by equation \ref{eq:hamiltonian}, also relates to the moments $R_n$s.
+Directly by equation \ref{eq:hamiltonian}, we have
+\[ \frac{\partial^n \hat{r}}{\partial k_{\alpha}} (0, y) = \lim_{k \rightarrow
+   0} \int_{\mathbb{R}^d} \mathd x \left[ \frac{\partial^n}{\partial
+   k_{\alpha}} \exp (- \mathi k (x - y)) \right] r (x, y) = (- \mathi)^n
+   \int_{\mathbb{R}^d} \mathd x r (x, y) (x - y)^{\alpha} . \]
+The integral is recognized as $R_n^{\alpha} (y)$. So, we find $(- \mathi)^n
+R_n^{\alpha} (y)$s the Taylor coefficients of $\hat{r} (k, y)$ expanded by $k$
+at its origin. Namely,\footnote{\tmcolor{red}{But, we have to prove that
+$\hat{r} (k, y)$ is entire on $k$, so that its Taylor series converges to
+itself.}}
+\begin{equation}
+  \hat{r} (k, y) = \sum_{n = 0}^{\infty} \frac{(- \mathi)^n}{n!} R^{\alpha}_n
+  (y) k_{\alpha}, \label{eq:momentexpansion}
+\end{equation}
+where $k_{\alpha} \assign (k_{\alpha_1} \times \cdots \times k_{\alpha_n})$ as
+usual. Again, the details of $S (k, x)$ (defined in equation \ref{eq:pathint})
+can be completely determined by the moments $R_n$s.
+
+So, consider the traditional Hamiltonian $\hat{r} (x, p) = p^2 / (2 m) + V
+(x)$, all $R_n$s vanish except for $R_0 (x) = V (x)$ and $R_2 (x) = - 1 / m$.
+Equation \ref{eq:transexp} implies
+\begin{equation}
+  \mathi \frac{\partial \varphi}{\partial t} (x, t) = - \frac{1}{2 m} \nabla^2
+  \varphi (x, t) + V (x) \varphi (x, t),
+\end{equation}
+which is exactly the Schr\"{o}dinger equation (in the natural units where
+Planck's constant $\hbar = 1$).
+
+\section{Locality Truncates the Moments}\label{section:Locality Truncates the
+Moments}
+
+We then introduce the third axiom about locality, and discuss what it will
+induce.
+
+\begin{axiom}
+  [Locality]\label{axiom:local} Time evolution of quantum system is local.
+\end{axiom}
+
+Shall not confuse time evolution with collapse, which is proven to be
+non-local. Axiom \ref{axiom:local} claims that time evolution (equation
+\ref{equ:superposition}) is local. To make this clear, we consider an example,
+in which $R_n (x) = c^n$ for some constant $c$, and set the dimension $d = 1$
+for simplicity. Then, time evolution (equation \ref{eq:transexp}) at $x = 0$
+is
+\[ \mathi \frac{\partial \varphi}{\partial t} (0, t) = \sum_{n = 0}^{\infty}
+   \frac{(- c)^n}{n!}  \frac{\partial^n \varphi}{\partial x^n} (0, t) . \]
+The last expression happens to be the Taylor series of $\varphi (x, t)$ at $x
+= - c$, namely $\varphi (- c, t)$. So, we conclude that $R_n (x) = c^n$ for
+some constant $c$ implies
+\[ \mathi \frac{\partial \varphi}{\partial t} (0, t) = \varphi (- c, t) . \]
+If we change the value of $\varphi$ at $x = - c$, then the time evolution at
+$x = 0$ changes accordingly. It means non-locality.
+
+In physics, a local equation generally refers to an operation on $\varphi$
+which contains $\varphi$ itself and {\tmem{finite}} number of spatial
+derivatives of $\varphi$, such as
+\[ \mathi \frac{\partial \varphi}{\partial t} (x, t) =\mathcal{L} \left(
+   \varphi (x, t), \frac{\partial \varphi}{\partial x} (x, t),
+   \frac{\partial^2 \varphi}{\partial x^2} (x, t), \ldots, \frac{\partial^n
+   \varphi}{\partial x^n} (x, t) \right), \]
+where $\mathcal{L}$ is an entire function. This is easy to understand because
+to compute $(\partial^n \varphi / \partial x^n) (0, t)$ using numerical method
+with difference $\Delta x$, only $\varphi (x, t)$ with $x \in \{ 0, \Delta x,
+\ldots, n \Delta x \}$ are employed.\footnote{Given a smooth function $f$,
+numerically evaluating $f^{(n)} (0)$ needs $f^{(n - 1)} (0)$ and $f^{(n - 1)}
+(\Delta x)$. Recursively, numerically evaluating $f^{(n - 1)} (0)$ needs
+$f^{(n - 2)} (0)$ and $f^{(n - 2)} (\Delta x)$, and $f^{(n - 1)} (\Delta x)$
+needs $f^{(n - 2)} (\Delta x)$ and $f^{(n - 2)} (2 \Delta x)$. Repeating this
+process, we find $\{ f (0), \ldots, f (n \Delta x) \}$ are needed for
+evaluating $f^{(n)} (0)$.} So, $(\partial \varphi / \partial t) (0, t)$ cannot
+``perceive'' the $\varphi (x, t)$ outside the neighborhood $\{ x : | x |
+\leqslant n \Delta x \}$. Since $\Delta x$ can be arbitrarily small (but not
+vanishing), the equation is local.
+
+We have shown that, with a cut-off $N_{\tmop{cut}}$ on $R_n$s such that $R_n =
+0$ for any $n > N_{\tmop{cut}}$, time evolution of wavefunction is local. And
+without such a cut-off, we can construct a sequence of $R_n$s such that time
+evolution is not local. Now, we are to prove that, generally, without a
+cut-off, any sequence of $R_n$s (such that for any $N > 0$, there are infinite
+many $R_n$s that are not vanishing), time evolution of wavefunction is
+non-local. This then imports a cut-off on moments.
+
+Before proving, we first declare a property of entire function. Consider the
+Taylor expansion of $\varphi \in \mathcal{S}_E (\mathbb{R})$ at origin
+\[ \varphi (x) = a_0 + a_1 x + a_2 x^2 + \cdots . \]
+The information of $\varphi$ is completely encoded in the infinite sequence of
+$a_n$s. This is the result of a theorem which claims that two entire functions
+are equal if they agree in any interval (hence we can obtain the Taylor series
+of the function within the interval). What if we only know a portion of the
+infinite sequence of $a_n$s? For example, if we only know the $a_0$, then only
+the value of $\varphi (x)$ at $x = 0$ is determined. Further, if we also know
+the $a_1$, then we can give a good approximation to $\varphi (x)$ in a very
+tiny neighborhood at $x = 0$, since $\varphi (x) = a_0 + a_1 x + \omicron
+(x^2)$. Then, if we additionally know the $a_2$, then the approximation
+becomes as good as before in a larger neighborhood at $x = 0$, since $\varphi
+(x) = a_0 + a_1 x + a_2 x^2 + \omicron (x^3)$ and the size of neighborhood can
+increase a little without growing the scale of residue. This analysis
+indicates that the more $a_n$s we know, in a larger neighborhood at $x = 0$
+can we properly approximate $\varphi (x)$. Our vision becomes border and
+border if we know more and more $a_n$s. Until knowing the whole sequence of
+$a_n$s, we realize the complete picture of $\varphi (x)$ (based on the
+previous theorem about entire function).
+
+It also indicates that, for a sufficient large $N$, we can keep $\varphi (x)$
+(approximately) invariant when we tune the $a_n$s with $n > N$ while keeping
+the other $a_n$s unchanged. On the other hand, based on the equation (plugging
+$\varphi (x) = \sum_n a_n x^n$ into equation \ref{eq:transexp}, and collecting
+all $a_m$ terms with $m < n$ into $[\cdots]$),
+\[ \mathi \frac{\partial \varphi}{\partial t} (0, t) = \sum_{n = 0}^{\infty}
+   \{ [\cdots] + (- 1)^n R_n (0) a_n \}, \]
+if there is not a cut-off to the infinite sequence of $R_n (0)$s, we can
+modify the $(\partial \varphi / \partial t) (0, t)$ by tuning an $a_n$ where
+$n$ can be arbitrarily large. This, however, will leave the $\varphi (x)$
+around $x = 0$ invariant. It means that the value of $\varphi$ with $x$ far
+away from $x = 0$ can affect the time evolution of $\varphi$ at $x = 0$. That
+is, time evolution of wavefunction is non-local. Hence, there must be a
+cut-off on the sequence of $R_n (0)$s. This discussion also holds for any
+value of $x$ other than $x = 0$. We conclude that
+{\color[HTML]{008000}{\tmem{time evolution is local if and only if there is a
+positive integer $N_{\tmop{cut}}$ such that $R_n = 0$ for any $n >
+N_{\tmop{cut}}$}}}.
+
+\section{Hermitianity on the Moments}\label{section:Hermitianity on Moments}
+
+The complex conjugation of moment is given by
+\[ (R_n^{\alpha})^{\ast} (y) = \int_{\mathbb{R}^d} \mathd x r^{\ast} (x, y) (x
+   - y)^{\alpha} = \int_{\mathbb{R}^d} \mathd x r (y, x) (x - y)^{\alpha}, \]
+where we have inserted the Hermitian condition $r^{\ast} (x, y) = r (y, x)$.
+Exchanging $x$ and $y$ makes
+\[ (R_n^{\alpha})^{\ast} (x) = \int_{\mathbb{R}^d} \mathd x r (x, y) (y -
+   x)^{\alpha} = (- 1)^n \int_{\mathbb{R}^d} \mathd y r (x, y) (x -
+   y)^{\alpha} . \]
+Remark that the integral is symmetric to $R^{\alpha}_n (y)$, which shares the
+same integrand (namely $r (x, y) (x - y)^{\alpha}$), but integrating over $x$
+instead. In time evolution (equation \ref{equ:superposition}), Taylor
+expanding $\varphi (y, t)$ by $y$ at $x$ gives
+\[ \mathi \frac{\partial \varphi}{\partial t} (x, t) = \int_{\mathbb{R}^d}
+   \mathd y r (x, y) \varphi (y, t) = \sum_{n = 0}^{\infty} \frac{1}{n!}
+   \partial^n_{\alpha} \varphi (x, t) \int_{\mathbb{R}^d} \mathd y r (x, y) (y
+   - x)^{\alpha} . \]
+We recognize that the integral is nothing but the $(R_n^{\alpha})^{\ast} (x)$.
+Hence,
+\begin{equation}
+  \mathi \frac{\partial \varphi}{\partial t} (x, t) = \sum_{n = 0}^{\infty}
+  \frac{1}{n!} (R_n^{\alpha})^{\ast} (x) \partial^n_{\alpha} \varphi (x, t) .
+\end{equation}
+Comparing with equation \ref{eq:transexp}, this equation looks simpler.
+
+Now we study the relation between $R_n$s and their complex conjugations.
+Direct calculation is found tedious. Instead, we start at evaluating
+$\hat{r}^{\ast}$. By conjugating the definition of $\hat{r}$ (equation
+\ref{eq:hamiltonian}) and applying the Hermitianity of $r$, we get
+\[ \hat{r}^{\ast} (k, y) = \int_{\mathbb{R}^d} \mathd x \exp (\mathi k (x -
+   y)) r (y, x) . \]
+Then, applying equation \ref{eq:r-fourier} to $r (y, x)$ gives
+\[ \hat{r}^{\ast} (k, y) = \int_{\mathbb{R}^d} \mathd k' \int_{\mathbb{R}^d}
+   \frac{\mathd x}{(2 \mathpi)^d} \exp \{ \mathi (k - k') (x - y) \}  \hat{r}
+   (k', x) . \]
+Taylor expanding $\hat{r} (k', x)$ by $x$ at $y$,
+\[ \hat{r}^{\ast} (k, y) = \sum_{n = 0}^{\infty} \frac{1}{n!}
+   \int_{\mathbb{R}^d} \mathd k' \frac{\partial^n \hat{r}}{\partial
+   y^{\alpha}} (k', y) \times \int_{\mathbb{R}^d} \frac{\mathd x}{(2
+   \mathpi)^d} \exp \{ \mathi (k - k') (x - y) \} (x - y)^{\alpha} . \]
+Notice the relation
+\[ \partial_{\alpha}^n \delta (\omega) = \frac{\partial^n}{\partial
+   \omega^{\alpha}} \int_{\mathbb{R}^d} \frac{\mathd z}{(2 \mathpi)^d} \exp
+   (\mathi \omega z) = \mathi^n \int_{\mathbb{R}^d} \frac{\mathd z}{(2
+   \mathpi)^d} \exp (\mathi \omega z) z^{\alpha} . \]
+Replacing $\omega$ by $(k - k')$ and $z$ by $(x - y)$, the last integral in
+$\hat{r}^{\ast} (k, y)$ becomes $(- \mathi)^n \partial^n_{\alpha} \delta (k -
+k')$. Thus,
+\[ \hat{r}^{\ast} (k, y) = \sum_{n = 0}^{\infty} \frac{(- \mathi)^n}{n!}
+   \int_{\mathbb{R}^d} \mathd k' \frac{\partial^n \hat{r}}{\partial
+   y^{\alpha}} (k', y) \partial^n_{\alpha} \delta (k - k') . \]
+By integration by parts (recalling that $\partial^n \delta$ is odd when $n$ is
+odd, otherwise even) and then integrating over $k'$, we arrive at
+\[ \hat{r}^{\ast} (k, y) = \sum_{n = 0}^{\infty} \frac{(- \mathi)^n}{n!}
+   \frac{\partial^{2 n} \hat{r}}{\partial k_{\alpha} \partial y^{\alpha}} (k,
+   y) . \]
+Since $(- \mathi)^n R_n (y)$s are the coefficients of Taylor expansion of
+$\hat{r} (k, y)$ by $k$ (equation \ref{eq:momentexpansion}), we find
+\[ (R^{\alpha}_m)^{\ast} (y) = (- \mathi)^m \frac{\partial^m
+   \hat{r}^{\ast}}{\partial k_{\alpha}} (0, y) = \sum_{n = 0}^{\infty}
+   \frac{(- \mathi)^{m + n}}{n!} \frac{\partial^n}{\partial y^{\beta}}
+   \frac{\partial^{m + n} \hat{r}}{\partial k_{\alpha} \partial k_{\beta}} (0,
+   y) . \]
+Again, the $(m + n)$-th coefficients of the Taylor expansion is $(- \mathi)^{m
++ n} R_{m + n} (y)$, so
+\[ (R^{\alpha}_m)^{\ast} (y) = \sum_{n = 0}^{\infty} \frac{(- \mathi)^{m +
+   n}}{n!} \frac{\partial^n}{\partial x^{\beta}} [(- \mathi)^{m + n} R^{\alpha
+   \beta}_{m + n} (y)] = \sum_{n = 0}^{\infty} \frac{(- 1)^{m + n}}{n!}
+   \partial^n_{\beta} R^{\alpha \beta}_{m + n} (x) . \]
+Recall that $R_n = 0$ for any $n > N_{\tmop{cut}}$ (section
+\ref{section:Locality Truncates the Moments}), we finally arrive at
+\begin{equation}
+  (R^{\alpha}_m)^{\ast} (x) = \sum_{n = 0}^{N_{\tmop{cut}} - m} \frac{(- 1)^{m
+  + n}}{n!} \partial^n_{\beta} R^{\alpha \beta}_{m + n} (x) .
+\end{equation}
+It relates the moments $R_n$s to their complex conjugations.
+
+For example, when $N_{\tmop{cut}} = 2$, we have $R_0^{\ast} (x) = R_0 (x) -
+\partial_{\alpha} R^{\alpha}_1 (x) + (1 / 2) \partial^2_{\alpha} R^{\alpha}_2
+(x)$, $(R_1^{\alpha})^{\ast} (x) = - R_1^{\alpha} (x) + \partial_{\beta}
+R^{\alpha \beta}_2 (x)$, and $(R_2^{\alpha})^{\ast} (x) = R^{\alpha}_2 (x)$,
+that is, $R_2$ is real. Specially, we have
+\[ R_{N_{\tmop{cut}}}^{\ast} (x) = (- 1)^{N_{\tmop{cut}}} R_{N_{\tmop{cut}}}
+   (x) . \]
+That is, $R_{N_{\tmop{cut}}}$ is real when $N_{\tmop{cut}}$ is even, otherwise
+purely imaginary.
+
+\section{Uncertainty Principle Restricts the Highest Order Moment}
+
+An {\tmstrong{observable}} is a real function of the particle positions of a
+quantum system. A corollary of probability interpretation (axiom
+\ref{axiom:prob}) is that, given a wavefunction $\varphi$, $| \varphi (x, t)
+|^2$ represents the probability density that the particles are found on
+positions $x$ at time $t$, hence the expected value of an observable $F$ is
+\begin{equation}
+  \mathbb{E}_{\varphi} [F] (t) \assign \int_{\mathbb{R}^d} \mathd x | \varphi
+  (x, t) |^2 F (x),
+\end{equation}
+with uncertainty characterized by variance
+\begin{equation}
+  \tmop{Var}_{\varphi} [F] (t) \assign \int_{\mathbb{R}^d} \mathd x | \varphi
+  (x, t) |^2 [F (x) -\mathbb{E}_{\varphi} [F] (t)]^2 .
+\end{equation}
+
+
+For a single particle system, we use $X$ to denote the position of the
+particle, thus $X (x) = x$. Apparently, $X$ is an observable. Its uncertainty
+is given by
+\begin{equation}
+  \Delta X^{\alpha} (t) \assign \sqrt{\tmop{Var}_{\varphi} [X^{\alpha}] (t)} .
+  \label{eq:deltax}
+\end{equation}
+Having observed the particle position at time $t$ and $t + \Delta t$
+subsequently, we might evaluate the velocity of the particle by the observed
+positions. But it is hard to perform, because both positions are random, and
+wavefunction can only give {\tmem{statistical information}}, such as
+expectation and variance, while for single measurement of an observable it
+says nothing.\footnote{\tmcolor{red}{Is it possible to define velocity simply
+by using the statistical information of positions?}} Instead, for evaluating
+the velocity, we have to fix the position of the particle at time $t$ and
+evaluate the uncertainty caused by the position at time $t + \Delta t$. That
+is, {\tmem{the uncertainty induced by time evolution}}. This, however, is
+improper because it makes the wavefunction of the particle ill-defined.
+Indeed, by fixing the particle at position $x_0$, we must have $\varphi (x, t)
+= \exp (\mathi \omega (x, t)) \sqrt{\delta (x - x_0)}$ for some real function
+$\omega$. Then, $(\partial \varphi / \partial x)$ is ill-defined because it is
+proportional to $1 / \sqrt{\delta (x - x_0)}$ (if viewing $\delta$ as a
+function on which derivative rules hold still), which is $1 / 0$ except for $x
+= x_0$. Instead, we have to consider the series of function that converge to
+$\delta$ function, such as
+\[ \delta_a (x - x_t) \assign \left( \frac{a}{2 \mathpi} \right)^{d / 2} \exp
+   \left( - \frac{a x^2}{2} \right), \]
+where $a$ is a positive number and $\delta_a \rightarrow \delta$ when $a$
+tends to infinity. Then, we have $\varphi_a (x, t) = \exp (\mathi \omega (x,
+t)) \sqrt{\delta_a (x - x_t)}$. Using this $\varphi_a$, we can define the
+uncertainty of velocity caused by the uncertainty of position at time $t +
+\Delta t$, as
+\begin{equation}
+  \Delta V^{\alpha} (t) \assign \lim_{\Delta t \rightarrow 0} \lim_{a
+  \rightarrow \infty} \sqrt{\tmop{Var}_{\varphi_a} \left[ \frac{X^{\alpha}
+  -\mathbb{E}_{\varphi_a} [X^{\alpha}] (t)}{\Delta t} \right] (t + \Delta t)},
+  \label{eq:deltav}
+\end{equation}
+where $x_t$ is replaced by the observed position $\mathbb{E} [X] (t)$.
+
+Have clarified the uncertainties of particle position and velocity, we can
+claim uncertainty principle as follow.
+
+\begin{axiom}
+  [Uncertainty Principle of Single Particle]\label{axiom:uncert} In a single
+  particle quantum system, given a wavefunction $\varphi$, the uncertainties
+  of position and of velocity have the relation
+  \[ \Delta X^{\alpha} (t) \Delta V^{\alpha} (t) \sim \hbar / (2 m), \]
+  where $m$ is the mass of the particle, and $\hbar$ is the reduced Planck's
+  constant.
+\end{axiom}
+
+In the rest of this section, we investigate how uncertainty principle
+restricts further to the kernel. Without loosing generality, we set $t = 0$
+and omit the factor $\exp (\mathi \omega (x, t))$. In this situation,
+\begin{equation}
+  \varphi_a (x, 0) = \left( \frac{a}{2 \mathpi} \right)^{d / 4} \exp \left( -
+  \frac{a x^2}{4} \right) . \label{eq:gaussianwavefunction}
+\end{equation}
+The coefficient guarantees the normalization of $\varphi_a$, namely $\int
+\mathd x | \varphi_a (x, 0) |^2 = 1$. It has ``standardization''
+\begin{equation}
+  \varphi_a \left( \frac{x}{\sqrt{a}}, 0 \right) = a^{d / 4} \varphi_1 (x, 0)
+  . \label{eq:standard}
+\end{equation}
+Since $\varphi_a$ is even function, we have
+\[ \  \]
+\[ \mathbb{E}_{\varphi_a} [X^{\alpha}] (0) = \int_{\mathbb{R}^d} \mathd x |
+   \varphi_a (x, 0) |^2 x^{\alpha} = 0. \]
+Then, using the standardization, we find (using $y \assign \sqrt{a} x$)
+\[ \tmop{Var}_{\varphi_a} [X^{\alpha}] (0) = \int_{\mathbb{R}^d} \mathd x |
+   \varphi_a (x, 0) |^2 (x^{\alpha})^2 = \frac{1}{a} \int_{\mathbb{R}^d}
+   \mathd y | \varphi_1 (y, 0) | (y^{\alpha})^2 = \frac{1}{a} . \]
+Equation \ref{eq:deltax} then gives $\Delta X (0) =
+\sqrt{\tmop{Var}_{\varphi_a} [X] (0)} = \sqrt{1 / a}$.
+
+To evaluate $\Delta V (0)$, we have to use time evolution equation to
+calculate $X$ at time $\Delta t$. By time evolution (equation
+\ref{eq:transexp}), we have (for brevity, we omit the subscript $\tmop{cut}$
+in $N_{\tmop{cut}}$)
+\[ \varphi_a (x, \Delta t) = \varphi_a (x, 0) - \mathi \Delta t \sum_{n = 0}^N
+   \frac{(- 1)^n}{n!} \partial^n_{\alpha} [R_n^{\alpha} (x) \varphi_a (x, 0)]
+   + \cdots . \]
+This expansion is too complicated. But, by noticing that $\partial^n \varphi_a
+(x, 0) = \mathcal{O} \left( \sqrt{a} \right)$, as $a$ tends to infinity, the
+term $(- 1)^N / N! R_N^{\alpha} (x) \partial^N_{\alpha} \varphi_a (x, 0)$ will
+surpass all the others in the summation, and the particle becomes
+``free''.\footnote{In the traditional approach of quantum mechanics, $n
+\rightarrow \infty$ indicates that the momentum is large (since momentum is
+proportional to $\partial / \partial x$), so the term with the highest order
+of momentum will dominates the time evolution. When the momentum is large
+enough, the kinetic term dominates Hamiltonian, the potential becomes
+omittable, making the particle free (namely, unconstrained by potential).} In
+this situation, time evolution (equation \ref{eq:transexp}) reduces to
+\[ \mathi \frac{\partial \varphi_a}{\partial t} (x, t) = \frac{(- 1)^N}{N!}
+   R_N^{\alpha} (x) \partial^N_{\alpha} \varphi_a (x, t) . \]
+Hence, up to $\omicron (\Delta t^2)$ (we will find that expanding to $\omicron
+(\Delta t)$ is insufficient),
+
+\begin{align}
+  \varphi_a (x, \Delta t) = & \varphi_a (x, 0) + \frac{\partial
+  \varphi_a}{\partial t} (x, 0) \Delta t + \frac{1}{2} \frac{\partial^2
+  \varphi_a}{\partial t^2} (x, 0) \Delta t^2 + \omicron (\Delta t^2)
+  \nonumber\\
+  = & \varphi_a (x, 0) - \mathi \frac{(- 1)^N}{N!} R_N^{\alpha} (x)
+  \partial^N_{\alpha} \varphi_a (x, 0) \Delta t - \frac{\mathi}{2} \frac{(-
+  1)^N}{N!} R_N^{\alpha} (x) \partial^N_{\alpha} \frac{\partial
+  \varphi_a}{\partial t} (x, 0) \Delta t^2 + \omicron (\Delta t^2) . \nonumber
+\end{align}
+
+Inserting $(\partial \varphi_a / \partial t)$ and considering the surpassing
+again, we get
+
+\begin{align}
+  \varphi_a (x, \Delta t) = & \varphi_a (x, 0) - \mathi \frac{(- 1)^N}{N!}
+  R_N^{\alpha} (x) \partial^N_{\alpha} \varphi_a (x, 0) \Delta t \nonumber\\
+  - & \frac{1}{2} \left[ \frac{(- 1)^N}{N!} \right]^2 R^{\alpha}_N (x)
+  R^{\beta}_N (x) \partial^N_{\alpha} \partial^N_{\beta} \varphi_a (x, 0)
+  \Delta t^2 + \omicron (\Delta t^2) . \nonumber
+\end{align}
+
+This is sufficient for our task.
+
+We first calculate the expectation of velocity at $t = 0$, which is given by
+\[ V^{\alpha} (0) \assign \lim_{\Delta t \rightarrow 0} \lim_{a \rightarrow
+   \infty} \mathbb{E}_{\varphi_a} \left[ \frac{X^{\alpha}
+   -\mathbb{E}_{\varphi_a} [X^{\alpha}] (0)}{\Delta t} \right] (\Delta t) . \]
+Inserting $\varphi_a (x, \Delta t)$ gives
+\[ V^{\alpha} (0) = \lim_{a \rightarrow \infty} \frac{2 (- 1)^N}{N!}
+   \int_{\mathbb{R}^d} \mathd x \varphi_a (x, 0) \partial^N_{\beta} \varphi_a
+   (x, 0) \tmop{Im} [R^{\beta}_N (x)] x^{\alpha} \]
+When $N$ is even, $R_N$ is real (a result in section \ref{section:Hermitianity
+on Moments}), we find $V (0) = 0$. But when $N$ is odd, $R_N$ is purely
+imaginary. In this case, $V^{\alpha} (0)$ may not vanish (instead it diverges
+as $a$ tends to infinity), leading to a violation of parity symmetry, because
+the velocity has a favored direction even though the distribution (or
+wavefunction) has not. So, from now on, we only consider when $N$ is even.
+
+Now, we are to calculate $\Delta V (0)$. For any random variable $R$, we have
+the formula
+\[ \tmop{Var} [R] =\mathbb{E} [(R -\mathbb{E} [R])^2] =\mathbb{E} [R^2 -
+   2\mathbb{E} [R] R -\mathbb{E}^2 [R]] =\mathbb{E} [R^2] -\mathbb{E}^2 [R] .
+\]
+Applying to $\Delta V (0)$ (equation \ref{eq:deltav}), we find
+\[ [\Delta V^{\alpha} (0)]^2 = \lim_{\Delta t \rightarrow 0} \lim_{a
+   \rightarrow \infty} \frac{\mathbb{E}_{\varphi_a} [(X^{\alpha})^2] (\Delta
+   t)}{\Delta t^2}, \]
+where we have used $\mathbb{E}_{\varphi_a} [X^{\alpha}] (0) = V^{\alpha} (0) =
+0$ when $N$ is even. Since $R_N$ has been real,
+
+{\small{\begin{align}
+  \mathbb{E}_{\varphi_a} [(X^{\alpha})^2] (\Delta t) = & \int_{\mathbb{R}^d}
+  \mathd x \varphi_a^{\ast} (x, \Delta t) \varphi_a (x, \Delta t)
+  (x^{\alpha})^2 \nonumber\\
+  = & \frac{1}{a} + \left( \frac{1}{N!} \right)^2 \int_{\mathbb{R}^d} \mathd x
+  \left[ \partial^N_{\beta} \varphi_a (x, 0) \partial^N_{\gamma} \varphi_a (x,
+  0) - \frac{1}{2} \varphi_a (x, 0) \partial_{\beta}^N \partial_{\gamma}^N
+  \varphi_a (x, 0) \right] R_N^{\beta} (x) R_N^{\gamma} (x) (x^{\alpha})^2
+  \Delta t^2, \nonumber
+\end{align}}}
+
+up to $\omicron (\Delta t^2)$. Then, we get
+\[ [\Delta V^{\alpha} (0)]^2 = \left( \frac{1}{N!} \right)^2
+   \int_{\mathbb{R}^d} \mathd x \left[ \partial^N_{\beta} \varphi_a (x, 0)
+   \partial^N_{\gamma} \varphi_a (x, 0) - \frac{1}{2} \varphi_a (x, 0)
+   \partial_{\beta}^N \partial_{\gamma}^N \varphi_a (x, 0) \right] R_N^{\beta}
+   (x) R_N^{\gamma} (x) (x^{\alpha})^2, \]
+up to $\mathcal{O} (1 / a)$. As we have expected, the terms that involve the
+partial derivatives of $\varphi_a$ share the {\tmem{same}} (highest) order of
+$a$, surpassing all the terms that we have neglected (which have lower order
+of $a$) as $a$ tends to infinity. By standardization (equation
+\ref{eq:standard}) and letting $y \assign \sqrt{a} x$,
+
+{\small{\[ [\Delta V^{\alpha} (0)]^2 = a^{N - 1} \left( \frac{1}{N!} \right)^2
+   \int_{\mathbb{R}^d} \mathd y \left[ \partial^N_{\beta} \varphi_1 (y, 0)
+   \partial^N_{\gamma} \varphi_1 (y, 0) - \frac{1}{2} \varphi_1 (y, 0)
+   \partial_{\beta}^N \partial_{\gamma}^N \varphi_1 (y, 0) \right] R_N^{\beta}
+   \left( \frac{y}{\sqrt{a}} \right) R_N^{\gamma} \left( \frac{y}{\sqrt{a}}
+   \right) (y^{\alpha})^2 . \]}}
+
+To satisfy uncertainty principle (axiom \ref{axiom:uncert}), $[\Delta
+V^{\alpha} (0)]^2$ has to be proportional to $a$, so that $\Delta X (0) \Delta
+V (0)$ is independent of $a$. This is possible only
+when\footnote{\tmcolor{red}{In fact, any Taylor series with a lower cut-off at
+order $N - 2$ is valid, such as $R_N (x) = c_1 x^{N - 2} + c_2 x^{N - 1} +
+\cdots$, because these higher order terms contribute $\mathcal{O} (1 / a)$ to
+$\Delta X \Delta V$, which vanishes as $a$ tends to infinity. In this
+situation, uncertainty principle can only perceive and restrict $c_1$ only.}}
+\begin{equation}
+  R_N^{\alpha} (x) \propto x^{N - 2} .
+\end{equation}
+In other words, all $\partial^n_{\beta} R^{\alpha}_N (0)$s are vanishing
+except for $n = N - 2$. Hence,
+\[ [\Delta V^{\alpha} (0)]^2 = \frac{a}{4} \times \partial^{N - 2}_{\sigma}
+   R_N^{\beta} (0) \partial^{N - 2}_{\omega} R_N^{\gamma} (0) \times
+   I_N^{\alpha \beta \gamma \sigma \omega}, \]
+where the constant
+\[ I_N^{\alpha \beta \gamma \sigma \omega} \assign \int_{\mathbb{R}^d} \mathd
+   y \left[ \partial^N_{\beta} \varphi_1 (y, 0) \partial^N_{\gamma} \varphi_1
+   (y, 0) - \frac{1}{2} \varphi_1 (y, 0) \partial_{\beta}^N
+   \partial_{\gamma}^N \varphi_1 (y, 0) \right] y^{\alpha} y^{\alpha}
+   y^{\sigma} y^{\omega} . \]
+{\color[HTML]{008000}So, uncertainty principle restricts the highest order
+moment to be an explicit power function. But, it cannot say anything about the
+$R_n$s with $n < N$ because, as $a$ tends to infinity, which is essential for
+defining uncertainty principle, these $R_n$s become ``non-perceptible''.}
+
+The specific case is $N = 2$ in which $R_N$ is a constant. This corresponds to
+the canonical situation in physics. To determine this constant in the simplest
+case where dimension $d = 1$, we have
+\[ \Delta V (0) = \frac{| R_2 |}{2} \sqrt{\frac{23}{32} a}, \]
+where the integral is evaluated by computer.\footnote{We use Wolfram
+Mathematica to compute the integral $I_2$. We first input $\varphi_1$
+(re-denoted by $f$) as
+
+\begin{tmcode}
+f[x_] := (2*Pi)^(-1/4)*Exp[-*x^2/4];
+\end{tmcode}
+
+Then, compute the target integral as
+
+\begin{tmcode}
+I2 = Simplify[Integrate[(D[f[x], \{x, 2\}]^2 - f[x]* D[f[x], \{x, 4\}] / 2) * x^2, \{x, -Infinity, Infinity\}]];
+\end{tmcode}} Then, by uncertainty principle, $\Delta X (0) \Delta V (0) =
+\sqrt{23 / 32} | R_2 | / 2 \sim \hbar / (2 m)$, implying
+\begin{equation}
+  | R_2 | \sim \sqrt{\frac{32}{23}} \frac{\hbar}{m} \approx 1.18
+  \frac{\hbar}{m} .
+\end{equation}
+This is consistent with the traditional Hamiltonian where $R_2 = - \hbar / m$.
+
+\section{From Quantum to Classical (TODO)}
+
+Uncertainty principle (axiom \ref{axiom:uncert}) is the unique axiom which
+gives raise to the {\tmem{universal}} Planck's constant $\hbar$. Observing
+uncertainty principle, we can absorb {\hbar} by re-scaling coordinates.
+Explicitly, by re-defining (or replacing) $x' \assign x / \hbar$ and $t'
+\assign t / \hbar$, hence velocity $v' = \mathd x' / \mathd t' = \mathd x /
+\mathd t = v$, uncertainty principle turns to be
+\[ {\Delta X'}^{\alpha} (t') {\Delta V'}^{\alpha} (t') \sim 1 / (2 m) . \]
+Here, we do not absorb the other constant, the mass $m$, because it is not
+universal: different particles may have different masses. Under this re-scaled
+coordinates, we cannot ``perceive'' $\hbar$ at all, which hence will not
+appear in time evolution. Namely, using $(x', t')$-coordinates, $\hbar$ will
+be absent in the three equivalent formalisms of time evolution (equations
+\ref{equ:superposition}, \ref{eq:pathint}, and \ref{eq:transexp}). By
+converting back to $(x, t)$-coordinates, for example, equation
+\ref{eq:transexp} turns to be
+
+
+\begin{equation}
+  \mathi \hbar \frac{\partial \varphi}{\partial t} (x, t) = \sum_{n =
+  0}^{\infty} \frac{(- \hbar)^n}{n!} \partial^n_{\alpha} [R^{\alpha}_n (x)
+  \varphi (x, t)], \label{eq:transexp-hbar}
+\end{equation}
+where the $R_n$s depend on $\hbar$ in such a way that $R_n (x) = R'_n (x /
+\hbar)$ for some $\hbar$-independent $R'_n$. Also for path integral, we have
+\begin{equation}
+  \varphi (x_N, t + N \Delta t) = \int D (k, x) \exp \left(
+  \frac{\mathi}{\hbar} S (k, x) \right) \varphi (x_0, t) + \omicron (\Delta
+  t), \label{eq:pathint-hbar}
+\end{equation}
+where, by inserting the expansion \ref{eq:momentexpansion} into the $S (k, x)$
+given by equation \ref{eq:action},
+\[ S (k, x) = \sum_{i = 0}^{N - 1} \Delta t \left[ k_i \left( \frac{x_{i + 1}
+   - x_i}{\Delta t} \right) - \sum_{n = 0}^{N_{\tmop{cut}}} \frac{(-
+   \mathi)^n}{n!} R^{\alpha}_n (x_i) (k_i)_{\alpha} \right] . \]
+The $1 / \hbar$ in equation \ref{eq:pathint-hbar} is extracted from the
+$\Delta t$ factor in $S (k, x)$. Hence, {\hbar} is absent in $S (k, x)$ except
+for in the $R_n$s.
+
+The re-scaling of coordinates indicates that Planck's constant $\hbar$
+characterizes the scale of quantum world. The quantum scales for both space
+and time have the order of $\hbar$. And we cannot observe the quantum world
+directly using naked eyes because $\hbar$ is an extremely small number. To go
+back to classical world, we zoom out. While doing so, the quantum scale
+becomes smaller and smaller. In mathematics, we can regard going back to
+classical world as tending $\hbar$ to zero. Stationary phase approximation
+(see appendix \ref{appendix:Stationary Phase Approximation}) claims that, as
+$\hbar$ tends to zero, path integral is dominated by the ``path'' that has
+``stationary phase'', that is the $(k_{\star}, x_{\star})$ such that
+\[ \frac{\partial S}{\partial (k_i)_{\alpha}} (k_{\star}, x_{\star}) =
+   \frac{\partial S}{\partial x_i^{\alpha}} (k_{\star}, x_{\star}) = 0, \]
+for each $i \in \{ 0, \ldots, N - 1 \}$ and $\alpha \in \{ 1, \ldots, d \}$.
+Conversely, this system of equations, named {\tmstrong{equations of motion}},
+furnishes the classical (discrete) trajectory of particles, $(k_{\star},
+x_{\star})$. In the continuous version, the discrete index $i$ is replaced by
+a continous variable $t \in [0, T]$ for some $T \in \mathbb{R}$. Then, $k_i$
+and $x_i$ come to be functions $k (t)$ and $x (t)$ respectively. Accordingly,
+$S (k, x)$ becomes a functional, as
+\[ S [k, x] = \int_0^T \mathd t \left[ k (t) \dot{x} (t) - \sum_{n =
+   0}^{N_{\tmop{cut}}} \frac{(- \mathi)^n}{n!} R^{\alpha}_n (x (t)) k_{\alpha}
+   (t) \right], \]
+where we use square brackets instead of parentheses for emphasizing that $S$
+is a functional. The equations of motion become
+\[ \frac{\delta S}{\delta k_{\alpha} (t)} [k_{\star}, x_{\star}] =
+   \frac{\delta S}{\delta x^{\alpha} (t)} [k_{\star}, x_{\star}] = 0, \]
+for each $t$ and index $\alpha$. It is recognized as the Hamiltonian equations
+in classical mechanics. Indeed, if denote
+\[ H (k, x) \assign \sum_{n = 0}^{N_{\tmop{cut}}} \frac{(- \mathi)^n}{n!}
+   R^{\alpha}_n (x) k_{\alpha}, \]
+then by variation, we have
+\[ \frac{\delta S}{\delta k (t)} = \dot{x} (t) - \frac{\partial H}{\partial k}
+   (k (t), x (t)) = 0 \Rightarrow \dot{x} (t) = \frac{\partial H}{\partial k}
+   (k (t), x (t)), \]
+and
+\[ \frac{\delta S}{\delta x (t)} = - \dot{k} (t) - \frac{\partial H}{\partial
+   x} (k (t), x (t)) = 0 \Rightarrow \dot{k} (t) = - \frac{\partial
+   H}{\partial x} (k (t), x (t)) . \]
+The right hand sides of $\Rightarrow$ are exactly the Hamiltonian equations.
+
+Last words about the moments. Recall that $\hbar$ appears in $R_n (x)$ as
+combination $x / \hbar$. For example, in the traditional Hamiltonian, $R_0$
+represents the potential, which describes how the particles interact with each
+other and how they interact with the experimental apparatus. Recall that $V
+(x) = V' (x / \hbar)$ for some $\hbar$-independent $V'$, say $V' (x) = \sin
+(\omega x)$ for some constant $\omega$, thus $V (x) = \sin (\omega x /
+\hbar)$. We have $(\mathd V / \mathd x) (x) = (1 / \hbar) (\mathd V' / \mathd
+x) (x / \hbar) = (\omega / \hbar) \cos (\omega x / \hbar)$, which oscillates
+by frequency $\omega / \hbar$ and amplitude $\omega / \hbar$. We have to
+expect that the potential is slowly varying. Precisely, we must have $\omega
+\sim \hbar$.
+
+\section{Drafts (TODO)}
+
+Consider
+
+
+\[ \int_{\mathbb{R}^d} \mathd x \delta_L (z - x) \frac{\partial
+   \varphi}{\partial t} (x, t) = \frac{\partial}{\partial t}
+   \int_{\mathbb{R}^d} \mathd x \delta_L (z - x) \varphi (x, t) =
+   \frac{\partial \varphi_L}{\partial t} (z, t), \]
+where $\varphi_L \assign \delta_L \ast \varphi$. On the other hand,
+integration by parts gives
+\[ \int_{\mathbb{R}^d} \mathd x \delta_L (z - x) \frac{\partial^n}{\partial
+   x^{\alpha}} [R_n^{\alpha} (x) \varphi (x, t)] = \int_{\mathbb{R}^d} \mathd
+   x \partial^n_{\alpha} \delta_L (z - x) [R_n^{\alpha} (x) \varphi (x, t)] .
+\]
+The right hand side can be written as
+\[ \frac{\partial^n}{\partial z^{\alpha}} \int_{\mathbb{R}^d} \mathd x
+   \delta_L (z - x) [R_n^{\alpha} (x) \varphi (x, t)] . \]
+If the scale of varying of $R_n$s are much greater than $L$, namely $1 / \|
+\partial R_n \|_{\infty} \gg L$, then we have a sequence of approximations, as
+
+\begin{align}
+  & \int_{\mathbb{R}^d} \mathd x \delta_L (z - x) [R_n^{\alpha} (x) \varphi
+  (x, t)] \nonumber\\
+  \approx & \int_{U_{3 L} (z)} \mathd x \delta_L (z - x) [R_n^{\alpha} (x)
+  \varphi (x, t)] \nonumber\\
+  \approx & R_n^{\alpha} (z) \int_{U_{3 L} (z)} \mathd x \delta_L (z - x)
+  \varphi (x, t) \nonumber\\
+  \approx & R_n^{\alpha} (z) \int_{\mathbb{R}^d} \mathd x \delta_L (z - x)
+  \varphi (x, t) \nonumber\\
+  = & R_n^{\alpha} (z) \varphi_L (z, t) . \nonumber
+\end{align}
+
+Altogether, we have the approximation
+\[ \mathi \frac{\partial \varphi_L}{\partial t} (x, t) \approx \sum_{n =
+   0}^{N_{\tmop{cut}}} \frac{(- 1)^n}{n!} \partial^n_{\alpha} [R^{\alpha}_n
+   (x) \varphi_L (x, t)] . \]
+Strict calculation involves Hermitian polynormial, which brings unecessary
+complexity. We may have the relations $1 / \| \partial R_n \|_{\infty} \gg L
+\gg \hbar$.
+
+\appendix\chapter{Taylor Reminder}
+
+Given a function $f \in \mathcal{C}^n (\mathbb{R}^d)$, we are to calculate the
+reminder $h_n (x, x_0)$ in the Taylor expansion at $x_0$
+\[ f (x) = f (x_0) + \sum_{k = 1}^n \frac{1}{k!} (\partial_{\alpha_1} \cdots
+   \partial_{\alpha_k} f) (x_0) \prod_{i = 1}^k (x^{\alpha_i} -
+   x_0^{\alpha_i}) + h_{n + 1} (x, x_0) . \]
+We begin at a variation of the fundamental theorem of calculus
+\[ f (x) - f (x_0) = \int_0^1 \mathd t (\partial_{\alpha_1} f) (x + t (x_0 -
+   x)) (x^{\alpha_1} - x_0^{\alpha_1}) . \]
+Integration by parts gives
+\[ f (x) - f (x_0) = (\partial_{\alpha_1} f) (x_0) (x^{\alpha_1} -
+   x_0^{\alpha_1}) + \frac{1}{2} \int_0^1 \mathd (t^2)  (\partial_{\alpha_1}
+   \partial_{\alpha_2} f) (x + t (x_0 - x)) (x^{\alpha_1} - x_0^{\alpha_1})
+   (x^{\alpha_2} - x_0^{\alpha_2}) . \]
+Applying integration by parts on the integral again, we get
+
+\begin{align}
+  f (x) - f (x_0) = &  (\partial_{\alpha_1} f) (x_0) (x^{\alpha_1} -
+  x_0^{\alpha_1}) \nonumber\\
+  + & \frac{1}{2!}  (\partial_{\alpha_1} \partial_{\alpha_2} f) (x_0)
+  (x^{\alpha_1} - x_0^{\alpha_1}) (x^{\alpha_2} - x_0^{\alpha_2}) \nonumber\\
+  + & \frac{1}{3!} \int_0^1 \mathd (t^3)  (\partial_{\alpha_1}
+  \partial_{\alpha_2} \partial_{\alpha_3} f) (x + t (x_0 - x)) (x^{\alpha_1} -
+  x_0^{\alpha_1}) (x^{\alpha_2} - x_0^{\alpha_2}) (x^{\alpha_3} -
+  x_0^{\alpha_3}) . \nonumber
+\end{align}
+
+Repeating this process gives
+
+\begin{align}
+  f (x) - f (x_0) = & (\partial_{\alpha_1} f) (x_0) (x^{\alpha_1} -
+  x_0^{\alpha_1}) \nonumber\\
+  + & \frac{1}{2!} (\partial_{\alpha_1} \partial_{\alpha_2} f) (x^{\alpha_1} -
+  x_0^{\alpha_1}) (x^{\alpha_2} - x_0^{\alpha_2}) \nonumber\\
+  + & \cdots \nonumber\\
+  + & \frac{1}{n!} \int_0^1 \mathd (t^n)  (\partial_{\alpha_1} \cdots
+  \partial_{\alpha_n} f) (x + t (x_0 - x)) (x^{\alpha_1} - x_0^{\alpha_1})
+  \cdots (x^{\alpha_n} - x_0^{\alpha_n}) . \nonumber
+\end{align}
+
+So, the Taylor reminder reads
+\begin{equation}
+  h_n (x, x_0) = \frac{1}{n!} \prod_{i = 1}^n (x^{\alpha_i} - x_0^{\alpha_i})
+  \times \int_0^1 \mathd (t^n)  (\partial_{\alpha_1} \cdots
+  \partial_{\alpha_n} f) (x + t (x_0 - x)) .
+\end{equation}
+\chapter{Rapidly Decreasing Entire Functions are Dense in Square-Integrable
+Space (TODO)}\label{appendix:dense}
+
+A function $f : \mathbb{R}^d \rightarrow \mathbb{C}$ is square-integrable if
+\[ \int_{\mathbb{R}^d} \mathd x | f (x) |^2 \assign \int_{\mathbb{R}^d} \mathd
+   x f^{\ast} (x) f (x) < \infty . \]
+This is a improper integral, thus defined by
+\[ \int_{\mathbb{R}^d} \mathd x | f (x) |^2 = \lim_{R \rightarrow \infty}
+   \int_{B (R)} \mathd x | f (x) |^2, \]
+where $B (R) \assign [- R, R]^d$ denotes the $d$-dimensional ``box''. In other
+words, for any $\varepsilon > 0$, there exists $R_{\star} > 0$ and $\delta >
+0$, such that for any $R > R_{\star}$ and $0 < \Delta x < \delta$,
+\[ \left| \int_{\mathbb{R}^d} \mathd x | f (x) |^2 - \int_{B (R)} \mathd x | f
+   (x) |^2 \right| < \varepsilon . \]
+So, for any $\varepsilon > 0$, we can construct a compact supported function
+$g_R : \mathbb{R}^d \rightarrow \mathbb{C}$, which consists with $f$ within
+the box $B (R)$ and vanishes outside. TODO
+
+\
+
+\
+
+Consider the convolution
+\[ f_n (x) = (\delta_n \ast f) (x) \assign \int_{\mathbb{R}^d} \mathd y
+   \delta_n (x - y) f (y), \]
+where $n$ is a positive integer and
+\[ \delta_n (x) \assign \frac{1}{\left( \sqrt{2 \mathpi} n \right)^d} \exp
+   \left( - \frac{x^2}{2 n} \right), \]
+that is, the probabilistic density function of normal distribution with zero
+mean and variance $n$. By young's inequality for convolution, we have
+\[ \| \delta_n \ast f \|_{\infty} \leqslant \| \delta_n \|_2 \| f \|_2 . \]
+\chapter{Stationary Phase Approximation}\label{appendix:Stationary Phase
+Approximation}
+
+\end{document}
