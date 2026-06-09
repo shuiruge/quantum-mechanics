@@ -6,6 +6,7 @@
 
 %%%%%%%%%% Start TeXmacs macros
 \newcommand{\assign}{:=}
+\newcommand{\cdummy}{\cdot}
 \newcommand{\mathd}{\mathrm{d}}
 \newcommand{\mathi}{\mathrm{i}}
 \newcommand{\mathpi}{\pi}
@@ -98,7 +99,7 @@ wavefunctions characterize a quantum system.
   \varphi (x, t) |^2 = \varphi^{\ast} (x, t) \varphi (x, t)$.
 \end{axiom}
 
-\section{Superposition Principle and Time Evolution}
+\section{Superposition Principle and Time Evolution}\label{section:Superposition Principle and Time Evolution}
 
 The second axiom of quantum mechanics, superposition principle, claims that
 operations on wavefunctions shall be linear (so that wavefunctions can be
@@ -165,7 +166,7 @@ superposition principle (axiom \ref{axiom:sup}), is the direct result of the
 double-slit experiment of electron. Details can be found in Feynman's Lectures
 on Physics, Vol 3, chapter 1.
 
-\section{Wavefunction Is Rapidly Decreasing}
+\section{Wavefunction Is Rapidly Decreasing}\label{section:Wavefunction Is Rapidly Decreasing}
 
 Before calculations, we first address where wavefunctions live. Probability
 interpretation (axiom \ref{axiom:prob}) demands that wavefunctions are
@@ -174,7 +175,8 @@ square-integrable. Namely, wavefunction is in the square-integrable space $L^2
 essential for evaluating quantum mechanics. Two of the many are Fourier
 transform and Taylor series.
 
-It is \href{https://en.wikipedia.org/wiki/Fourier\\\\\\\_transform}{well
+It is
+\href{https://en.wikipedia.org/wiki/Fourier\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\_transform}{well
 known}, however, that the Fourier transform of a square-integrable function
 may not be square-integrable again, so that its inverse Fourier transform may
 not exist. Since Fourier transform is basic in quantum mechanics, we shall
@@ -216,8 +218,7 @@ sense that the substitution $L^2 (\mathbb{R}^d) \rightarrow \mathcal{S}
 entire functions are dense in square-integrable space is given in appendices
 \ref{appendix:dense}.
 
-TODO: What is the condition about $r (x, y, t)$ such that $\varphi (x, t)$ is
-kept rapidly decreasing during time evolution?
+This question is answered in appendix \ref{appendix:schwartz-preserve}.
 
 \section{Path Integral Formalism}\label{section:Path Integral Formalism}
 
@@ -387,14 +388,15 @@ where $\alpha \assign (\alpha_1, \ldots, \alpha_n)$ and $(x - y)^{\alpha}
 \assign (x - y)^{\alpha_1} \times \cdots \times (x - y)^{\alpha_n}$ (recall
 the abbreviations). Define the {\tmstrong{moment}}
 \begin{equation}
-  {\color[HTML]{000000}R_n^{\alpha} (y, t)} \assign \int_{\mathbb{R}^d} \mathd
-  x {\color[HTML]{000000}r (x, y, t)} (x - y)^{\alpha} . \label{eq:moment}
+  {\color[HTML]{000000}R_n^{\alpha}  (y, t)} \assign \int_{\mathbb{R}^d}
+  \mathd x {\color[HTML]{000000}r (x, y, t)} (x - y)^{\alpha} .
+  \label{eq:moment}
 \end{equation}
 Then, integrating over $x$ gives
 \[ \int_{\mathbb{R}^d} \mathd x \psi (x)  \left[ \mathi \frac{\partial
    \varphi}{\partial t} (x, t) \right] = \sum_{n = 0}^{\infty} \frac{1}{n!} 
    \int_{\mathbb{R}^d} \mathd y \partial^n_{\alpha} \psi (y)
-   {\color[HTML]{000000}R^{\alpha}_n (y, t)} \varphi (y, t) . \]
+   {\color[HTML]{000000}R^{\alpha}_n  (y, t)} \varphi (y, t) . \]
 After integration by parts and then omitting the boundary (since $\psi$ is
 rapidly decreasing), we get
 \[ \int_{\mathbb{R}^d} \mathd y \psi (y)  \left[ \mathi \frac{\partial
@@ -435,10 +437,10 @@ ${\color[HTML]{000000}\hat{r}  (k, y, t)}$, defined by equation
    \frac{\partial^n}{\partial k_{\alpha}} \exp (- \mathi k (x - y)) \right]
    {\color[HTML]{000000}r (x, y, t)} = (- \mathi)^n  \int_{\mathbb{R}^d}
    \mathd x {\color[HTML]{000000}r (x, y, t)} (x - y)^{\alpha} . \]
-The integral is recognized as ${\color[HTML]{000000}R_n^{\alpha} (y, t)}$. So,
-we find $(- \mathi)^n {\color[HTML]{000000}R_n^{\alpha} (y, t)}$s the Taylor
-coefficients of ${\color[HTML]{000000}\hat{r}  (k, y, t)}$ expanded by $k$ at
-its origin. Namely,\footnote{\tmcolor{red}{But, we have to prove that
+The integral is recognized as ${\color[HTML]{000000}R_n^{\alpha}  (y, t)}$.
+So, we find $(- \mathi)^n {\color[HTML]{000000}R_n^{\alpha}  (y, t)}$s the
+Taylor coefficients of ${\color[HTML]{000000}\hat{r}  (k, y, t)}$ expanded by
+$k$ at its origin. Namely,\footnote{\tmcolor{red}{But, we have to prove that
 ${\color[HTML]{000000}\hat{r}  (k, y, t)}$ is entire on $k$, so that its
 Taylor series converges to itself.}}
 \begin{equation}
@@ -450,7 +452,7 @@ usual. Again, the details of $S (k, x)$ (defined in equation \ref{eq:pathint})
 can be completely determined by the moments $R_n$s.
 
 So, consider the traditional Hamiltonian $\hat{r}  (x, p) = p^2 / (2 m) + V
-(x)$, all $R_n$s vanish except for ${\color[HTML]{000000}R_0 (x, t)} = V (x)$
+(x)$, all $R_n$s vanish except for ${\color[HTML]{000000}R_0  (x, t)} = V (x)$
 and $R_2 (x) = - 1 / m$. Equation \ref{eq:transexp} implies
 \begin{equation}
   \mathi \frac{\partial \varphi}{\partial t}  (x, t) = - \frac{1}{2 m}
@@ -472,14 +474,14 @@ induce.
 Shall not confuse time evolution with collapse, which is proven to be
 non-local. Axiom \ref{axiom:local} claims that time evolution (equation
 \ref{equ:superposition}) is local. To make this clear, we consider an example,
-in which $R_n (x, t) = c^n$ for some constant $c$, and set the dimension $d =
+in which $R_n  (x, t) = c^n$ for some constant $c$, and set the dimension $d =
 1$ for simplicity. Then, time evolution (equation \ref{eq:transexp}) at $x =
 0$ is
 \[ \mathi \frac{\partial \varphi}{\partial t}  (0, t) = \sum_{n = 0}^{\infty}
    \frac{(- c)^n}{n!}  \frac{\partial^n \varphi}{\partial x^n}  (0, t) . \]
 The last expression happens to be the Taylor series of $\varphi (x, t)$ at $x
-= - c$, namely $\varphi (- c, t)$. So, we conclude that $R_n (x, t) = c^n$ for
-some constant $c$ implies
+= - c$, namely $\varphi (- c, t)$. So, we conclude that $R_n  (x, t) = c^n$
+for some constant $c$ implies
 \[ \mathi \frac{\partial \varphi}{\partial t}  (0, t) = \varphi (- c, t) . \]
 If we change the value of $\varphi$ at $x = - c$, then the time evolution at
 $x = 0$ changes accordingly. It means non-locality.
@@ -542,13 +544,13 @@ all $a_m$ terms with $m < n$ into $[\cdots]$),
 \[ \mathi \frac{\partial \varphi}{\partial t}  (0, t) = \sum_{n = 0}^{\infty}
    \{[\cdots] + (- 1)^n {\color[HTML]{000000}R_n (0, t)} a_n \}, \]
 if there is not a cut-off to the infinite sequence of
-${\color[HTML]{000000}R_n (0, t)}$s, we can modify the $(\partial \varphi /
+${\color[HTML]{000000}R_n  (0, t)}$s, we can modify the $(\partial \varphi /
 \partial t) (0, t)$ by tuning an $a_n$ where $n$ can be arbitrarily large.
 This, however, will leave the $\varphi (x)$ around $x = 0$ invariant. It means
 that the value of $\varphi$ with $x$ far away from $x = 0$ can affect the time
 evolution of $\varphi$ at $x = 0$. That is, time evolution of wavefunction is
 non-local. Hence, there must be a cut-off on the sequence of
-${\color[HTML]{000000}R_n (0, t)}$s. This discussion also holds for any value
+${\color[HTML]{000000}R_n  (0, t)}$s. This discussion also holds for any value
 of $x$ other than $x = 0$. We conclude that {\color[HTML]{008000}{\tmem{time
 evolution is local if and only if there is a positive integer $N_{\tmop{cut}}$
 such that $R_n = 0$ for any $n > N_{\tmop{cut}}$}}}.
@@ -590,8 +592,8 @@ odd, otherwise even) and then integrating over $k'$, we arrive at
    \frac{(- \mathi)^n}{n!}  \frac{\partial^{2 n} 
    {\color[HTML]{000000}\hat{r}}}{\partial k_{\alpha} \partial y^{\alpha}} 
    (k, y, t) . \]
-Since $(- \mathi)^n {\color[HTML]{000000}R_n (y, t)}$s are the coefficients of
-Taylor expansion of ${\color[HTML]{000000}\hat{r}  (k, y, t)}$ by $k$
+Since $(- \mathi)^n {\color[HTML]{000000}R_n  (y, t)}$s are the coefficients
+of Taylor expansion of ${\color[HTML]{000000}\hat{r}  (k, y, t)}$ by $k$
 (equation \ref{eq:momentexpansion}), we find
 \[ {\color[HTML]{000000}(R^{\alpha}_m)^{\ast} (y, t)} = (- \mathi)^m
    \frac{\partial^m {\color[HTML]{000000}\hat{r}^{\ast}}}{\partial k_{\alpha}}
@@ -600,30 +602,30 @@ Taylor expansion of ${\color[HTML]{000000}\hat{r}  (k, y, t)}$ by $k$
    {\color[HTML]{000000}\hat{r}}}{\partial k_{\alpha} \partial k_{\beta}}  (0,
    y, t) . \]
 Again, the $(m + n)$-th coefficients of the Taylor expansion is $(- \mathi)^{m
-+ n} {\color[HTML]{000000}R_{m + n} (y, t)}$, so
++ n} {\color[HTML]{000000}R_{m + n}  (y, t)}$, so
 \[ {\color[HTML]{000000}(R^{\alpha}_m)^{\ast} (y, t)} = \sum_{n = 0}^{\infty}
    \frac{(- \mathi)^{m + n}}{n!}  \frac{\partial^n}{\partial x^{\beta}}  [(-
    \mathi)^{m + n} R^{\alpha \beta}_{m + n} (y)] = \sum_{n = 0}^{\infty}
    \frac{(- 1)^{m + n}}{n!} \partial^n_{\beta} {\color[HTML]{000000}R^{\alpha
-   \beta}_{m + n} (x, t)} . \]
+   \beta}_{m + n}  (x, t)} . \]
 Recall that $R_n = 0$ for any $n > N_{\tmop{cut}}$ (section
 \ref{section:Locality Truncates the Moments}), we finally arrive at
 \begin{equation}
   (R^{\alpha}_m)^{\ast} (x, t) = \sum_{n = 0}^{N_{\tmop{cut}} - m} \frac{(-
   1)^{m + n}}{n!} \partial^n_{\beta} {\color[HTML]{000000}R^{\alpha \beta}_{m
-  + n} (x, t)} .
+  + n}  (x, t)} .
 \end{equation}
 It relates the moments $R_n$s to their complex conjugations.
 
 For example, when $N_{\tmop{cut}} = 2$, we have
-${\color[HTML]{000000}R_0^{\ast} (x, t)} = {\color[HTML]{000000}R_0 (x, t)} -
-\partial_{\alpha} {\color[HTML]{000000}R^{\alpha}_1 (x, t)} + (1 / 2)
-\partial^2_{\alpha} R^{\alpha}_2 (x, t)$, $(R_1^{\alpha})^{\ast} (x, t) = -
-{\color[HTML]{000000}R_1^{\alpha} (x, t)} + \partial_{\beta} R^{\alpha
-\beta}_2 (x, t)$, and $(R_2^{\alpha})^{\ast} (x, t) =
-{\color[HTML]{000000}R^{\alpha}_2 (x, t)}$, that is, $R_2$ is real. Specially,
-we have
-\[ {\color[HTML]{000000}R_{N_{\tmop{cut}}}^{\ast} (x, t)} = (-
+${\color[HTML]{000000}R_0^{\ast}  (x, t)} = {\color[HTML]{000000}R_0  (x, t)}
+- \partial_{\alpha} {\color[HTML]{000000}R^{\alpha}_1  (x, t)} + (1 / 2)
+\partial^2_{\alpha} R^{\alpha}_2  (x, t)$, $(R_1^{\alpha})^{\ast} (x, t) = -
+{\color[HTML]{000000}R_1^{\alpha}  (x, t)} + \partial_{\beta} R^{\alpha
+\beta}_2  (x, t)$, and $(R_2^{\alpha})^{\ast} (x, t) =
+{\color[HTML]{000000}R^{\alpha}_2  (x, t)}$, that is, $R_2$ is real.
+Specially, we have
+\[ {\color[HTML]{000000}R_{N_{\tmop{cut}}}^{\ast}  (x, t)} = (-
    1)^{N_{\tmop{cut}}} R_{N_{\tmop{cut}}} (x) . \]
 That is, $R_{N_{\tmop{cut}}}$ is real when $N_{\tmop{cut}}$ is even, otherwise
 purely imaginary.
@@ -642,8 +644,8 @@ m$.
 
 \subsection{Galilean Transformation of the Wavefunction}
 
-Consider an inertial frame $S$ with coordinates $(x, t)$ and another frame
-$S'$ moving at velocity $v$ relative to $S$, so that
+Consider an inertial frame $(x, t)$ and another frame
+$(x', t')$ moving at velocity $v$ relative to $(x,t)$, so that
 \begin{equation}
   x' = x - vt, \qquad t' = t. \label{eq:galilean-coords}
 \end{equation}
@@ -657,12 +659,13 @@ where $f (x, t)$ is a real-valued phase to be determined.
 
 \subsection{Invariance of the Time Evolution Equation}
 
-In the frame $S$, the time evolution equation is (\ref{eq:transexp})
+In the frame $(x,t)$, the time evolution equation is (\ref{eq:transexp})
 \[ i \frac{\partial \varphi}{\partial t}  (x, t) = H (p, x ; t) \varphi (x,
    t), \qquad H (p, x ; t) \assign \sum_{n = 0}^{N_{\tmop{cut}}} \frac{(-
-   i)^n}{n!} {\color[HTML]{000000}R^{\alpha}_n (x, t)} \hspace{0.17em}
-   p_{\alpha}^n . \]
-In the frame $S'$, the same equation must hold:
+   i)^n}{n!}
+   p_{\alpha}^n {\color[HTML]{000000}R^{\alpha}_n  (x, t)} , \]
+where operator $p \assign - \mathi \partial_x$. In the frame $(x',t')$, the same
+equation must hold:
 \[ i \frac{\partial \varphi'}{\partial t'}  (x', t') = H (p', x' ; t')
    \varphi' (x', t'), \]
 with the same functional form of $H$. Using the transformation
@@ -671,17 +674,137 @@ side becomes
 
 \begin{align}
   i \frac{\partial \varphi'}{\partial t'}  (x', t') & = i
-  \frac{\partial}{\partial t}  [e^{if} \varphi (x - vt, t)] \nonumber\\
-  & = e^{if}  [- \partial_t f + vp + H (p ; x_0, t)] \varphi (x - vt, t) . 
+  \frac{\partial}{\partial t}  [e^{if (x, t)} \varphi (x - vt, t)] \nonumber\\
+  & = e^{if}  [- \partial_t f (x, t) + vp + H (p ; x, t)] \varphi (x - vt, t)
+  . 
 \end{align}
 
 The right-hand side, after translating the momentum operator $p' = - i
 \partial_{x'} = p$, acts on $\varphi'$ as
-\[ H (p', x' ; t') \varphi' (x', t') = e^{if} H (p + \partial_x f ; x_0, t)
-   \varphi (x - vt, t) . \]
-TODO: continue.
+\[ H (p', x' ; t') \varphi' (x', t') = e^{if (x, t)} H (p + \partial_x f (x,
+   t) ; x, t) \varphi (x - vt, t) . \]
+Cancelling the common factor $e^{if}$ and recalling that $\varphi (x - vt, t)$
+is arbitrary, we obtain the operator equality
+\begin{equation}
+  - \partial_t f (x, t) + v^{\alpha} p_{\alpha} + H (p ; x, t) = H (p + \nabla
+  f (x, t) ; x, t) . \label{eq:galilean-operator}
+\end{equation}
+Let $g_{\alpha}  (x, t) \assign \partial_{\alpha} f (x, t)$. The similarity
+transformation (Lemma \ref{eq:sim-transform}) shifts the momentum operator:
+\[ e^{- \mathi F} p_{\alpha} e^{\mathi F} = p_{\alpha} + g_{\alpha}, \qquad
+   \partial_{\alpha} F = g_{\alpha} . \]
+   TODO: why not using $f$ instead of $F$? After all, they are the same.
+By the corollary (\ref{eq:cor-identity}), $(p + g)_{\alpha}^n = e^{- \mathi F}
+p_{\alpha}^n e^{\mathi F}$. Expanding in powers of $p$,
+\[ (p + g)_{\alpha_1} \cdots (p + g)_{\alpha_n} = p_{\alpha_1} \cdots
+   p_{\alpha_n} + ng_{(\alpha_1} p_{\alpha_2} \cdots p_{\alpha_n)}
+   +\mathcal{O} (p^{n - 2}), \]
+where $(\cdummy)$ denotes symmetrisation. Substituting into $H (p + g)$,
 
-\section{From Quantum to Classical}
+\begin{align}
+  H (p + g ; x, t) & = \sum_{n = 0}^{N_{\tmop{cut}}} \frac{(- \mathi)^n}{n!}
+  (p + g)_{\alpha}^n {\color[HTML]{000000}R^{\alpha}_n  (x, t)} \nonumber\\
+  & = \sum_{n = 0}^{N_{\tmop{cut}}} \frac{(- \mathi)^n}{n!}
+  [p_{\alpha}^n + ng_{\alpha_1}
+  p_{\alpha_2} \cdots p_{\alpha_n} +\mathcal{O}(p^{n - 2})] {\color[HTML]{000000}R^{\alpha}_n  (x, t)} . 
+  \label{eq:Hpg-expand}
+\end{align}
+
+TODO: I have fixed the typo in $H(p,x,t)$, where $R_n^{\alpha}$ is the the right of $p_{\alpha}$. Then continue the fixing.
+
+\paragraph{Leading operator orders force $N_{\tmop{cut}} \le 2$.} First
+consider $N_{\tmop{cut}} \ge 3$. The $v^{\alpha} p_{\alpha}$ term on the
+left-hand side of (\ref{eq:galilean-operator}) contributes at order $p^1$,
+which is strictly lower than $p^{N_{\tmop{cut}} - 1}$ (since $N_{\tmop{cut}} -
+1 \ge 2$). Hence for the matching of $p^{N_{\tmop{cut}} - 1}$ coefficients,
+the $v^{\alpha} p_{\alpha}$ term is irrelevant. The left-hand side gives
+\[ \frac{(- \mathi)^{N_{\tmop{cut}} - 1}}{(N_{\tmop{cut}} - 1) !}
+   R_{N_{\tmop{cut}} - 1}^{\alpha_2 \cdots \alpha_{N_{\tmop{cut}}}} . \]
+On the right-hand side, the $n = N_{\tmop{cut}}$ term of (\ref{eq:Hpg-expand})
+contributes an extra piece:
+
+\begin{align*}
+  & \frac{(- \mathi)^{N_{\tmop{cut}}}}{N_{\tmop{cut}} !}
+  R_{N_{\tmop{cut}}}^{\alpha_1 \cdots \alpha_{N_{\tmop{cut}}}} \cdot
+  N_{\tmop{cut}}  \hspace{0.17em} g_{\alpha_1} p_{\alpha_2} \cdots
+  p_{\alpha_{N_{\tmop{cut}}}}\\
+  & \qquad + \frac{(- \mathi)^{N_{\tmop{cut}} - 1}}{(N_{\tmop{cut}} - 1) !}
+  R_{N_{\tmop{cut}} - 1}^{\alpha_2 \cdots \alpha_{N_{\tmop{cut}}}} .
+\end{align*}
+
+Equating the two sides and cancelling the common $R_{N_{\tmop{cut}} - 1}$ term
+yields
+\begin{equation}
+  \frac{(- \mathi)^{N_{\tmop{cut}}}}{(N_{\tmop{cut}} - 1) !}
+  R_{N_{\tmop{cut}}}^{\alpha_1 \cdots \alpha_{N_{\tmop{cut}}}} 
+  \hspace{0.17em} g_{\alpha_1} = 0. \label{eq:constraint-N}
+\end{equation}
+A non-trivial boost requires $g = \nabla f \neq 0$, therefore
+$R_{N_{\tmop{cut}}} = 0$. By descent, the highest non-zero moment cannot
+exceed $N_{\tmop{cut}} - 1$. Repeating the argument shows that $R_n = 0$ for
+all $n \ge 3$. Hence
+\[ \boxed{N_{\tmop{cut}} \le 2} . \]
+If $N_{\tmop{cut}} = 0$, equation (\ref{eq:galilean-operator}) reduces to $-
+\partial_t f + v^{\alpha} p_{\alpha} + R_0 = R_0$, which forces $v = 0$ and
+contradicts a non-trivial boost. Hermitianity (Section
+\ref{section:Hermitianity on Moments}) forces $N_{\tmop{cut}}$ to be even,
+leaving $\boxed{N_{\tmop{cut}} = 2}$ as the only admissible case.
+
+\paragraph{Analysis of $N_{\tmop{cut}} = 2$.} With $N_{\tmop{cut}} = 2$ the
+Hamiltonian reads
+\[ H (p ; x, t) = R_0  (x, t) - \mathi R_1^{\alpha}  (x, t) p_{\alpha} -
+   \frac{1}{2} R_2^{\alpha \beta}  (x, t) p_{\alpha} p_{\beta} . \]
+Insert this into (\ref{eq:galilean-operator}) and expand the shifted operators
+using the explicit formulas from Appendix \ref{appendix:operator-identity}:
+
+\begin{align*}
+  (p + g)_{\alpha} & = p_{\alpha} + g_{\alpha},\\
+  (p + g)_{\alpha}  (p + g)_{\beta} & = p_{\alpha} p_{\beta} + 2 g_{(\alpha}
+  p_{\beta)} + g_{\alpha} g_{\beta} - \mathi \partial_{\alpha} g_{\beta},
+\end{align*}
+
+where $g_{(\alpha} p_{\beta)} \assign \tfrac{1}{2} (g_{\alpha} p_{\beta} +
+g_{\beta} p_{\alpha})$. Since $R_2^{\alpha \beta}$ is symmetric, $R_2^{\alpha
+\beta} g_{(\alpha} p_{\beta)} = R_2^{\alpha \beta} g_{\alpha} p_{\beta}$.
+
+Matching the coefficients of $p_{\beta}$ gives
+\begin{equation}
+  v^{\beta} - \mathi R_1^{\beta} = - \mathi R_1^{\beta} - R_2^{\alpha \beta}
+  g_{\alpha} \quad \Longrightarrow \quad v^{\beta} = - R_2^{\alpha \beta}
+  g_{\alpha} . \label{eq:gal-p1}
+\end{equation}
+For a spinless particle in the absence of a magnetic field the vector field
+$R_1$ vanishes (there is no preferred direction). TODO: explain this idea, or not using this idea (hence $R_1 \neq 0$). Setting $R_1 = 0$ and
+matching the $p^0$ terms yields
+\begin{equation}
+  - \partial_t f = - \frac{1}{2} R_2^{\alpha \beta}  (g_{\alpha} g_{\beta} -
+  \mathi \partial_{\alpha} g_{\beta}) . \label{eq:gal-p0}
+\end{equation}
+Because the right-hand side of (\ref{eq:gal-p1}) involves only $t$-dependent
+quantities, $g = \nabla f$ depends only on $t$, so $\partial_{\alpha}
+g_{\beta} = 0$. Equation (\ref{eq:gal-p0}) therefore simplifies to
+\[ \partial_t f = \frac{1}{2} R_2^{\alpha \beta} g_{\alpha} g_{\beta} . \]
+Integrating, and using $\partial_{\alpha} f = g_{\alpha}$, we obtain
+\begin{equation}
+  f (x, t) = g_{\alpha} x^{\alpha} + \frac{1}{2} R_2^{\alpha \beta} g_{\alpha}
+  g_{\beta}  \hspace{0.17em} t + \text{const} . \label{eq:f-general}
+\end{equation}
+\paragraph{Identification of $R_2$ and the phase factor.} Solving
+(\ref{eq:gal-p1}) for $g$ requires inverting $R_2^{\alpha \beta}$. In the
+isotropic case $R_2^{\alpha \beta} = r \hspace{0.17em} \delta^{\alpha \beta}$
+we obtain $g_{\alpha} = - v_{\alpha} / r$. Substituting into
+(\ref{eq:f-general}),
+\[ f (x, t) = - \frac{v_{\alpha} x^{\alpha}}{r} + \frac{v^2}{2 r} t. \]
+Comparison with the standard transformation law (Ballentine, {\tmem{Quantum
+Mechanics}}, Ch.~4) fixes $r = - 1 / m$, i.e.
+\[ \boxed{R_2^{\alpha \beta} = - \frac{1}{m} \delta^{\alpha \beta}}, \qquad
+   \boxed{f (x, t) = mv_{\alpha} x^{\alpha} - \frac{1}{2} mv^2 t} . \]
+Thus Galilean invariance forces $N_{\tmop{cut}} = 2$, $R_2 = - 1 / m$, and
+$R_1 = 0$ (in the absence of a magnetic field). The remaining moment $R_0  (x,
+t)$ is identified with the potential energy $V (x, t)$, and equation
+(\ref{eq:transexp}) reduces to the standard Schrödinger equation.
+
+\section{From Quantum to Classical}\label{section:From Quantum to Classical}
 
 Consider the length scale of quantum world, denoted by $\lambda_Q$, and that
 of classical world, denoted by $\lambda_C$. We must have $\lambda_Q \ll
@@ -698,9 +821,9 @@ converting back to $(x, t)$-coordinates, for example, equation
   \label{eq:transexp-hbar}
 \end{equation}
 where the $R_n$s depend on $\lambda_Q$ in such a way that
-${\color[HTML]{000000}R_n (x, t)} = {\color[HTML]{000000}R'_n (x / \lambda_Q,
-t / \lambda_Q)}$ for some $\lambda_Q$-independent $R'_n$. Also for path
-integral, we have
+${\color[HTML]{000000}R_n  (x, t)} = {\color[HTML]{000000}R'_n  (x /
+\lambda_Q, t / \lambda_Q)}$ for some $\lambda_Q$-independent $R'_n$. Also for
+path integral, we have
 \begin{equation}
   \varphi (x_N, t + N \Delta t) = \int D (k, x) \exp \left(
   \frac{\mathi}{\lambda_Q} S (k, x) \right) \varphi (x_0, t) + \omicron
@@ -718,9 +841,9 @@ except for in the $R_n$s.
 
 The quantum scales for both space and time have the order of $\lambda_Q$. And
 we cannot observe the quantum world directly using naked eyes because
-$\lambda_Q$ is an extremely small number. Suppose that $R_n (x, t)$ are
+$\lambda_Q$ is an extremely small number. Suppose that $R_n  (x, t)$ are
 macroscopic, indicating that $\| \partial_x R_n \| \sim \| \partial_t R_n \|
-\sim 1 / \lambda_C$. But since $R_n (x, t) = R'_n (x / \lambda_Q, t /
+\sim 1 / \lambda_C$. But since $R_n  (x, t) = R'_n  (x / \lambda_Q, t /
 \lambda_Q)$, it implies that $\| \partial_x R_n' \| \sim \| \partial_t R_n' \|
 \sim \lambda_Q / \lambda_C$. In other words, $R'_n$s are slowly varying in
 quantum scale. Stationary phase approximation (see appendix
@@ -729,14 +852,14 @@ quantum scale. Stationary phase approximation (see appendix
 phase'', that is the $(k_{\star}, x_{\star})$ such that
 \[ \frac{\partial S}{\partial (k_i)_{\alpha}}  (k_{\star}, x_{\star}) =
    \frac{\partial S}{\partial x_i^{\alpha}}  (k_{\star}, x_{\star}) = 0, \]
-for each $i \in \{0, \ldots, N - 1\}$ and $\alpha \in \{1, \ldots, d\}$ (TODO:
-prove this in appendix \ref{appendix:Stationary Phase Approximation}).
-Conversely, this system of equations, named {\tmstrong{equations of motion}},
-furnishes the classical (discrete) trajectory of particles, $(k_{\star},
-x_{\star})$. In the continuous version, the discrete index $i$ is replaced by
-a continous variable $t \in [0, T]$ for some $T \in \mathbb{R}$. Then, $k_i$
-and $x_i$ come to be functions $k (t)$ and $x (t)$ respectively. Accordingly,
-$S (k, x)$ becomes a functional, as
+for each $i \in \{0, \ldots, N - 1\}$ and $\alpha \in \{1, \ldots, d\}$ (see
+appendix \ref{appendix:Stationary Phase Approximation}). Conversely, this
+system of equations, named {\tmstrong{equations of motion}}, furnishes the
+classical (discrete) trajectory of particles, $(k_{\star}, x_{\star})$. In the
+continuous version, the discrete index $i$ is replaced by a continous variable
+$t \in [0, T]$ for some $T \in \mathbb{R}$. Then, $k_i$ and $x_i$ come to be
+functions $k (t)$ and $x (t)$ respectively. Accordingly, $S (k, x)$ becomes a
+functional, as
 \[ S [k, x] = \int_0^T \mathd t \left[ k (t) \dot{x} (t) - \sum_{n =
    0}^{N_{\tmop{cut}}} \frac{(- \mathi)^n}{n!} R^{\alpha}_n (x (t), t)
    k_{\alpha} (t) \right], \]
@@ -747,7 +870,7 @@ is a functional. The equations of motion become
 for each $t$ and index $\alpha$. It is recognized as the Hamiltonian equations
 in classical mechanics. Indeed, if denote
 \[ H (k, x) \assign \sum_{n = 0}^{N_{\tmop{cut}}} \frac{(- \mathi)^n}{n!}
-   {\color[HTML]{000000}R^{\alpha}_n (x, t)} k_{\alpha}, \]
+   {\color[HTML]{000000}R^{\alpha}_n  (x, t)} k_{\alpha}, \]
 then by variation, we have
 \[ \frac{\delta S}{\delta k (t)} = \dot{x} (t) - \frac{\partial H}{\partial k}
    (k (t), x (t)) = 0 \Rightarrow \dot{x} (t) = \frac{\partial H}{\partial k}
@@ -838,8 +961,317 @@ where $n$ is a positive integer and
 that is, the probabilistic density function of normal distribution with zero
 mean and variance $n$. By young's inequality for convolution, we have
 \[ \| \delta_n \ast f\|_{\infty} \leqslant \| \delta_n \|_2 \|f\|_2 . \]
+
+\chapter{Action Is Real in the Classical
+Limit}\label{appendix:real-action-cl}
+
+The stationary phase approximation (Appendix
+\ref{appendix:Stationary Phase Approximation}) requires a real-valued
+$S$. We show that $\Im S = O (\lambda_Q)$, so in the classical limit
+$\lambda_Q \to 0$ the action is strictly real.
+
+\paragraph{Hermitianity and the imaginary part of $\hat{r}$.}
+Section \ref{section:Hermitianity on Moments} derived, from the
+Hermitianity $r^{\ast} (x, y, t) = r (y, x, t)$,
+\begin{equation}
+  \hat{r}^{\ast} (k, y, t) = \sum_{n = 0}^{N_{\tmop{cut}}}
+  \frac{(- \mathi)^n}{n!} \frac{\partial^{2 n} \hat{r}}{\partial k_{\alpha}
+  \partial y^{\alpha}} (k, y, t) . \label{eq:rstar-sum}
+\end{equation}
+Separating the $n = 0$ term ($= \hat{r}$) and using $2 \mathi \Im \hat{r}
+= \hat{r} - \hat{r}^{\ast}$, we obtain
+\begin{equation}
+  \Im \hat{r} (k, y, t) = \frac{\mathi}{2} \sum_{n = 1}^{N_{\tmop{cut}}}
+  \frac{(- \mathi)^n}{n!} \frac{\partial^{2 n} \hat{r}}{\partial k_{\alpha}
+  \partial y^{\alpha}} (k, y, t) . \label{eq:Imr-sum}
+\end{equation}
+Every term in this sum contains at least one $y$-derivative.
+
+\paragraph{Slow-variation estimate.}
+Section \ref{section:From Quantum to Classical} introduces the scaling
+$R_n (x, t) = R'_n (x / \lambda_Q, t / \lambda_Q)$ where $R'_n$ is
+independent of $\lambda_Q$ and varies only on the macroscopic scale.  In
+quantum units (where $\lambda_Q$ is the unit of length), the macroscopic
+scale $\lambda_C$ is large, so
+\[ \| \partial_y R_n \| = \frac{1}{\lambda_Q} \| \partial_{y'} R'_n \|
+   \sim \frac{1}{\lambda_C} \ll 1 . \]
+
+Since $\hat{r}$ in (\ref{eq:Imr-sum}) is a polynomial in $k$ whose
+coefficients are the moments $R_n$ and their $y$-derivatives, each
+$\partial_y$ acting on $\hat{r}$ brings down factors of $\partial_y R_n$.
+Hence
+\begin{equation}
+  \Im \hat{r} (k, y, t) = O \bigl( 1 / \lambda_C \bigr) .
+  \label{eq:Imr-order}
+\end{equation}
+
+\paragraph{Imaginary part of the action.}
+In the discretised action (\ref{eq:action}),
+\[ S (k, x) = \sum_{i = 0}^{N - 1} \Delta t \Bigl[ (k_i)_{\alpha}
+   \frac{x_{i + 1}^{\alpha} - x_i^{\alpha}}{\Delta t} -
+   \hat{r} (k_i, x_i, t_i) \Bigr], \]
+the imaginary part is
+\[ \Im S = - \sum_i \Delta t \; \Im \hat{r} (k_i, x_i, t_i)
+   = O (T / \lambda_C), \qquad T \assign N \Delta t . \]
+
+In quantum units $\lambda_C \gg 1$, so $\Im S \ll 1$.  The path integral
+factor is
+\[ \exp \bigl( \mathi S / \lambda_Q \bigr) = \exp \bigl( \mathi S_R
+   / \lambda_Q \bigr) \; \exp \bigl( - \Im S / \lambda_Q \bigr) . \]
+Since $\Im S / \lambda_Q = O (T / (\lambda_Q \lambda_C)) = O (T)$ (using
+$\lambda_Q \lambda_C \sim 1$ in the physical regime), the damping factor
+remains $O (1)$.  In the classical limit $\lambda_Q \to 0$ (equivalently
+$\lambda_C \to \infty$), $\Im S \to 0$ and the action is strictly real.
+The stationary phase approximation is therefore applicable in this
+limit.
+
+\chapter{Conditions for Preserving Schwartz
+Space}\label{appendix:schwartz-preserve}
+
+We address the question raised in Section \ref{section:Wavefunction Is
+Rapidly Decreasing}: what condition guarantees that the time evolution
+$i \partial_t \varphi = \int r \varphi$ keeps $\varphi (\cdot, t)$ in the
+Schwartz space $\mathcal{S} (\mathbb{R}^d)$ for all $t$?
+
+\paragraph{Differential form of the evolution.}
+The superposition principle (Section \ref{section:Superposition Principle
+and Time Evolution}) and locality (Section \ref{section:Locality Truncates
+the Moments}) together imply that the kernel $r$ can be written as a
+finite-order differential operator:
+\begin{equation}
+  \mathi \frac{\partial \varphi}{\partial t}  (x, t) = \sum_{n =
+  0}^{N_{\tmop{cut}}} \frac{(- 1)^n}{n!} \partial_{\alpha}^n
+  [{\color[HTML]{000000}R^{\alpha}_n  (x, t)} \varphi (x, t)] .
+  \label{eq:diff-evolution}
+\end{equation}
+This is a linear partial differential equation of Schrödinger type. The
+question reduces to: when does such an operator $\mathcal{L} \varphi \equiv
+\sum_n \frac{(-1)^n}{n!} \partial^n [R_n \varphi]$ preserve the Schwartz
+space?
+
+\paragraph{Sufficient condition on the coefficients.}
+The Schwartz space $\mathcal{S} (\mathbb{R}^d)$ is a Fréchet space
+topologised by the seminorms
+\[ \| f \|_{k, m} \assign \sup_{|\alpha| \le k, |\beta| \le m} \;
+   \sup_{x \in \mathbb{R}^d} | x^{\alpha} \partial^{\beta} f (x) | . \]
+A linear differential operator maps $\mathcal{S}$ continuously into
+$\mathcal{S}$ if its coefficients are {\tmstrong{smooth and slowly
+increasing}} (also called {\tmstrong{tempered}}).  Explicitly, for each
+$n$ and each multi-index $\alpha$, the function $R_n^{\alpha} (x, t)$ must
+be $C^{\infty}$ in $x$ and satisfy
+\begin{equation}
+  \sup_{x \in \mathbb{R}^d} \bigl| \partial_x^{\beta} R_n^{\alpha} (x, t)
+  \bigr| \le C_{\beta} (1 + |x|)^{M_{\beta}}
+  \qquad (\forall \beta)
+  \label{eq:tempered-coeff}
+\end{equation}
+for some constants $C_{\beta}, M_{\beta}$ depending on $\beta$ but not on
+$x$.  This condition is standard in the theory of partial differential
+equations: it ensures that the operator, and all its compositions with
+polynomials and derivatives, remain bounded on $\mathcal{S}$.
+
+\paragraph{Preservation of Schwartz space.}
+When (\ref{eq:tempered-coeff}) holds for all $n \le N_{\tmop{cut}}$, the
+right-hand side of (\ref{eq:diff-evolution}) belongs to $\mathcal{S}$
+whenever $\varphi (\cdot, t) \in \mathcal{S}$.  The time derivative
+$\partial_t \varphi$ is then also in $\mathcal{S}$.  By the standard theory
+of linear evolution equations in Fréchet spaces (or, more concretely, by
+uniqueness of smooth solutions to the Schrödinger equation with a tempered
+Hamiltonian), we obtain
+\[ \varphi (\cdot, 0) \in \mathcal{S} (\mathbb{R}^d)
+   \quad\Longrightarrow\quad
+   \varphi (\cdot, t) \in \mathcal{S} (\mathbb{R}^d) \quad \forall t . \]
+
+\paragraph{Physical examples.}
+The familiar Schrödinger Hamiltonian $H = - \nabla^2 / (2 m) + V (x)$
+corresponds to $N_{\tmop{cut}} = 2$ with $R_2 = - 1 / m$ (constant),
+$R_1 = 0$, and $R_0 = V (x)$.  Condition (\ref{eq:tempered-coeff}) is
+satisfied whenever $V$ and its derivatives grow at most polynomially.
+This includes the harmonic oscillator ($V \propto x^2$), anharmonic
+oscillators, power-law potentials, and many others.
+
+\paragraph{Consistency with Fourier analysis.}
+The notes perform Fourier transforms on the kernel $r (x, y, t)$ with
+respect to its first argument (Section \ref{section:Path Integral
+Formalism}, equations \ref{eq:r-fourier} and \ref{eq:hamiltonian}).
+The Fourier theory on which these operations rely is reviewed in
+Appendix \ref{appendix:fourier-on-sprime}.
+
+\chapter{Fourier Transform on $\mathcal{S}$ and
+$\mathcal{S}'$}\label{appendix:fourier-on-sprime}
+
+Fourier transform is used throughout this work on the kernel
+$r (x, y, t)$ and its Fourier image $\hat{r} (k, y, t)$.  We summarise
+here the functional-analytic facts that guarantee these operations are
+well-defined.
+
+\paragraph{The Schwartz space $\mathcal{S} (\mathbb{R}^d)$.}
+A function $f : \mathbb{R}^d \to \mathbb{C}$ belongs to the Schwartz space
+$\mathcal{S} (\mathbb{R}^d)$ if it is $C^{\infty}$ and decays faster than
+any polynomial together with all its derivatives.  The Fourier transform
+\begin{equation}
+  \tilde f (k) = \int_{\mathbb{R}^d} \mathd x \, e^{- \mathi k x}
+  f (x), \qquad k \in \mathbb{R}^d
+\end{equation}
+is an {\tmstrong{automorphism}} of $\mathcal{S} (\mathbb{R}^d)$:
+if $f \in \mathcal{S}$ then $\tilde f \in \mathcal{S}$, and the inverse
+transform
+\[ f (x) = \int_{\mathbb{R}^d} \frac{\mathd k}{(2 \mathpi)^d} \,
+   e^{\mathi k x} \tilde f (k) \]
+maps $\mathcal{S}$ back onto $\mathcal{S}$.
+
+\paragraph{Tempered distributions $\mathcal{S}' (\mathbb{R}^d)$.}
+Many objects of interest---polynomials, Dirac $\delta$, derivatives of
+$\delta$---are not in $\mathcal{S}$ because they do not decay at infinity.
+They are, however, {\tmstrong{tempered distributions}}, i.e. continuous
+linear functionals on $\mathcal{S}$.  The space of all such functionals is
+denoted $\mathcal{S}' (\mathbb{R}^d)$.  Examples:
+\begin{align*}
+  \text{polynomial } P (k) &\longmapsto \langle P, \varphi \rangle =
+  \int \mathd k \, P (k) \varphi (k),\\
+  \text{Dirac } \delta (x) &\longmapsto \langle \delta, \varphi \rangle =
+  \varphi (0),\\
+  \text{derivative } \partial^n \delta (x) &\longmapsto
+  \langle \partial^n \delta, \varphi \rangle = (- 1)^n
+  \partial^n \varphi (0) .
+\end{align*}
+The duality pairing $\langle \cdot, \cdot \rangle$ is bilinear and extends
+the usual $L^2$ inner product whenever the latter is defined.
+
+\paragraph{Fourier transform on $\mathcal{S}'$ is also an automorphism.}
+The Fourier transform is extended from $\mathcal{S}$ to $\mathcal{S}'$
+{\tmstrong{by duality}}.  For a tempered distribution $T \in
+\mathcal{S}'$, define $\tilde T \in \mathcal{S}'$ by
+\begin{equation}
+  \langle \tilde T, \varphi \rangle \assign \langle T, \tilde \varphi
+  \rangle, \qquad \forall \varphi \in \mathcal{S}.
+  \label{eq:ft-on-Sprime}
+\end{equation}
+Because $\tilde \varphi \in \mathcal{S}$ (automorphism on $\mathcal{S}$),
+the right-hand side is well-defined for every test function $\varphi$.
+Laurent Schwartz proved that this definition makes the Fourier transform
+an {\tmstrong{automorphism}} of $\mathcal{S}'$: the map
+$\mathcal{F} : \mathcal{S}' \to \mathcal{S}'$ is one-to-one, onto, and its
+inverse is given by the dual of the inverse Fourier transform on
+$\mathcal{S}$.  In particular, for any $T \in \mathcal{S}'$,
+$\mathcal{F} T$ is again a tempered distribution and the inversion formula
+holds in the sense of distributions.
+
+\paragraph{Application to the kernel $r$.}
+In the local form (Section \ref{section:Locality Truncates the Moments}),
+\[ r (x, y, t) = \sum_{n = 0}^{N_{\tmop{cut}}} \frac{(- 1)^n}{n!}
+   R_n^{\alpha} (y, t) \, \partial_x^n \delta (x - y) . \]
+For fixed $y$ and $t$, this is a finite linear combination of $\delta$ and
+its derivatives --- each term is a tempered distribution in $x$.  Hence
+$r (\cdot, y, t) \in \mathcal{S}' (\mathbb{R}^d_x)$, and its Fourier
+transform $\hat{r} (\cdot, y, t)$ (defined by
+(\ref{eq:ft-on-Sprime})) is also a tempered distribution.  Explicitly,
+\begin{equation}
+  \hat{r} (k, y, t) = \sum_{n = 0}^{N_{\tmop{cut}}}
+  \frac{(- \mathi)^n}{n!} R_n^{\alpha} (y, t) \, k_{\alpha},
+  \label{eq:rhat-polynomial}
+\end{equation}
+which is a polynomial in $k$ --- a tempered distribution that is smooth
+and slowly increasing.  The inverse Fourier transform recovers $r$ from
+$\hat{r}$ by the same dual procedure.
+
+Thus all Fourier operations on $r$ and $\hat{r}$ in Sections
+\ref{section:Path Integral Formalism} and
+\ref{section:Hermitianity on Moments} are mathematically legitimate.
+
 \chapter{Stationary Phase Approximation}\label{appendix:Stationary Phase
 Approximation}
+
+\paragraph{Motivation.} In Section \ref{section:Path Integral Formalism} the
+time evolution of the wavefunction is expressed as a path integral
+\[ \varphi (x_N, t + N \Delta t) = \int D (k, x) \exp \left(
+   \frac{\mathi}{\lambda_Q} S (k, x) \right) \varphi (x_0, t) + \omicron
+   (\Delta t), \]
+where $S (k, x)$ is given by (\ref{eq:action}). By Appendix
+\ref{appendix:real-action-cl}, $\Im S = O (T / \lambda_C)$, so in the
+classical limit $\lambda_C \to \infty$ (equivalently $\lambda_Q \to 0$)
+the exponential is a pure oscillation.
+When the quantum scale $\lambda_Q$ is much smaller than the classical scale
+$\lambda_C$, this exponential oscillates rapidly and the dominant
+contribution comes from the neighbourhood of stationary points of $S$.
+This is the content of the stationary phase approximation (also known as
+the method of steepest descent).
+
+\paragraph{The multi-dimensional stationary phase theorem.} Let $S :
+\mathbb{R}^m \to \mathbb{R}$ be a smooth function and $A : \mathbb{R}^m \to
+\mathbb{C}$ be a smooth amplitude that grows at most polynomially at infinity.
+Suppose $z_0 \in \mathbb{R}^m$ is a {\tmstrong{non-degenerate critical point}}
+of $S$, i.e.
+\[ \nabla S (z_0) = 0, \qquad \det H_S (z_0) \neq 0, \]
+where $H_S (z_0)$ denotes the Hessian matrix $\partial_i \partial_j S (z_0)$.
+Then, as $\lambda \to 0^+$,
+\[ I (\lambda) \assign \int_{\mathbb{R}^m} \mathd z \hspace{0.27em} A (z) 
+   \hspace{0.17em} e^{\mathi S (z) / \lambda} \sim \left( \frac{2 \mathpi
+   \mathi \lambda}{\det H_S (z_0)} \right)^{\hspace{-0.17em} m / 2} A (z_0) 
+   \hspace{0.17em} e^{\mathi S (z_0) / \lambda} . \]
+If $S$ has multiple non-degenerate critical points, the asymptotic expansion
+is the sum over all such points.
+
+\paragraph{{\tmem{Proof sketch.}}} Taylor expand $S$ around $z_0$ to second
+order:
+\[ S (z) = S (z_0) + \frac{1}{2}  (z - z_0)^{\mathsf{T}} H_S (z_0)  (z - z_0)
+   +\mathcal{O} (|z - z_0 |^3) . \]
+Change variables $u = (z - z_0) / \sqrt{\lambda}$, so that
+\[ I (\lambda) = \lambda^{m / 2}  \int_{\mathbb{R}^m} \mathd u \hspace{0.27em}
+   A (z_0 + \sqrt{\lambda} u)  \hspace{0.17em} \exp \hspace{-0.17em} \left(
+   \tfrac{\mathi}{\lambda} S (z_0) + \tfrac{\mathi}{2} u^{\mathsf{T}} H_S
+   (z_0) u +\mathcal{O}(\sqrt{\lambda}) \right) . \]
+Taking $\lambda \to 0$, the cubic and higher terms vanish. The Gaussian
+integral is
+\[ \int_{\mathbb{R}^m} \mathd u \hspace{0.27em} \exp \hspace{-0.17em} \left(
+   \frac{\mathi}{2} u^{\mathsf{T}} H_S (z_0) u \right) = \frac{(2 \mathpi
+   \mathi)^{m / 2}}{\sqrt{\det H_S (z_0)}}, \]
+where the branch of the square root is chosen by continuity in the complex
+plane. Combining the factors gives the stated result.
+
+\paragraph{Application to the discrete path integral.} Identify the
+integration variables as a single vector
+\[ z = (k_0, \ldots, k_{N - 1}, x_0, \ldots, x_{N - 1}) \in \mathbb{R}^{2 Nd},
+\]
+so that $m = 2 Nd$. The amplitude is $A (z) = \varphi (x_0, t)$, which is
+slowly varying compared with the oscillatory factor (because $R'_n$s are
+slowly varying on the quantum scale; see Section \ref{section:From Quantum to
+Classical}). The small parameter is $\lambda = \lambda_Q$.
+
+Applying the stationary phase theorem directly, the dominant contribution
+comes from points $(k_{\star}, x_{\star})$ satisfying
+\[ \frac{\partial S}{\partial (k_i)_{\alpha}}  (k_{\star}, x_{\star}) = 0,
+   \qquad \frac{\partial S}{\partial x_i^{\alpha}}  (k_{\star}, x_{\star}) =
+   0, \]
+for every $i \in \{0, \ldots, N - 1\}$ and $\alpha \in \{1, \ldots, d\}$.
+
+\paragraph{Explicit equations of motion.} Using the definition
+(\ref{eq:action}) of $S (k, x)$,
+\[ S (k, x) = \sum_{i = 0}^{N - 1} \Delta t \left[ (k_i)_{\alpha} \frac{x_{i +
+   1}^{\alpha} - x_i^{\alpha}}{\Delta t} - {\color[HTML]{000000}\hat{r} (k_i,
+   x_i, t_i)} \right], \]
+the stationary conditions become
+
+\begin{align*}
+  \frac{\partial S}{\partial (k_i)_{\alpha}} & = \Delta t \left( \frac{x_{i +
+  1}^{\alpha} - x_i^{\alpha}}{\Delta t} \right) - \Delta t \hspace{0.17em}
+  \frac{\partial \hat{r}}{\partial (k_i)_{\alpha}}  (k_i, x_i, t_i) = 0,\\
+  \frac{\partial S}{\partial x_i^{\alpha}} & = \Delta t [(k_i)_{\alpha} -
+  (k_{i - 1})_{\alpha}] - \Delta t \hspace{0.17em} \frac{\partial
+  \hat{r}}{\partial x_i^{\alpha}}  (k_i, x_i, t_i) = 0.
+\end{align*}
+
+Rearranging,
+\[ \frac{x_{i + 1}^{\alpha} - x_i^{\alpha}}{\Delta t} = \frac{\partial
+   \hat{r}}{\partial (k_i)_{\alpha}}, \qquad \frac{(k_i)_{\alpha} - (k_{i -
+   1})_{\alpha}}{\Delta t} = - \frac{\partial \hat{r}}{\partial x_i^{\alpha}}
+   . \]
+These are the discrete Hamiltonian equations of motion. In the continuous
+limit $\Delta t \to 0$ they reduce to
+\[ \dot{x}^{\alpha} (t) = \frac{\partial H}{\partial k_{\alpha}}, \qquad
+   \dot{k}_{\alpha} (t) = - \frac{\partial H}{\partial x^{\alpha}}, \]
+where $H (k, x) = \hat{r}  (k, x, t)$ is identified as the classical
+Hamiltonian (see Section \ref{section:From Quantum to Classical}).
 
 \chapter{Operator Identity: $(p + f)^n = e^{- iF} p^n
 e^{iF}$}\label{appendix:operator-identity}
