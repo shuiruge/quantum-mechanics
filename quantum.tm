@@ -57,7 +57,7 @@
   <em|We will frequently employ abbreviations throughout this note. So, keep
   them in mind.>
 
-  <section|Probability Interpretation and Wavefunction>
+  <section|Wavefunction Represents the State of Quantum System>
 
   In classical Newtonian world, the states of a physical system with <math|n>
   particles are represented by elements in <math|\<bbb-R\><rsup|6n>>, or
@@ -68,7 +68,7 @@
 
   But for a quantum system, the states are represented by wavefunctions. A
   <strong|wavefunction> is a map from the positions of particles, together
-  with time, to complex plane. Thus, a wavefunction maps
+  with time, to complex numbers. Thus, a wavefunction maps
   <math|\<bbb-R\><rsup|d>\<times\>\<bbb-R\>\<rightarrow\>\<bbb-C\>> where
   <math|d=3n>. The first axiom claims how wavefunctions characterize a
   quantum system.
@@ -80,6 +80,214 @@
     in positions <math|x> at time <math|t> is given by
     <math|<around*|\||\<varphi\><around*|(|x,t|)>|\|><rsup|2>=\<varphi\><rsup|\<ast\>><around*|(|x,t|)>\<varphi\><around*|(|x,t|)>>.
   </axiom>
+
+  This is indicated by double-slit experiment of electron. An excellent
+  introduction to double-slit experiment of electron, and how it gives raise
+  to the concept of wavefunction, can be found in Feynman's Lectures on
+  Physics, Vol 3, chapter 1.
+
+  <section|Wavefunction Is Rapidly Decreasing>
+
+  Before doing calculation, we first address which space wavefunctions live
+  in. Probability interpretation (axiom <reference|axiom:prob>) demands that
+  wavefunctions are square-integrable. Namely, wavefunction is in the
+  square-integrable space <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>.
+  But this is far from sufficient. Many mathematical tools are essential for
+  developing quantum mechanics, such as Fourier transform and its inverse.
+
+  Here we give a brief introduction to Fourier transform. Given a function
+  <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>, Fourier transform
+  <math|\<cal-F\>> of <math|f> is defined as a linear operation that, for any
+  <math|k\<in\>\<bbb-R\><rsup|d>>,
+
+  <\equation*>
+    \<cal-F\><around*|[|f|]><around*|(|k|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    exp<around*|(|-\<mathi\>k x|)>f<around*|(|x|)>.
+  </equation*>
+
+  Hence, applying Fourier transform to <math|f> results in another function
+  from <math|\<bbb-R\><rsup|d>> to <math|\<bbb-C\>>, the
+  <math|\<cal-F\><around*|[|f|]>>. Inverse Fourier transform, applied to
+  function <math|<wide|f|^>:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>, is
+  given by
+
+  <\equation*>
+    \<cal-F\><rsup|-1><around*|[|<wide|f|^>|]><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>exp<around*|(|\<mathi\>k
+    x|)><wide|f|^><around*|(|k|)>.
+  </equation*>
+
+  Notice that <math|\<cal-F\>> and <math|\<cal-F\><rsup|-1>> are very
+  similar. In fact, we can regard inverse Fourier transform as a kind of
+  Fourier transform, because
+
+  <\equation*>
+    <around*|(|2\<mathpi\>|)><rsup|d> \<cal-F\><rsup|-1><around*|[|<wide|f|^>|]><around*|(|x|)>=\<cal-F\><around*|[|<wide|f|^>|]><around*|(|-x|)>.
+  </equation*>
+
+  To see why <math|\<cal-F\><rsup|-1>> is the inverse of <math|\<cal-F\>>, we
+  evaluate <math|\<cal-F\><rsup|-1><around*|[|\<cal-F\><around*|[|f|]>|]>>
+  and check if it gives raise to <math|f>. Directly, we have
+
+  <\equation*>
+    \<cal-F\><rsup|-1><around*|[|\<cal-F\><around*|[|f|]>|]><around*|(|y|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    f<around*|(|x|)><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>exp<around*|(|-\<mathi\>k
+    <around*|(|x-y|)>|)>.
+  </equation*>
+
+  Integrating over <math|k> gives a Dirac's <math|\<delta\>> function,
+
+  <\equation*>
+    \<cal-F\><rsup|-1><around*|[|\<cal-F\><around*|[|f|]>|]><around*|(|y|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    \<delta\><around*|(|x-y|)>f<around*|(|x|)>=f<around*|(|y|)>.
+  </equation*>
+
+  So we find <math|\<cal-F\><rsup|-1><around*|[|\<cal-F\><around*|[|f|]>|]>=f>.
+  During the calculation, we introduced <math|\<delta\>> function and
+  employed its property that <math|<big|int>\<mathd\>x
+  \<delta\><around*|(|x-y|)>f<around*|(|x|)>=f<around*|(|y|)>>. We will give
+  details about <math|\<delta\>> function in section TODO. In this section,
+  we focus on when <math|\<cal-F\><around*|[|f|]>> (or equivalently
+  <math|\<cal-F\><rsup|-1><around*|[|f|]>>) is well-defined.
+
+  Not any square-integrable function has Fourier transform. For example,
+  function <math|g:\<bbb-R\>\<rightarrow\>\<bbb-C\>> which behaves as
+  <math|g<around*|(|x|)>\<sim\>1/<around*|\||x|\|>> when
+  <math|<around*|\||x|\|>\<gg\>1> is square-integrable, because
+  <math|<around*|\||g<around*|(|x|)>|\|><rsup|2>\<sim\>1/x<rsup|2>> which
+  decays fast enough as <math|<around*|\||x|\|>\<rightarrow\>\<infty\>>. But,
+  <math|\<cal-F\><around*|[|g|]><around*|(|0|)>=<big|int><rsub|-\<infty\>><rsup|\<infty\>>\<mathd\>x
+  g<around*|(|x|)>> may diverge because the decaying speed of
+  <math|1/<around*|\||x|\|>> is not sufficiently fast. So, the Fourier
+  transform of a square-integrable function may not exist.
+
+  Since Fourier transform is basically rooted in quantum mechanics, we shall
+  seek for a smaller space in which wavefunctions live. Previoiusly, we find
+  the problem happens when the function does not decay fast enough at
+  infinity. So, we shall consider rapidly decreasing functions.
+  <strong|Rapidly decreasing function> is a smooth function
+  <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>> that decays \Pextremely
+  fast\Q at infinity. Precisely, for any <math|m>-order polynomial
+  <math|P<rsub|m>> and any <math|m>-order partial derivative
+  <math|\<partial\><rsup|n>>,<\footnote>
+    For example, <math|\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>><rsup|2>>
+    is <math|3>-order partial derivative, and
+    <math|\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>><rsup|2>\<partial\><rsub|\<gamma\>><rsup|9>>
+    is <math|12>-order.
+  </footnote> with integers <math|m,n\<geqslant\>0>, we have
+
+  <\equation*>
+    lim<rsub|<around*|\<\|\|\>|x|\<\|\|\>>\<rightarrow\>\<infty\>><around*|\||P<rsub|m><around*|(|x|)>\<partial\><rsup|n>f<around*|(|x|)>|\|>=0.
+  </equation*>
+
+  So, a rapidly decreasing function, together with its derivatives, decays
+  faster than any polynormal at infinity. Denote
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> as the collection of all
+  the rapidly decreasing functions from <math|\<bbb-R\><rsup|d>> to
+  <math|\<bbb-C\>>, in memory of French mathematican Laurent Schwartz, who
+  did fundamental investigations on Fourier transform and distribution
+  theory. The space of rapidly decreasing functions is also called
+  <strong|Schwartz space>. Fourier transform on a rapidly decreasing function
+  results in a rapidly decreasing function. Or say, Fourier transform is a
+  linear automorphism in Schwartz space.
+
+  Rapidly decreasing functions are dense in square-integrable space, meaning
+  that for any <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
+  <math|\<varepsilon\>\<gtr\>0>, there is a
+  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> such that
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
+  </equation*>
+
+  For example, for any wavefunction <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
+  when we measure the probability on any area of positions
+  <math|U\<subset\>\<bbb-R\><rsup|d>>, we can use its approximation
+  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> instead, because the
+  difference is bounded by
+
+  <\equation*>
+    <around*|\||<big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>-<big|int><rsub|U>\<mathd\>x<around*|\||g<around*|(|x|)>|\|><rsup|2>|\|>\<leqslant\><big|int><rsub|U>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<leqslant\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
+  </equation*>
+
+  The first inequality is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
+  where the norm is defined as <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>,
+  recognized as the <math|L<rsup|2>>-norm on <math|U>. It states that the
+  difference between the two sides of a triangle is less than that of the
+  third side. It is in this sense that the substitution
+  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
+  is plausible.
+
+  To illustrate the reason, we give a simplified construction of the rapidly
+  decreasing function <math|g> while omitting some technical details. We
+  referer to appendices <reference|appendix:dense> for readers who eager a
+  complete proof. First, we notice that integrals over
+  <math|\<bbb-R\><rsup|d>> are imporper integrals.<\footnote>
+    Recall that an imporper integral of a function <math|f> is defined by the
+    limit
+
+    <\equation*>
+      <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+      f<around*|(|x|)>\<assign\>lim<rsub|L\<rightarrow\>\<infty\>><big|int><rsub|<around*|[|-L,L|]><rsup|d>>\<mathd\>x
+      f<around*|(|x|)>.
+    </equation*>
+
+    In other words, the contribution outside the box
+    <math|<around*|[|-L,L|]><rsup|d>> will be negligible if <math|L> is large
+    enough.
+  </footnote> It hints us to consider a cut-off function <math|f<rsub|L>>
+  where <math|f<rsub|L><around*|(|x|)>\<assign\>f<around*|(|x|)>> when
+  <math|x\<in\><around*|[|-L,L|]><rsup|d>> and
+  <math|f<rsub|L><around*|(|x|)>\<assign\>0> otherwise. By the definition of
+  imporper integral, we have, for each <math|\<varepsilon\>\<gtr\>0>, there
+  exists <math|L\<gtr\>0> such that
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-f<rsub|L><around*|(|x|)>|\|><rsup|2>=<big|int><rsub|x\<nin\><around*|[|-L,L|]><rsup|d>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>\<less\><frac|\<varepsilon\>|4>.
+  </equation*>
+
+  The <math|f<rsub|L><around*|(|x|)>> has sufficient decreasing speed just
+  because it vanishes outside the region <math|<around*|[|-L,L|]><rsup|d>>.
+  But, <math|f<rsub|L>\<nin\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
+  because it is not smooth. It is sharp at the boundaries of cut-off. We need
+  to polish it using the trick of convolution. Explicitly, construct function
+  <math|g<rsub|n>> using convolution, as
+
+  <\equation*>
+    g<rsub|n><around*|(|x|)>\<assign\><around*|(|\<delta\><rsub|n>\<ast\>f<rsub|L>|)><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|n><around*|(|x-y|)>f<rsub|L><around*|(|y|)>,
+  </equation*>
+
+  where <math|\<delta\><rsub|n>> is a Gaussian function with \Pwidth\Q
+  <math|1/<sqrt|n>>, as
+
+  <\equation*>
+    \<delta\><rsub|n><around*|(|x|)>\<assign\><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|n
+    x<rsup|2>|2>|)>.
+  </equation*>
+
+  Apprarently, <math|g<rsub|n><around*|(|x|)>> is smooth because derivatives
+  taken on <math|x> are applied to <math|\<delta\><rsub|n>>, which is smooth.
+  When <math|n> is large enough,<math|\<delta\><rsub|n>> becomes so narrow
+  that <math|g<rsub|n>> approximates <math|f<rsub|L>> well enough. In other
+  words, for any <math|\<varepsilon\>\<gtr\>0>, there exists <math|N\<gtr\>0>
+  such that for any <math|n\<gtr\>N>, we have
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<rsub|L><around*|(|x|)>-g<rsub|n><around*|(|x|)>|\|><rsup|2>\<less\><frac|\<varepsilon\>|4>.
+  </equation*>
+
+  Altogether, using the triangle inequality of <math|L<rsub|2>>, we find
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-g<rsub|n><around*|(|x|)>|\|><rsup|2>\<less\><around*|(|<sqrt|\<varepsilon\>/4>+<sqrt|\<varepsilon\>/4>|)><rsup|2>=\<varepsilon\>.
+  </equation*>
+
+  So, we have constructed (even though omitted many details) a rapid
+  decreasing function <math|g<rsub|n>> that is a good approximation of the
+  square-integrable function <math|f>.
 
   <section|Superposition Principle and Time Evolution>
 
@@ -163,167 +371,6 @@
   superposition principle (axiom <reference|axiom:sup>), is the direct result
   of the double-slit experiment of electron. Details can be found in
   Feynman's Lectures on Physics, Vol 3, chapter 1.
-
-  <section|Both Wavefunction and Kernel Are Rapidly Decreasing>
-
-  Before doing calculation, we first address where wavefunctions live.
-  Probability interpretation (axiom <reference|axiom:prob>) demands that
-  wavefunctions are square-integrable. Namely, wavefunction is in the
-  square-integrable space <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>.
-  But this is far from sufficient. Many mathematical tools are essential for
-  developing quantum mechanics, one of which is Fourier transform (and its
-  inverse).
-
-  It is <hlink|well known|https://en.wikipedia.org/wiki/Fourier_transform>,
-  however, that the Fourier transform of a square-integrable function may not
-  be square-integrable again, so that its inverse Fourier transform may not
-  exist. Since Fourier transform is basic in quantum mechanics, we shall seek
-  for a smaller space in which wavefunctions live. An ideal substitution is
-  the rapidly decreasing functions. <strong|Rapidly decreasing function> is a
-  smooth function <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>> that
-  decays \Pexponentially fast\Q at infinity. Precisely, for any
-  <math|m>-order polynomial <math|P<rsub|m>> and any <math|m>-order partial
-  derivative <math|\<partial\><rsup|n>>,<\footnote>
-    For example, <math|\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>><rsup|2>>
-    is <math|3>-order partial derivative, and
-    <math|\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>><rsup|2>\<partial\><rsub|\<gamma\>><rsup|9>>
-    is <math|12>-order.
-  </footnote> with integers <math|m,n\<geqslant\>0>, we have
-
-  <\equation*>
-    lim<rsub|<around*|\<\|\|\>|x|\<\|\|\>>\<rightarrow\>\<infty\>><around*|\||P<rsub|m><around*|(|x|)>\<partial\><rsup|n>f<around*|(|x|)>|\|>=0.
-  </equation*>
-
-  Fourier transform on a rapidly decreasing function results in a rapidly
-  decreasing function. Denote <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-  as the collection of all the rapidly decreasing functions from
-  <math|\<bbb-R\><rsup|d>> to <math|\<bbb-C\>>.<\footnote>
-    This was first found by Laurent Schwartz in 1949, in his paper \PThéorie
-    des distributions et transformation de Fourier\Q. The space of rapidly
-    decreasing functions is now called <strong|Schwartz space>, as
-    <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> indicates. Thus, Fourier
-    transform is a linear automorphism in Schwartz space.
-  </footnote>
-
-  Rapidly decreasing functions are dense in square-integrable space, meaning
-  that for any <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
-  <math|\<varepsilon\>\<gtr\>0>, there is a
-  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> such that
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
-  </equation*>
-
-  For example, for any wavefunction <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
-  when we measure the probability on any area of positions
-  <math|U\<subset\>\<bbb-R\><rsup|d>>, we can use its approximation
-  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> instead, because the
-  difference is bounded by
-
-  <\equation*>
-    <around*|\||<big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>-<big|int><rsub|U>\<mathd\>x<around*|\||g<around*|(|x|)>|\|><rsup|2>|\|>\<leqslant\><big|int><rsub|U>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<leqslant\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
-  </equation*>
-
-  The first inequality is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
-  where the norm is defined as <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>,
-  recognized as the <math|L<rsup|2>>-norm on <math|U>. It states that the
-  difference between the two sides of a triangle is less than that of the
-  third side. It is in this sense that the substitution
-  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-  is plausible.
-
-  To illustrate the underlying techniques, we give a simplified construction
-  of the rapidly decreasing function <math|g> while omitting many details. We
-  referer to appendices <reference|appendix:dense> for readers who eager a
-  complete proof. First, we notice that integrals over
-  <math|\<bbb-R\><rsup|d>> are imporper integrals.<\footnote>
-    Recall that an imporper integral of a function <math|f> is defined by the
-    limit
-
-    <\equation*>
-      <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-      f<around*|(|x|)>\<assign\>lim<rsub|L\<rightarrow\>\<infty\>><big|int><rsub|<around*|[|-L,L|]><rsup|d>>\<mathd\>x
-      f<around*|(|x|)>.
-    </equation*>
-
-    In other words, the contribution outside the box
-    <math|<around*|[|-L,L|]><rsup|d>> will be negligible if <math|L> is large
-    enough.
-  </footnote> It hints us to consider a cut-off function <math|f<rsub|L>>
-  where <math|f<rsub|L><around*|(|x|)>\<assign\>f<around*|(|x|)>> when
-  <math|x\<in\><around*|[|-L,L|]><rsup|d>> and
-  <math|f<rsub|L><around*|(|x|)>\<assign\>0> otherwise. By the definition of
-  imporper integral, we have, for each <math|\<varepsilon\>\<gtr\>0>, there
-  exists <math|L\<gtr\>0> such that
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-f<rsub|L><around*|(|x|)>|\|><rsup|2>=<big|int><rsub|x\<nin\><around*|[|-L,L|]><rsup|d>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>\<less\><frac|\<varepsilon\>|4>.
-  </equation*>
-
-  The <math|f<rsub|L><around*|(|x|)>> has sufficient decreasing speed just
-  because it vanishes as <math|<around*|\<\|\|\>|x|\<\|\|\>>\<rightarrow\>\<infty\>>.
-  But, <math|f<rsub|L>\<nin\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-  because it is not smooth. It is sharp at the boundaries of cut-off. We need
-  to polish it using the trick of convolution. Explicitly, construct function
-  <math|g<rsub|n>> using convolution, as
-
-  <\equation*>
-    g<rsub|n><around*|(|x|)>\<assign\><around*|(|\<delta\><rsub|n>\<ast\>f<rsub|L>|)><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|x-y|)>f<rsub|L><around*|(|y|)>,
-  </equation*>
-
-  where <math|\<delta\><rsub|n>> is a Gaussian function with \Pwidth\Q
-  <math|1/<sqrt|n>>, as
-
-  <\equation*>
-    \<delta\><rsub|n><around*|(|x|)>\<assign\><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|n
-    x<rsup|2>|2>|)>.
-  </equation*>
-
-  Apprarently, <math|g<rsub|n><around*|(|x|)>> is smooth because derivatives
-  taken on <math|x> are applied to <math|\<delta\><rsub|n>>, which is smooth.
-  When <math|n> is large enough,<math|\<delta\><rsub|n>> becomes so narrow
-  that <math|g<rsub|n>> approximates <math|f<rsub|L>> well enough. In other
-  words, for any <math|\<varepsilon\>\<gtr\>0>, there exists <math|N\<gtr\>0>
-  such that for any <math|n\<gtr\>N>, we have
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<rsub|L><around*|(|x|)>-g<rsub|n><around*|(|x|)>|\|><rsup|2>\<less\><frac|\<varepsilon\>|4>.
-  </equation*>
-
-  Altogether, using the triangle inequality of <math|L<rsub|2>>, we find
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-g<rsub|n><around*|(|x|)>|\|><rsup|2>\<less\><around*|(|<sqrt|\<varepsilon\>/4>+<sqrt|\<varepsilon\>/4>|)><rsup|2>=\<varepsilon\>.
-  </equation*>
-
-  So, we have constructed (even though omitted many details) a rapid
-  decreasing function <math|g<rsub|n>> that is a good approximation of the
-  square-integrable function <math|f>.
-
-  Then, what about the kernel <math|r>? Which space does it belong to? It is
-  well known that, to keep <math|<big|int>\<mathd\>y
-  r<around*|(|\<cdummy\>,y,t|)>\<varphi\><around*|(|y,t|)>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-  for any <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
-  the minimal condition for <math|r> is that it is tempered increasing, which
-  means that <math|r<around*|(|x,y,t|)>> can increase as fast as polynormials
-  as <math|<around*|\<\|\|\>|y|\<\|\|\>>\<rightarrow\>\<infty\>>. But, notice
-  that <math|r> only appears as \Papplying\Q to a wavefunction, which is
-  rapidly decreasing, we can also cut-off <math|r> like what we have did for
-  <math|f>. Explicitly, we can construct <math|r<rsub|L>> which is consist
-  with <math|r> as <math|y\<in\><around*|[|-L,L|]><rsup|d>> and vanishes
-  otherwise. Because time evolution is a linear equation, perturbation is
-  well controlled. It means that replacing <math|r> by <math|r<rsub|L>> will
-  perturb the time evolution only by a little. Then, using the same
-  convolution trick, we can construct a rapid decreasing function that
-  approximates <math|r<rsub|L>>, which leading to another tiny perturbation.
-  Altogether, <math|r> is replaced by a rapid decreasing function. The same
-  for its first argument (using another <math|\<psi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-  to its first argument, and everything goes the same). TODO: better
-  illustration.
 
   <section|Path Integral Formalism><label|section:Path Integral Formalism>
 
@@ -841,43 +888,80 @@
 
   <section|Galilean Symmetry Fixes <math|N<rsub|cut>=2>>
 
+  Italian physicist Galileo Galilei first proposed that any inertial system
+  of coordinates are physically the same. To illustate what Galileo was
+  saying, consider two inertial systems with coordinates
+  <math|<around*|(|x,t|)>> and <math|<around*|(|<wide|x|~>,<wide|t|~>|)>>.
+  Since they are both inertial, there must be a constant difference of
+  velocity between them, say velocity <math|v\<in\>\<bbb-R\><rsup|3>>. Since
+  the trajectory of a particle is indpendent of coordinates, we must have
+  <math|<wide|x|~><rsup|\<alpha\>><around*|(|t|)>=x<around*|(|t|)>-v t> (up
+  to some irrelevant constant). Then, Galileo claimed that, in the two
+  coordinates, physical laws are the same.
+
+  To be explicit, consider the time evolution of Newton's mechanics:
+
+  <\equation*>
+    <frac|\<mathd\><rsup|2>x<rsup|\<alpha\>>|\<mathd\>t<rsup|2>><around*|(|t|)>=F<rsup|\<alpha\>><around*|(|x<around*|(|t|)>,t|)>,
+  </equation*>
+
+  where <math|F<around*|(|x,t|)>> represents forces. Galilean's statement
+  indicates that we can find <math|<wide|F|~>> such that
+
+  <\equation*>
+    <frac|\<mathd\><rsup|2><wide|x|~><rsup|\<alpha\>>|\<mathd\>t<rsup|2>><around*|(|<wide|t|~>|)>=<wide|F|~><rsup|\<alpha\>><around*|(|<wide|x|~><around*|(|t|)>,t|)>.
+  </equation*>
+
+  Apparently, we have <math|<wide|F|~><rsup|\<alpha\>><around*|(|x,t|)>\<assign\>F<rsup|\<alpha\>><around*|(|x+v
+  t,t|)>>. In other words, the new formula has the same <em|form> as the
+  original. Defining <math|<wide|t|~>\<assign\>t>, the transform of
+  coordinates from <math|<around*|(|x,t|)>> to
+  <math|<around*|(|<wide|x|~>,<wide|t|~>|)>> is called <strong|Galilean
+  transform>, in memory of Galileo Galilei. And the formal invariance of time
+  evolution after Galilean transform is named by <strong|Galilean symmetry>.
+  So, we say Newton's mechanics satisfies Galilean symmetry.
+
+  Generally, we consider infinitesimal Galilean transform in which
+  <math|<around*|\<\|\|\>|v|\<\|\|\>>\<ll\>1>. A general Galilean transform
+  can be seen as accumulation of a series of infinitesimal transformtions.
+  This is the trick we will employ for dealing with quantum mechanics.
+
+  The same goes for quantum mechanics. In the
+  <math|<around*|(|<wide|x|~>,<wide|t|~>|)>>-coordinates, we expect that the
+  probability density of particles are invariant, in the sense that
+  <math|<around*|\||<wide|\<varphi\>|~><around*|(|x-v
+  t,t|)>|\|><rsup|2>=<around*|\||\<varphi\><around*|(|x,t|)>|\|><rsup|2>>. It
+  implies that <math|<wide|\<varphi\>|~><around*|(|x-v
+  t,t|)>=exp<around*|(|\<mathi\>v \<omega\><around*|(|x,t|)>|)>\<varphi\><around*|(|x,t|)>>
+  for some real function <math|\<omega\>>. The phase is linear in the in
+  <math|v> since <math|v> is infinitesimal and everything shall back to the
+  original when <math|v=0>. For the formal invariance of time evolution, we
+  first recall the path integral formalism
+
+  <\equation*>
+    \<varphi\><around*|(|x,t+\<Delta\>t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
+    exp<around*|{|\<mathi\>k<around*|(|x-y|)>-\<mathi\><big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsub|n><rsup|\<alpha\>><around*|(|y,t|)>k<rsub|\<alpha\>>\<Delta\>t|}>\<varphi\><around*|(|y,t|)>+\<omicron\><around*|(|\<Delta\>t|)>.
+  </equation*>
+
+  In the <math|<around*|(|<wide|x|~>,<wide|t|~>|)>>-coordinates, we expect to
+  find proper <math|<wide|R|~><rsub|n>>s such that
+
+  <\equation*>
+    <wide|\<varphi\>|~><around*|(|<wide|x|~>,<wide|t|~>+\<Delta\>t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\><wide|y|~><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\><wide|k|~>|<around*|(|2\<mathpi\>|)><rsup|d>>
+    exp<around*|{|\<mathi\><wide|k|~><around*|(|<wide|x|~>-<wide|y|~>|)>-\<mathi\><big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!><wide|R|~><rsub|n><rsup|\<alpha\>><around*|(|<wide|y|~>,<wide|t|~>|)><wide|k|~><rsub|\<alpha\>>\<Delta\>t|}><wide|\<varphi\>|~><around*|(|<wide|y|~>,<wide|t|~>|)>+\<omicron\><around*|(|\<Delta\>t|)>.
+  </equation*>
+
+  The <math|<wide|R|~><rsub|n>>s play the same role as the <math|<wide|F|~>>
+  in Newton's mechanics.
+
   <section|Back to Classical World>
 
-  <appendix|Rapidly Decreasing Entire Functions are Dense in
-  Square-Integrable Space (TODO)><label|appendix:dense>
+  <appendix|Some Basics about <math|L<rsup|p>> Space>
 
-  A function <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>> is
-  square-integrable if
+  <appendix|Some Basics about Distribution>
 
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    f<rsup|\<ast\>><around*|(|x|)>f<around*|(|x|)>\<less\>\<infty\>.
-  </equation*>
-
-  This is a improper integral, thus defined by
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>=lim<rsub|R\<rightarrow\>\<infty\>><big|int><rsub|B<around*|(|R|)>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>,
-  </equation*>
-
-  where <math|B<around*|(|R|)>\<assign\><around*|[|-R,R|]><rsup|d>> denotes
-  the <math|d>-dimensional \Pbox\Q. In other words, for any
-  <math|\<varepsilon\>\<gtr\>0>, there exists <math|R<rsub|\<star\>>\<gtr\>0>
-  and <math|\<delta\>\<gtr\>0>, such that for any
-  <math|R\<gtr\>R<rsub|\<star\>>> and <math|0\<less\>\<Delta\>x\<less\>\<delta\>>,
-
-  <\equation*>
-    <around*|\||<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>-<big|int><rsub|B<around*|(|R|)>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>|\|>\<less\>\<varepsilon\>.
-  </equation*>
-
-  So, for any <math|\<varepsilon\>\<gtr\>0>, we can construct a compact
-  supported function <math|g<rsub|R>:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>,
-  which consists with <math|f> within the box <math|B<around*|(|R|)>> and
-  vanishes outside. TODO
-
-  \;
-
-  \;
+  <appendix|Rapidly Decreasing Functions Approximate Integrable
+  Function><label|appendix:dense>
 
   Consider the convolution
 
@@ -886,7 +970,7 @@
     \<delta\><rsub|n><around*|(|x-y|)>f<around*|(|y|)>,
   </equation*>
 
-  where <math|n> is a positive integer and
+  where <math|n> is a positive integer and TODO
 
   <\equation*>
     \<delta\><rsub|n><around*|(|x|)>\<assign\><frac|1|<around*|(|<sqrt|2\<mathpi\>>n|)><rsup|d>>exp<around*|(|-<frac|x<rsup|2>|2n>|)>,
@@ -914,72 +998,69 @@
 
 <\references>
   <\collection>
-    <associate|appendix:Stationary Phase Approximation|<tuple|B|21>>
-    <associate|appendix:dense|<tuple|A|19>>
+    <associate|appendix:Stationary Phase Approximation|<tuple|D|13>>
+    <associate|appendix:dense|<tuple|C|11>>
     <associate|auto-1|<tuple|1|3>>
-    <associate|auto-10|<tuple|8|9>>
+    <associate|auto-10|<tuple|8|10>>
     <associate|auto-11|<tuple|9|10>>
-    <associate|auto-12|<tuple|10|13>>
-    <associate|auto-13|<tuple|A|15>>
-    <associate|auto-14|<tuple|B|17>>
-    <associate|auto-15|<tuple|B|19>>
-    <associate|auto-16|<tuple|C|21>>
+    <associate|auto-12|<tuple|10|10>>
+    <associate|auto-13|<tuple|A|11>>
+    <associate|auto-14|<tuple|B|13>>
+    <associate|auto-15|<tuple|C|?>>
+    <associate|auto-16|<tuple|D|?>>
+    <associate|auto-18|<tuple|A.5|?>>
+    <associate|auto-19|<tuple|B.5|?>>
     <associate|auto-2|<tuple|1.1|3>>
+    <associate|auto-20|<tuple|C|?>>
+    <associate|auto-21|<tuple|D|?>>
     <associate|auto-3|<tuple|1.2|3>>
     <associate|auto-4|<tuple|2|3>>
     <associate|auto-5|<tuple|3|3>>
     <associate|auto-6|<tuple|4|4>>
-    <associate|auto-7|<tuple|5|5>>
+    <associate|auto-7|<tuple|5|6>>
     <associate|auto-8|<tuple|6|7>>
     <associate|auto-9|<tuple|7|8>>
     <associate|axiom:local|<tuple|3|8>>
     <associate|axiom:prob|<tuple|1|3>>
     <associate|axiom:sup|<tuple|2|3>>
-    <associate|axiom:uncert|<tuple|4|11>>
     <associate|eq:action|<tuple|10|7>>
-    <associate|eq:deltav|<tuple|18|11>>
-    <associate|eq:deltax|<tuple|17|11>>
-    <associate|eq:gaussianwavefunction|<tuple|19|11>>
     <associate|eq:hamiltonian|<tuple|7|6>>
-    <associate|eq:moment|<tuple|11|7>>
+    <associate|eq:moment|<tuple|11|8>>
     <associate|eq:momentexpansion|<tuple|13|8>>
     <associate|eq:pathint|<tuple|8|7>>
-    <associate|eq:pathint-hbar|<tuple|24|14>>
     <associate|eq:probtoself|<tuple|2|4>>
-    <associate|eq:r-fourier|<tuple|4|5>>
+    <associate|eq:r-fourier|<tuple|4|6>>
     <associate|eq:r-fourier-alt|<tuple|5|6>>
-    <associate|eq:standard|<tuple|20|11>>
-    <associate|eq:transexp|<tuple|12|7>>
-    <associate|eq:transexp-hbar|<tuple|23|14>>
+    <associate|eq:transexp|<tuple|12|8>>
     <associate|equ:superposition|<tuple|1|4>>
     <associate|footnote-1|<tuple|1|4>>
-    <associate|footnote-10|<tuple|10|12>>
-    <associate|footnote-11|<tuple|11|13>>
-    <associate|footnote-12|<tuple|12|13>>
+    <associate|footnote-10|<tuple|10|?>>
+    <associate|footnote-11|<tuple|11|?>>
+    <associate|footnote-12|<tuple|12|?>>
     <associate|footnote-2|<tuple|2|4>>
     <associate|footnote-3|<tuple|3|5>>
-    <associate|footnote-4|<tuple|4|6>>
+    <associate|footnote-4|<tuple|4|5>>
     <associate|footnote-5|<tuple|5|6>>
-    <associate|footnote-6|<tuple|6|7>>
+    <associate|footnote-6|<tuple|6|6>>
     <associate|footnote-7|<tuple|7|8>>
     <associate|footnote-8|<tuple|8|8>>
-    <associate|footnote-9|<tuple|9|11>>
+    <associate|footnote-9|<tuple|9|9>>
     <associate|footnr-1|<tuple|1|4>>
-    <associate|footnr-10|<tuple|10|12>>
-    <associate|footnr-11|<tuple|11|13>>
-    <associate|footnr-12|<tuple|12|13>>
+    <associate|footnr-10|<tuple|10|?>>
+    <associate|footnr-11|<tuple|11|?>>
+    <associate|footnr-12|<tuple|12|?>>
     <associate|footnr-2|<tuple|2|4>>
     <associate|footnr-3|<tuple|3|5>>
-    <associate|footnr-4|<tuple|4|6>>
-    <associate|footnr-5|<tuple|5|6>>
-    <associate|footnr-6|<tuple|6|7>>
+    <associate|footnr-4|<tuple|4|5>>
+    <associate|footnr-5|<tuple|6|6>>
+    <associate|footnr-6|<tuple|6|6>>
     <associate|footnr-7|<tuple|7|8>>
     <associate|footnr-8|<tuple|8|8>>
-    <associate|footnr-9|<tuple|9|11>>
+    <associate|footnr-9|<tuple|9|9>>
     <associate|section:Expanding Kernel as Generalized Function|<tuple|6|7>>
-    <associate|section:Hermitianity on Moments|<tuple|8|9>>
+    <associate|section:Hermitianity on Moments|<tuple|8|10>>
     <associate|section:Locality Truncates the Moments|<tuple|7|8>>
-    <associate|section:Path Integral Formalism|<tuple|5|5>>
+    <associate|section:Path Integral Formalism|<tuple|5|6>>
   </collection>
 </references>
 
@@ -1005,7 +1086,7 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5>
 
-      4<space|2spc>Wavefunction Is Rapidly Decreasing and Entire
+      4<space|2spc>Both Wavefunction and Kernel Are Rapidly Decreasing
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6>
 
@@ -1025,30 +1106,24 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-10>
 
-      9<space|2spc>Uncertainty Principle Restricts the Highest Order Moment
+      9<space|2spc>Galilean Symmetry Fixes
+      <with|mode|<quote|math>|N<rsub|cut>=2>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-11>
 
-      10<space|2spc>From Quantum to Classical (TODO)
+      10<space|2spc>Back to Classical World
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-12>
 
-      11<space|2spc>Drafts (TODO) <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-13>
-
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      A<space|2spc>Taylor Reminder> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-14><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      B<space|2spc>Rapidly Decreasing Entire Functions are Dense in
+      A<space|2spc>Rapidly Decreasing Entire Functions are Dense in
       Square-Integrable Space (TODO)> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-15><vspace|0.5fn>
+      <no-break><pageref|auto-13><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      C<space|2spc>Stationary Phase Approximation>
+      B<space|2spc>Stationary Phase Approximation>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-16><vspace|0.5fn>
+      <no-break><pageref|auto-14><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
