@@ -5,20 +5,15 @@
 
 %%%%%%%%%% Start TeXmacs macros
 \newcommand{\assign}{:=}
-\newcommand{\cdummy}{\cdot}
 \newcommand{\mathd}{\mathrm{d}}
 \newcommand{\mathi}{\mathrm{i}}
 \newcommand{\mathpi}{\pi}
-\newcommand{\tmcolor}[2]{{\color{#1}{#2}}}
-\newcommand{\tmem}[1]{{\em #1\/}}
-\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
-\newcommand{\tmrsup}[1]{\textsuperscript{#1}}
-\newcommand{\tmstrong}[1]{\textbf{#1}}
 \newtheorem{axiom}{公理}[chapter]
 \newtheorem{corollary}{推论}[chapter]
 \newtheorem{lemma}{引理}[chapter]
 \newtheorem{definition}{定义}[chapter]
 \newtheorem{remark}{注}[chapter]
+\newcommand{\todo}[1]{{\color{red}#1}}
 %%%%%%%%%% End TeXmacs macros
 
 \begin{document}
@@ -31,7 +26,7 @@
 
 \chapter{引言}
 
-在文献 \tmem{从零构建量子力学}（quantum.tex）中，我们从三条基本公理出发推导了量子力学的时间演化方程。推导的关键步骤是路径积分形式，其中我们用到了 $\mathbb{R}^d$ 上的傅里叶变换来得到 $k\dot{x}$ 项：
+在文献 \emph{从零构建量子力学}（quantum.tex）中，我们从三条基本公理出发推导了量子力学的时间演化方程。推导的关键步骤是路径积分形式，其中我们用到了 $\mathbb{R}^d$ 上的傅里叶变换来得到 $k\dot{x}$ 项：
 \[
 \delta(x-y) = \int_{\mathbb{R}^d} \frac{\mathd k}{(2\mathpi)^d} e^{\mathi k (x-y)},
 \]
@@ -39,9 +34,9 @@
 
 但是，量子力学并不局限于平直空间。在广义相对论、凝聚态物理中的弯曲晶格、以及量子引力等场景中，我们需要将量子力学推广到一般的微分流形 $M$ 上。这就引出了一个基本问题：
 
-\begin{tmem}
+\begin{em}
   路径积分能否从 $\mathbb{R}^d$ 推广到一般的光滑流形 $M$？
-\end{tmem}
+\end{em}
 
 直接照搬 $\mathbb{R}^d$ 的方法会遇到根本困难：$M$ 不是向量空间，$x-y$ 没有定义，因此 $\delta(x-y)$ 的傅里叶表示不再全局有效。然而，$M$ 在每一点 $y$ 处都有一个切空间 $T_yM$（它是一个 $d$ 维向量空间），这为我们提供了局部替代平移结构的工具。
 
@@ -51,7 +46,7 @@
   \item 用\textbf{指数映射}（exponential map）将 $M$ 上的点拉回到切空间上操作；
   \item 在切空间上使用傅里叶变换；
   \item 证明所得的作用量 $S = \int [p\dot{x} - H(p,x)]\mathd t$ 中的 $p\dot{x}$ 项是余切丛上的\textbf{典范 1-形式}，具有坐标无关性；
-  \item 流形上的对称性（一般协变性，即 $\tmop{Diff}(M)$ 不变性）强制截断阶 $N_{\tmop{cut}} = 2$，得到 Laplace--Beltrami 算子作为动能项。
+  \item 流形上的对称性（一般协变性，即 $\operatorname{Diff}(M)$ 不变性）强制截断阶 $N_{\mathrm{cut}} = 2$，得到 Laplace--Beltrami 算子作为动能项。
 \end{enumerate}
 
 我们将在以下各章逐步展开这一方案。
@@ -259,7 +254,7 @@ J_y(\xi) = \sqrt{\det g(x)} = 1 - \frac{1}{6} \operatorname{Ric}_{\mu\nu}(y) \xi
 \begin{equation}
   \delta_y(x) = \int_{T_y^*M} \frac{\mathd p}{(2\mathpi)^d} \, e^{\mathi p(\exp_y^{-1}(x))}, \label{eq:delta-manifold}
 \end{equation}
-其中 $\exp_y^{-1}(x) \in T_yM$。
+其中 $\exp_y^{-1}(x) \in T_yM$。\todo{为什么 $\exp_y^{-1}(x)$ 存在？之前只是提到 $\exp_y$ 在 $y$ 附近是微分同胚，但如果远离 $y$ 呢？}
 
 \begin{remark}[坐标无关性]
   表达式 $p(\exp_y^{-1}(x))$ 是 $T_y^*M$ 与 $T_yM$ 之间的自然配对，不依赖于坐标选择。这是流形上傅里叶变换比 $\mathbb{R}^d$ 更优雅的地方：在 $\mathbb{R}^d$ 中，$k(x-y)$ 依赖于平移结构；在流形上，$p(\exp_y^{-1}(x))$ 依赖于内禀的切空间配对。
@@ -448,7 +443,7 @@ R_0(y,t) = \int \mathd\xi \, \bigl[ r(y,y,t) + \cdots \bigr] \bigl[ 1 - \tfrac16
 R_2^{\alpha\beta}(y,t) = \int \mathd\xi \, r(\exp_y(\xi), y, t) \, \xi^\alpha \xi^\beta \, J_y(\xi).
 \]
 
-即使 $r$ 在局部与 $\mathbb{R}^d$ 中的形式完全相同（例如 $r(x,y,t) \propto \nabla_x^2 \delta_y(x)$），$J_y(\xi)$ 和度规的存在也会在 $R_2$ 中引入曲率依赖项。经过计算，更一般地，在流形上，二阶矩必须与度规成比例（由后续的 $\tmop{Diff}(M)$ 不变性决定）：
+即使 $r$ 在局部与 $\mathbb{R}^d$ 中的形式完全相同（例如 $r(x,y,t) \propto \nabla_x^2 \delta_y(x)$），$J_y(\xi)$ 和度规的存在也会在 $R_2$ 中引入曲率依赖项。经过计算，更一般地，在流形上，二阶矩必须与度规成比例（由后续的 $\operatorname{Diff}(M)$ 不变性决定）：
 \begin{equation}
   R_2^{\alpha\beta}(y,t) = -\frac{1}{m} g^{\alpha\beta}(y) + \text{曲率修正项}. \label{eq:R2-curv}
 \end{equation}
@@ -497,9 +492,9 @@ R_{N_\text{cut}}^*(x,t) = (-1)^{N_\text{cut}} R_{N_\text{cut}}(x,t).
 
 局域性论证与 $\mathbb{R}^d$ 版本完全一致（quantum.tex 第 6 节）。局域性要求时间演化方程只包含有限阶空间导数，即存在整数 $N_\text{cut}$ 使得对于所有 $n > N_\text{cut}$ 有 $R_n = 0$。这个论证在流形上不需要修改，因为它只涉及 Taylor 展开的逻辑，不涉及具体的平移结构。
 
-\chapter{$\tmop{Diff}(M)$ 不变性与 $N_\text{cut}=2$}
+\chapter{$\operatorname{Diff}(M)$ 不变性与 $N_\text{cut}=2$}
 
-在 $\mathbb{R}^d$ 上，Galilean 不变性选定了 $N_\text{cut}=2$。但 Galilean 不变性依赖于平坦时空的直译结构（惯性系、匀速直线运动），这些概念在弯曲流形上不再有全局意义。自然的替代是\textbf{一般协变性}（general covariance），即 $\tmop{Diff}(M)$ 不变性：物理定律在任意微分同胚下形式不变。
+在 $\mathbb{R}^d$ 上，Galilean 不变性选定了 $N_\text{cut}=2$。但 Galilean 不变性依赖于平坦时空的直译结构（惯性系、匀速直线运动），这些概念在弯曲流形上不再有全局意义。自然的替代是\textbf{一般协变性}（general covariance），即 $\operatorname{Diff}(M)$ 不变性：物理定律在任意微分同胚下形式不变。
 
 \section{波函数的变换性质}
 
@@ -531,7 +526,7 @@ H(p,x,t) = \sum_{n=0}^{N_\text{cut}} \frac{(-\mathi)^n}{n!} R_n^\alpha(x,t) \, p
   
   \item[$n=1$] $R_1^\alpha(x)$ 是协变向量场（1-形式）。在无电磁场的一般情形下，不破坏各向同性的唯一选择是 $R_1^\alpha = 0$。但我们也可以保留 $R_1^\alpha$ 来描述 $U(1)$ 规范场（如磁场），此时它与矢势 $A_\alpha(x)$ 相关。
   
-  \item[$n=2$] $R_2^{\alpha\beta}(x)$ 是 $(0,2)$ 阶对称协变张量。在 $M$ 上，度规 $g^{\alpha\beta}$ 是唯一自然的 $(2,0)$ 阶张量，其逆 $g_{\alpha\beta}$ 是 $(0,2)$ 阶张量。$\tmop{Diff}(M)$ 不变性要求 $R_2^{\alpha\beta} \propto g^{\alpha\beta}$。比例系数由物理常数确定：
+  \item[$n=2$] $R_2^{\alpha\beta}(x)$ 是 $(0,2)$ 阶对称协变张量。在 $M$ 上，度规 $g^{\alpha\beta}$ 是唯一自然的 $(2,0)$ 阶张量，其逆 $g_{\alpha\beta}$ 是 $(0,2)$ 阶张量。$\operatorname{Diff}(M)$ 不变性要求 $R_2^{\alpha\beta} \propto g^{\alpha\beta}$。比例系数由物理常数确定：
     \[
     R_2^{\alpha\beta}(x) = -\frac{1}{m} g^{\alpha\beta}(x).
     \]
@@ -539,7 +534,7 @@ H(p,x,t) = \sum_{n=0}^{N_\text{cut}} \frac{(-\mathi)^n}{n!} R_n^\alpha(x,t) \, p
   \item[$n \ge 3$] $R_n^\alpha(x)$ 是 $(0,n)$ 阶协变张量。在不引入额外结构场的情况下，唯一的来源是度规和曲率张量的协变导数。但任何这样的构造都会引入额外的参数（耦合常数），并且使得 Hamiltonian 包含高阶导数，对应非局域效应。\textbf{最小耦合原理}（minimal coupling principle）要求不引入多余参数——这意味着 $R_n = 0$ 对 $n \ge 3$。
 \end{description}
 
-因此 $\tmop{Diff}(M)$ 不变性 + 最小耦合原理强制 $N_\text{cut} = 2$。
+因此 $\operatorname{Diff}(M)$ 不变性 + 最小耦合原理强制 $N_\text{cut} = 2$。
 
 \section{Hermitianity 的兼容性}
 
@@ -591,7 +586,7 @@ S[p,x] = \int \mathd t \left[ p_\alpha \dot{x}^\alpha - \frac{1}{2m} g^{\alpha\b
   
   \item \textbf{曲率修正} 通过 Van Vleck 行列式 $J_y(\xi)$ 进入矩 $R_n$，其中 $J_y(\xi)$ 的展开涉及 Ricci 曲率。
   
-  \item \textbf{$\tmop{Diff}(M)$ 不变性}（一般协变性）取代 Galilean 不变性，强制 $N_\text{cut}=2$ 并固定 $R_2 = -g^{\alpha\beta}/m$，从而得到 Laplace--Beltrami 算子作为动能项。
+  \item \textbf{$\operatorname{Diff}(M)$ 不变性}（一般协变性）取代 Galilean 不变性，强制 $N_\text{cut}=2$ 并固定 $R_2 = -g^{\alpha\beta}/m$，从而得到 Laplace--Beltrami 算子作为动能项。
 \end{enumerate}
 
 最终得到的 Schrödinger 方程
