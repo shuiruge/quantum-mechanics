@@ -1,14 +1,18 @@
-TARGET = quantum
-LATEX  = pdflatex -interaction=nonstopmode -halt-on-error
+TARGETS = quantum manifold
+LATEX   = pdflatex -interaction=nonstopmode -halt-on-error
+XELATEX = xelatex -interaction=nonstopmode -halt-on-error
 
 .PHONY: all clean
 
-all: $(TARGET).pdf
+all: $(TARGETS:%=%.pdf)
+
+manifold.pdf: manifold.tex
+	$(XELATEX) manifold.tex
+	$(XELATEX) manifold.tex
+
+quantum.pdf: quantum.tex
+	$(LATEX) quantum.tex
+	$(LATEX) quantum.tex
 
 clean:
-	rm -f $(TARGET).pdf *.aux *.log *.out *.toc *.lof *.lot *.bbl *.blg *.synctex.gz
-
-$(TARGET).pdf: $(TARGET).tex
-	$(LATEX) $(TARGET).tex
-	$(LATEX) $(TARGET).tex
-	rm -f *.aux *.log *.out *.toc *.lof *.lot *.bbl *.blg *.synctex.gz
+	rm -f $(TARGETS:%=%.pdf) *.aux *.log *.out *.toc *.lof *.lot *.bbl *.blg *.synctex.gz

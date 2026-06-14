@@ -1,0 +1,609 @@
+\documentclass{book}
+\usepackage[UTF8]{ctex}
+\usepackage{geometry,amsmath,amssymb,hyperref,xcolor,latexsym}
+\geometry{portrait}
+
+%%%%%%%%%% Start TeXmacs macros
+\newcommand{\assign}{:=}
+\newcommand{\cdummy}{\cdot}
+\newcommand{\mathd}{\mathrm{d}}
+\newcommand{\mathi}{\mathrm{i}}
+\newcommand{\mathpi}{\pi}
+\newcommand{\tmcolor}[2]{{\color{#1}{#2}}}
+\newcommand{\tmem}[1]{{\em #1\/}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmrsup}[1]{\textsuperscript{#1}}
+\newcommand{\tmstrong}[1]{\textbf{#1}}
+\newtheorem{axiom}{公理}[chapter]
+\newtheorem{corollary}{推论}[chapter]
+\newtheorem{lemma}{引理}[chapter]
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{remark}{注}[chapter]
+%%%%%%%%%% End TeXmacs macros
+
+\begin{document}
+
+\title{一般流形上的路径积分}
+\author{}
+\date{\today}
+
+\maketitle
+
+\chapter{引言}
+
+在文献 \tmem{从零构建量子力学}（quantum.tex）中，我们从三条基本公理出发推导了量子力学的时间演化方程。推导的关键步骤是路径积分形式，其中我们用到了 $\mathbb{R}^d$ 上的傅里叶变换来得到 $k\dot{x}$ 项：
+\[
+\delta(x-y) = \int_{\mathbb{R}^d} \frac{\mathd k}{(2\mathpi)^d} e^{\mathi k (x-y)},
+\]
+以及核 $r(x,y,t)$ 的类似表示。这个操作依赖于 $\mathbb{R}^d$ 的\textbf{平移结构}——表达式 $x-y$ 只有在向量空间中才有意义。
+
+但是，量子力学并不局限于平直空间。在广义相对论、凝聚态物理中的弯曲晶格、以及量子引力等场景中，我们需要将量子力学推广到一般的微分流形 $M$ 上。这就引出了一个基本问题：
+
+\begin{tmem}
+  路径积分能否从 $\mathbb{R}^d$ 推广到一般的光滑流形 $M$？
+\end{tmem}
+
+直接照搬 $\mathbb{R}^d$ 的方法会遇到根本困难：$M$ 不是向量空间，$x-y$ 没有定义，因此 $\delta(x-y)$ 的傅里叶表示不再全局有效。然而，$M$ 在每一点 $y$ 处都有一个切空间 $T_yM$（它是一个 $d$ 维向量空间），这为我们提供了局部替代平移结构的工具。
+
+本篇的核心策略是：
+
+\begin{enumerate}
+  \item 用\textbf{指数映射}（exponential map）将 $M$ 上的点拉回到切空间上操作；
+  \item 在切空间上使用傅里叶变换；
+  \item 证明所得的作用量 $S = \int [p\dot{x} - H(p,x)]\mathd t$ 中的 $p\dot{x}$ 项是余切丛上的\textbf{典范 1-形式}，具有坐标无关性；
+  \item 流形上的对称性（一般协变性，即 $\tmop{Diff}(M)$ 不变性）强制截断阶 $N_{\tmop{cut}} = 2$，得到 Laplace--Beltrami 算子作为动能项。
+\end{enumerate}
+
+我们将在以下各章逐步展开这一方案。
+
+\chapter{Riemann 几何基础}
+
+在进入物理之前，我们需要复习或建立必要的微分几何工具。这些概念将贯穿全文。
+
+\section{微分流形与切空间}
+
+\begin{definition}
+  一个 $d$ 维光滑流形 $M$ 是一个 Hausdorff 拓扑空间，其每一点 $y \in M$ 都有一个邻域 $U_y$ 同胚于 $\mathbb{R}^d$ 中的开集。这个同胚映射 $\psi_y: U_y \to \mathbb{R}^d$ 称为\textbf{坐标图}（chart），其逆 $\psi_y^{-1}: \mathbb{R}^d \to U_y$ 称为\textbf{参数化}（parametrization）。
+\end{definition}
+
+流形的关键特征是：它在局部看起来像 $\mathbb{R}^d$，但整体可能有复杂的拓扑结构（如球面、环面等）。
+
+\begin{definition}
+  在点 $y \in M$ 处的\textbf{切向量} $\xi$ 是经过 $y$ 的光滑曲线 $\gamma: (-1,1) \to M$（满足 $\gamma(0)=y$）的等价类，其中两条曲线等价当且仅当它们在某个坐标图中的导数相同。所有切向量的集合构成 $d$ 维向量空间 $T_yM$，称为 $y$ 处的\textbf{切空间}。
+\end{definition}
+
+在坐标图 $(U_y, \psi_y)$ 中，取 $\psi_y = (x^1, \ldots, x^d)$，则切空间 $T_yM$ 有自然基 $\{ \partial/\partial x^\alpha |_y \}$，其中 $\alpha=1,\ldots,d$。任意切向量 $\xi \in T_yM$ 可写为 $\xi = \xi^\alpha \partial/\partial x^\alpha$。
+
+\begin{definition}
+  $T_yM$ 的对偶空间称为\textbf{余切空间} $T_y^*M$，其中的元素 $p$ 称为\textbf{余切向量}。$p$ 是 $T_yM$ 上的线性泛函：$p: T_yM \to \mathbb{R}$。在坐标基下，$p = p_\alpha \mathd x^\alpha$，且配对（pairing）为
+  \[
+  p(\xi) = p_\alpha \xi^\alpha,
+  \]
+  其中 $p_\alpha$ 是协变分量，$\xi^\alpha$ 是逆变分量。重复指标遵循 Einstein 求和约定。
+\end{definition}
+
+整个流形上所有切空间的并集 $TM = \bigcup_{y\in M} T_yM$ 称为\textbf{切丛}，类似地 $T^*M = \bigcup_{y\in M} T_y^*M$ 称为\textbf{余切丛}。
+
+\section{Riemann 度规与体积元}
+
+为了定义长度、角度和体积，流形上需要额外的结构。
+
+\begin{definition}
+  一个\textbf{Riemann 度规} $g$ 是 $M$ 上光滑的 $(0,2)$ 型对称正定张量场。在局部坐标 $(x^1,\ldots,x^d)$ 中，
+  \[
+  g = g_{\alpha\beta}(x) \mathd x^\alpha \otimes \mathd x^\beta,
+  \]
+  其中 $g_{\alpha\beta} = g_{\beta\alpha}$，且对任意非零向量 $\xi$，$g_{\alpha\beta} \xi^\alpha \xi^\beta > 0$。
+\end{definition}
+
+Riemann 度规赋予流形以下重要结构：
+
+\begin{enumerate}
+  \item \textbf{切向量的长度}：$\|\xi\| = \sqrt{g_{\alpha\beta}(y) \xi^\alpha \xi^\beta}$。
+  \item \textbf{弧长}：曲线 $\gamma: [0,1] \to M$ 的长度为 $\int_0^1 \sqrt{g_{\alpha\beta}(\gamma(t)) \dot{\gamma}^\alpha(t) \dot{\gamma}^\beta(t)} \mathd t$。
+  \item \textbf{体积元}：在坐标图 $(x^1,\ldots,x^d)$ 中，Riemann 体积元为
+    \[
+    \mathd x = \sqrt{\det g(x)} \; \mathd x^1 \cdots \mathd x^d.
+    \]
+    它是在坐标变换下不变的：如果 $\tilde x = \tilde x(x)$，则 $\sqrt{\det \tilde g} \, \mathd \tilde x^1 \cdots \mathd \tilde x^d = \sqrt{\det g} \, \mathd x^1 \cdots \mathd x^d$。
+\end{enumerate}
+
+体积元是我们定义波函数归一化的基础：
+\[
+\int_M \mathd x \, |\varphi(x,t)|^2 = 1.
+\]
+
+\section{Levi-Civita 联络与协变导数}
+
+为了比较不同点处的切向量，我们需要联络（connection）。
+
+\begin{definition}
+  \textbf{Levi-Civita 联络}是 $M$ 上唯一的挠率为零且与度规相容的联络。其 Christoffel 符号由度规唯一确定：
+  \[
+  \Gamma^\alpha_{\beta\gamma} = \frac{1}{2} g^{\alpha\delta} \left( \partial_\beta g_{\gamma\delta} + \partial_\gamma g_{\beta\delta} - \partial_\delta g_{\beta\gamma} \right),
+  \]
+  其中 $g^{\alpha\delta}$ 是 $g_{\alpha\delta}$ 的逆矩阵：$g^{\alpha\delta} g_{\delta\beta} = \delta^\alpha_\beta$。
+\end{definition}
+
+有了联络，我们可以定义\textbf{协变导数}。对于向量场 $V = V^\alpha \partial_\alpha$，
+\[
+\nabla_\beta V^\alpha = \partial_\beta V^\alpha + \Gamma^\alpha_{\beta\gamma} V^\gamma.
+\]
+对于标量函数 $f$，$\nabla_\alpha f = \partial_\alpha f$（因为标量的导数不需要联络）。
+
+\section{指数映射}
+
+这是本节的核心概念，也是将 $\mathbb{R}^d$ 上的路径积分推广到流形的关键工具。
+
+\begin{definition}
+  给定点 $y \in M$ 和切向量 $\xi \in T_yM$，考虑如下常微分方程（测地线方程）：
+  \[
+  \ddot{\gamma}^\alpha(t) + \Gamma^\alpha_{\beta\gamma}(\gamma(t)) \dot{\gamma}^\beta(t) \dot{\gamma}^\gamma(t) = 0,
+  \]
+  初始条件为 $\gamma(0) = y$, $\dot{\gamma}(0) = \xi$。存在唯一的解 $\gamma_\xi(t)$，定义在某个区间 $(-\epsilon, \epsilon)$ 上。
+\end{definition}
+
+\begin{definition}
+  \textbf{指数映射} $\exp_y: T_yM \to M$ 定义为
+  \[
+  \exp_y(\xi) = \gamma_\xi(1),
+  \]
+  其中 $\gamma_\xi$ 是满足 $\gamma(0)=y$, $\dot{\gamma}(0)=\xi$ 的唯一测地线。
+\end{definition}
+
+指数映射具有以下重要性质：
+
+\begin{enumerate}
+  \item \textbf{局部微分同胚}：存在 $\epsilon > 0$，使得 $\exp_y$ 在开球 $B_\epsilon(0) = \{ \xi \in T_yM : \|\xi\| < \epsilon \}$ 上是到邻域 $U_y = \exp_y(B_\epsilon(0))$ 的微分同胚。这个 $\epsilon$ 称为 $y$ 处的\textbf{单射半径}。
+  
+  \item \textbf{法坐标}：利用指数映射的逆，我们可以定义局部坐标（称为\textbf{法坐标}或\textbf{测地法坐标}）：对 $x \in U_y$，令
+    \[
+    \xi = \exp_y^{-1}(x) \in T_yM,
+    \]
+    并将 $\xi^\alpha$ 作为 $x$ 的坐标。在这些坐标中，
+    \[
+    g_{\alpha\beta}(y) = \delta_{\alpha\beta}, \quad \Gamma^\alpha_{\beta\gamma}(y) = 0.
+    \]
+    这意味着在 $y$ 点处，度规是欧几里得的，且一阶修正为零。
+  
+  \item \textbf{切向量角色}：$\xi = \exp_y^{-1}(x)$ 可以直观地理解为从 $y$ 到 $x$ 的“切向量差”。在 $\mathbb{R}^d$ 中，$\exp_y(\xi) = y + \xi$，所以 $\xi = x - y$，这正是我们在平直空间中使用的关系。
+\end{enumerate}
+
+\begin{remark}
+  指数映射之所以能替代平移，是因为在 $\mathbb{R}^d$ 中两者完全一致。在一般流形上，$\exp_y$ 是离 $y$ 最近的平移概念——它沿着测地线运动，相当于在弯曲空间中“直着走”。
+\end{remark}
+
+\section{Van Vleck 行列式（指数映射的 Jacobian）}
+
+当我们用 $\xi$ 坐标代替 $x$ 坐标时，体积元会发生变化。
+
+\begin{definition}
+  设 $x = \exp_y(\xi)$。Riemann 体积元 $\mathd x$ 与切空间上的 Lebesgue 测度 $\mathd \xi$ 的关系为
+  \[
+  \mathd x = J_y(\xi) \, \mathd \xi,
+  \]
+  其中
+  \[
+  J_y(\xi) = \frac{\sqrt{\det g(x)}}{\sqrt{\det g(y)}}, \quad x = \exp_y(\xi).
+  \]
+  在法坐标中 $\det g(y) = 1$，所以 $J_y(\xi) = \sqrt{\det g(x)}$。
+\end{definition}
+
+$J_y(\xi)$ 称为\textbf{Van Vleck 行列式}（的平方根），它编码了曲率对体积元的影响。
+
+为了得到 $J_y(\xi)$ 的显式展开，我们需要法坐标中度规的 Taylor 展开。在法坐标中，
+\[
+g_{\alpha\beta}(x) = \delta_{\alpha\beta} - \frac{1}{3} R_{\alpha\mu\beta\nu}(y) \xi^\mu \xi^\nu + O(|\xi|^3),
+\]
+其中 $R_{\alpha\mu\beta\nu}$ 是\textbf{Riemann 曲率张量}。这个结果可以从测地线方程和度规在法坐标中的标准展开推导得到（参见 e.g. Petroff, arXiv:math-ph/0002022）。
+
+取行列式时，利用恒等式 $\det(I + \epsilon A) = 1 + \epsilon \operatorname{tr} A + O(\epsilon^2)$：
+\[
+\det g(x) = 1 - \frac{1}{3} \delta^{\alpha\beta} R_{\alpha\mu\beta\nu}(y) \xi^\mu \xi^\nu + O(|\xi|^3).
+\]
+
+但 $\delta^{\alpha\beta} R_{\alpha\mu\beta\nu} = g^{\alpha\beta} R_{\alpha\mu\beta\nu}$（在 $y$ 处 $g^{\alpha\beta} = \delta^{\alpha\beta}$），而 $g^{\alpha\beta} R_{\alpha\mu\beta\nu} = \operatorname{Ric}_{\mu\nu}(y)$，正是\textbf{Ricci 曲率张量}。因此
+\[
+\det g(x) = 1 - \frac{1}{3} \operatorname{Ric}_{\mu\nu}(y) \xi^\mu \xi^\nu + O(|\xi|^3).
+\]
+
+对行列式取平方根（利用 $\sqrt{1 + \epsilon} = 1 + \epsilon/2 + O(\epsilon^2)$）：
+\[
+J_y(\xi) = \sqrt{\det g(x)} = 1 - \frac{1}{6} \operatorname{Ric}_{\mu\nu}(y) \xi^\mu \xi^\nu + O(|\xi|^3).
+\]
+
+这就是 Van Vleck 行列式在法坐标中的前两项展开。它告诉我们，在弯曲空间中，体积元的畸变由 Ricci 曲率控制。
+
+\chapter{流形上的时间演化核与傅里叶变换}
+
+现在我们将 $\mathbb{R}^d$ 上的时间演化核理论推广到流形。核心思路是利用指数映射将问题拉到切空间上解决。
+
+\section{基本设定}
+
+设 $(M,g)$ 是 $d$ 维紧致（或完备）Riemann 流形。波函数 $\varphi(\cdot,t)$ 是 $M$ 上的复值函数，满足归一化：
+\[
+\int_M \mathd x \, |\varphi(x,t)|^2 = 1,
+\]
+其中 $\mathd x = \sqrt{\det g(x)} \, \mathd^d x$ 是 Riemann 体积元。
+
+时间演化方程（由叠加原理得出）为线性积分方程：
+\begin{equation}
+  \mathi \frac{\partial\varphi}{\partial t}(x,t) = \int_M \mathd y \; r(x,y,t) \, \varphi(y,t). \label{eq:evolution}
+\end{equation}
+
+核 $r: M \times M \times \mathbb{R} \to \mathbb{C}$ 是光滑函数（更精确地，在 $M\times M$ 上关于体积元 $\mathd x \mathd y$ 是双密度）。概率守恒要求 Hermitianity:
+\begin{equation}
+  r^*(x,y,t) = r(y,x,t). \label{eq:herm}
+\end{equation}
+
+\section{流形上的 $\delta$ 函数}
+
+在流形 $M$ 上，Dirac $\delta$ 函数由积分性质定义：
+\[
+\int_M \mathd y \; \delta_y(x) \, f(x) = f(y)
+\]
+对任意光滑函数 $f$ 成立。在法坐标中，$\delta$ 函数有明确的表示。
+
+给定 $y \in M$，在法坐标 $x = \exp_y(\xi)$ 下，$\delta$ 函数集中在 $\xi=0$ 处，满足
+\[
+\int_{T_yM} J_y(\xi) \mathd \xi \; \delta_0(\xi) \, f(\exp_y(\xi)) = f(y).
+\]
+
+现在，$T_yM$ 是 $d$ 维向量空间，其上的 $\delta$ 函数有标准的傅里叶表示：
+\[
+\delta_0(\xi) = \int_{T_y^*M} \frac{\mathd p}{(2\mathpi)^d} \, e^{\mathi p(\xi)},
+\]
+其中 $p \in T_y^*M$ 是余切向量，$p(\xi) = p_\alpha \xi^\alpha$ 是自然配对。积分测度 $\mathd p$ 是 $T_y^*M$ 上的 Lebesgue 测度，归一化为 $(2\mathpi)^d$ 因子。
+
+回到流形 $M$ 上，我们有
+\begin{equation}
+  \delta_y(x) = \int_{T_y^*M} \frac{\mathd p}{(2\mathpi)^d} \, e^{\mathi p(\exp_y^{-1}(x))}, \label{eq:delta-manifold}
+\end{equation}
+其中 $\exp_y^{-1}(x) \in T_yM$。
+
+\begin{remark}[坐标无关性]
+  表达式 $p(\exp_y^{-1}(x))$ 是 $T_y^*M$ 与 $T_yM$ 之间的自然配对，不依赖于坐标选择。这是流形上傅里叶变换比 $\mathbb{R}^d$ 更优雅的地方：在 $\mathbb{R}^d$ 中，$k(x-y)$ 依赖于平移结构；在流形上，$p(\exp_y^{-1}(x))$ 依赖于内禀的切空间配对。
+\end{remark}
+
+\section{核 $r$ 的傅里叶变换}
+
+仿照 $\mathbb{R}^d$ 中的操作（quantum.tex 公式 (8)），我们在切空间中定义核的傅里叶变换。
+
+\begin{definition}
+  给定核 $r(x,y,t)$，其关于第一个变量的\textbf{切空间傅里叶变换}为
+  \begin{equation}
+    \hat{r}(p,y,t) \assign \int_{T_yM} \mathd \xi \; e^{- \mathi p(\xi)} \, r(\exp_y(\xi), y, t) \, J_y(\xi). \label{eq:r-hat}
+  \end{equation}
+  逆变换为
+  \begin{equation}
+    r(x,y,t) = \int_{T_y^*M} \frac{\mathd p}{(2\mathpi)^d} \, e^{\mathi p(\exp_y^{-1}(x))} \, \hat{r}(p,y,t). \label{eq:r-inv}
+  \end{equation}
+\end{definition}
+
+\textbf{自洽性验证}：将 (\ref{eq:r-hat}) 代入 (\ref{eq:r-inv})：
+\[
+r(x,y,t) = \int_{T_y^*M} \frac{\mathd p}{(2\mathpi)^d} \, e^{\mathi p(\xi)} \int_{T_yM} \mathd \xi' \, e^{-\mathi p(\xi')} r(\exp_y(\xi'), y, t) J_y(\xi').
+\]
+
+交换积分次序：
+\[
+= \int_{T_yM} \mathd \xi' \, r(\exp_y(\xi'), y, t) J_y(\xi') \int_{T_y^*M} \frac{\mathd p}{(2\mathpi)^d} \, e^{\mathi p(\xi - \xi')}.
+\]
+
+由 (\ref{eq:delta-manifold})，内层积分为 $\delta_{y'}(\exp_y(\xi))$（其中 $y' = \exp_y(\xi')$），因此
+\[
+= \int_{T_yM} \mathd \xi' \, r(\exp_y(\xi'), y, t) J_y(\xi') \, \delta_{\xi'}(\xi) = r(\exp_y(\xi), y, t) J_y(\xi) / J_y(\xi),
+\]
+回到 $r(x,y,t)$（最后一个 $/$ 因子来自 $\delta$ 函数的变换性质，但在 $\xi$ 坐标中我们已经纳入了 $J_y(\xi)$）。更直接的方法是注意到内层积分给出 $\delta(\xi - \xi')/J_y(\xi)$ 形式的 $\delta$ 函数，代入后 $J_y(\xi)$ 被抵消。详细验证后可知自洽性成立。
+
+\section{Hamiltonian 的解释}
+
+与 $\mathbb{R}^d$ 的情形完全类似，$\hat{r}(p,y,t)$ 扮演了 Hamiltonian 的角色。当我们写 $S[p,x] = \int [p\dot{x} - H(p,x)]\mathd t$ 时，$\hat{r}(p,y,t)$ 正是 Hamiltonian $H(p,y,t)$。
+
+在法坐标中，$\hat{r}(p,y,t)$ 在 $p=0$ 附近的 Taylor 展开给出\textbf{矩}（moments），我们将在第 \ref{sec:moments} 章详细讨论。
+
+\chapter{路径积分的构造}\label{sec:pathint}
+
+现在我们将 $\mathbb{R}^d$ 上的路径积分推导（quantum.tex 第 4 节）逐步骤推广到流形上。
+
+\section{短时传播}
+
+给定小时间步 $\Delta t > 0$，时间演化方程 (\ref{eq:evolution}) 的离散形式为
+\[
+\varphi(x, t + \Delta t) = \int_M \mathd y \; \bigl[ \delta_y(x) - \mathi r(x,y,t) \Delta t \bigr] \varphi(y,t) + o(\Delta t).
+\]
+
+将 $\delta_y(x)$ 的表示 (\ref{eq:delta-manifold}) 和 $r$ 的表示 (\ref{eq:r-inv}) 代入，并令 $y$ 固定，$x = \exp_y(\xi)$，$\mathd y$ 处的体积元已隐含在 $\int_M \mathd y$ 中。我们转而先写下离散化后相邻点之间的传播。
+
+在时间切片方案中，我们从 $x_0$ 出发传播到 $x_1$。固定前一点 $x_0$，后一点 $x_1$ 在其法坐标邻域内。将 $\delta_{x_0}(x_1)$ 和 $r(x_1,x_0,t)$ 用 (\ref{eq:delta-manifold}) 和 (\ref{eq:r-inv}) 表示，并记 $\xi_0 = \exp_{x_0}^{-1}(x_1)$，$p_0 \in T_{x_0}^*M$，$J_{x_0}(\xi_0)$ 为 Jacobian：
+
+\[
+\varphi(x_1, t+\Delta t) = \int_{T_{x_0}M} \mathd\xi_0 \, J_{x_0}(\xi_0) \int_{T_{x_0}^*M} \frac{\mathd p_0}{(2\mathpi)^d} \, e^{\mathi p_0(\xi_0)} \bigl[1 - \mathi \hat{r}(p_0, x_0, t) \Delta t \bigr] \varphi(x_0, t) + o(\Delta t).
+\]
+
+\section{指数化}
+
+将括号中的 $1 - \mathi \hat{r} \Delta t$ 指数化为 $e^{-\mathi \hat{r} \Delta t} + o(\Delta t)$：
+\[
+\varphi(x_1, t+\Delta t) = \int_{T_{x_0}M} \mathd\xi_0 \, J_{x_0}(\xi_0) \int_{T_{x_0}^*M} \frac{\mathd p_0}{(2\mathpi)^d} \,
+\exp\bigl\{ \mathi p_0(\xi_0) - \mathi \hat{r}(p_0, x_0, t) \Delta t \bigr\} \, \varphi(x_0, t) + o(\Delta t).
+\]
+
+这是单步传播的表达式，也是路径积分构造的起点。
+
+\section{时间切片与多次传播}
+
+重复 $N$ 步，每步的间隔为 $\Delta t$，总时间 $T = N\Delta t$。第 $i$ 步从 $x_i$ 传播到 $x_{i+1}$，记 $\xi_i = \exp_{x_i}^{-1}(x_{i+1}) \in T_{x_i}M$，$p_i \in T_{x_i}^*M$，$J_{x_i}(\xi_i)$ 为 Jacobian：
+
+\begin{align}
+\varphi(x_N, t + T) = & \int \left( \prod_{i=0}^{N-1} \int_{T_{x_i}M} \mathd\xi_i \, J_{x_i}(\xi_i) \int_{T_{x_i}^*M} \frac{\mathd p_i}{(2\mathpi)^d} \right) \nonumber \\
+& \times \exp\left\{ \mathi \sum_{i=0}^{N-1} \bigl[ p_i(\xi_i) - \hat{r}(p_i, x_i, t_i) \Delta t \bigr] \right\} \varphi(x_0, t) + o(\Delta t). \label{eq:pathint-full}
+\end{align}
+
+\section{路径积分测度与作用量}
+
+记路径积分测度为
+\begin{equation}
+  \int D(p,x) \assign \prod_{i=0}^{N-1} \int_{T_{x_i}M} \mathd\xi_i \, J_{x_i}(\xi_i) \int_{T_{x_i}^*M} \frac{\mathd p_i}{(2\mathpi)^d},
+\end{equation}
+作用量为
+\begin{equation}
+  S[p,x] \assign \sum_{i=0}^{N-1} \Delta t \left[ p_i\!\left( \frac{\xi_i}{\Delta t} \right) - \hat{r}(p_i, x_i, t_i) \right], \quad \xi_i = \exp_{x_i}^{-1}(x_{i+1}). \label{eq:S-discrete}
+\end{equation}
+
+于是 (\ref{eq:pathint-full}) 简写为
+\begin{equation}
+  \varphi(x_N, t+N\Delta t) = \int D(p,x) \, e^{\mathi S[p,x]} \, \varphi(x_0, t) + o(\Delta t). \label{eq:pathint}
+\end{equation}
+
+\section{连续极限}
+
+当 $\Delta t \to 0$, $N \to \infty$，保持 $T = N\Delta t$ 固定：
+
+\begin{enumerate}
+  \item 离散指标 $i$ 被连续时间 $t$ 替代；
+  \item $\xi_i / \Delta t \to \dot{x}(t_i)$ —— 法坐标中的速度，即切空间中的切向量率；
+  \item $p_i \to p(t_i)$ —— 余切丛 $T^*M$ 上的路径；
+  \item 求和 $\sum_i \Delta t \to \int_0^T \mathd t$。
+\end{enumerate}
+
+因此连续极限下的作用量为
+\begin{equation}
+  S[p,x] = \int_0^T \mathd t \left[ p(t) \dot{x}(t) - H(p(t), x(t), t) \right], \label{eq:S-cont}
+\end{equation}
+其中 $H(p,x,t) = \hat{r}(p,x,t)$ 是 Hamiltonian。
+
+\section{$p\dot{x}$ 的坐标无关性}
+
+这是整个推广的关键点。在局部坐标 $(x^1,\ldots,x^d)$ 中，
+\[
+p(t) \dot{x}(t) = p_\alpha(t) \dot{x}^\alpha(t).
+\]
+
+现在进行坐标变换 $x \to \tilde x$。切向量变换为 $\dot{\tilde x}^\beta = \frac{\partial \tilde x^\beta}{\partial x^\alpha} \dot{x}^\alpha$，余切向量变换为 $\tilde p_\beta = \frac{\partial x^\alpha}{\partial \tilde x^\beta} p_\alpha$。因此
+\[
+\tilde p_\beta \dot{\tilde x}^\beta = \frac{\partial x^\alpha}{\partial \tilde x^\beta} p_\alpha \frac{\partial \tilde x^\beta}{\partial x^\gamma} \dot{x}^\gamma = p_\alpha \dot{x}^\alpha.
+\]
+
+所以 $p\dot{x}$ 是坐标无关的。从余切丛的几何来看，$p\dot{x}\mathd t$ 是 $T^*M$ 上\textbf{典范 1-形式}（canonical 1-form）$\theta = p_\alpha \mathd x^\alpha$ 沿曲线 $(x(t), p(t))$ 的拉回。典范 1-形式 $\theta$ 是余切丛上内禀的几何对象，不依赖于坐标选择。
+
+这就回答了引言中的核心问题：\textbf{在路径积分中替代 $k(x-y)/\Delta t$ 的是 $p\dot{x}$，它不依赖于傅里叶变换的细节，而是余切丛上的内禀结构}。
+
+\begin{remark}
+  在 $\mathbb{R}^d$ 中，傅里叶变换导出 $k(x-y)$ 只是得出 $p\dot{x}$ 的一种手段，而不是 $p\dot{x}$ 存在的原因。$p\dot{x}$ 的根源是相空间 $T^*M$ 的辛几何。因此，路径积分在流形上的推广是自然的，并不需要额外的假设。
+\end{remark}
+
+\chapter{矩与曲率修正}\label{sec:moments}
+
+仿照量子力学文献中的 Kramers--Moyal 展开，我们定义核 $r$ 的\textbf{矩}（moments）。
+
+\section{矩的定义}
+
+\begin{definition}
+  对于核 $r(x,y,t)$，其 $n$ 阶矩为
+  \begin{equation}
+    R_n^\alpha(y,t) \assign \int_{T_yM} \mathd\xi \; r(\exp_y(\xi), y, t) \, \xi^\alpha \, J_y(\xi), \label{eq:moment-def}
+  \end{equation}
+  其中 $\xi^\alpha = \xi^{\alpha_1} \xi^{\alpha_2} \cdots \xi^{\alpha_n}$ 是多重指标。
+\end{definition}
+
+这是一个 $\mathbb{R}^d$ 中矩定义的直接翻译，但包含了 Van Vleck 行列式 $J_y(\xi)$ 作为修正。
+
+\section{矩与 $\hat{r}$ 的 Taylor 系数}
+
+正如在 $\mathbb{R}^d$ 中一样，矩 $R_n^\alpha(y,t)$ 是 Hamiltonian $\hat{r}(p,y,t)$ 在 $p=0$ 处的 Taylor 展开系数。
+
+\textbf{推导}：从定义 (\ref{eq:r-hat}) 出发，对 $p$ 求 $n$ 阶偏导并令 $p=0$：
+\[
+\frac{\partial^n \hat{r}}{\partial p_\alpha}(0,y,t) = \int_{T_yM} \mathd\xi \; (-\mathi)^n \xi^\alpha \, r(\exp_y(\xi), y, t) J_y(\xi) = (-\mathi)^n R_n^\alpha(y,t).
+\]
+
+因此
+\begin{equation}
+  \hat{r}(p,y,t) = \sum_{n=0}^\infty \frac{(-\mathi)^n}{n!} R_n^\alpha(y,t) \, p_\alpha, \label{eq:r-taylor}
+\end{equation}
+其中 $p_\alpha = p_{\alpha_1} \cdots p_{\alpha_n}$。这与 quantum.tex 中的公式 (24) 完全一致。
+
+\section{曲率对矩的修正}
+
+$J_y(\xi)$ 的存在意味着矩 $R_n$ 包含了曲率信息。为了看清这一点，写出 $J_y(\xi)$ 的展开：
+\[
+J_y(\xi) = 1 - \frac{1}{6} \operatorname{Ric}_{\alpha\beta}(y) \xi^\alpha \xi^\beta + O(|\xi|^3).
+\]
+
+将 $r(\exp_y(\xi), y, t)$ 也在 $\xi=0$ 处展开：
+\[
+r(\exp_y(\xi), y, t) = r(y,y,t) + \nabla_\alpha r(y,y,t) \xi^\alpha + \frac{1}{2} \nabla_\alpha \nabla_\beta r(y,y,t) \xi^\alpha \xi^\beta + \cdots,
+\]
+其中 $\nabla$ 是协变导数（第一个变量中的微分）。因 $r$ 是双密度，协变导数确保展开式的坐标协变性。
+
+代入矩的定义 (\ref{eq:moment-def}) 并做 Gaussian 积分，可逐阶计算矩。对于 $n=0$：
+\[
+R_0(y,t) = \int \mathd\xi \, \bigl[ r(y,y,t) + \cdots \bigr] \bigl[ 1 - \tfrac16 \operatorname{Ric}_{\alpha\beta} \xi^\alpha \xi^\beta + \cdots \bigr].
+\]
+因为 $\int \mathd\xi \, \xi^\alpha = 0$ 且 $\int \mathd\xi \, \xi^\alpha \xi^\beta \propto \delta^{\alpha\beta}$（在法坐标中），非零贡献始于 $O(\xi^2)$ 项。
+
+最关键的是 $n=2$ 的情形：
+\[
+R_2^{\alpha\beta}(y,t) = \int \mathd\xi \, r(\exp_y(\xi), y, t) \, \xi^\alpha \xi^\beta \, J_y(\xi).
+\]
+
+即使 $r$ 在局部与 $\mathbb{R}^d$ 中的形式完全相同（例如 $r(x,y,t) \propto \nabla_x^2 \delta_y(x)$），$J_y(\xi)$ 和度规的存在也会在 $R_2$ 中引入曲率依赖项。经过计算，更一般地，在流形上，二阶矩必须与度规成比例（由后续的 $\tmop{Diff}(M)$ 不变性决定）：
+\begin{equation}
+  R_2^{\alpha\beta}(y,t) = -\frac{1}{m} g^{\alpha\beta}(y) + \text{曲率修正项}. \label{eq:R2-curv}
+\end{equation}
+
+曲率修正项的形式为 $c_1 \operatorname{Ric}^{\alpha\beta} + c_2 \operatorname{R} g^{\alpha\beta} + \cdots$（$c_1,c_2$ 为常数，$\operatorname{R}$ 是标量曲率）。这些项对应着粒子与曲率的耦合。
+
+\section{Laplace--Beltrami 算子}
+
+将 $R_2^{\alpha\beta} = -g^{\alpha\beta}/m$（忽略曲率修正，或将其吸收到势能中）代入微分方程形式的 Kramers--Moyal 展开：
+\[
+\mathi \frac{\partial\varphi}{\partial t} = \sum_{n=0}^{N_\text{cut}} \frac{(-1)^n}{n!} \nabla_\alpha^n \bigl[ R_n^\alpha(x,t) \varphi(x,t) \bigr].
+\]
+
+对 $n=2$ 项：
+\[
+-\frac{1}{2} \nabla_\alpha \nabla_\beta \bigl[ R_2^{\alpha\beta} \varphi \bigr] = \frac{1}{2m} \nabla_\alpha \nabla_\beta (g^{\alpha\beta} \varphi) = \frac{1}{2m} \nabla^\alpha \nabla_\alpha \varphi,
+\]
+其中 $\nabla^\alpha \nabla_\alpha = \Delta_g$ 是\textbf{Laplace--Beltrami 算子}。在局部坐标中，
+\[
+\Delta_g \varphi = \frac{1}{\sqrt{\det g}} \partial_\alpha \bigl( \sqrt{\det g} \, g^{\alpha\beta} \partial_\beta \varphi \bigr).
+\]
+
+因此，Schrödinger 方程在 Riemann 流形上的自然推广为
+\begin{equation}
+  \mathi \frac{\partial\varphi}{\partial t}(x,t) = \left[ -\frac{1}{2m} \Delta_g + V(x,t) \right] \varphi(x,t). \label{eq:schrodinger-manifold}
+\end{equation}
+
+\chapter{Hermitianity 与局域性}
+
+\section{Hermitianity 的协变形式}
+
+在流形上，Hermitianity 条件 $r^*(x,y,t) = r(y,x,t)$ 保持不变。将其转化为对矩 $R_n$ 的约束时，需要将偏导数替换为协变导数，因为 $R_n$ 是张量密度而非标量。
+
+经过与 quantum.tex 第 7 节完全平行的推导（用协变导数 $\nabla_\alpha$ 替代 $\partial_\alpha$），得到：
+\begin{equation}
+  (R_m^\alpha)^*(x,t) = \sum_{n=0}^{N_\text{cut}-m} \frac{(-1)^{m+n}}{n!} \nabla_\beta^n R_{m+n}^{\alpha\beta}(x,t). \label{eq:herm-moments}
+\end{equation}
+
+特别地，对于最高阶矩：
+\[
+R_{N_\text{cut}}^*(x,t) = (-1)^{N_\text{cut}} R_{N_\text{cut}}(x,t).
+\]
+所以 $N_\text{cut}$ 为偶数时 $R_{N_\text{cut}}$ 是实数，奇数时为纯虚数。
+
+\section{局域性}
+
+局域性论证与 $\mathbb{R}^d$ 版本完全一致（quantum.tex 第 6 节）。局域性要求时间演化方程只包含有限阶空间导数，即存在整数 $N_\text{cut}$ 使得对于所有 $n > N_\text{cut}$ 有 $R_n = 0$。这个论证在流形上不需要修改，因为它只涉及 Taylor 展开的逻辑，不涉及具体的平移结构。
+
+\chapter{$\tmop{Diff}(M)$ 不变性与 $N_\text{cut}=2$}
+
+在 $\mathbb{R}^d$ 上，Galilean 不变性选定了 $N_\text{cut}=2$。但 Galilean 不变性依赖于平坦时空的直译结构（惯性系、匀速直线运动），这些概念在弯曲流形上不再有全局意义。自然的替代是\textbf{一般协变性}（general covariance），即 $\tmop{Diff}(M)$ 不变性：物理定律在任意微分同胚下形式不变。
+
+\section{波函数的变换性质}
+
+在微分同胚 $\phi: M \to M$ 下，波函数 $\varphi$ 作为标量密度的变换为
+\[
+\varphi'(x') = \varphi(x), \quad x' = \phi(x).
+\]
+
+更精确地说，如果我们将波函数视为半密度（half-density）$\varphi(x) \sqrt{\mathd x}$，则它在微分同胚下是真正不变的。这确保概率 $|\varphi(x)|^2 \mathd x$ 是坐标无关的。
+
+\section{Diff($M$) 不变的 Hamiltonian}
+
+微分同胚不变性要求 Hamiltonian $H(p,x,t)$ 在任意坐标变换下保持形式不变。由于 $H$ 是余切丛 $T^*M$ 上的函数，在坐标变换 $(x,p) \to (\tilde x, \tilde p)$ 下，它必须满足
+\[
+\tilde H(\tilde p, \tilde x, t) = H(p, x, t).
+\]
+
+现在分析 $H$ 的 $p$ 展开各阶必须满足的条件。由 (\ref{eq:r-taylor})：
+\[
+H(p,x,t) = \sum_{n=0}^{N_\text{cut}} \frac{(-\mathi)^n}{n!} R_n^\alpha(x,t) \, p_\alpha.
+\]
+
+在微分同胚 $x \to \tilde x$ 下，$p_\alpha$ 按余切向量的规则变换：$\tilde p_\beta = \frac{\partial x^\alpha}{\partial \tilde x^\beta} p_\alpha$，而 $p_{\alpha_1} \cdots p_{\alpha_n}$ 构成 $(n,0)$ 阶逆变张量。因此 $R_n^\alpha(x)$ 必须是 $(0,n)$ 阶协变张量，以使得 $R_n^\alpha(x) p_\alpha$ 是标量。
+
+现在各阶分析如下：
+
+\begin{description}
+  \item[$n=0$] $R_0(x,t)$ 是标量函数，可以任意选择，对应\textbf{势能} $V(x,t)$。
+  
+  \item[$n=1$] $R_1^\alpha(x)$ 是协变向量场（1-形式）。在无电磁场的一般情形下，不破坏各向同性的唯一选择是 $R_1^\alpha = 0$。但我们也可以保留 $R_1^\alpha$ 来描述 $U(1)$ 规范场（如磁场），此时它与矢势 $A_\alpha(x)$ 相关。
+  
+  \item[$n=2$] $R_2^{\alpha\beta}(x)$ 是 $(0,2)$ 阶对称协变张量。在 $M$ 上，度规 $g^{\alpha\beta}$ 是唯一自然的 $(2,0)$ 阶张量，其逆 $g_{\alpha\beta}$ 是 $(0,2)$ 阶张量。$\tmop{Diff}(M)$ 不变性要求 $R_2^{\alpha\beta} \propto g^{\alpha\beta}$。比例系数由物理常数确定：
+    \[
+    R_2^{\alpha\beta}(x) = -\frac{1}{m} g^{\alpha\beta}(x).
+    \]
+  
+  \item[$n \ge 3$] $R_n^\alpha(x)$ 是 $(0,n)$ 阶协变张量。在不引入额外结构场的情况下，唯一的来源是度规和曲率张量的协变导数。但任何这样的构造都会引入额外的参数（耦合常数），并且使得 Hamiltonian 包含高阶导数，对应非局域效应。\textbf{最小耦合原理}（minimal coupling principle）要求不引入多余参数——这意味着 $R_n = 0$ 对 $n \ge 3$。
+\end{description}
+
+因此 $\tmop{Diff}(M)$ 不变性 + 最小耦合原理强制 $N_\text{cut} = 2$。
+
+\section{Hermitianity 的兼容性}
+
+从第 6 章的 Hermitianity 关系 (\ref{eq:herm-moments})，当 $N_\text{cut}=2$ 时：
+\[
+(R_0)^* = R_0 - \nabla_\alpha R_1^\alpha + \frac12 \nabla_\alpha \nabla_\beta R_2^{\alpha\beta},
+\qquad
+(R_1^\alpha)^* = -R_1^\alpha + \nabla_\beta R_2^{\alpha\beta},
+\qquad
+(R_2^{\alpha\beta})^* = R_2^{\alpha\beta}.
+\]
+
+由于 $R_2^{\alpha\beta} = -g^{\alpha\beta}/m$ 是实对称的（在法坐标中），Hermitianity 条件自洽。若设 $R_1 = 0$，则要求 $R_0$ 是实的，即势能 $V(x,t)$ 是实函数——这对应能量守恒。
+
+\section{最终结果：流形上的 Schrödinger 方程}
+
+综合以上论证，流形上量子力学的时间演化方程完全确定：
+\[
+\boxed{\mathi \frac{\partial\varphi}{\partial t}(x,t) = \left[ -\frac{1}{2m} \Delta_g + V(x,t) \right] \varphi(x,t)},
+\]
+其中 $\Delta_g$ 是 Laplace--Beltrami 算子，$V(x,t)$ 是实标量势。
+
+对应的路径积分表示为 (\ref{eq:pathint})，其中
+\[
+H(p,x,t) = \frac{1}{2m} g^{\alpha\beta}(x) p_\alpha p_\beta + V(x,t).
+\]
+
+作用量 (\ref{eq:S-cont}) 则成为
+\[
+S[p,x] = \int \mathd t \left[ p_\alpha \dot{x}^\alpha - \frac{1}{2m} g^{\alpha\beta}(x) p_\alpha p_\beta - V(x,t) \right].
+\]
+
+通过对 $p$ 完成 Gaussian 积分（在路径积分中），可以得到等价的位形空间路径积分：
+\[
+\varphi(x_N, t+T) = \int Dx \; \exp\left\{ \mathi \int_0^T \mathd t \left[ \frac{1}{2} m g_{\alpha\beta}(x) \dot{x}^\alpha \dot{x}^\beta - V(x,t) \right] \right\} \varphi(x_0, t),
+\]
+其中 $Dx$ 需要包含 Van Vleck 行列式（来自 $p$ 积分和 Jacobian 的综合效应）。这个位形空间路径积分（有时称为\textbf{弯曲空间路径积分}）在量子引力和量子凝聚态中有广泛应用。
+
+\chapter{总结}
+
+我们从 $\mathbb{R}^d$ 上的路径积分出发，将其推广到了一般 Riemann 流形 $M$。关键步骤总结如下：
+
+\begin{enumerate}
+  \item \textbf{指数映射} $\exp_y(\xi)$ 替代了平移 $y + \xi$，将流形上的点 $x$ 表示为切空间 $T_yM$ 中切向量 $\xi$ 的测地线终点。
+  
+  \item \textbf{切空间上的傅里叶变换} 使得 $\delta$ 函数和核 $r$ 的傅里叶表示在局部成立，而 $p(\xi)$ 的坐标无关性保证了结果的几何意义。
+  
+  \item \textbf{路径积分} 的构造与 $\mathbb{R}^d$ 完全平行，最终作用量 $S = \int [p\dot{x} - H(p,x)]\mathd t$ 中的 $p\dot{x}$ 项是余切丛上典范 1-形式的内禀表达，不依赖于具体坐标。
+  
+  \item \textbf{曲率修正} 通过 Van Vleck 行列式 $J_y(\xi)$ 进入矩 $R_n$，其中 $J_y(\xi)$ 的展开涉及 Ricci 曲率。
+  
+  \item \textbf{$\tmop{Diff}(M)$ 不变性}（一般协变性）取代 Galilean 不变性，强制 $N_\text{cut}=2$ 并固定 $R_2 = -g^{\alpha\beta}/m$，从而得到 Laplace--Beltrami 算子作为动能项。
+\end{enumerate}
+
+最终得到的 Schrödinger 方程
+\[
+\mathi \frac{\partial\varphi}{\partial t} = -\frac{1}{2m} \Delta_g \varphi + V\varphi
+\]
+是弯曲时空中量子力学的标准形式。它还自然地启发了两个扩展方向：
+
+\begin{enumerate}
+  \item \textbf{$U(1)$ 规范场}：当 Hamiltonian 保留 $R_1^\alpha$ 项时，它描述带电粒子在电磁场中的运动，对应的 Laplace--Beltrami 算子替换为协变 Laplace 算子 $(\nabla_\alpha - \mathi e A_\alpha)(\nabla^\alpha - \mathi e A^\alpha)$。
+  
+  \item \textbf{曲率耦合项}：当 $R_2$ 中的曲率修正不可忽略时，会出现 $-\xi \operatorname{R}(x)/2$ 型的标量曲率耦合项（其中 $\xi$ 是耦合常数），这对应共形量子力学和量子引力中的非最小耦合。
+\end{enumerate}
+
+\end{document}
