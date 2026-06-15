@@ -168,6 +168,8 @@ Riemann 度规赋予流形以下重要结构：
   指数映射之所以能替代平移，是因为在 $\mathbb{R}^d$ 中两者完全一致。在一般流形上，$\exp_y$ 是离 $y$ 最近的平移概念——它沿着测地线运动，相当于在弯曲空间中“直着走”。
 \end{remark}
 
+在以上性质中，$\epsilon$ 称为 $y$ 处的\textbf{单射半径} $r_{\mathrm{inj}}(y) \assign \sup\{ r > 0 \mid \exp_y \text{ 在 } B_r(0) \subset T_yM \text{ 上是微分同胚} \}$。对紧致流形 $M$，全局单射半径 $r_{\mathrm{inj}}(M) = \inf_{y\in M} r_{\mathrm{inj}}(y) > 0$。在后续的路径积分构造中，$\exp_y^{-1}(x)$ 仅在 $x$ 位于此球内时才被使用。附录 \ref{appendix:locality} 将证明，短时传播子的局域性使得这一条件在有效支集上自动满足。
+
 \section{Van Vleck 行列式（指数映射的 Jacobian）}
 
 当我们用 $\xi$ 坐标代替 $x$ 坐标时，体积元会发生变化。
@@ -254,7 +256,7 @@ J_y(\xi) = \sqrt{\det g(x)} = 1 - \frac{1}{6} \operatorname{Ric}_{\mu\nu}(y) \xi
 \begin{equation}
   \delta_y(x) = \int_{T_y^*M} \frac{\mathd p}{(2\mathpi)^d} \, e^{\mathi p(\exp_y^{-1}(x))}, \label{eq:delta-manifold}
 \end{equation}
-其中 $\exp_y^{-1}(x) \in T_yM$。\todo{为什么 $\exp_y^{-1}(x)$ 存在？之前只是提到 $\exp_y$ 在 $y$ 附近是微分同胚，但如果远离 $y$ 呢？}
+其中 $\exp_y^{-1}(x) \in T_yM$。严格来说，$\exp_y^{-1}(x)$ 仅在 $x$ 位于 $y$ 的单射半径内才有唯一的光滑定义。但由附录 \ref{appendix:locality} 的分布论分析，短时传播子的支集在分布意义下为 $\{0\}$，因此对任意 $\varepsilon > 0$，积分区域 $|\xi| \ge \varepsilon$ 的贡献是 $O(\Delta t^\infty)$。取 $\varepsilon < r_{\mathrm{inj}}(y)$，即可将路径积分中的 $\xi$ 积分限制在 $\exp_y$ 为微分同胚的球内，从而 $\exp_y^{-1}(x)$ 在有效支集上始终良定义。\todo{为什么 $\exp_y^{-1}(x)$ 存在？之前只是提到 $\exp_y$ 在 $y$ 附近是微分同胚，但如果远离 $y$ 呢？}
 
 \begin{remark}[坐标无关性]
   表达式 $p(\exp_y^{-1}(x))$ 是 $T_y^*M$ 与 $T_yM$ 之间的自然配对，不依赖于坐标选择。这是流形上傅里叶变换比 $\mathbb{R}^d$ 更优雅的地方：在 $\mathbb{R}^d$ 中，$k(x-y)$ 依赖于平移结构；在流形上，$p(\exp_y^{-1}(x))$ 依赖于内禀的切空间配对。
@@ -310,7 +312,7 @@ r(x,y,t) = \int_{T_y^*M} \frac{\mathd p}{(2\mathpi)^d} \, e^{\mathi p(\xi)} \int
 
 将 $\delta_y(x)$ 的表示 (\ref{eq:delta-manifold}) 和 $r$ 的表示 (\ref{eq:r-inv}) 代入，并令 $y$ 固定，$x = \exp_y(\xi)$，$\mathd y$ 处的体积元已隐含在 $\int_M \mathd y$ 中。我们转而先写下离散化后相邻点之间的传播。
 
-在时间切片方案中，我们从 $x_0$ 出发传播到 $x_1$。固定前一点 $x_0$，后一点 $x_1$ 在其法坐标邻域内。将 $\delta_{x_0}(x_1)$ 和 $r(x_1,x_0,t)$ 用 (\ref{eq:delta-manifold}) 和 (\ref{eq:r-inv}) 表示，并记 $\xi_0 = \exp_{x_0}^{-1}(x_1)$，$p_0 \in T_{x_0}^*M$，$J_{x_0}(\xi_0)$ 为 Jacobian：
+在时间切片方案中，我们从 $x_0$ 出发传播到 $x_1$。固定前一点 $x_0$，后一点 $x_1$ 在其法坐标邻域内。这里 $x_1$ 在 $x_0$ 的法坐标邻域内的假设并非限制：由附录 \ref{appendix:locality}，短时传播子的支集在分布意义下为 $\{0\}$，因此对 $\varepsilon > 0$ 足够小可忽略 $d(x_1,x_0) \ge \varepsilon$ 的贡献。取 $\varepsilon < r_{\mathrm{inj}}(x_0)$，则 $\xi_0 = \exp_{x_0}^{-1}(x_1)$ 在有效支集上唯一存在且光滑。\todo{实际上 $x_0$ 和 $x_1$ 都是任意给定的，因此无法保证在邻域内。}
 
 \[
 \varphi(x_1, t+\Delta t) = \int_{T_{x_0}M} \mathd\xi_0 \, J_{x_0}(\xi_0) \int_{T_{x_0}^*M} \frac{\mathd p_0}{(2\mathpi)^d} \, e^{\mathi p_0(\xi_0)} \bigl[1 - \mathi \hat{r}(p_0, x_0, t) \Delta t \bigr] \varphi(x_0, t) + o(\Delta t).
@@ -601,4 +603,159 @@ S[p,x] = \int \mathd t \left[ p_\alpha \dot{x}^\alpha - \frac{1}{2m} g^{\alpha\b
   \item \textbf{曲率耦合项}：当 $R_2$ 中的曲率修正不可忽略时，会出现 $-\xi \operatorname{R}(x)/2$ 型的标量曲率耦合项（其中 $\xi$ 是耦合常数），这对应共形量子力学和量子引力中的非最小耦合。
 \end{enumerate}
 
-\end{document}
+\appendix
+\chapter{短时传播子的局域性}\label{appendix:locality}
+
+附录 A 的目的是严格证明：在路径积分的构造中，相邻时间切片点之间的 $\xi = \exp_y^{-1}(x)$ 总是良定义的。关键在于短时传播子的有效支集局限在切空间原点处的一个无穷小邻域内。
+
+\section{缓增分布与 Fourier 变换}
+
+我们首先回顾必要的分布论概念。设 $\mathbb{R}^d$ 为 $d$ 维欧几里得空间。
+
+\begin{definition}
+  一个光滑函数 $f: \mathbb{R}^d \to \mathbb{C}$ 称为\textbf{快速递减函数}（rapidly decreasing function），如果对任意多重指标 $\alpha, \beta$，
+  \[
+  \sup_{x \in \mathbb{R}^d} |x^\beta \partial^\alpha f(x)| < \infty.
+  \]
+  所有快速递减函数构成的向量空间记为 $\mathcal{S}(\mathbb{R}^d)$，称为\textbf{Schwartz 空间}。
+\end{definition}
+
+Schwartz 空间中的函数在 Fourier 变换下封闭：$\mathcal{F}: \mathcal{S} \to \mathcal{S}$ 是连续线性同构。
+
+\begin{definition}
+  $\mathcal{S}(\mathbb{R}^d)$ 上的连续线性泛函 $u: \mathcal{S} \to \mathbb{C}$ 称为\textbf{缓增分布}（tempered distribution）。所有缓增分布构成的空间记为 $\mathcal{S}'(\mathbb{R}^d)$，是 $\mathcal{S}$ 的\textbf{对偶空间}。
+\end{definition}
+
+Fourier 变换通过配对自然地延拓到 $\mathcal{S}'$ 上：对任意 $u \in \mathcal{S}'$ 和 $\phi \in \mathcal{S}$，
+\[
+\langle \mathcal{F}u, \phi \rangle = \langle u, \mathcal{F}\phi \rangle.
+\]
+
+\begin{definition}[分布的支集]
+  设 $u \in \mathcal{S}'(\mathbb{R}^d)$。称 $u$ 在开集 $U \subset \mathbb{R}^d$ 上为零，如果对任意 $\phi \in \mathcal{S}$ 满足 $\operatorname{supp} \phi \subset U$，有 $\langle u, \phi \rangle = 0$。$u$ 的\textbf{支集} $\operatorname{supp} u$ 是 $u$ 在其中不为零的最小闭集。
+\end{definition}
+
+{\bfseries 例}：Dirac $\delta$ 分布 $\langle \delta, \phi \rangle = \phi(0)$ 的支集为 $\{0\}$。导数 $\partial^\alpha \delta$ 的支集也是 $\{0\}$。
+
+\section{Riemann--Lebesgue 引理}
+
+\begin{lemma}[Riemann--Lebesgue]
+  若 $f \in L^1(\mathbb{R}^d)$，则其 Fourier 变换
+  \[
+  \hat{f}(k) = \int_{\mathbb{R}^d} f(x) e^{-i k x} \mathd x
+  \]
+  是连续函数且在 $|k| \to \infty$ 时趋于零：$\hat{f} \in C_0(\mathbb{R}^d)$。
+\end{lemma}
+
+Riemann--Lebesgue 引理给出 $L^1$ 函数的 Fourier 变换在无穷远处的衰减。但 $\hat{r}(p,y,t)$ 是 $p$ 的多项式（不在 $L^1$ 中），因此不能直接应用。我们需要分布论中的 Fourier 变换来处理多项式。
+
+\section{多项式的 Fourier 逆变换}
+
+给定 $n$ 阶齐次多项式 $P_n(p) = p_{\alpha_1} \cdots p_{\alpha_n}$，考虑其在 $\mathcal{S}'$ 中的 Fourier 逆变换。
+
+从 $\delta$ 的 Fourier 表示出发：
+\begin{equation}
+  \delta(\xi) = \int_{\mathbb{R}^d} \frac{\mathd p}{(2\mathpi)^d} e^{i p \xi}. \label{eq:delta-fourier}
+\end{equation}
+
+对两边求 $\xi$ 的偏导数。由于 $\partial_{\alpha} e^{i p \xi} = i p_\alpha e^{i p \xi}$，我们有
+\[
+\partial_{\alpha_1} \cdots \partial_{\alpha_n} \delta(\xi) = i^n \int_{\mathbb{R}^d} \frac{\mathd p}{(2\mathpi)^d} e^{i p \xi} p_{\alpha_1} \cdots p_{\alpha_n}.
+\]
+
+整理得
+\begin{equation}
+  \int_{\mathbb{R}^d} \frac{\mathd p}{(2\mathpi)^d} e^{i p \xi} p_{\alpha_1} \cdots p_{\alpha_n} = (-i)^n \partial_{\alpha_1} \cdots \partial_{\alpha_n} \delta(\xi). \label{eq:poly-fourier}
+\end{equation}
+
+{\bfseries 推论}：任意 $p$ 的多项式（次数有限）的 Fourier 逆变换是 $\delta$ 及其导数的线性组合。由定义，$\partial^\alpha \delta$ 的支集为 $\{0\}$。因此，任何有限个 $p$ 的多项式的 Fourier 逆变换的支集均包含于 $\{0\}$。
+
+\section{主要命题}
+
+现在我们分析短时传播子
+\[
+K_{\Delta t}(\xi; y) \assign \int_{T_y^*M} \frac{\mathd p}{(2\mathpi)^d} e^{i p(\xi)} e^{-i \hat{r}(p, y, t) \Delta t}
+\]
+对 $\xi$ 的依赖关系，其中
+\[
+\hat{r}(p, y, t) = \sum_{n=0}^{N_{\mathrm{cut}}} \frac{(-i)^n}{n!} R_n^\alpha(y, t) p_\alpha
+\]
+是 $p$ 的有限次多项式。
+
+\subsection{分布意义下的处理}
+
+展开指数函数为 Taylor 级数：
+\begin{equation}
+  e^{-i \hat{r}(p, y, t) \Delta t} = \sum_{k=0}^\infty \frac{(-i \Delta t)^k}{k!} \hat{r}(p, y, t)^k. \label{eq:taylor-expand}
+\end{equation}
+
+每一项 $\hat{r}^k$ 是 $p$ 的 $k N_{\mathrm{cut}}$ 次多项式。将其代入 $K_{\Delta t}$ 的表达式中，逐项做 Fourier 逆变换。由 (\ref{eq:poly-fourier})，第 $k$ 项给出 $\delta$ 的 $k N_{\mathrm{cut}}$ 阶导数的线性组合，系数正比于 $\Delta t^k$。因此，在分布意义下，
+\begin{equation}
+  K_{\Delta t}(\xi; y) = \sum_{k=0}^{M} \frac{(-i \Delta t)^k}{k!} \sum_{|\alpha| \le k N_{\mathrm{cut}}} C_{k, \alpha}(y, t) \; \partial^\alpha \delta(\xi) + O(\Delta t^{M+1}), \label{eq:K-dist}
+\end{equation}
+其中 $C_{k, \alpha}(y, t)$ 是依赖于矩 $R_n$ 的系数，$M$ 是任意正整数。
+
+{\bfseries 关键观察}：(\ref{eq:K-dist}) 右侧的每一项的支集均为 $\{0\}$。因此，$K_{\Delta t}$ 作为 $\xi$ 的分布，其支集包含于 $\{0\}$。
+
+\subsection{与光滑函数的配对}
+
+当 $K_{\Delta t}$ 与光滑函数 $f(\xi) = J_y(\xi) \, \varphi(\exp_y(\xi), t)$ 作用时，
+\[
+\int d\xi \, K_{\Delta t}(\xi; y) f(\xi) = \langle K_{\Delta t}, f \rangle.
+\]
+
+由于 $K_{\Delta t}$ 的支集在原点，$\langle K_{\Delta t}, f \rangle$ 的值完全由 $f$ 在 $\xi=0$ 处的值和各阶导数决定。而 $\xi=0$ 对应 $x = \exp_y(0) = y$，总是良定义的。因此，即使形式上的 $\xi \neq 0$ 处积分无意义，此配对在分布意义下仍有明确定义。
+
+\section{$N_{\mathrm{cut}}=2$ 情形下的显式估计}
+
+当 $N_{\mathrm{cut}}=2$（即 §7 中 $\operatorname{Diff}(M)$ 不变性所强制的情形），Hamiltonian 取具体形式：
+\[
+\hat{r}(p, y, t) = \frac{1}{2m} g^{\alpha\beta}(y) p_\alpha p_\beta + V(y, t).
+\]
+此时 $K_{\Delta t}$ 的积分可显式计算：
+\[
+K_{\Delta t}(\xi; y) = e^{-i V(y,t) \Delta t} \int_{T_y^*M} \frac{\mathd p}{(2\mathpi)^d} \exp\left\{ i p_\alpha \xi^\alpha - i \Delta t \frac{1}{2m} g^{\alpha\beta}(y) p_\alpha p_\beta \right\}.
+\]
+
+做 Gaussian 积分，得到
+\begin{equation}
+  K_{\Delta t}(\xi; y) = \frac{e^{-i V(y,t) \Delta t}}{(2\pi i \Delta t / m)^{d/2}} \sqrt{\det g(y)} \exp\left( i \frac{m}{2\Delta t} g_{\alpha\beta}(y) \xi^\alpha \xi^\beta \right). \label{eq:K-explicit}
+\end{equation}
+
+这个显式表达式给出了比分布论更强的信息：
+
+\begin{enumerate}
+  \item \textbf{相位 $\phi(\xi) = m g_{\alpha\beta} \xi^\alpha \xi^\beta / (2\Delta t)$ 是实值函数}，其唯一的临界点为 $\xi=0$（满足 $\partial\phi/\partial\xi = m g_{\alpha\beta} \xi^\beta / \Delta t = 0$）。
+  
+  \item 对任意 $\varepsilon > 0$，将积分 ($\int d\xi$) 限制在 $|\xi| \ge \varepsilon$ 的区域上。做变量代换 $\eta = \xi / \sqrt{\Delta t}$，指数为 $i m |\eta|^2/2$，振幅的模 $|K| \sim \Delta t^{-d/2}$，不再依赖于 $\Delta t$。对该振荡积分重复分部积分 $N$ 次，每次产生一个 $\sqrt{\Delta t}$ 因子：
+    \[
+    \left| \int_{|\eta| \ge \varepsilon/\sqrt{\Delta t}} e^{i m |\eta|^2/2} \cdots \right| \le C_N \Delta t^{N/2}.
+    \]
+    因此，$|\xi| \ge \varepsilon$ 区域的贡献是 $O(\Delta t^\infty)$（即快于任何 $\Delta t$ 的幂次）。
+  
+  \item 有效支集限制在 $|\xi| \lesssim \sqrt{\Delta t}$ 范围内。
+\end{enumerate}
+
+\begin{lemma}
+  当 $N_{\mathrm{cut}} = 2$ 时，对任意光滑函数 $f$，
+  \[
+  \int d\xi \, K_{\Delta t}(\xi; y) f(\xi) = \int_{|\xi| < \delta} d\xi \, K_{\Delta t}(\xi; y) f(\xi) + O(\Delta t^\infty),
+  \]
+  其中 $\delta > 0$ 是任意小于单射半径 $r_{\mathrm{inj}}(y)$ 的常数。
+\end{lemma}
+
+\section{对路径积分的推论}
+
+结合以上分析，我们有：
+
+\begin{enumerate}
+  \item \textbf{一般 $N_{\mathrm{cut}}$（分布论）}：$K_{\Delta t}(\xi)$ 作为分布的支集为 $\{0\}$。它与光滑函数的配对仅依赖 $\xi=0$ 处信息。因此 $\xi = \exp_y^{-1}(x)$ 只需在 $\xi=0$ 处有定义——这总是成立的。
+  
+  \item \textbf{$N_{\mathrm{cut}}=2$（显式估计）}：有效支集在 $|\xi| \lesssim \sqrt{\Delta t}$ 内。对紧致 $M$，全局单射半径 $r_{\mathrm{inj}}(M) = \inf_{y\in M} r_{\mathrm{inj}}(y) > 0$。取 $\Delta t$ 使得 $\sqrt{\Delta t} < r_{\mathrm{inj}}(M)$，则 $\xi$ 的有效取值始终落在 $\exp_y$ 为微分同胚的球 $B_{r_{\mathrm{inj}}}(0)$ 内。因此 $\xi = \exp_y^{-1}(x)$ 唯一存在且光滑。
+\end{enumerate}
+
+两种情形都保证了在路径积分的每一步中，
+\[
+\xi_i = \exp_{x_i}^{-1}(x_{i+1})
+\]
+在短时传播子的有效支集上是良定义的。\end{document}
