@@ -161,7 +161,7 @@
   transform of a square-integrable function may not exist.
 
   Since Fourier transform is basically rooted in quantum mechanics, we shall
-  seek for a smaller space in which wavefunctions live. Previoiusly, we find
+  seek for a smaller space in which wavefunctions live. Previously, we find
   the problem happens when the function does not decay fast enough at
   infinity. So, we shall consider rapidly decreasing functions.
   <strong|Rapidly decreasing function> is a smooth function
@@ -180,10 +180,10 @@
   </equation*>
 
   So, a rapidly decreasing function, together with its derivatives, decays
-  faster than any polynormal at infinity. Denote
+  faster than any polynomial at infinity. Denote
   <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> as the collection of all
   the rapidly decreasing functions from <math|\<bbb-R\><rsup|d>> to
-  <math|\<bbb-C\>>, in memory of French mathematican Laurent Schwartz, who
+  <math|\<bbb-C\>>, in memory of French mathematician Laurent Schwartz, who
   did fundamental investigations on Fourier transform and distribution
   theory. The space of rapidly decreasing functions is also called
   <strong|Schwartz space>. Fourier transform on a rapidly decreasing function
@@ -213,46 +213,31 @@
   </equation*>
 
   The first inequality is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
-  where the norm is defined as <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>,
-  recognized as the <math|L<rsup|2>>-norm on <math|U>. It states that the
-  difference between the two sides of a triangle is less than that of the
-  third side. It is in this sense that the substitution
+  where the norm is defined by <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>.
+  It states that the difference between the two sides of a triangle is less
+  than that of the third side. It is in this sense that the substitution
   <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
   is plausible.
 
-  To illustrate the reason, we give a simplified construction of the rapidly
-  decreasing function <math|g> while omitting some technical details. We
-  referer to appendices <reference|appendix:dense> for readers who eager a
-  complete proof. First, we notice that integrals over
-  <math|\<bbb-R\><rsup|d>> are imporper integrals.<\footnote>
-    Recall that an imporper integral of a function <math|f> is defined by the
-    limit
-
-    <\equation*>
-      <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-      f<around*|(|x|)>\<assign\>lim<rsub|L\<rightarrow\>\<infty\>><big|int><rsub|<around*|[|-L,L|]><rsup|d>>\<mathd\>x
-      f<around*|(|x|)>.
-    </equation*>
-
-    In other words, the contribution outside the box
-    <math|<around*|[|-L,L|]><rsup|d>> will be negligible if <math|L> is large
-    enough.
-  </footnote> It hints us to consider a cut-off function <math|f<rsub|L>>
-  where <math|f<rsub|L><around*|(|x|)>\<assign\>f<around*|(|x|)>> when
-  <math|x\<in\><around*|[|-L,L|]><rsup|d>> and
-  <math|f<rsub|L><around*|(|x|)>\<assign\>0> otherwise. By the definition of
-  imporper integral, we have, for each <math|\<varepsilon\>\<gtr\>0>, there
-  exists <math|L\<gtr\>0> such that
+  To find the rapid decreasing function <math|g>, we first claim that a
+  square-integrable function can be approximated by compact supported
+  continuous function.<\footnote>
+    TODO: prove this statement.
+  </footnote> Explicitly, for any <math|\<varepsilon\>\<gtr\>0>, we can find
+  <math|L\<gtr\>0> and a continuos function <math|f<rsub|L>> with
+  <math|f<rsub|L><around*|(|x|)>=0> for any
+  <math|x\<nin\><around*|[|-L,L|]><rsup|d>>, such that
 
   <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-f<rsub|L><around*|(|x|)>|\|><rsup|2>=<big|int><rsub|x\<nin\><around*|[|-L,L|]><rsup|d>>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>\<less\><frac|\<varepsilon\>|4>.
+    <big|int><rsub|\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-f<rsub|L><around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
   </equation*>
 
-  The <math|f<rsub|L><around*|(|x|)>> has sufficient decreasing speed just
-  because it vanishes outside the region <math|<around*|[|-L,L|]><rsup|d>>.
-  But, <math|f<rsub|L>\<nin\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-  because it is not smooth. It is sharp at the boundaries of cut-off. We need
-  to polish it using the trick of convolution. Explicitly, construct function
+  The <math|f<rsub|L>> is \Psupported\Q by the closed, thus compact, region
+  <math|<around*|[|-L,L|]><rsup|d>>. It has sufficient decreasing speed just
+  because it keeps vanishing outside the region. But,
+  <math|f<rsub|L>\<nin\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> because it
+  is not smooth (recall that <math|f<rsub|L>> is just continuous). We need to
+  polish it using the trick of convolution. Explicitly, construct function
   <math|g<rsub|n>> using convolution, as
 
   <\equation*>
@@ -268,21 +253,21 @@
     x<rsup|2>|2>|)>.
   </equation*>
 
-  Apprarently, <math|g<rsub|n><around*|(|x|)>> is smooth because derivatives
+  Apparently, <math|g<rsub|n><around*|(|x|)>> is smooth because derivatives
   taken on <math|x> are applied to <math|\<delta\><rsub|n>>, which is smooth.
-  When <math|n> is large enough,<math|\<delta\><rsub|n>> becomes so narrow
+  When <math|n> is large enough, <math|\<delta\><rsub|n>> becomes so narrow
   that <math|g<rsub|n>> approximates <math|f<rsub|L>> well enough. In other
   words, for any <math|\<varepsilon\>\<gtr\>0>, there exists <math|N\<gtr\>0>
   such that for any <math|n\<gtr\>N>, we have
 
   <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<rsub|L><around*|(|x|)>-g<rsub|n><around*|(|x|)>|\|><rsup|2>\<less\><frac|\<varepsilon\>|4>.
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<rsub|L><around*|(|x|)>-g<rsub|n><around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
   </equation*>
 
   Altogether, using the triangle inequality of <math|L<rsub|2>>, we find
 
   <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-g<rsub|n><around*|(|x|)>|\|><rsup|2>\<less\><around*|(|<sqrt|\<varepsilon\>/4>+<sqrt|\<varepsilon\>/4>|)><rsup|2>=\<varepsilon\>.
+    <big|int><rsub|\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-g<rsub|n><around*|(|x|)>|\|><rsup|2>\<less\><around*|(|<sqrt|\<varepsilon\>>+<sqrt|\<varepsilon\>>|)><rsup|2>=4\<varepsilon\>.
   </equation*>
 
   So, we have constructed (even though omitted many details) a rapid
@@ -331,6 +316,104 @@
   \<varphi\><rsub|j><around*|(|t|)>>. The imaginary <math|\<mathi\>> is
   employed for convenience.
 
+  <section|Kernel Is a Generalized Function>
+
+  Up to now, we treat the kernel <math|r> as a normal function. But in
+  practice, we usually employ Dirac's <math|\<delta\>> function as a kernel
+  too. The Dirac's <math|\<delta\>> function has a very strange property
+  that, for any function <math|\<varphi\>>,
+
+  <\equation*>
+    \<varphi\><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><around*|(|x-y|)>\<varphi\><around*|(|y|)>.
+  </equation*>
+
+  It indicates that <math|\<delta\>> function vanishes everywhere on
+  <math|\<bbb-R\><rsup|d>> except for the origin, but diverges at the origin
+  because <math|1\<equiv\><big|int>\<mathd\>y \<delta\><around*|(|x-y|)>> if
+  we use <math|\<varphi\><around*|(|y|)>\<equiv\>1> and notice that
+  <math|<around*|{|0|}>> is a set of measure zero. To make it plausible, we
+  have to regard the integral as an <em|abstract> application of
+  <math|\<delta\>> function onto <math|\<varphi\>>. Namely,
+  <math|\<varphi\><around*|(|x|)>=App<around*|[|\<delta\><rsub|x>,\<varphi\>|]>>,
+  or using a more popular notation, <math|\<varphi\><around*|(|x|)>=<around*|\<langle\>|\<delta\><rsub|x>,\<varphi\>|\<rangle\>>>,
+  where <math|\<delta\><rsub|x><around*|(|y|)>> is a re-write of
+  <math|\<delta\><around*|(|x-y|)>>. Now, everything is well-defined because
+  <math|\<delta\>> function has been a linear operator. And we can only
+  realize it by applying a function to it, or testing it, just like sending a
+  tester to a black box machine. The function <math|\<varphi\>> is, thus,
+  named <strong|test function>; and the linear operator (or functional, as a
+  special case of operator) like <math|\<delta\>> function is called
+  <strong|generalized function> or <strong|distribution>. Generalized
+  function was first proposed by Laurent Schwartz too. And it is Schwartz who
+  found that any continuos linear operator applied on rapidly decreasing
+  functions can be represented by generalized function.
+
+  So, for including <math|\<delta\>> function, we have to enlarge the space
+  where <math|r> lives to the space of generalized functions. But for
+  convenience, we adopt the original integral notation as it is employed for
+  normal (not generalized) functions. So, an equivalent notation is
+
+  <\equation*>
+    <around*|\<langle\>|f,\<varphi\>|\<rangle\>>\<equiv\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    f<around*|(|x|)>\<varphi\><around*|(|x|)>.
+  </equation*>
+
+  Keep in mind that the right hand side just denotes applying a test function
+  <math|\<varphi\>> to a generalized function <math|f> (namely the left hand
+  side). So, time evolution (equation <reference|equ:superposition>) becomes
+
+  <\equation*>
+    \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<around*|\<langle\>|r<around*|(|x,\<cdummy\>,t|)>,\<varphi\><around*|(|\<cdummy\>,t|)>|\<rangle\>>\<equiv\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    r<around*|(|x,y,t|)>\<varphi\><around*|(|y,t|)>,
+  </equation*>
+
+  where the right most integral now is nothing but a convenient re-write of
+  <math|<around*|\<langle\>|r<around*|(|x,\<cdummy\>,t|)>\<varphi\><around*|(|\<cdummy\>,t|)>|\<rangle\>>>.
+
+  Fourier transform on generalized functions is defined by the Fourier
+  transform of test function. For example, given a generalized function
+  <math|f> and a test function <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
+
+  <\equation*>
+    <around*|\<langle\>|\<cal-F\><around*|[|f|]>,\<varphi\>|\<rangle\>>\<assign\><around*|\<langle\>|f,\<cal-F\><around*|[|\<varphi\>|]>|\<rangle\>>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k
+    f<around*|(|k|)>\<cal-F\><around*|[|\<varphi\>|]><around*|(|k|)>.
+  </equation*>
+
+  Inserting the definition of <math|\<cal-F\><around*|[|\<varphi\>|]><around*|(|k|)>>,
+  we get
+
+  <\equation*>
+    <around*|\<langle\>|\<cal-F\><around*|[|f|]>,\<varphi\>|\<rangle\>>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k
+    f<around*|(|k|)><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    exp<around*|(|-\<mathi\>k x|)>\<varphi\><around*|(|x|)>.
+  </equation*>
+
+  By switching the integrals, we get
+
+  <\equation*>
+    <around*|\<langle\>|\<cal-F\><around*|[|f|]>,\<varphi\>|\<rangle\>>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    <around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k
+    exp<around*|(|-\<mathi\>k x|)>f<around*|(|k|)>|]>\<varphi\><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k
+    <around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    exp<around*|(|-\<mathi\>k x|)>f<around*|(|x|)>|]>\<varphi\><around*|(|k|)>,
+  </equation*>
+
+  where, in the last step, we have switched the dummy variables <math|x> and
+  <math|k>. So, formally,
+
+  <\equation*>
+    \<cal-F\><around*|[|f|]><around*|(|k|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    exp<around*|(|-\<mathi\>k x|)>f<around*|(|x|)>.
+  </equation*>
+
+  It looks like the Fourier transform of normal function, but it is not. The
+  Fourier transform <math|\<cal-F\><around*|[|f|]>> is again a generalized
+  function, which has meaning only by being applied such as
+  <math|<around*|\<langle\>|\<cal-F\><around*|[|f|]>,\<varphi\>|\<rangle\>>>.
+
+  <section|Hermitianity Bridges the Arguments of Kernel>
+
   A direct result of probability interpretation (axiom
   <reference|axiom:prob>) is that probabilistic density shall be normalized.
   Namely, for any wave-function <math|\<varphi\>> and any
@@ -364,13 +447,8 @@
   </equation>
 
   That is, complex conjugating <math|r> is simply swapping its arguments. We
-  call such function <strong|Hermitian>. The two arguments of <math|r> are
-  not independent.
-
-  Probability interpretation (axiom <reference|axiom:prob>), together with
-  superposition principle (axiom <reference|axiom:sup>), is the direct result
-  of the double-slit experiment of electron. Details can be found in
-  Feynman's Lectures on Physics, Vol 3, chapter 1.
+  call such function <strong|Hermitian>. <with|color|dark green|The two
+  arguments of <math|r> are not independent.>
 
   <section|Path Integral Formalism><label|section:Path Integral Formalism>
 
@@ -889,12 +967,12 @@
   <section|Galilean Symmetry Fixes <math|N<rsub|cut>=2>>
 
   Italian physicist Galileo Galilei first proposed that any inertial system
-  of coordinates are physically the same. To illustate what Galileo was
+  of coordinates are physically the same. To illustrate what Galileo was
   saying, consider two inertial systems with coordinates
   <math|<around*|(|x,t|)>> and <math|<around*|(|<wide|x|~>,<wide|t|~>|)>>.
   Since they are both inertial, there must be a constant difference of
   velocity between them, say velocity <math|v\<in\>\<bbb-R\><rsup|3>>. Since
-  the trajectory of a particle is indpendent of coordinates, we must have
+  the trajectory of a particle is independent of coordinates, we must have
   <math|<wide|x|~><rsup|\<alpha\>><around*|(|t|)>=x<around*|(|t|)>-v t> (up
   to some irrelevant constant). Then, Galileo claimed that, in the two
   coordinates, physical laws are the same.
@@ -923,7 +1001,7 @@
 
   Generally, we consider infinitesimal Galilean transform in which
   <math|<around*|\<\|\|\>|v|\<\|\|\>>\<ll\>1>. A general Galilean transform
-  can be seen as accumulation of a series of infinitesimal transformtions.
+  can be seen as accumulation of a series of infinitesimal transformations.
   This is the trick we will employ for dealing with quantum mechanics.
 
   The same goes for quantum mechanics. In the
@@ -956,36 +1034,7 @@
 
   <section|Back to Classical World>
 
-  <appendix|Some Basics about <math|L<rsup|p>> Space>
-
-  <appendix|Some Basics about Distribution>
-
-  <appendix|Rapidly Decreasing Functions Approximate Integrable
-  Function><label|appendix:dense>
-
-  Consider the convolution
-
-  <\equation*>
-    f<rsub|n><around*|(|x|)>=<around*|(|\<delta\><rsub|n>\<ast\>f|)><around*|(|x|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|x-y|)>f<around*|(|y|)>,
-  </equation*>
-
-  where <math|n> is a positive integer and TODO
-
-  <\equation*>
-    \<delta\><rsub|n><around*|(|x|)>\<assign\><frac|1|<around*|(|<sqrt|2\<mathpi\>>n|)><rsup|d>>exp<around*|(|-<frac|x<rsup|2>|2n>|)>,
-  </equation*>
-
-  that is, the probabilistic density function of normal distribution with
-  zero mean and variance <math|n>. By young's inequality for convolution, we
-  have
-
-  <\equation*>
-    <around*|\<\|\|\>|\<delta\><rsub|n>\<ast\>f|\<\|\|\>><rsub|\<infty\>>\<leqslant\><around*|\<\|\|\>|\<delta\><rsub|n>|\<\|\|\>><rsub|2><around*|\<\|\|\>|f|\<\|\|\>><rsub|2>.
-  </equation*>
-
-  <appendix|Stationary Phase Approximation><label|appendix:Stationary Phase
-  Approximation>
+  \;
 </body>
 
 <\initial>
@@ -998,69 +1047,59 @@
 
 <\references>
   <\collection>
-    <associate|appendix:Stationary Phase Approximation|<tuple|D|13>>
-    <associate|appendix:dense|<tuple|C|11>>
+    <associate|appendix:Stationary Phase Approximation|<tuple|A|19>>
+    <associate|appendix:dense|<tuple|A|17>>
     <associate|auto-1|<tuple|1|3>>
     <associate|auto-10|<tuple|8|10>>
-    <associate|auto-11|<tuple|9|10>>
-    <associate|auto-12|<tuple|10|10>>
-    <associate|auto-13|<tuple|A|11>>
-    <associate|auto-14|<tuple|B|13>>
-    <associate|auto-15|<tuple|C|?>>
-    <associate|auto-16|<tuple|D|?>>
-    <associate|auto-18|<tuple|A.5|?>>
-    <associate|auto-19|<tuple|B.5|?>>
+    <associate|auto-11|<tuple|9|11>>
+    <associate|auto-12|<tuple|10|12>>
+    <associate|auto-13|<tuple|11|13>>
+    <associate|auto-14|<tuple|12|15>>
+    <associate|auto-15|<tuple|A|17>>
+    <associate|auto-16|<tuple|B|19>>
+    <associate|auto-17|<tuple|C|?>>
+    <associate|auto-18|<tuple|D|?>>
     <associate|auto-2|<tuple|1.1|3>>
-    <associate|auto-20|<tuple|C|?>>
-    <associate|auto-21|<tuple|D|?>>
     <associate|auto-3|<tuple|1.2|3>>
     <associate|auto-4|<tuple|2|3>>
     <associate|auto-5|<tuple|3|3>>
-    <associate|auto-6|<tuple|4|4>>
+    <associate|auto-6|<tuple|4|5>>
     <associate|auto-7|<tuple|5|6>>
-    <associate|auto-8|<tuple|6|7>>
-    <associate|auto-9|<tuple|7|8>>
-    <associate|axiom:local|<tuple|3|8>>
+    <associate|auto-8|<tuple|6|8>>
+    <associate|auto-9|<tuple|7|9>>
+    <associate|axiom:local|<tuple|3|9>>
     <associate|axiom:prob|<tuple|1|3>>
-    <associate|axiom:sup|<tuple|2|3>>
-    <associate|eq:action|<tuple|10|7>>
-    <associate|eq:hamiltonian|<tuple|7|6>>
+    <associate|axiom:sup|<tuple|2|6>>
+    <associate|eq:action|<tuple|10|8>>
+    <associate|eq:hamiltonian|<tuple|7|7>>
     <associate|eq:moment|<tuple|11|8>>
-    <associate|eq:momentexpansion|<tuple|13|8>>
-    <associate|eq:pathint|<tuple|8|7>>
-    <associate|eq:probtoself|<tuple|2|4>>
+    <associate|eq:momentexpansion|<tuple|13|9>>
+    <associate|eq:pathint|<tuple|8|8>>
+    <associate|eq:probtoself|<tuple|2|6>>
     <associate|eq:r-fourier|<tuple|4|6>>
-    <associate|eq:r-fourier-alt|<tuple|5|6>>
+    <associate|eq:r-fourier-alt|<tuple|5|7>>
     <associate|eq:transexp|<tuple|12|8>>
-    <associate|equ:superposition|<tuple|1|4>>
+    <associate|equ:superposition|<tuple|1|6>>
     <associate|footnote-1|<tuple|1|4>>
-    <associate|footnote-10|<tuple|10|?>>
-    <associate|footnote-11|<tuple|11|?>>
-    <associate|footnote-12|<tuple|12|?>>
-    <associate|footnote-2|<tuple|2|4>>
-    <associate|footnote-3|<tuple|3|5>>
-    <associate|footnote-4|<tuple|4|5>>
-    <associate|footnote-5|<tuple|5|6>>
-    <associate|footnote-6|<tuple|6|6>>
-    <associate|footnote-7|<tuple|7|8>>
-    <associate|footnote-8|<tuple|8|8>>
-    <associate|footnote-9|<tuple|9|9>>
+    <associate|footnote-2|<tuple|2|5>>
+    <associate|footnote-3|<tuple|3|6>>
+    <associate|footnote-4|<tuple|4|7>>
+    <associate|footnote-5|<tuple|5|7>>
+    <associate|footnote-6|<tuple|6|8>>
+    <associate|footnote-7|<tuple|7|9>>
+    <associate|footnote-8|<tuple|8|9>>
     <associate|footnr-1|<tuple|1|4>>
-    <associate|footnr-10|<tuple|10|?>>
-    <associate|footnr-11|<tuple|11|?>>
-    <associate|footnr-12|<tuple|12|?>>
-    <associate|footnr-2|<tuple|2|4>>
-    <associate|footnr-3|<tuple|3|5>>
-    <associate|footnr-4|<tuple|4|5>>
-    <associate|footnr-5|<tuple|6|6>>
-    <associate|footnr-6|<tuple|6|6>>
-    <associate|footnr-7|<tuple|7|8>>
-    <associate|footnr-8|<tuple|8|8>>
-    <associate|footnr-9|<tuple|9|9>>
-    <associate|section:Expanding Kernel as Generalized Function|<tuple|6|7>>
-    <associate|section:Hermitianity on Moments|<tuple|8|10>>
-    <associate|section:Locality Truncates the Moments|<tuple|7|8>>
-    <associate|section:Path Integral Formalism|<tuple|5|6>>
+    <associate|footnr-2|<tuple|2|5>>
+    <associate|footnr-3|<tuple|3|6>>
+    <associate|footnr-4|<tuple|4|7>>
+    <associate|footnr-5|<tuple|6|7>>
+    <associate|footnr-6|<tuple|6|8>>
+    <associate|footnr-7|<tuple|7|9>>
+    <associate|footnr-8|<tuple|8|9>>
+    <associate|section:Expanding Kernel as Generalized Function|<tuple|8|8>>
+    <associate|section:Hermitianity on Moments|<tuple|10|10>>
+    <associate|section:Locality Truncates the Moments|<tuple|9|9>>
+    <associate|section:Path Integral Formalism|<tuple|7|6>>
   </collection>
 </references>
 
@@ -1078,15 +1117,15 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-3>>
 
-      2<space|2spc>Probability Interpretation and Wavefunction
+      2<space|2spc>Wavefunction Represents the State of Quantum System
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4>
 
-      3<space|2spc>Superposition Principle and Time Evolution
+      3<space|2spc>Wavefunction Is Rapidly Decreasing
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5>
 
-      4<space|2spc>Both Wavefunction and Kernel Are Rapidly Decreasing
+      4<space|2spc>Superposition Principle and Time Evolution
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6>
 
@@ -1116,14 +1155,24 @@
       <no-break><pageref|auto-12>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      A<space|2spc>Rapidly Decreasing Entire Functions are Dense in
-      Square-Integrable Space (TODO)> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      A<space|2spc>Some Basics about <with|mode|<quote|math>|L<rsup|p>>
+      Space> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-13><vspace|0.5fn>
 
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      B<space|2spc>Stationary Phase Approximation>
+      B<space|2spc>Some Basics about Distribution>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-14><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
+      C<space|2spc>Rapidly Decreasing Functions Approximate Integrable
+      Function> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-15><vspace|0.5fn>
+
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
+      D<space|2spc>Stationary Phase Approximation>
+      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-16><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
