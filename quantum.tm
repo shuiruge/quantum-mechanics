@@ -288,8 +288,15 @@
   An implication of superposition principle is how quantum states (precisely,
   their wavefunctions) evolve with time. Axiom <reference|axiom:sup> implies
   that the equation of time evolution (as a physical law that operates on a
-  quantum state) shall be linear: <math|\<partial\>\<varphi\>/\<partial\>t=L<around*|(|\<varphi\>,t|)>>
-  where the operation <math|L> is linear on <math|\<varphi\>>.<\footnote>
+  quantum state) shall be linear:
+
+  <\equation*>
+    <frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=\<langle\>L<around*|(|x,t|)>,\<varphi\>\<rangle\><around*|(|x,t|)>,
+  </equation*>
+
+  where <math|L<around*|(|x,t|)>> is a spatial-temporal-dependent linear
+  operator on <math|\<varphi\>>, and the <math|\<langle\>\<cdummy\>,\<cdummy\>\<rangle\>>
+  denotes the abstract linear operation.<\footnote>
     You may wonder why it is not <math|<around*|(|\<partial\><rsup|2>\<varphi\>/\<partial\>t<rsup|2>|)>=L<around*|(|\<varphi\>,t|)>>
     instead, which is linear in wavefunction too. If so, wavefunction at a
     given time cannot fully characterize the system at that time, just like
@@ -301,79 +308,93 @@
     dynamics is first order in time derivative, wavefunction has fully
     characterized a quantum system (claimed in axiom <reference|axiom:prob>)
     so that its time evolution is first order in time derivative too.
-  </footnote> Mathematically, linearity imports a <strong|kernel>
-  <math|r:\<bbb-R\><rsup|d>\<times\>\<bbb-R\><rsup|d>\<times\>\<bbb-R\>\<rightarrow\>\<bbb-C\>>
-  such that
+  </footnote>
+
+  Denotes the dual space of wavefunctions as
+  <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>, which collects
+  all the continuous<\footnote>
+    TODO: why continuous?
+  </footnote> linear functional that applies on rapid decreasing functions.
+  Apparently, Schwartz space (the space of wavefunctions) is a subspace of
+  its dual, by converting a wavefunction <math|\<varphi\>> to a linear
+  functional as
+
+  <\equation*>
+    \<langle\>\<varphi\>,\<psi\>\<rangle\>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    \<varphi\><around*|(|x|)>\<psi\><around*|(|x|)>,
+  </equation*>
+
+  for a wavefunction <math|\<psi\>>. There are, however, elements in
+  <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>> that are not
+  wavefunctions, or not even functions. A typical one is Dirac's
+  <math|\<delta\>> \Pfunction\Q, defined by
+  <math|\<langle\>\<delta\><rsub|x>,\<varphi\>\<rangle\>\<assign\>\<varphi\><around*|(|x|)>>.
+  We can still adopt the convenient integral notation, writing that
+
+  <\equation*>
+    \<langle\>\<delta\><rsub|x>,\<varphi\>\<rangle\>\<equiv\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    \<delta\><rsub|x><around*|(|y|)>\<varphi\><around*|(|y|)>,
+  </equation*>
+
+  then we must keep in mind that the integral has meaning only when it is
+  realized by applying the linear functional <math|\<delta\><rsub|x>> to
+  <math|\<varphi\>>, namely the left hand side. If we did regard
+  <math|\<delta\><rsub|x>> as a normal function and treating the right hand
+  side as a normal integral, then it would be ill-behaved:
+  <math|\<delta\><rsub|x>> would vanish everywhere on
+  <math|\<bbb-R\><rsup|d>> except for <math|x>, but diverge at <math|x>
+  because <math|1\<equiv\><big|int>\<mathd\>y
+  \<delta\><rsub|x><around*|(|y|)>> if we set
+  <math|\<varphi\><around*|(|y|)>\<equiv\>1> and notice that
+  <math|<around*|{|x|}>> is a set of measure zero.
+
+  Schwartz kernel theorem claims that, any continuous linear operator from
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|m>|)>> to
+  <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>> can be
+  represented by a linear functional in <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|n>\<times\>\<bbb-R\><rsup|m>|)>>.
+  Explicitly, a linear operator <math|L> that acts on wavefunction
+  <math|\<varphi\>> and returns a linear functional which in turn can be
+  applied to another wavefunction <math|\<psi\>>, finally resulting in a
+  (complex) number, can be represented by
+
+  <\equation*>
+    \<langle\>\<langle\>L,\<varphi\>\<rangle\>,\<psi\>\<rangle\>=\<langle\>K,\<psi\>\<otimes\>\<varphi\>\<rangle\>,
+  </equation*>
+
+  where <math|K> is the linear functional in
+  <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|n>\<times\>\<bbb-R\><rsup|m>|)>>.
+  Back to time evolution, we get
+
+  <\equation*>
+    \<langle\><frac|\<partial\>\<varphi\>|\<partial\>t>,\<psi\>\<rangle\>=\<langle\>\<langle\>L,\<varphi\>\<rangle\>,\<psi\>\<rangle\>=\<langle\>K,\<psi\>\<otimes\>\<varphi\>\<rangle\>.
+  </equation*>
+
+  Writing by integrals and inserting the temporal dependence, we get
+
+  <\equation*>
+    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>\<psi\><around*|(|x,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    K<around*|(|x,y,t|)>\<psi\><around*|(|x,t|)>\<varphi\><around*|(|y,t|)>.
+  </equation*>
+
+  The integrals shall be regarded as linear operations. In other words
+  (define <math|r\<assign\>\<mathi\> K>),
 
   <\equation>
     \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
     r<around*|(|x,y,t|)>\<varphi\><around*|(|y,t|)>.<label|equ:superposition>
   </equation>
 
-  The right hand side can be seen as a generalization of linear
-  transformation in <math|\<bbb-R\><rsup|n>> like vector-matrix product
+  Remark that both sides are elements in <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>.
+  The imaginary <math|\<mathi\>> is employed for convenience. The right hand
+  side can be seen as a generalization of linear transformation in
+  <math|\<bbb-R\><rsup|n>> like vector-matrix product
   <math|<big|sum><rsub|j>r<rsub|i j><around*|(|t|)>
-  \<varphi\><rsub|j><around*|(|t|)>>. The imaginary <math|\<mathi\>> is
-  employed for convenience.
+  \<varphi\><rsub|j><around*|(|t|)>>.
 
-  <section|Kernel Is a Generalized Function>
-
-  Up to now, we treat the kernel <math|r> as a normal function. But in
-  practice, we usually employ Dirac's <math|\<delta\>> function as a kernel
-  too. The Dirac's <math|\<delta\>> function has a very strange property
-  that, for any function <math|\<varphi\>>,
-
-  <\equation*>
-    \<varphi\><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><around*|(|x-y|)>\<varphi\><around*|(|y|)>.
-  </equation*>
-
-  It indicates that <math|\<delta\>> function vanishes everywhere on
-  <math|\<bbb-R\><rsup|d>> except for the origin, but diverges at the origin
-  because <math|1\<equiv\><big|int>\<mathd\>y \<delta\><around*|(|x-y|)>> if
-  we use <math|\<varphi\><around*|(|y|)>\<equiv\>1> and notice that
-  <math|<around*|{|0|}>> is a set of measure zero. To make it plausible, we
-  have to regard the integral as an <em|abstract> application of
-  <math|\<delta\>> function onto <math|\<varphi\>>. Namely,
-  <math|\<varphi\><around*|(|x|)>=App<around*|[|\<delta\><rsub|x>,\<varphi\>|]>>,
-  or using a more popular notation, <math|\<varphi\><around*|(|x|)>=<around*|\<langle\>|\<delta\><rsub|x>,\<varphi\>|\<rangle\>>>,
-  where <math|\<delta\><rsub|x><around*|(|y|)>> is a re-write of
-  <math|\<delta\><around*|(|x-y|)>>. Now, everything is well-defined because
-  <math|\<delta\>> function has been a linear operator. And we can only
-  realize it by applying a function to it, or testing it, just like sending a
-  tester to a black box machine. The function <math|\<varphi\>> is, thus,
-  named <strong|test function>; and the linear operator (or functional, as a
-  special case of operator) like <math|\<delta\>> function is called
-  <strong|generalized function> or <strong|distribution>. Generalized
-  function was first proposed by Laurent Schwartz too. And it is Schwartz who
-  found that any continuos linear operator applied on rapidly decreasing
-  functions can be represented by generalized function.
-
-  So, for including <math|\<delta\>> function, we have to enlarge the space
-  where <math|r> lives to the space of generalized functions. But for
-  convenience, we adopt the original integral notation as it is employed for
-  normal (not generalized) functions. So, an equivalent notation is
-
-  <\equation*>
-    <around*|\<langle\>|f,\<varphi\>|\<rangle\>>\<equiv\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    f<around*|(|x|)>\<varphi\><around*|(|x|)>.
-  </equation*>
-
-  Keep in mind that the right hand side just denotes applying a test function
-  <math|\<varphi\>> to a generalized function <math|f> (namely the left hand
-  side). So, time evolution (equation <reference|equ:superposition>) becomes
-
-  <\equation*>
-    \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<around*|\<langle\>|r<around*|(|x,\<cdummy\>,t|)>,\<varphi\><around*|(|\<cdummy\>,t|)>|\<rangle\>>\<equiv\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    r<around*|(|x,y,t|)>\<varphi\><around*|(|y,t|)>,
-  </equation*>
-
-  where the right most integral now is nothing but a convenient re-write of
-  <math|<around*|\<langle\>|r<around*|(|x,\<cdummy\>,t|)>\<varphi\><around*|(|\<cdummy\>,t|)>|\<rangle\>>>.
-
-  Fourier transform on generalized functions is defined by the Fourier
-  transform of test function. For example, given a generalized function
-  <math|f> and a test function <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
+  Fourier transform on <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>
+  is defined by the Fourier transform on <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
+  For example, given a linear functional <math|f\<in\>\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>
+  and a wavefunction <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
 
   <\equation*>
     <around*|\<langle\>|\<cal-F\><around*|[|f|]>,\<varphi\>|\<rangle\>>\<assign\><around*|\<langle\>|f,\<cal-F\><around*|[|\<varphi\>|]>|\<rangle\>>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k
@@ -407,10 +428,10 @@
     exp<around*|(|-\<mathi\>k x|)>f<around*|(|x|)>.
   </equation*>
 
-  It looks like the Fourier transform of normal function, but it is not. The
-  Fourier transform <math|\<cal-F\><around*|[|f|]>> is again a generalized
-  function, which has meaning only by being applied such as
-  <math|<around*|\<langle\>|\<cal-F\><around*|[|f|]>,\<varphi\>|\<rangle\>>>.
+  It looks like the Fourier transform of a normal function, but it is not.
+  The Fourier transform <math|\<cal-F\><around*|[|f|]>> is again a linear
+  functional, which has meaning only by being applied onto wavefunctions such
+  as <math|<around*|\<langle\>|\<cal-F\><around*|[|f|]>,\<varphi\>|\<rangle\>>>.
 
   <section|Hermitianity Bridges the Arguments of Kernel>
 
@@ -1047,59 +1068,55 @@
 
 <\references>
   <\collection>
-    <associate|appendix:Stationary Phase Approximation|<tuple|A|19>>
-    <associate|appendix:dense|<tuple|A|17>>
     <associate|auto-1|<tuple|1|3>>
-    <associate|auto-10|<tuple|8|10>>
-    <associate|auto-11|<tuple|9|11>>
+    <associate|auto-10|<tuple|8|9>>
+    <associate|auto-11|<tuple|9|10>>
     <associate|auto-12|<tuple|10|12>>
-    <associate|auto-13|<tuple|11|13>>
-    <associate|auto-14|<tuple|12|15>>
-    <associate|auto-15|<tuple|A|17>>
-    <associate|auto-16|<tuple|B|19>>
-    <associate|auto-17|<tuple|C|?>>
-    <associate|auto-18|<tuple|D|?>>
+    <associate|auto-13|<tuple|11|12>>
+    <associate|auto-14|<tuple|12|13>>
     <associate|auto-2|<tuple|1.1|3>>
     <associate|auto-3|<tuple|1.2|3>>
     <associate|auto-4|<tuple|2|3>>
-    <associate|auto-5|<tuple|3|3>>
-    <associate|auto-6|<tuple|4|5>>
+    <associate|auto-5|<tuple|3|4>>
+    <associate|auto-6|<tuple|4|6>>
     <associate|auto-7|<tuple|5|6>>
-    <associate|auto-8|<tuple|6|8>>
-    <associate|auto-9|<tuple|7|9>>
-    <associate|axiom:local|<tuple|3|9>>
+    <associate|auto-8|<tuple|6|7>>
+    <associate|auto-9|<tuple|7|8>>
+    <associate|axiom:local|<tuple|3|10>>
     <associate|axiom:prob|<tuple|1|3>>
     <associate|axiom:sup|<tuple|2|6>>
-    <associate|eq:action|<tuple|10|8>>
-    <associate|eq:hamiltonian|<tuple|7|7>>
-    <associate|eq:moment|<tuple|11|8>>
-    <associate|eq:momentexpansion|<tuple|13|9>>
-    <associate|eq:pathint|<tuple|8|8>>
-    <associate|eq:probtoself|<tuple|2|6>>
-    <associate|eq:r-fourier|<tuple|4|6>>
-    <associate|eq:r-fourier-alt|<tuple|5|7>>
-    <associate|eq:transexp|<tuple|12|8>>
+    <associate|eq:action|<tuple|10|9>>
+    <associate|eq:hamiltonian|<tuple|7|8>>
+    <associate|eq:moment|<tuple|11|10>>
+    <associate|eq:momentexpansion|<tuple|13|10>>
+    <associate|eq:pathint|<tuple|8|9>>
+    <associate|eq:probtoself|<tuple|2|7>>
+    <associate|eq:r-fourier|<tuple|4|8>>
+    <associate|eq:r-fourier-alt|<tuple|5|8>>
+    <associate|eq:transexp|<tuple|12|10>>
     <associate|equ:superposition|<tuple|1|6>>
     <associate|footnote-1|<tuple|1|4>>
     <associate|footnote-2|<tuple|2|5>>
     <associate|footnote-3|<tuple|3|6>>
-    <associate|footnote-4|<tuple|4|7>>
-    <associate|footnote-5|<tuple|5|7>>
-    <associate|footnote-6|<tuple|6|8>>
-    <associate|footnote-7|<tuple|7|9>>
-    <associate|footnote-8|<tuple|8|9>>
+    <associate|footnote-4|<tuple|4|8>>
+    <associate|footnote-5|<tuple|5|8>>
+    <associate|footnote-6|<tuple|6|10>>
+    <associate|footnote-7|<tuple|7|10>>
+    <associate|footnote-8|<tuple|8|11>>
+    <associate|footnote-9|<tuple|9|?>>
     <associate|footnr-1|<tuple|1|4>>
     <associate|footnr-2|<tuple|2|5>>
     <associate|footnr-3|<tuple|3|6>>
-    <associate|footnr-4|<tuple|4|7>>
-    <associate|footnr-5|<tuple|6|7>>
-    <associate|footnr-6|<tuple|6|8>>
-    <associate|footnr-7|<tuple|7|9>>
-    <associate|footnr-8|<tuple|8|9>>
-    <associate|section:Expanding Kernel as Generalized Function|<tuple|8|8>>
-    <associate|section:Hermitianity on Moments|<tuple|10|10>>
-    <associate|section:Locality Truncates the Moments|<tuple|9|9>>
-    <associate|section:Path Integral Formalism|<tuple|7|6>>
+    <associate|footnr-4|<tuple|4|8>>
+    <associate|footnr-5|<tuple|5|8>>
+    <associate|footnr-6|<tuple|6|10>>
+    <associate|footnr-7|<tuple|7|10>>
+    <associate|footnr-8|<tuple|8|11>>
+    <associate|footnr-9|<tuple|9|?>>
+    <associate|section:Expanding Kernel as Generalized Function|<tuple|7|9>>
+    <associate|section:Hermitianity on Moments|<tuple|9|12>>
+    <associate|section:Locality Truncates the Moments|<tuple|8|10>>
+    <associate|section:Path Integral Formalism|<tuple|6|8>>
   </collection>
 </references>
 
@@ -1129,50 +1146,38 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6>
 
-      5<space|2spc>Path Integral Formalism
+      5<space|2spc>Kernel Is a Generalized Function
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-7>
 
-      6<space|2spc>From Integral to Differential
+      6<space|2spc>Hermitianity Bridges the Arguments of Kernel
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-8>
 
-      7<space|2spc>Locality Truncates the Moments
+      7<space|2spc>Path Integral Formalism
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-9>
 
-      8<space|2spc>Hermitianity on the Moments
+      8<space|2spc>From Integral to Differential
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-10>
 
-      9<space|2spc>Galilean Symmetry Fixes
-      <with|mode|<quote|math>|N<rsub|cut>=2>
+      9<space|2spc>Locality Truncates the Moments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-11>
 
-      10<space|2spc>Back to Classical World
+      10<space|2spc>Hermitianity on the Moments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-12>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      A<space|2spc>Some Basics about <with|mode|<quote|math>|L<rsup|p>>
-      Space> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-13><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      B<space|2spc>Some Basics about Distribution>
+      11<space|2spc>Galilean Symmetry Fixes
+      <with|mode|<quote|math>|N<rsub|cut>=2>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-14><vspace|0.5fn>
+      <no-break><pageref|auto-13>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      C<space|2spc>Rapidly Decreasing Functions Approximate Integrable
-      Function> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-15><vspace|0.5fn>
-
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|Appendix
-      D<space|2spc>Stationary Phase Approximation>
+      12<space|2spc>Back to Classical World
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-16><vspace|0.5fn>
+      <no-break><pageref|auto-14>
     </associate>
   </collection>
 </auxiliary>
