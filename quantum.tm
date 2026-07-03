@@ -54,6 +54,12 @@
   <math|<big|sum><rsub|\<alpha\>>v<rsup|\<alpha\>>w<rsup|\<alpha\>>>, because
   both indices are superscripts.
 
+  For functions, functionals, and operators that depend on time, we usually
+  use subscript notation. For example, denote function
+  <math|\<varphi\><rsub|t><around*|(|x|)>\<assign\>\<varphi\><around*|(|x,t|)>>,
+  or inner product <math|\<langle\>f<rsub|t>,\<varphi\><rsub|t>\<rangle\>\<assign\><big|int>\<mathd\>x
+  f<around*|(|x,t|)>\<varphi\><around*|(|x,t|)>>.
+
   <em|We will frequently employ abbreviations throughout this note. So, keep
   them in mind.>
 
@@ -74,988 +80,623 @@
   quantum system.
 
   <\axiom>
-    [Probability Interpretation]<label|axiom:prob> The states of a quantum
-    system are represented by wavefunctions. And given a wavefunction
-    <math|\<varphi\>>, the probabilistic density that the particles are found
-    in positions <math|x> at time <math|t> is given by
-    <math|<around*|\||\<varphi\><around*|(|x,t|)>|\|><rsup|2>=\<varphi\><rsup|\<ast\>><around*|(|x,t|)>\<varphi\><around*|(|x,t|)>>.
+    <label|axiom:prob> The states of a quantum system are represented by
+    wavefunctions. And given a wavefunction <math|\<varphi\>>, the
+    probabilistic density that the particles are found in positions <math|x>
+    at time <math|t> is given by <math|<around*|\||\<varphi\><around*|(|x,t|)>|\|><rsup|2>=\<varphi\><rsup|\<ast\>><around*|(|x,t|)>\<varphi\><around*|(|x,t|)>>.
   </axiom>
 
-  This is indicated by double-slit experiment of electron. An excellent
-  introduction to double-slit experiment of electron, and how it gives raise
-  to the concept of wavefunction, can be found in Feynman's Lectures on
-  Physics, Vol 3, chapter 1.
-
-  <section|Wavefunction Is Rapidly Decreasing>
-
-  Before doing calculation, we first address which space wavefunctions live
-  in. Probability interpretation (axiom <reference|axiom:prob>) demands that
-  wavefunctions are square-integrable. Namely, wavefunction is in the
-  square-integrable space <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>.
-  But this is far from sufficient. Many mathematical tools are essential for
-  developing quantum mechanics, such as Fourier transform and its inverse.
-
-  Here we give a brief introduction to Fourier transform. Given a function
-  <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>, Fourier transform
-  <math|\<cal-F\>> of <math|f> is defined as a linear operation that, for any
-  <math|k\<in\>\<bbb-R\><rsup|d>>,
-
-  <\equation*>
-    \<cal-F\><around*|[|f|]><around*|(|k|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    exp<around*|(|-\<mathi\>k x|)>f<around*|(|x|)>.
-  </equation*>
-
-  Hence, applying Fourier transform to <math|f> results in another function
-  from <math|\<bbb-R\><rsup|d>> to <math|\<bbb-C\>>, the
-  <math|\<cal-F\><around*|[|f|]>>. Inverse Fourier transform, applied to
-  function <math|<wide|f|^>:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>>, is
-  given by
-
-  <\equation*>
-    \<cal-F\><rsup|-1><around*|[|<wide|f|^>|]><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>exp<around*|(|\<mathi\>k
-    x|)><wide|f|^><around*|(|k|)>.
-  </equation*>
-
-  Notice that <math|\<cal-F\>> and <math|\<cal-F\><rsup|-1>> are very
-  similar. In fact, we can regard inverse Fourier transform as a kind of
-  Fourier transform, because
-
-  <\equation*>
-    <around*|(|2\<mathpi\>|)><rsup|d> \<cal-F\><rsup|-1><around*|[|<wide|f|^>|]><around*|(|x|)>=\<cal-F\><around*|[|<wide|f|^>|]><around*|(|-x|)>.
-  </equation*>
-
-  To see why <math|\<cal-F\><rsup|-1>> is the inverse of <math|\<cal-F\>>, we
-  evaluate <math|\<cal-F\><rsup|-1><around*|[|\<cal-F\><around*|[|f|]>|]>>
-  and check if it gives raise to <math|f>. Directly, we have
-
-  <\equation*>
-    \<cal-F\><rsup|-1><around*|[|\<cal-F\><around*|[|f|]>|]><around*|(|y|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    f<around*|(|x|)><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>exp<around*|(|-\<mathi\>k
-    <around*|(|x-y|)>|)>.
-  </equation*>
-
-  Integrating over <math|k> gives a Dirac's <math|\<delta\>> function,
-
-  <\equation*>
-    \<cal-F\><rsup|-1><around*|[|\<cal-F\><around*|[|f|]>|]><around*|(|y|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    \<delta\><around*|(|x-y|)>f<around*|(|x|)>=f<around*|(|y|)>.
-  </equation*>
-
-  So we find <math|\<cal-F\><rsup|-1><around*|[|\<cal-F\><around*|[|f|]>|]>=f>.
-  During the calculation, we introduced <math|\<delta\>> function and
-  employed its property that <math|<big|int>\<mathd\>x
-  \<delta\><around*|(|x-y|)>f<around*|(|x|)>=f<around*|(|y|)>>. We will give
-  details about <math|\<delta\>> function in section TODO. In this section,
-  we focus on when <math|\<cal-F\><around*|[|f|]>> (or equivalently
-  <math|\<cal-F\><rsup|-1><around*|[|f|]>>) is well-defined.
-
-  Not any square-integrable function has Fourier transform. For example,
-  function <math|g:\<bbb-R\>\<rightarrow\>\<bbb-C\>> which behaves as
-  <math|g<around*|(|x|)>\<sim\>1/<around*|\||x|\|>> when
-  <math|<around*|\||x|\|>\<gg\>1> is square-integrable, because
-  <math|<around*|\||g<around*|(|x|)>|\|><rsup|2>\<sim\>1/x<rsup|2>> which
-  decays fast enough as <math|<around*|\||x|\|>\<rightarrow\>\<infty\>>. But,
-  <math|\<cal-F\><around*|[|g|]><around*|(|0|)>=<big|int><rsub|-\<infty\>><rsup|\<infty\>>\<mathd\>x
-  g<around*|(|x|)>> may diverge because the decaying speed of
-  <math|1/<around*|\||x|\|>> is not sufficiently fast. So, the Fourier
-  transform of a square-integrable function may not exist.
-
-  Since Fourier transform is basically rooted in quantum mechanics, we shall
-  seek for a smaller space in which wavefunctions live. Previously, we find
-  the problem happens when the function does not decay fast enough at
-  infinity. So, we shall consider rapidly decreasing functions.
-  <strong|Rapidly decreasing function> is a smooth function
-  <math|f:\<bbb-R\><rsup|d>\<rightarrow\>\<bbb-C\>> that decays \Pextremely
-  fast\Q at infinity. Precisely, for any <math|m>-order polynomial
-  <math|P<rsub|m>> and any <math|m>-order partial derivative
-  <math|\<partial\><rsup|n>>,<\footnote>
-    For example, <math|\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>><rsup|2>>
-    is <math|3>-order partial derivative, and
-    <math|\<partial\><rsub|\<alpha\>>\<partial\><rsub|\<beta\>><rsup|2>\<partial\><rsub|\<gamma\>><rsup|9>>
-    is <math|12>-order.
-  </footnote> with integers <math|m,n\<geqslant\>0>, we have
-
-  <\equation*>
-    lim<rsub|<around*|\<\|\|\>|x|\<\|\|\>>\<rightarrow\>\<infty\>><around*|\||P<rsub|m><around*|(|x|)>\<partial\><rsup|n>f<around*|(|x|)>|\|>=0.
-  </equation*>
-
-  So, a rapidly decreasing function, together with its derivatives, decays
-  faster than any polynomial at infinity. Denote
-  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> as the collection of all
-  the rapidly decreasing functions from <math|\<bbb-R\><rsup|d>> to
-  <math|\<bbb-C\>>, in memory of French mathematician Laurent Schwartz, who
-  did fundamental investigations on Fourier transform and distribution
-  theory. The space of rapidly decreasing functions is also called
-  <strong|Schwartz space>. Fourier transform on a rapidly decreasing function
-  results in a rapidly decreasing function. Or say, Fourier transform is a
-  linear automorphism in Schwartz space.
-
-  Rapidly decreasing functions are dense in square-integrable space, meaning
-  that for any <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
-  <math|\<varepsilon\>\<gtr\>0>, there is a
-  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> such that
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
-  </equation*>
-
-  For example, for any wavefunction <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
-  when we measure the probability on any area of positions
-  <math|U\<subset\>\<bbb-R\><rsup|d>>, we can use its approximation
-  <math|g\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> instead, because the
-  difference is bounded by
-
-  <\equation*>
-    <around*|\||<big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>-<big|int><rsub|U>\<mathd\>x<around*|\||g<around*|(|x|)>|\|><rsup|2>|\|>\<leqslant\><big|int><rsub|U>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<leqslant\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <around*|\||f<around*|(|x|)>-g<around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
-  </equation*>
-
-  The first inequality is equivalent to <math|<around*|\||<around*|\<\|\|\>|f|\<\|\|\>>-<around*|\<\|\|\>|g|\<\|\|\>>|\|>\<leqslant\><around*|\<\|\|\>|f-g|\<\|\|\>>>,
-  where the norm is defined by <math|<around*|\<\|\|\>|f|\<\|\|\>>\<assign\><big|int><rsub|U>\<mathd\>x<around*|\||f<around*|(|x|)>|\|><rsup|2>>.
-  It states that the difference between the two sides of a triangle is less
-  than that of the third side. It is in this sense that the substitution
-  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-  is plausible.
-
-  To find the rapid decreasing function <math|g>, we first claim that a
-  square-integrable function can be approximated by compact supported
-  continuous function.<\footnote>
-    TODO: prove this statement.
-  </footnote> Explicitly, for any <math|\<varepsilon\>\<gtr\>0>, we can find
-  <math|L\<gtr\>0> and a continuos function <math|f<rsub|L>> with
-  <math|f<rsub|L><around*|(|x|)>=0> for any
-  <math|x\<nin\><around*|[|-L,L|]><rsup|d>>, such that
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-f<rsub|L><around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
-  </equation*>
-
-  The <math|f<rsub|L>> is \Psupported\Q by the closed, thus compact, region
-  <math|<around*|[|-L,L|]><rsup|d>>. It has sufficient decreasing speed just
-  because it keeps vanishing outside the region. But,
-  <math|f<rsub|L>\<nin\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> because it
-  is not smooth (recall that <math|f<rsub|L>> is just continuous). We need to
-  polish it using the trick of convolution. Explicitly, construct function
-  <math|g<rsub|n>> using convolution, as
-
-  <\equation*>
-    g<rsub|n><around*|(|x|)>\<assign\><around*|(|\<delta\><rsub|n>\<ast\>f<rsub|L>|)><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|n><around*|(|x-y|)>f<rsub|L><around*|(|y|)>,
-  </equation*>
-
-  where <math|\<delta\><rsub|n>> is a Gaussian function with \Pwidth\Q
-  <math|1/<sqrt|n>>, as
-
-  <\equation*>
-    \<delta\><rsub|n><around*|(|x|)>\<assign\><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|n
-    x<rsup|2>|2>|)>.
-  </equation*>
-
-  Apparently, <math|g<rsub|n><around*|(|x|)>> is smooth because derivatives
-  taken on <math|x> are applied to <math|\<delta\><rsub|n>>, which is smooth.
-  When <math|n> is large enough, <math|\<delta\><rsub|n>> becomes so narrow
-  that <math|g<rsub|n>> approximates <math|f<rsub|L>> well enough. In other
-  words, for any <math|\<varepsilon\>\<gtr\>0>, there exists <math|N\<gtr\>0>
-  such that for any <math|n\<gtr\>N>, we have
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||f<rsub|L><around*|(|x|)>-g<rsub|n><around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
-  </equation*>
-
-  Altogether, using the triangle inequality of <math|L<rsub|2>>, we find
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>><around*|\||f<around*|(|x|)>-g<rsub|n><around*|(|x|)>|\|><rsup|2>\<less\><around*|(|<sqrt|\<varepsilon\>>+<sqrt|\<varepsilon\>>|)><rsup|2>=4\<varepsilon\>.
-  </equation*>
-
-  So, we have constructed (even though omitted many details) a rapid
-  decreasing function <math|g<rsub|n>> that is a good approximation of the
-  square-integrable function <math|f>.
-
-  <section|Superposition Principle and Time Evolution>
-
-  The second axiom of quantum mechanics, superposition principle, claims that
-  operations on wavefunctions shall be linear (so that wavefunctions can be
-  superpositioned).
+  It means a wavefunction is square-integrable. But, not every
+  square-integrable function corresponds to a wavefunction of some quantum
+  system in real world. Even though, we assume that\ 
 
   <\axiom>
-    [Superposition Principle]<label|axiom:sup> Physical laws that operate on
-    quantum states shall be linear.
+    <label|axiom:dense> The collection of all wavefunctions that exist in
+    real world is dense in square-integrable space. Explicitly, for any
+    square-integrable function <math|f> and any
+    <math|\<varepsilon\>\<gtr\>0>, there is a wavefunction <math|\<varphi\>>
+    of some quantum system in real world, and a time instant <math|t>, such
+    that
+
+    <\equation*>
+      <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+      <around*|\||f<around*|(|x|)>-\<varphi\><around*|(|x,t|)>|\|><rsup|2>\<less\>\<varepsilon\>.
+    </equation*>
   </axiom>
 
-  An implication of superposition principle is how quantum states (precisely,
-  their wavefunctions) evolve with time. Axiom <reference|axiom:sup> implies
-  that the equation of time evolution (as a physical law that operates on a
-  quantum state) shall be linear:
+  Superposition principle of quantum system implies that the time evolution
+  of wavefunction is linear in wavefunction. It may be time-dependent. We
+  further assume that it is continuous. Namely, a small variation of
+  wavefunction results in a perturbative time evolution.
 
-  <\equation*>
-    <frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=\<langle\>L<around*|(|x,t|)>,\<varphi\>\<rangle\><around*|(|x,t|)>,
-  </equation*>
+  <\axiom>
+    <label|axiom:time-evol>Wavefunction evolves with time by
 
-  where <math|L<around*|(|x,t|)>> is a spatial-temporal-dependent linear
-  operator on <math|\<varphi\>>, and the <math|\<langle\>\<cdummy\>,\<cdummy\>\<rangle\>>
-  denotes the abstract linear operation.<\footnote>
-    You may wonder why it is not <math|<around*|(|\<partial\><rsup|2>\<varphi\>/\<partial\>t<rsup|2>|)>=L<around*|(|\<varphi\>,t|)>>
-    instead, which is linear in wavefunction too. If so, wavefunction at a
-    given time cannot fully characterize the system at that time, just like
-    knowing the particle position at time <math|t> is insufficient for
-    predicting the subsequent position at <math|<around*|(|t+\<mathd\>t|)>>
-    in classical physics, for which velocity or momentum is also essential.
-    But just like the time evolution of a classical system at a given time is
-    fully characterized by the phase at that time, so that the (Hamiltonian)
-    dynamics is first order in time derivative, wavefunction has fully
-    characterized a quantum system (claimed in axiom <reference|axiom:prob>)
-    so that its time evolution is first order in time derivative too.
-  </footnote>
+    <\equation*>
+      \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=\<cal-R\><rsub|t><around*|(|\<varphi\>|)><around*|(|x,t|)>,
+    </equation*>
 
-  Denotes the dual space of wavefunctions as
-  <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>, which collects
-  all the continuous<\footnote>
-    TODO: why continuous?
-  </footnote> linear functional that applies on rapid decreasing functions.
-  Apparently, Schwartz space (the space of wavefunctions) is a subspace of
-  its dual, by converting a wavefunction <math|\<varphi\>> to a linear
-  functional as
+    where <math|\<cal-R\><rsub|t>:L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\><around*|[|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>|]><rprime|'>>
+    is a time-dependent continuous linear operator.
+  </axiom>
 
-  <\equation*>
-    \<langle\>\<varphi\>,\<psi\>\<rangle\>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    \<varphi\><around*|(|x|)>\<psi\><around*|(|x|)>,
-  </equation*>
-
-  for a wavefunction <math|\<psi\>>. There are, however, elements in
-  <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>> that are not
-  wavefunctions, or not even functions. A typical one is Dirac's
-  <math|\<delta\>> \Pfunction\Q, defined by
-  <math|\<langle\>\<delta\><rsub|x>,\<varphi\>\<rangle\>\<assign\>\<varphi\><around*|(|x|)>>.
-  We can still adopt the convenient integral notation, writing that
-
-  <\equation*>
-    \<langle\>\<delta\><rsub|x>,\<varphi\>\<rangle\>\<equiv\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<delta\><rsub|x><around*|(|y|)>\<varphi\><around*|(|y|)>,
-  </equation*>
-
-  then we must keep in mind that the integral has meaning only when it is
-  realized by applying the linear functional <math|\<delta\><rsub|x>> to
-  <math|\<varphi\>>, namely the left hand side. If we did regard
-  <math|\<delta\><rsub|x>> as a normal function and treating the right hand
-  side as a normal integral, then it would be ill-behaved:
-  <math|\<delta\><rsub|x>> would vanish everywhere on
-  <math|\<bbb-R\><rsup|d>> except for <math|x>, but diverge at <math|x>
-  because <math|1\<equiv\><big|int>\<mathd\>y
-  \<delta\><rsub|x><around*|(|y|)>> if we set
-  <math|\<varphi\><around*|(|y|)>\<equiv\>1> and notice that
-  <math|<around*|{|x|}>> is a set of measure zero.
-
-  Schwartz kernel theorem claims that, any continuous linear operator from
-  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|m>|)>> to
-  <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>> can be
-  represented by a linear functional in <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|n>\<times\>\<bbb-R\><rsup|m>|)>>.
-  Explicitly, a linear operator <math|L> that acts on wavefunction
-  <math|\<varphi\>> and returns a linear functional which in turn can be
-  applied to another wavefunction <math|\<psi\>>, finally resulting in a
-  (complex) number, can be represented by
-
-  <\equation*>
-    \<langle\>\<langle\>L,\<varphi\>\<rangle\>,\<psi\>\<rangle\>=\<langle\>K,\<psi\>\<otimes\>\<varphi\>\<rangle\>,
-  </equation*>
-
-  where <math|K> is the linear functional in
-  <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|n>\<times\>\<bbb-R\><rsup|m>|)>>.
-  Back to time evolution, we get
-
-  <\equation*>
-    \<langle\><frac|\<partial\>\<varphi\>|\<partial\>t>,\<psi\>\<rangle\>=\<langle\>\<langle\>L,\<varphi\>\<rangle\>,\<psi\>\<rangle\>=\<langle\>K,\<psi\>\<otimes\>\<varphi\>\<rangle\>.
-  </equation*>
-
-  Writing by integrals and inserting the temporal dependence, we get
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>\<psi\><around*|(|x,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    K<around*|(|x,y,t|)>\<psi\><around*|(|x,t|)>\<varphi\><around*|(|y,t|)>.
-  </equation*>
-
-  The integrals shall be regarded as linear operations. In other words
-  (define <math|r\<assign\>\<mathi\> K>),
-
-  <\equation>
-    \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    r<around*|(|x,y,t|)>\<varphi\><around*|(|y,t|)>.<label|equ:superposition>
-  </equation>
-
-  Remark that both sides are elements in <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>.
-  The imaginary <math|\<mathi\>> is employed for convenience. The right hand
-  side can be seen as a generalization of linear transformation in
-  <math|\<bbb-R\><rsup|n>> like vector-matrix product
-  <math|<big|sum><rsub|j>r<rsub|i j><around*|(|t|)>
-  \<varphi\><rsub|j><around*|(|t|)>>.
-
-  Fourier transform on <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>
-  is defined by the Fourier transform on <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
-  For example, given a linear functional <math|f\<in\>\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>
-  and a wavefunction <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
-
-  <\equation*>
-    <around*|\<langle\>|\<cal-F\><around*|[|f|]>,\<varphi\>|\<rangle\>>\<assign\><around*|\<langle\>|f,\<cal-F\><around*|[|\<varphi\>|]>|\<rangle\>>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k
-    f<around*|(|k|)>\<cal-F\><around*|[|\<varphi\>|]><around*|(|k|)>.
-  </equation*>
-
-  Inserting the definition of <math|\<cal-F\><around*|[|\<varphi\>|]><around*|(|k|)>>,
-  we get
-
-  <\equation*>
-    <around*|\<langle\>|\<cal-F\><around*|[|f|]>,\<varphi\>|\<rangle\>>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k
-    f<around*|(|k|)><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    exp<around*|(|-\<mathi\>k x|)>\<varphi\><around*|(|x|)>.
-  </equation*>
-
-  By switching the integrals, we get
-
-  <\equation*>
-    <around*|\<langle\>|\<cal-F\><around*|[|f|]>,\<varphi\>|\<rangle\>>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k
-    exp<around*|(|-\<mathi\>k x|)>f<around*|(|k|)>|]>\<varphi\><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k
-    <around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    exp<around*|(|-\<mathi\>k x|)>f<around*|(|x|)>|]>\<varphi\><around*|(|k|)>,
-  </equation*>
-
-  where, in the last step, we have switched the dummy variables <math|x> and
-  <math|k>. So, formally,
-
-  <\equation*>
-    \<cal-F\><around*|[|f|]><around*|(|k|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    exp<around*|(|-\<mathi\>k x|)>f<around*|(|x|)>.
-  </equation*>
-
-  It looks like the Fourier transform of a normal function, but it is not.
-  The Fourier transform <math|\<cal-F\><around*|[|f|]>> is again a linear
-  functional, which has meaning only by being applied onto wavefunctions such
-  as <math|<around*|\<langle\>|\<cal-F\><around*|[|f|]>,\<varphi\>|\<rangle\>>>.
-
-  <section|Hermitianity Bridges the Arguments of Kernel>
-
-  A direct result of probability interpretation (axiom
-  <reference|axiom:prob>) is that probabilistic density shall be normalized.
-  Namely, for any wave-function <math|\<varphi\>> and any
-  <math|t\<in\>\<bbb-R\>>, we shall have
-
-  <\equation>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    \<varphi\><rsup|\<ast\>><around*|(|x,t|)>\<varphi\><around*|(|x,t|)>=1.<label|eq:probtoself>
-  </equation>
-
-  Taking derivative on <math|t> gives
+  Here, the codomain of <math|\<cal-R\><rsub|t>> is the dual space of
+  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. All we need is that
+  <math|<around*|(|\<partial\>\<varphi\>/\<partial\>t|)>> is finite only when
+  it is applied by another wavefunction, namely
 
   <\equation*>
     <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <frac|\<partial\>\<varphi\><rsup|\<ast\>>|\<partial\>t><around*|(|x,t|)>\<varphi\><around*|(|x,t|)>+<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    \<varphi\><rsup|\<ast\>><around*|(|x,t|)><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=0.
+    \<psi\><around*|(|x,t|)><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>\<less\>\<infty\>.
   </equation*>
 
-  Replacing <math|<around*|(|\<partial\>\<varphi\>/\<partial\>t|)>> by
-  equation <reference|equ:superposition> (and its complex conjugation),
+  This is weaker than using <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>
+  as the codomain, because <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<subset\><around*|[|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>|]><rprime|'>>.
+
+  <section|Basic Mathematical Facts>
+
+  <subsection|Lebesgue Integral and Limit>
+
+  Throughout this note, when we talk about integral (or integrable), we mean
+  Lebesgue integral (integrable). Lebesgue's definition of integral needs a
+  measure space <math|<around*|(|X,\<cal-A\>,\<mu\>|)>> and a
+  <math|\<cal-A\>>-measurable function <math|f> on <math|X>. But in most
+  practical situations, there is no need to mention the
+  <math|\<sigma\>>-algebra <math|\<cal-A\>>, which collects measurable
+  subsets of <math|X>, and the measure <math|\<mu\>>, which defines the
+  volume of measurable subsets. So, we simply call
+  <math|\<cal-A\>>-measurable function as measurable function, without
+  mentioning the <math|\<sigma\>>-algebra <math|\<cal-A\>>, and re-write the
+  integral as (the right hand side is the original form)
 
   <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<big|int><rsub|\<bbb-R\><rsup|d>>
-    \<mathd\>y \<varphi\><around*|(|x,t|)><around*|[|r<rsup|\<ast\>><around*|(|x,y,t|)>-r<around*|(|y,x,t|)>|]>\<varphi\><rsup|\<ast\>><around*|(|y,t|)>=0.
+    <big|int><rsub|X>\<mathd\>x f<around*|(|x|)>\<assign\><big|int><rsub|X>\<mathd\>\<mu\><around*|(|x|)>f<around*|(|x|)>,
   </equation*>
 
-  Since <math|\<varphi\>> is arbitrary, we obtain
+  where the measure <math|\<mu\>> is neglected.
 
-  <\equation>
-    r<rsup|\<ast\>><around*|(|x,y,t|)>=r<around*|(|y,x,t|)>.
-  </equation>
+  <\theorem>
+    A function is integrable if and only if it is absolute integrable.
+  </theorem>
 
-  That is, complex conjugating <math|r> is simply swapping its arguments. We
-  call such function <strong|Hermitian>. <with|color|dark green|The two
-  arguments of <math|r> are not independent.>
-
-  <section|Path Integral Formalism><label|section:Path Integral Formalism>
-
-  We are trying to derive a generic path integral formalism. Given a small
-  <math|\<Delta\>t\<gtr\>0>, time evolution (equation
-  <reference|equ:superposition>) gives
-
-  <\equation*>
-    \<varphi\><around*|(|x,t+\<Delta\>t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<around*|[|\<delta\><around*|(|x-y|)>-\<mathi\>
-    r<around*|(|x,y,t|)>\<Delta\>t|]> \<varphi\><around*|(|y,t|)>+\<omicron\><around*|(|\<Delta\>t|)>.
-  </equation*>
-
-  We are to convert the <math|<around*|[|\<cdots\>|]>> part into exponential.
-  To do so, we take the inverse Fourier transform
-
-  <\equation*>
-    \<delta\><around*|(|x-y|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)>,
-  </equation*>
-
-  and
-
-  <\equation>
-    r<around*|(|x,y,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)><wide|r|^><around*|(|k,y,t|)>,<label|eq:r-fourier>
-  </equation>
-
-  in which<\footnote>
-    Indeed, by inserting equation <reference|eq:hamiltonian> into equation
-    <reference|eq:r-fourier>, we get
+  <\theorem>
+    [Exchange Integrals, Fubini] Given an integrable function <math|f> on
+    <math|X\<times\>Y>, we can safely exchange the integrals, as
 
     <\equation*>
-      r<around*|(|x,y,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)>\<times\><around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<rprime|'>
-      exp<around*|(|-\<mathi\>k<around*|(|x<rprime|'>-y|)>|)>
-      r<around*|(|x<rprime|'>,y,t|)>|]>.
+      <big|int><rsub|X>\<mathd\>x<big|int><rsub|Y>\<mathd\>y
+      f<around*|(|x,y|)>=<big|int><rsub|Y>\<mathd\>y<big|int><rsub|X>\<mathd\>x
+      f<around*|(|x,y|)>.
     </equation*>
+  </theorem>
 
-    Re-arrange the right hand side as
+  Now, we turn to the limit of integrals. Monotone convergence theorem (MCT)
+  and Lebesgue's dominated convergence theorem (DCT) are the most important
+  tools for investigating the limit of integrals.
+
+  <\theorem>
+    [MCT] Consider an infinite sequence of integral functions,
+    <math|0\<leqslant\>f<rsub|1>\<leqslant\>f<rsub|2>\<leqslant\>\<cdots\>>
+    almost everywhere on <math|X>, then we have
 
     <\equation*>
-      <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<rprime|'>
-      r<around*|(|x<rprime|'>,y,t|)><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-      exp<around*|(|\<mathi\>k<around*|(|x-x<rprime|'>|)>|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<rprime|'>
-      r<around*|(|x<rprime|'>,y,t|)>\<delta\><around*|(|x-x<rprime|'>|)>,
+      lim<rsub|n\<rightarrow\>\<infty\>><big|int><rsub|X>\<mathd\>x
+      f<rsub|n><around*|(|x|)>=<big|int><rsub|X>\<mathd\>x
+      lim<rsub|n\<rightarrow\>\<infty\>>f<rsub|n><around*|(|x|)>.
     </equation*>
+  </theorem>
 
-    which goes back to <math|r<around*|(|x,y|)>>, indicating that equations
-    <reference|eq:r-fourier> and <reference|eq:hamiltonian> are consistent.
-    <with|color|red|But, before Fourier transform, we have to prove that
-    <math|r> can be approximated by rapidly decreasing functions.>
-  </footnote> <\footnote>
-    Alternatively, we can define
-
-    <\equation>
-      <wide|r|\<check\>><around*|(|x,k,t|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-      exp<around*|(|-\<mathi\>k<around*|(|x-y|)>|)>
-      r<around*|(|x,y,t|)>.<label|eq:r-fourier-alt>
-    </equation>
-
-    Thus,
+  <\theorem>
+    [DCT] Consider an infinite sequence of integral functions,
+    <math|<around*|(|f<rsub|1>,f<rsub|2>,\<ldots\>|)>>. If there is a
+    positive integrable function <math|g> such that
+    <math|<around*|\||f<rsub|n>|\|>\<leqslant\>g> almost everywhere on
+    <math|X>, then we have
 
     <\equation*>
-      r<around*|(|x,y,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)><wide|r|\<check\>><around*|(|x,k,t|)>.
+      lim<rsub|n\<rightarrow\>\<infty\>><big|int><rsub|X>\<mathd\>x
+      f<rsub|n><around*|(|x|)>=<big|int><rsub|X>\<mathd\>x
+      lim<rsub|n\<rightarrow\>\<infty\>>f<rsub|n><around*|(|x|)>.
     </equation*>
+  </theorem>
 
-    Indeed, plugging <math|<wide|r|\<check\>><around*|(|x,k,t|)>> into the
-    right hand side of <math|r<around*|(|x,y,t|)>>,
+  The <math|f<rsub|n>>s are all dominated by <math|g>. For our purpose, DCT
+  is most useful.
+
+  <\corollary>
+    [Exchange Integral with Series] Consider an infinite sequence of integral
+    functions, <math|<around*|(|f<rsub|1>,f<rsub|2>,\<ldots\>|)>>. If
 
     <\equation*>
-      r<around*|(|x,y,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)>\<times\><around*|[|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<rprime|'>
-      exp<around*|(|-\<mathi\>k<around*|(|x-y<rprime|'>|)>|)>
-      r<around*|(|x,y<rprime|'>,t|)>|]>.
+      <big|sum><rsub|n=1><rsup|\<infty\>><big|int><rsub|X>\<mathd\>x
+      <around*|\||f<rsub|n><around*|(|x|)>|\|>\<less\>\<infty\>,
     </equation*>
 
-    Re-arrange the right hand side as
+    then
 
     <\equation*>
-      <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<rprime|'>
-      r<around*|(|x,y<rprime|'>,t|)><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-      exp<around*|(|\<mathi\>k<around*|(|y<rprime|'>-y|)>|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<rprime|'>
-      r<around*|(|x,y<rprime|'>,t|)>\<delta\><around*|(|y<rprime|'>-y|)>,
+      <big|sum><rsub|n=1><rsup|\<infty\>><big|int><rsub|X>\<mathd\>x
+      f<rsub|n><around*|(|x|)>=<big|int><rsub|X>\<mathd\>x
+      <big|sum><rsub|n=1><rsup|\<infty\>>f<rsub|n><around*|(|x|)>.
     </equation*>
+  </corollary>
 
-    which goes back to <math|r<around*|(|x,y,t|)>> again. The
-    <math|<wide|r|^>> and <math|<wide|r|\<check\>>> are the Fourier transform
-    of <math|r> performed on each of its arguments respectively. In fact,
-    <math|<wide|r|^>> and <wide|r|\<check\>> are the same object. Indeed,
-    recalling the Hermitianity of <math|r>, we have
+  <\proof>
+    Denote
 
     <\equation*>
-      <wide|r|^><rsup|\<ast\>><around*|(|k,y,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)>
-      r<rsup|\<ast\>><around*|(|x,y,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-      exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)>r<around*|(|y,x,t|)>.
+      g<rsub|N><around*|(|x|)>\<assign\><big|sum><rsub|n=1><rsup|N><around*|\||f<rsub|n><around*|(|x|)>|\|>.
     </equation*>
 
-    Exchanging <math|x> and <math|y> makes
+    We have <math|0\<leqslant\>g<rsub|1>\<leqslant\>g<rsub|2>\<leqslant\>\<cdots\>>,
+    thus by MCT,
 
     <\equation*>
-      <wide|r|^><rsup|\<ast\>><around*|(|k,x,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-      exp<around*|(|-\<mathi\>k<around*|(|x-y|)>|)>r<around*|(|x,y,t|)>,
+      <big|int><rsub|X>\<mathd\>x lim<rsub|N\<rightarrow\>\<infty\>>g<rsub|N><around*|(|x|)>=lim<rsub|N\<rightarrow\>\<infty\>><big|int><rsub|X>\<mathd\>x
+      g<rsub|N><around*|(|x|)>=lim<rsub|N\<rightarrow\>\<infty\>><big|sum><rsub|n=1><rsup|N><big|int><rsub|X>\<mathd\>x<around*|\||f<rsub|n><around*|(|x|)>|\|>\<less\>\<infty\>.
     </equation*>
 
-    which is just the <math|<wide|r|\<check\>><around*|(|x,k,t|)>>. So, we
+    So, the positive function <math|g<around*|(|x|)>\<assign\>lim<rsub|N\<rightarrow\>\<infty\>>g<rsub|N><around*|(|x|)>>
+    is integrable. In addition, we have
+
+    <\equation*>
+      <around*|\||<big|sum><rsub|n=1><rsup|N>f<rsub|n><around*|(|x|)>|\|>\<leqslant\><big|sum><rsub|n=1><rsup|N><around*|\||f<rsub|n><around*|(|x|)>|\|>=g<rsub|N><around*|(|x|)>\<leqslant\>g<around*|(|x|)>.
+    </equation*>
+
+    By DCT,
+
+    <\equation*>
+      lim<rsub|N\<rightarrow\>\<infty\>><big|sum><rsub|n=1><rsup|N><big|int><rsub|X>\<mathd\>x
+      f<rsub|n><around*|(|x|)>=<big|int><rsub|X>\<mathd\>x
+      lim<rsub|N\<rightarrow\>\<infty\>><big|sum><rsub|n=1><rsup|N>f<rsub|n><around*|(|x|)>,
+    </equation*>
+
+    which is what we want.
+
+    A more elegant proof is converting the series as integral by defining a
+    proper measure. Then exchanging integral with series becomes exchanging
+    two integrals, which has been proven.
+  </proof>
+
+  <\corollary>
+    [Exchange Integral with Derivative] Consider a function
+    <math|f:X\<times\>Y\<rightarrow\>\<bbb-C\>> that, for each
+    <math|x\<in\>X> and <math|y\<in\>Y>, <math|<around*|(|\<partial\>f/\<partial\>x|)><around*|(|x,y|)>>
+    and <math|<big|int><rsub|Y>\<mathd\>y f<around*|(|x,y|)>> are
+    well-defined, and <math|<around*|(|\<partial\>f/\<partial\>x|)><around*|(|x,y|)>>
+    is continuous. If there is a positive integrable function <math|g> such
+    that
+
+    <\equation*>
+      <around*|\||<frac|\<partial\>f|\<partial\>x><around*|(|x,y|)>|\|>\<leqslant\>g<around*|(|y|)>
+    </equation*>
+
+    holds for each <math|x\<in\>X> and almost every <math|y\<in\>Y>, then we
     have
 
-    <\equation>
-      <wide|r|^><rsup|\<ast\>><around*|(|k,x,t|)>=<wide|r|\<check\>><around*|(|x,k,t|)>.
-    </equation>
+    <\equation*>
+      <frac|\<partial\>|\<partial\>x><big|int><rsub|Y>\<mathd\>y
+      f<around*|(|x,y|)>=<big|int><rsub|Y>\<mathd\>y
+      <frac|\<partial\>f|\<partial\>x><around*|(|x,y|)>.
+    </equation*>
+  </corollary>
 
-    Once again, we find that the two arguments of <math|r<around*|(|x,y,t|)>>
-    are not independent.
-  </footnote>
-
-  <\equation>
-    <wide|r|^><around*|(|k,y,t|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    exp<around*|(|-\<mathi\>k<around*|(|x-y|)>|)>
-    r<around*|(|x,y,t|)>.<label|eq:hamiltonian>
-  </equation>
-
-  Then, the <math|<around*|[|\<cdots\>|]>> part is converted into exponential
-  by
-
-  <\align>
-    <tformat|<table|<row|<cell|<around*|[|\<cdots\>|]>=>|<cell|<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)><around*|[|1-\<mathi\><wide|r|^><around*|(|k,y,t|)>\<Delta\>t|]>>>|<row|<cell|=>|<cell|<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|{|\<mathi\>k<around*|(|x-y|)>-\<mathi\><wide|r|^><around*|(|k,y,t|)>\<Delta\>t|}>+\<omicron\><around*|(|\<Delta\>t|)>>>>>
-  </align>
-
-  Plugging back to <math|\<varphi\><around*|(|x,t+\<Delta\>t|)> >results in
-
-  <\equation*>
-    \<varphi\><around*|(|x,t+\<Delta\>t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|{|\<mathi\>k<around*|(|x-y|)>-\<mathi\><wide|r|^><around*|(|k,y,t|)>\<Delta\>t|}>\<varphi\><around*|(|y,t|)>+\<omicron\><around*|(|\<Delta\>t|)>.
-  </equation*>
-
-  Now, we have converted the <math|<around*|[|\<cdots\>|]>> part into
-  exponential, as a starting point of constructing path integral.
-
-  After re-denoting <math|x<rsub|1>\<assign\>x>, <math|x<rsub|0>\<assign\>y>,
-  <math|k<rsub|0>\<assign\>k>, <math|t<rsub|1>=t+\<Delta\>t>, and
-  <math|t<rsub|0>\<assign\>t>, it becomes
-
-  <\equation*>
-    \<varphi\><around*|(|x<rsub|1>,t<rsub|1>|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<rsub|0><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k<rsub|0>|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|{|\<mathi\>k<rsub|0><around*|(|x<rsub|1>-x<rsub|0>|)>-\<mathi\><wide|r|^><around*|(|k<rsub|0>,x<rsub|0>,t<rsub|0>|)>\<Delta\>t|}>
-    \<varphi\><around*|(|x<rsub|0>,t<rsub|0>|)>+\<omicron\><around*|(|\<Delta\>t|)>.
-  </equation*>
-
-  The same (replacing <math|x<rsub|1>> by <math|x<rsub|2>>, <math|x<rsub|0>>
-  by <math|x<rsub|1>>, and <math|t<rsub|2>\<assign\>t<rsub|1>+\<Delta\>t>),
-
-  <\equation*>
-    \<varphi\><around*|(|x<rsub|2>,t<rsub|2>|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<rsub|1><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k<rsub|1>|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|{|\<mathi\>k<rsub|1><around*|(|x<rsub|2>-x<rsub|1>|)>-\<mathi\><wide|r|^><around*|(|k<rsub|1>,x<rsub|1>,t<rsub|1>|)>\<Delta\>t|}>
-    \<varphi\><around*|(|x<rsub|1>,t<rsub|1>|)>+\<omicron\><around*|(|\<Delta\>t|)>.
-  </equation*>
-
-  By inserting <math|\<varphi\><around*|(|x<rsub|1>,t<rsub|1>|)>>, we find
-
-  <\align>
-    <tformat|<table|<row|<cell|\<varphi\><around*|(|x<rsub|2>,t<rsub|2>|)>=>|<cell|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<rsub|1><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k<rsub|1>|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|{|\<mathi\>k<rsub|1><around*|(|x<rsub|2>-x<rsub|1>|)>-\<mathi\><wide|r|^><around*|(|k<rsub|1>,x<rsub|1>,t<rsub|1>|)>\<Delta\>t|}>\<times\>>>|<row|<cell|\<times\>>|<cell|<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<rsub|0><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k<rsub|0>|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|{|\<mathi\>k<rsub|0><around*|(|x<rsub|1>-x<rsub|0>|)>-\<mathi\><wide|r|^><around*|(|k<rsub|0>,x<rsub|0>,t<rsub|0>|)>\<Delta\>t|}>
-    \<varphi\><around*|(|x<rsub|0>,t<rsub|0>|)>>>|<row|<cell|>|<cell|+\<omicron\><around*|(|\<Delta\>t|)>.>>>>
-  </align>
-
-  After repeating this <math|N> times, we arrive at
-
-  <\equation>
-    \<varphi\><around*|(|x<rsub|N>,t<rsub|N>|)>=<big|int>D<around*|(|k,x|)>
-    exp<around*|(|\<mathi\>S<around*|(|k,x|)>|)>\<varphi\><around*|(|x<rsub|0>,t<rsub|0>|)>+\<omicron\><around*|(|\<Delta\>t|)>,<label|eq:pathint>
-  </equation>
-
-  in which
-
-  <\equation>
-    <big|int>D<around*|(|k,x|)>\<assign\><big|prod><rsub|i=0><rsup|N-1><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k<rsub|i>|<around*|(|2\<mathpi\>|)><rsup|d>>*<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<rsub|i>
-  </equation>
-
-  and
-
-  <\equation>
-    S<around*|(|k,x|)>\<assign\><big|sum><rsub|i=0><rsup|N-1>\<Delta\>t<around*|[|k<rsub|i><around*|(|<frac|x<rsub|i+1>-x<rsub|i>|\<Delta\>t>|)>-<wide|r|^><around*|(|k<rsub|i>,x<rsub|i>,t<rsub|i>|)>|]>.<label|eq:action>
-  </equation>
-
-  If we recognize <math|<around*|(|x<rsub|i+1>-x<rsub|i>|)>/\<Delta\>t> as
-  the velocity <math|<wide|x|\<dot\>><around*|(|t<rsub|i>|)>>, then
-  <math|S<around*|(|k,x,t|)>> can be seen as the Legendre transform
-  <math|<big|int><around*|[|p<around*|(|t|)><wide|x|\<dot\>><around*|(|t|)>-H<around*|(|p<around*|(|t|)>,x<around*|(|t|)>,t|)>|]>\<mathd\>t>,
-  in which <with|color|dark green|<em|<math|k> is analogy to momentum
-  <math|p> and <math|<wide|r|^><around*|(|k,x,t|)>> plays the role of
-  Hamiltonian <math|H<around*|(|p,x,t|)>>>>.
-
-  <section|From Integral to Differential><label|section:Expanding Kernel as
-  Generalized Function>
-
-  Given a \Ptest function\Q <math|\<psi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
-  which is also analytic at origin, we can calculate its \Pinner product\Q
-  with time evolution (equation <reference|equ:superposition>), as
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x\<psi\><around*|(|x|)><around*|[|\<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>|]>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<psi\><around*|(|x|)>r<around*|(|x,y,t|)>\<varphi\><around*|(|y,t|)>.
-  </equation*>
-
-  In the right hand side, Taylor expanding <math|\<psi\>> at <math|y> makes
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x\<psi\><around*|(|x|)><around*|[|\<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>|]>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    <around*|[|<big|sum><rsub|n=0><rsup|\<infty\>><frac|1|n!>\<partial\><rsup|n><rsub|\<alpha\>>\<psi\><around*|(|y|)><around*|(|x-y|)><rsup|\<alpha\>>|]>r<around*|(|x,y,t|)>\<varphi\><around*|(|y,t|)>,
-  </equation*>
-
-  where <math|\<alpha\>\<assign\><around*|(|\<alpha\><rsub|1>,\<ldots\>,\<alpha\><rsub|n>|)>>
-  and <math|<around*|(|x-y|)><rsup|\<alpha\>>\<assign\><around*|(|x-y|)><rsup|\<alpha\><rsub|1>>\<times\>\<cdots\>\<times\><around*|(|x-y|)><rsup|\<alpha\><rsub|n>>>
-  (recall the abbreviations). Define the <strong|moment>
-
-  <\equation>
-    R<rsub|n><rsup|\<alpha\>><around*|(|y,t|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    r<around*|(|x,y,t|)><around*|(|x-y|)><rsup|\<alpha\>>.<label|eq:moment>
-  </equation>
-
-  Then, it is simplified to
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x\<psi\><around*|(|x|)><around*|[|\<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>|]>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|1|n!><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<partial\><rsup|n><rsub|\<alpha\>>\<psi\><around*|(|y|)>R<rsup|\<alpha\>><rsub|n><around*|(|y,t|)>\<varphi\><around*|(|y,t|)>.
-  </equation*>
-
-  After integration by parts and then omitting the boundary (since
-  <math|\<psi\>> is rapidly decreasing), we get
-
-  <\equation*>
-    <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y\<psi\><around*|(|y|)><around*|[|\<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|y,t|)>|]>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|n>|n!><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
-    \<psi\><around*|(|y|)><frac|\<partial\><rsup|n>|\<partial\>y<rsup|\<alpha\>>><around*|[|R<rsup|\<alpha\>><rsub|n><around*|(|y,t|)>\<varphi\><around*|(|y,t|)>|]>,
-  </equation*>
-
-  where we have replaced <math|x> by <math|y> in the left hand side for
-  making it clear. Since <math|\<psi\>> is arbitrary, we have<\footnote>
-    This is a quantum analogy of the Kramers\UMoyal expansion in stochastic
-    process, which has the form
+  <\proof>
+    Since <math|<around*|(|\<partial\>f/\<partial\>x|)><around*|(|x,y|)>> is
+    continuous, by mean value theorem, for each <math|<around*|(|x,y|)>> and
+    <math|\<Delta\>x\<gtr\>0>, there is a
+    <math|\<xi\><around*|(|x,y,\<Delta\>x|)>> such that
 
     <\equation*>
-      <frac|\<partial\>p|\<partial\>t><around*|(|x,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|n>|n!><frac|\<partial\><rsup|n>|\<partial\>x<rsup|\<alpha\>>><around*|[|R<rsup|\<alpha\>><rsub|n><around*|(|x,t|)>p<around*|(|x,t|)>|]>.
+      <frac|f<around*|(|x+\<Delta\>x,y|)>-f<around*|(|x,y|)>|\<Delta\>x>=<frac|\<partial\>f|\<partial\>x><around*|(|\<xi\><around*|(|x,y,\<Delta\>x|)>,y|)>,
     </equation*>
 
-    Here, the <math|p> is a probability density function that represents the
-    stochastic process. Remark that the only difference between the two
-    equations is the imaginary factor before temporal derivative.
-  </footnote>
+    where <math|\<xi\><around*|(|x,y,\<Delta\>x|)>\<rightarrow\>x> as
+    <math|\<Delta\>x> tends to infinity. Thus,
 
-  <\equation>
-    \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|n>|n!><frac|\<partial\><rsup|n>|\<partial\>x<rsup|\<alpha\>>><around*|[|R<rsup|\<alpha\>><rsub|n><around*|(|x,t|)>\<varphi\><around*|(|x,t|)>|]>.<label|eq:transexp>
-  </equation>
+    <\equation*>
+      <around*|\||<frac|\<partial\>f|\<partial\>x><around*|(|\<xi\><around*|(|x,y,\<Delta\>x|)>,y|)>|\|>\<leqslant\>g<around*|(|y|)>.
+    </equation*>
 
-  That is, we convert the integral equation <reference|equ:superposition> to
-  a differential equation. In practice, differential equation is much more
-  convenient than its integral correspondence for doing calculus. In summary,
-  we have three equivalent formalisms that describe the time evolution of
-  wavefunction: the original integral equation <reference|equ:superposition>,
-  the path integral <reference|eq:pathint>, and now the differential equation
-  <reference|eq:transexp>.
+    Regarding <math|\<Delta\>x=<around*|(|1/n|)>> for a positive integer
+    <math|n> (thus <math|\<Delta\>x\<rightarrow\>0> is
+    <math|n\<rightarrow\>\<infty\>>), MCT gives
 
-  Interestingly, the Taylor expansion of the \PHamiltonian\Q
-  <math|<wide|r|^><around*|(|k,y,t|)>>, defined by equation
-  <reference|eq:hamiltonian>, also relates to the moments <math|R<rsub|n>>s.
-  Directly by equation <reference|eq:hamiltonian>, we have
+    <\equation*>
+      lim<rsub|\<Delta\>x\<rightarrow\>0><big|int><rsub|Y>\<mathd\>y
+      <frac|f<around*|(|x+\<Delta\>x,y|)>-f<around*|(|x,y|)>|\<Delta\>x>=<big|int><rsub|Y>\<mathd\>y
+      lim<rsub|\<Delta\>x\<rightarrow\>0><frac|\<partial\>f|\<partial\>x><around*|(|\<xi\><around*|(|x,y,\<Delta\>x|)>,y|)>.
+    </equation*>
 
-  <\equation*>
-    <frac|\<partial\><rsup|n><wide|r|^>|\<partial\>k<rsub|\<alpha\>>><around*|(|0,y,t|)>=lim<rsub|k\<rightarrow\>0><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    <around*|[|<frac|\<partial\><rsup|n>|\<partial\>k<rsub|\<alpha\>>>exp<around*|(|-\<mathi\>k<around*|(|x-y|)>|)>|]>
-    r<around*|(|x,y,t|)>=<around*|(|-\<mathi\>|)><rsup|n><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    \ r<around*|(|x,y,t|)><around*|(|x-y|)><rsup|\<alpha\>>.
-  </equation*>
+    Notice that the left hand side is (also by the linearity of integral)
 
-  The integral is recognized as <math|R<rsub|n><rsup|\<alpha\>><around*|(|y,t|)>>.
-  So, we find <math|<around*|(|-\<mathi\>|)><rsup|n>R<rsub|n><rsup|\<alpha\>><around*|(|y,t|)>>s
-  the Taylor coefficients of <math|<wide|r|^><around*|(|k,y,t|)>> expanded by
-  <math|k> at its origin. Namely,<\footnote>
-    <with|color|red|But, we have to prove that
-    <math|<wide|r|^><around*|(|k,y|)>> is entire on <math|k>, so that its
-    Taylor series converges to itself.>
-  </footnote>
+    <\equation*>
+      lim<rsub|\<Delta\>x\<rightarrow\>0><frac|1|\<Delta\>x><around*|[|<big|int><rsub|Y>\<mathd\>y
+      f<around*|(|x+\<Delta\>x,y|)>-<big|int><rsub|Y>\<mathd\>y
+      f<around*|(|x,y|)>|]>=<frac|\<partial\>|\<partial\>x><big|int><rsub|Y>\<mathd\>y
+      f<around*|(|x,y|)>,
+    </equation*>
 
-  <\equation>
-    <wide|r|^><around*|(|k,y,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsup|\<alpha\>><rsub|n><around*|(|y,t|)>k<rsub|\<alpha\>>,<label|eq:momentexpansion>
-  </equation>
+    while the right hand side is
 
-  where <math|k<rsub|\<alpha\>>\<assign\><around*|(|k<rsub|\<alpha\><rsub|1>>\<times\>\<cdots\>\<times\>k<rsub|\<alpha\><rsub|n>>|)>>
-  as usual. Again, the details of <math|S<around*|(|k,x,t|)>> (defined in
-  equation <reference|eq:pathint>) can be completely determined by the
-  moments <math|R<rsub|n>>s.
+    <\equation*>
+      <big|int><rsub|Y>\<mathd\>y lim<rsub|\<Delta\>x\<rightarrow\>0><frac|\<partial\>f|\<partial\>x><around*|(|\<xi\><around*|(|x,y,\<Delta\>x|)>,y|)>=<big|int><rsub|Y>\<mathd\>y
+      <frac|\<partial\>f|\<partial\>x><around*|(|x,y|)>.
+    </equation*>
 
-  <section|Locality Truncates the Moments><label|section:Locality Truncates
-  the Moments>
+    Putting these together gives what we want.
+  </proof>
 
-  We then introduce the third axiom about locality, and discuss what it will
-  induce.
+  <subsection|Linear Functionals and Operators>
 
-  <\axiom>
-    [Locality]<label|axiom:local> Time evolution of quantum system is local.
-  </axiom>
+  <\definition>
+    [Continuous Map] Given two normed spaces <math|A> and <math|B>. A linear
+    map <math|F:A\<rightarrow\>B> is called <strong|continuous> if, for any
+    <math|\<varepsilon\>\<gtr\>0>, there is <math|\<delta\>\<gtr\>0> such
+    that, for any <math|\<varphi\>,\<psi\>\<in\>A> with
+    <math|<around*|\<\|\|\>|\<varphi\>-\<psi\>|\<\|\|\>><rsub|A>\<less\>\<delta\>>,
+    we have
 
-  Shall not confuse time evolution with collapse, which is proven to be
-  non-local. Axiom <reference|axiom:local> claims that time evolution
-  (equation <reference|equ:superposition>) is local. To make this clear, we
-  consider an example, in which <math|R<rsub|n><around*|(|x,t|)>=c<rsup|n>>
-  for some constant <math|c>, and set the dimension <math|d=1> for
-  simplicity. Then, time evolution (equation <reference|eq:transexp>) at
-  <math|x=0> is
+    <\equation*>
+      <around*|\<\|\|\>|F\<varphi\>-F\<psi\>|\<\|\|\>><rsub|B>\<less\>\<varepsilon\>.
+    </equation*>
+  </definition>
 
-  <\equation*>
-    \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|0,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-c|)><rsup|n>|n!>
-    <frac|\<partial\><rsup|n>\<varphi\>|\<partial\>x<rsup|n>><around*|(|0,t|)>.
-  </equation*>
+  An equivalent but more intuitive definition is that, for a sequence
+  <math|\<varphi\><rsub|n>> that tends to <math|\<varphi\>> as <math|n>
+  increase, we have <math|F\<varphi\><rsub|n>> tends to <math|F\<varphi\>>.
 
-  The last expression happens to be the Taylor series of
-  <math|\<varphi\><around*|(|x,t|)>> at <math|x=-c>, namely
-  <math|\<varphi\><around*|(|-c,t|)>>. So, we conclude that
-  <math|R<rsub|n><around*|(|x,t|)>=c<rsup|n>> for some constant <math|c>
-  implies
+  <\theorem>
+    Given two normed spaces <math|A> and <math|B>. A linear map
+    <math|F:A\<rightarrow\>B> is continuous if and only if there is a
+    constant <math|C> such that
 
-  <\equation*>
-    \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|0,t|)>=\<varphi\><around*|(|-c,t|)>.
-  </equation*>
+    <\equation*>
+      <around*|\<\|\|\>|F\<varphi\>|\<\|\|\>><rsub|B>\<leqslant\>C<around*|\<\|\|\>|\<varphi\>|\<\|\|\>><rsub|A>
+    </equation*>
 
-  If we change the value of <math|\<varphi\>> at <math|x=-c>, then the time
-  evolution at <math|x=0> changes accordingly. It means non-locality.
+    holds for any <math|\<varphi\>\<in\>A>.
+  </theorem>
 
-  In physics, a local equation generally refers to an operation on
-  <math|\<varphi\>> which contains <math|\<varphi\>> itself and <em|finite>
-  number of spatial derivatives of <math|\<varphi\>>, such as
+  This is a direct result of linearity.
 
-  <\equation*>
-    \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|x,t|)>=\<cal-L\><around*|(|x,t,\<varphi\><around*|(|x,t|)>,<frac|\<partial\>\<varphi\>|\<partial\>x><around*|(|x,t|)>,<frac|\<partial\><rsup|2>\<varphi\>|\<partial\>x<rsup|2>><around*|(|x,t|)>,\<ldots\>,<frac|\<partial\><rsup|n>\<varphi\>|\<partial\>x<rsup|n>><around*|(|x,t|)>|)>,
-  </equation*>
+  <subsection|Square-Integrable Functions>
 
-  where <math|\<cal-L\>> is an analytic function. This is easy to understand
-  because to compute <math|<around*|(|\<partial\><rsup|n>\<varphi\>/\<partial\>x<rsup|n>|)><around*|(|0,t|)>>
-  using numerical method with difference <math|\<Delta\>x>, only
-  <math|\<varphi\><around*|(|x,t|)>> with
-  <math|x\<in\><around*|{|0,\<Delta\>x,\<ldots\>,n\<Delta\>x|}>> are
-  employed.<\footnote>
-    Given a smooth function <math|f>, numerically evaluating
-    <math|f<rsup|<around*|(|n|)>><around*|(|0|)>> needs
-    <math|f<rsup|<around*|(|n-1|)>><around*|(|0|)>> and
-    <math|f<rsup|<around*|(|n-1|)>><around*|(|\<Delta\>x|)>>. Recursively,
-    numerically evaluating <math|f<rsup|<around*|(|n-1|)>><around*|(|0|)>>
-    needs <math|f<rsup|<around*|(|n-2|)>><around*|(|0|)>> and
-    <math|f<rsup|<around*|(|n-2|)>><around*|(|\<Delta\>x|)>>, and
-    <math|f<rsup|<around*|(|n-1|)>><around*|(|\<Delta\>x|)>> needs
-    <math|f<rsup|<around*|(|n-2|)>><around*|(|\<Delta\>x|)>> and
-    <math|f<rsup|<around*|(|n-2|)>><around*|(|2\<Delta\>x|)>>. Repeating this
-    process, we find <math|<around*|{|f<around*|(|0|)>,\<ldots\>,f<around*|(|n\<Delta\>x|)>|}>>
-    are needed for evaluating <math|f<rsup|<around*|(|n|)>><around*|(|0|)>>.
-  </footnote> So, <math|<around*|(|\<partial\>\<varphi\>/\<partial\>t|)><around*|(|0,t|)>>
-  cannot \Pperceive\Q the <math|\<varphi\><around*|(|x,t|)>> outside the
-  neighborhood <math|<around*|{|x:<around*|\||x|\|>\<leqslant\>n\<Delta\>x|}>>.
-  Since <math|\<Delta\>x> can be arbitrarily small (but not vanishing), the
-  equation is local.
+  We are to figure out what a square-integrable function looks like.
 
-  We have shown that, with a cut-off <math|N<rsub|cut>> on <math|R<rsub|n>>s
-  such that <math|R<rsub|n>=0> for any <math|n\<gtr\>N<rsub|cut>>, time
-  evolution of wavefunction is local. And without such a cut-off, we can
-  construct a sequence of <math|R<rsub|n>>s such that time evolution is not
-  local. Now, we are to prove that, generally, without a cut-off, any
-  sequence of <math|R<rsub|n>>s (such that for any <math|N\<gtr\>0>, there
-  are infinite many <math|R<rsub|n>>s that are not vanishing), time evolution
-  of wavefunction is non-local. This then imports a cut-off on moments.
+  A function is called <strong|compact-supported> if its support is compact.
+  On Euclidean space, this means the support is a finite closed set. Denote
+  <math|C<rsub|c><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>|)>> as set of
+  all smooth compact-supported functions on <math|\<bbb-R\><rsup|d>><math|>,
+  where the subscript <math|c> hints for \Pcompact-supported\Q. The picture
+  is that a square-integrable function is close to a smooth compact-supported
+  function.
 
-  TODO
+  <\theorem>
+    <label|theorem:cs-dense-l2>Smooth compact-supported functions are dense
+    in square-integrable space. Namely, for any
+    <math|f\<in\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> and any
+    <math|\<varepsilon\>\<gtr\>0>, there is
+    <math|\<varphi\>\<in\>C<rsub|c><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>|)>>
+    such that
 
-  Before proving, we first declare a property of entire function. Consider
-  the Taylor expansion of <math|\<varphi\>\<in\>\<cal-S\><rsub|E><around*|(|\<bbb-R\>|)>>
-  at origin
+    <\equation*>
+      <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+      <around*|\||f<around*|(|x|)>-\<varphi\><around*|(|x|)>|\|><rsup|2>\<less\>\<varepsilon\>.
+    </equation*>
+  </theorem>
 
-  <\equation*>
-    \<varphi\><around*|(|x|)>=a<rsub|0>+a<rsub|1>x+a<rsub|2>x<rsup|2>+\<cdots\>.
-  </equation*>
+  <\proof>
+    [Sketch] The proof goes in three steps. The first is that continuous
+    compact-supported functions are dense in square-integrable space, which
+    is a basic fact of Lebesgue integral. The next is polishing the continuos
+    function to make it smooth, by convoluting with the standard polishing
+    function. The final step is proving that the convolution satisfies the
+    inequality we want, which employs the continuity.
+  </proof>
 
-  The information of <math|\<varphi\>> is completely encoded in the infinite
-  sequence of <math|a<rsub|n>>s. This is the result of a theorem which claims
-  that two entire functions are equal if they agree in any interval (hence we
-  can obtain the Taylor series of the function within the interval). What if
-  we only know a portion of the infinite sequence of <math|a<rsub|n>>s? For
-  example, if we only know the <math|a<rsub|0>>, then only the value of
-  <math|\<varphi\><around*|(|x|)>> at <math|x=0> is determined. Further, if
-  we also know the <math|a<rsub|1>>, then we can give a good approximation to
-  <math|\<varphi\><around*|(|x|)>> in a very tiny neighborhood at <math|x=0>,
-  since <math|\<varphi\><around*|(|x|)>=a<rsub|0>+a<rsub|1>x+\<omicron\><around*|(|x<rsup|2>|)>>.
-  Then, if we additionally know the <math|a<rsub|2>>, then the approximation
-  becomes as good as before in a larger neighborhood at <math|x=0>, since
-  <math|\<varphi\><around*|(|x|)>=a<rsub|0>+a<rsub|1>x+a<rsub|2>x<rsup|2>+\<omicron\><around*|(|x<rsup|3>|)>>
-  and the size of neighborhood can increase a little without growing the
-  scale of residue. This analysis indicates that the more <math|a<rsub|n>>s
-  we know, in a larger neighborhood at <math|x=0> can we properly approximate
-  <math|\<varphi\><around*|(|x|)>>. Our vision becomes border and border if
-  we know more and more <math|a<rsub|n>>s. Until knowing the whole sequence
-  of <math|a<rsub|n>>s, we realize the complete picture of
-  <math|\<varphi\><around*|(|x|)>> (based on the previous theorem about
-  entire function).
+  <subsection|Rapid Decreasing Functions and Distributions>
 
-  It also indicates that, for a sufficient large <math|N>, we can keep
-  <math|\<varphi\><around*|(|x|)>> (approximately) invariant when we tune the
-  <math|a<rsub|n>>s with <math|n\<gtr\>N> while keeping the other
-  <math|a<rsub|n>>s unchanged. On the other hand, based on the equation
-  (plugging <math|\<varphi\><around*|(|x|)>=<big|sum><rsub|n>a<rsub|n>x<rsup|n>>
-  into equation <reference|eq:transexp>, and collecting all <math|a<rsub|m>>
-  terms with <math|m\<less\>n> into <math|<around*|[|\<cdots\>|]>>),
+  <\definition>
+    [Rapid Decreasing Function, Schwartz Space] TODO
+  </definition>
 
-  <\equation*>
-    \<mathi\><frac|\<partial\>\<varphi\>|\<partial\>t><around*|(|0,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><around*|{|<around*|[|\<cdots\>|]>+<around*|(|-1|)><rsup|n>R<rsub|n><around*|(|0|)>a<rsub|n>|}>,
-  </equation*>
+  The reason why rapid decreasing functions are critical in our task is that
+  Fourier transform is an automorphism in
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
 
-  if there is not a cut-off to the infinite sequence of
-  <math|R<rsub|n><around*|(|0|)>>s, we can modify the
-  <math|<around*|(|\<partial\>\<varphi\>/\<partial\>t|)><around*|(|0,t|)>> by
-  tuning an <math|a<rsub|n>> where <math|n> can be arbitrarily large. This,
-  however, will leave the <math|\<varphi\><around*|(|x|)>> around <math|x=0>
-  invariant. It means that the value of <math|\<varphi\>> with <math|x> far
-  away from <math|x=0> can affect the time evolution of <math|\<varphi\>> at
-  <math|x=0>. That is, time evolution of wavefunction is non-local. Hence,
-  there must be a cut-off on the sequence of
-  <math|R<rsub|n><around*|(|0|)>>s. This discussion also holds for any value
-  of <math|x> other than <math|x=0>. We conclude that <with|color|dark
-  green|<em|time evolution is local if and only if there is a positive
-  integer <math|N<rsub|cut>> such that <math|R<rsub|n>=0> for any
-  <math|n\<gtr\>N<rsub|cut>>>>.
+  <\theorem>
+    [Fourier Transform] For any <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
+    define
 
-  <section|Hermitianity on the Moments><label|section:Hermitianity on
-  Moments>
+    <\equation*>
+      <wide|\<varphi\>|^><around*|(|k|)>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+      exp<around*|(|-\<mathi\>k x|)>\<varphi\><around*|(|x|)>.
+    </equation*>
 
-  Now we study the relation between <math|R<rsub|n>>s and their complex
-  conjugations. Direct calculation is found tedious. Instead, we start at
-  evaluating <math|<wide|r|^><rsup|\<ast\>>>. By conjugating the definition
-  of <math|<wide|r|^>> (equation <reference|eq:hamiltonian>) and applying the
-  Hermitianity of <math|r>, we get
+    We have <math|<wide|\<varphi\>|^>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
+    and
 
-  <\equation*>
-    <wide|r|^><rsup|\<ast\>><around*|(|k,y,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
-    exp<around*|(|\<mathi\>k<around*|(|x-y|)>|)> r<around*|(|y,x,t|)>.
-  </equation*>
+    <\equation*>
+      \<varphi\><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>exp<around*|(|\<mathi\>k
+      x|)><wide|\<varphi\>|^><around*|(|k|)>.
+    </equation*>
+  </theorem>
 
-  Then, applying equation <reference|eq:r-fourier> to
-  <math|r<around*|(|y,x|)>> gives
+  Because any smooth compact-supported function are rapid decreasing, we can
+  approximate a square-integrable function by rapid decreasing functions in
+  any precision.
 
-  <\equation*>
-    <wide|r|^><rsup|\<ast\>><around*|(|k,y,t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k<rprime|'><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>x|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|{|\<mathi\><around*|(|k-k<rprime|'>|)><around*|(|x-y|)>|}>
-    <wide|r|^><around*|(|k<rprime|'>,x,t|)>.
-  </equation*>
+  <\corollary>
+    <label|theorem:schwartz-dense-l2>Rapid Decreasing Functions are dense in
+    square-integrable space.
+  </corollary>
 
-  Taylor expanding <math|<wide|r|^><around*|(|k<rprime|'>,x,t|)>> by <math|x>
-  at <math|y>,
+  So far for rapid decreasing functions. Now we turn to continuous linear
+  operator. We are to show that restriction of continuous linear operator is
+  also continuous.
 
-  <\equation*>
-    <wide|r|^><rsup|\<ast\>><around*|(|k,y,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|1|n!><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k<rprime|'><frac|\<partial\><rsup|n><wide|r|^>|\<partial\>y<rsup|\<alpha\>>><around*|(|k<rprime|'>,y,t|)>\<times\><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>x|<around*|(|2\<mathpi\>|)><rsup|d>>
-    \ exp<around*|{|\<mathi\><around*|(|k-k<rprime|'>|)><around*|(|x-y|)>|}><around*|(|x-y|)><rsup|\<alpha\>>.
-  </equation*>
+  <\lemma>
+    <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> is a subspace of
+    <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. The inclusion
+    <math|i:\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>\<hookrightarrow\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>
+    is continuous.
+  </lemma>
 
-  Notice the relation
+  <\proof>
+    We have to prove that there are constants <math|C>, <math|\<alpha\>>, and
+    <math|\<beta\>> such that, for any <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
 
-  <\equation*>
-    \<partial\><rsub|\<alpha\>><rsup|n>\<delta\><around*|(|\<omega\>|)>=<frac|\<partial\><rsup|n>|\<partial\>\<omega\><rsup|\<alpha\>>><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>z|<around*|(|2\<mathpi\>|)><rsup|d>>
-    \ exp<around*|(|\<mathi\>\<omega\>z|)>=\<mathi\><rsup|n><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>z|<around*|(|2\<mathpi\>|)><rsup|d>>
-    \ exp<around*|(|\<mathi\>\<omega\>z|)>z<rsup|\<alpha\>>.
-  </equation*>
+    <\equation*>
+      <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<around*|\||\<varphi\><around*|(|x|)>|\|><rsup|2>\<leqslant\>C<around*|\<\|\|\>|\<varphi\>|\<\|\|\>><rsub|\<alpha\>,\<beta\>><rsup|2>=C
+      sup<rsub|x\<in\>\<bbb-R\><rsup|d>><around*|\||<around*|(|1+<around*|\||x|\|><rsup|\<alpha\>>|)>\<partial\><rsup|\<beta\>>\<varphi\><around*|(|x|)>|\|><rsup|2>.
+    </equation*>
 
-  Replacing <math|\<omega\>> by <math|<around*|(|k-k<rprime|'>|)>> and
-  <math|z> by <math|<around*|(|x-y|)>>, the last integral in
-  <math|<wide|r|^><rsup|\<ast\>><around*|(|k,y,t|)>> becomes
-  <math|<around*|(|-\<mathi\>|)><rsup|n>\<partial\><rsup|n><rsub|\<alpha\>>\<delta\><around*|(|k-k<rprime|'>|)>>.
-  Thus,
+    TODO
+  </proof>
 
-  <\equation*>
-    <wide|r|^><rsup|\<ast\>><around*|(|k,y,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>k<rprime|'><frac|\<partial\><rsup|n><wide|r|^>|\<partial\>y<rsup|\<alpha\>>><around*|(|k<rprime|'>,y,t|)>\<partial\><rsup|n><rsub|\<alpha\>>\<delta\><around*|(|k-k<rprime|'>|)>.
-  </equation*>
+  The dual space of <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>,
+  generally denoted by <math|<around*|[|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>|]><rsup|\<ast\>>>
+  or <math|<around*|[|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>|]><rprime|'>>,
+  collects all continuous linear functionals on
+  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. The same, the dual space
+  of <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, denoted by
+  <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>, collects all
+  continuous linear functionals of <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
 
-  By integration by parts (recalling that <math|\<partial\><rsup|n>\<delta\>>
-  is odd when <math|n> is odd, otherwise even) and then integrating over
-  <math|k<rprime|'>>, we arrive at
+  <\lemma>
+    <math|<around*|[|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>|]><rprime|'>>
+    is a subspace of <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>><math|>.
+    The inclusion <math|i<rprime|'>:<around*|[|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>|]><rprime|'>\<hookrightarrow\>S<rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>,
+    as the dual of inclusion <math|i>, is continuos.
+  </lemma>
+
+  <\theorem>
+    Given a continuous linear operator <math|A:L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\><around*|[|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>|]><rprime|'>>,
+    define operator <math|A<rsub|\<cal-S\>>> as its restriction on subspace
+    <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>. Then,
+    <math|A<rsub|\<cal-S\>>:\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>\<rightarrow\>\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>
+    is also continuous.
+  </theorem>
+
+  <\proof>
+    The maps in the chain <math|A<rsub|\<cal-S\>>:\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)><above|\<hookrightarrow\>|i>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)><above|\<rightarrow\>|A><around*|[|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>|]><rprime|'><above|\<hookrightarrow\>|i<rprime|'>>S<rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>
+    are all continuous, so is <math|A<rsub|\<cal-S\>>>.
+  </proof>
+
+  This indicates that, after turning attention from
+  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>> to
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, we can investigate the
+  restricted operator on <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
+  instead of the original that is applied on
+  <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>. Now, we can replace
+  square-integrable space (and its dual) by its dense subspace of rapid
+  decreasing functions (and its dual).
+
+  Now, we look closer to the dual space <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>.
+  The elements of <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>
+  are also called <strong|generalized function>s or <strong|tempered
+  distribution>s. We usually denote the application of a tempered
+  distribution <math|f> to a function <math|\<varphi\>> by the bracket
+  notation <math|\<langle\>f,\<varphi\>\<rangle\>>. To give intuitions about
+  what a tempered distribution looks like, we first show that a rapid
+  decreasing function is itself a tempered distribution.
+
+  <\lemma>
+    Given <math|\<psi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, for
+    any sequence <math|\<varphi\><rsub|n>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
+    the integral
+
+    <\equation*>
+      lim<rsub|n\<rightarrow\>\<infty\>><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+      \<psi\><around*|(|x|)>\<varphi\><rsub|n><around*|(|x|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+      \<psi\><around*|(|x|)><around*|[|lim<rsub|n\<rightarrow\>\<infty\>>\<varphi\><rsub|n><around*|(|x|)>|]>.
+    </equation*>
+  </lemma>
+
+  <\proof>
+    As a rapid decreasing function, <math|<around*|\||\<psi\><around*|(|x|)>\<varphi\><around*|(|x|)>|\|>\<leqslant\>C/<around*|[|1+<around*|\<\|\|\>|x|\<\|\|\>><rsup|m>|]>>
+    for some constants <math|C> and any <math|m>, which is integrable when
+    <math|m> is large enough. Then DMT ensures the exchange.
+  </proof>
+
+  It indicates that a rapid decreasing function <math|\<psi\>> is itself a
+  tempered distribution, by defining the application
 
   <\equation*>
-    <wide|r|^><rsup|\<ast\>><around*|(|k,y,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!><frac|\<partial\><rsup|2n><wide|r|^>|\<partial\>k<rsub|\<alpha\>>\<partial\>y<rsup|\<alpha\>>><around*|(|k,y,t|)>.
+    \<langle\>\<psi\>,\<varphi\>\<rangle\>\<assign\><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+    \<psi\><around*|(|x|)>\<varphi\><around*|(|x|)>
   </equation*>
 
-  Since <math|<around*|(|-\<mathi\>|)><rsup|n>R<rsub|n><around*|(|y,t|)>>s
-  are the coefficients of Taylor expansion of
-  <math|<wide|r|^><around*|(|k,y,t|)>> by <math|k> (equation
-  <reference|eq:momentexpansion>), we find
+  for any <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
+  So, we find <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> is a subspace
+  of <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>. Some author
+  apply the integral notation also to tempered distributions that are not
+  functions, such as Dirac's <math|\<delta\>>-function. We will not do so,
+  but strictly using the bracket notation instead.
+
+  In fact, the subspace <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>, or
+  even better, the subspace <math|C<rsub|c><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>|)>>,
+  is dense in <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>.
+
+  <\theorem>
+    Smooth compact-supported functions are dense in the space of tempered
+    distributions. Explicitly, for any <math|f\<in\>\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>
+    and any <math|\<varepsilon\>\<gtr\>0>, there is a
+    <math|g\<in\>C<rsup|\<infty\>><rsub|c><around*|(|\<bbb-R\><rsup|d>|)>>
+    such that
+
+    <\equation*>
+      <around*|\||\<langle\>f,\<varphi\>\<rangle\>-\<langle\>g,\<varphi\>\<rangle\>|\|>\<less\>\<varepsilon\>
+    </equation*>
+
+    holds for any <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
+  </theorem>
+
+  <\proof>
+    [Sketch] The proof goes in three steps. First, consider the Gaussian
+    function
+
+    <\equation*>
+      \<delta\><rsub|x,n><around*|(|y|)>\<assign\><around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2>exp<around*|(|-<frac|n<around*|(|y-x|)><rsup|2>|2>|)>.
+    </equation*>
+
+    Define
+
+    <\equation*>
+      f<rsub|n><around*|(|x|)>\<assign\>\<langle\>f,\<delta\><rsub|x,n>\<rangle\>.
+    </equation*>
+
+    We have <math|f<rsub|n>\<in\>C<rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>|)>>
+    because <math|\<partial\><rsub|\<alpha\>>\<delta\><rsub|x,n>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>
+    and
+
+    <\equation*>
+      <around*|\||\<partial\><rsub|\<alpha\>>f<rsub|n><around*|(|x|)>|\|>=<around*|\||\<partial\><rsub|\<alpha\>>\<langle\>f,\<delta\><rsub|x,n>\<rangle\>|\|>=<around*|\||\<langle\>f,\<partial\><rsub|\<alpha\>>\<delta\><rsub|x,n>\<rangle\>|\|>\<less\>\<infty\>,
+    </equation*>
+
+    where we have moved partial derivative into the functional application
+    because <math|f> is linear and continuous. We also have <math|f<rsub|n>>
+    tends to <math|f> as <math|n> increase in the sense that, for any
+    <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
+
+    <\equation*>
+      \<langle\>f<rsub|n>,\<varphi\>\<rangle\>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+      f<rsub|n><around*|(|x|)>\<varphi\><around*|(|x|)>\<rightarrow\>\<langle\>f,\<varphi\>\<rangle\>.
+    </equation*>
+
+    To see this, inserting the definition of <math|f<rsub|n>> and using
+    linearity, we have
+
+    <\equation*>
+      \<langle\>f<rsub|n>,\<varphi\>\<rangle\>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+      \<langle\>f,\<delta\><rsub|x,n>\<rangle\>\<varphi\><around*|(|x|)>=\<langle\>f,<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x\<delta\><rsub|x,n>\<varphi\><around*|(|x|)>\<rangle\>.
+    </equation*>
+
+    The function being applied is
+
+    <\equation*>
+      <big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x\<delta\><rsub|x,n><around*|(|y|)>\<varphi\><around*|(|x|)>=<around*|(|<frac|n|2\<mathpi\>>|)><rsup|d/2><big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x
+      exp<around*|(|-<frac|n<around*|(|y-x|)><rsup|2>|2>|)>\<varphi\><around*|(|x|)>\<rightarrow\>\<varphi\><around*|(|y|)>
+    </equation*>
+
+    as <math|n> tends to infinity. So, continuity of <math|f> results in
+
+    <\equation*>
+      lim<rsub|n\<rightarrow\>\<infty\>>\<langle\>f<rsub|n>,\<varphi\>\<rangle\>=\<langle\>f,\<varphi\>\<rangle\>.
+    </equation*>
+
+    This finishes the first step. Next, define
+    <math|<wide|f|~><rsub|n,L>\<assign\>\<chi\><rsub|L>\<circ\>f<rsub|n>>
+    where <math|\<chi\><rsub|L>> can be any smooth function that vanishes
+    outside the box <math|<around*|[|-L,L|]><rsup|d>> but
+    <math|\<chi\><rsub|L><around*|(|x|)>=1> for any <math|x> in a smaller box
+    <math|<around*|[|-L+\<varepsilon\>,L-\<varepsilon\>|]><rsup|d>> for
+    <math|0\<less\>\<varepsilon\>\<ll\>L>. Enlarging the size <math|L> so
+    that <math|<wide|f|~><rsub|n,L>> becomes very close to <math|f<rsub|n>>.
+    Finally, we have the relations <math|<wide|f|~><rsub|n,L><above|\<longrightarrow\>|L\<rightarrow\>\<infty\>>f<rsub|n><above|\<longrightarrow\>|n\<rightarrow\>\<infty\>>f>.
+    The smooth compact-supported function <math|<wide|f|~><rsub|n,L>> is what
+    we want.
+  </proof>
+
+  It indicates that a tempered distribution looks like a smooth
+  compact-supported function in the sense of acting to
+  <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
+
+  <\corollary>
+    Rapid decreasing functions are dense in the space of tempered
+    distributions.
+  </corollary>
+
+  <\proof>
+    We already find <math|C<rsub|c><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>|)>\<subset\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>\<subset\>\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>,
+    and <math|C<rsub|c><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>|)>> is
+    dense in <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>. So
+    naturally, <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>> is dense in
+    <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>.
+  </proof>
+
+  A surprising fact is that a continuous linear operator is also a tempered
+  distribution, thus closes to some smooth compact-supported function.
+
+  <\lemma>
+    [Kernel] For any continuous linear operator
+    <math|K:\<cal-S\><around*|(|\<bbb-R\><rsup|m>|)>\<rightarrow\>\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>>,
+    there is a tempered distribution <math|k\<in\>\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|m>\<times\>\<bbb-R\><rsup|n>|)>>
+    such that
+
+    <\equation*>
+      \<langle\>K\<varphi\>,\<psi\>\<rangle\>=\<langle\>k,\<varphi\>\<otimes\>\<psi\>\<rangle\>
+    </equation*>
+
+    holds for any <math|\<varphi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|m>|)>>
+    and <math|\<psi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|n>|)>>.
+  </lemma>
+
+  <\proof>
+    [Sketch] TODO
+  </proof>
+
+  Because <math|C<rsub|c><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>|)>> is
+  dense in <math|\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|d>|)>>, we
+  directly get the following result.
+
+  <\theorem>
+    <label|theorem:kernel-approx>[Kernel Approximation] For any continuous
+    linear operator <math|K:\<cal-S\><around*|(|\<bbb-R\><rsup|m>|)>\<rightarrow\>\<cal-S\><rprime|'><around*|(|\<bbb-R\><rsup|n>|)>>,
+    and any <math|\<varepsilon\>\<gtr\>0>, there is a smooth
+    compact-supported <math|k\<in\>C<rsub|c><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|m>\<times\>\<bbb-R\><rsup|n>|)>>
+    such that
+
+    <\equation*>
+      <around*|\||\<langle\>K\<varphi\>,\<psi\>\<rangle\>-\<langle\>k,\<varphi\>\<otimes\>\<psi\>\<rangle\>|\|>\<less\>\<varepsilon\>
+    </equation*>
+
+    holds for any <math|\<varphi\>,\<psi\>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
+  </theorem>
+
+  Now, <math|k> becomes a function, and the application can be written as a
+  normal integral
 
   <\equation*>
-    <around*|(|R<rsup|\<alpha\>><rsub|m>|)><rsup|\<ast\>><around*|(|y,t|)>=<around*|(|-\<mathi\>|)><rsup|m><frac|\<partial\><rsup|m><wide|r|^><rsup|\<ast\>>|\<partial\>k<rsub|\<alpha\>>><around*|(|0,y,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|m+n>|n!><frac|\<partial\><rsup|n>|\<partial\>y<rsup|\<beta\>>><frac|\<partial\><rsup|m+n><wide|r|^>|\<partial\>k<rsub|\<alpha\>>\<partial\>k<rsub|\<beta\>>><around*|(|0,y,t|)>.
+    \<langle\>k,\<varphi\>\<otimes\>\<psi\>\<rangle\>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>x<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y
+    k<around*|(|x,y|)>\<varphi\><around*|(|x|)>\<psi\><around*|(|y|)>.
   </equation*>
 
-  Again, <math|>the <math|<around*|(|m+n|)>>-th coefficients of the Taylor
-  expansion is <math|<around*|(|-\<mathi\>|)><rsup|m+n>R<rsub|m+n><around*|(|y,t|)>>,
-  so
+  Now, the reason why <math|k> is usually called a kernel is manifest.
 
-  <\equation*>
-    <around*|(|R<rsup|\<alpha\>><rsub|m>|)><rsup|\<ast\>><around*|(|y,t|)>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-\<mathi\>|)><rsup|m+n>|n!><frac|\<partial\><rsup|n>|\<partial\>y<rsup|\<beta\>>><around*|[|<around*|(|-\<mathi\>|)><rsup|m+n>R<rsup|\<alpha\>\<beta\>><rsub|m+n><around*|(|y,t|)>|]>=<big|sum><rsub|n=0><rsup|\<infty\>><frac|<around*|(|-1|)><rsup|m+n>|n!><frac|\<partial\><rsup|n>|\<partial\>y<rsup|\<beta\>>>R<rsup|\<alpha\>\<beta\>><rsub|m+n><around*|(|y,t|)>.
-  </equation*>
+  <\theorem>
+    <label|theorem:pws>[PWS Theorem] The Fourier transform of a
+    compact-supported function is entire.
+  </theorem>
 
-  Recall that <math|R<rsub|n>=0> for any <math|n\<gtr\>N<rsub|cut>> (section
-  <reference|section:Locality Truncates the Moments>), we finally arrive at
+  <\proof>
+    TODO.
+  </proof>
 
-  <\equation>
-    <around*|(|R<rsup|\<alpha\>><rsub|m>|)><rsup|\<ast\>><around*|(|x|)>=<big|sum><rsub|n=0><rsup|N<rsub|cut>-m><frac|<around*|(|-1|)><rsup|m+n>|n!><frac|\<partial\><rsup|n>|\<partial\>x<rsup|\<beta\>>>R<rsup|\<alpha\>\<beta\>><rsub|m+n><around*|(|x,t|)>.
-  </equation>
-
-  It relates the moments <math|R<rsub|n>>s to their complex conjugations.
-
-  <section|Galilean Symmetry Fixes <math|N<rsub|cut>=2>>
-
-  Italian physicist Galileo Galilei first proposed that any inertial system
-  of coordinates are physically the same. To illustrate what Galileo was
-  saying, consider two inertial systems with coordinates
-  <math|<around*|(|x,t|)>> and <math|<around*|(|<wide|x|~>,<wide|t|~>|)>>.
-  Since they are both inertial, there must be a constant difference of
-  velocity between them, say velocity <math|v\<in\>\<bbb-R\><rsup|3>>. Since
-  the trajectory of a particle is independent of coordinates, we must have
-  <math|<wide|x|~><rsup|\<alpha\>><around*|(|t|)>=x<around*|(|t|)>-v t> (up
-  to some irrelevant constant). Then, Galileo claimed that, in the two
-  coordinates, physical laws are the same.
-
-  To be explicit, consider the time evolution of Newton's mechanics:
-
-  <\equation*>
-    <frac|\<mathd\><rsup|2>x<rsup|\<alpha\>>|\<mathd\>t<rsup|2>><around*|(|t|)>=F<rsup|\<alpha\>><around*|(|x<around*|(|t|)>,t|)>,
-  </equation*>
-
-  where <math|F<around*|(|x,t|)>> represents forces. Galilean's statement
-  indicates that we can find <math|<wide|F|~>> such that
-
-  <\equation*>
-    <frac|\<mathd\><rsup|2><wide|x|~><rsup|\<alpha\>>|\<mathd\>t<rsup|2>><around*|(|<wide|t|~>|)>=<wide|F|~><rsup|\<alpha\>><around*|(|<wide|x|~><around*|(|t|)>,t|)>.
-  </equation*>
-
-  Apparently, we have <math|<wide|F|~><rsup|\<alpha\>><around*|(|x,t|)>\<assign\>F<rsup|\<alpha\>><around*|(|x+v
-  t,t|)>>. In other words, the new formula has the same <em|form> as the
-  original. Defining <math|<wide|t|~>\<assign\>t>, the transform of
-  coordinates from <math|<around*|(|x,t|)>> to
-  <math|<around*|(|<wide|x|~>,<wide|t|~>|)>> is called <strong|Galilean
-  transform>, in memory of Galileo Galilei. And the formal invariance of time
-  evolution after Galilean transform is named by <strong|Galilean symmetry>.
-  So, we say Newton's mechanics satisfies Galilean symmetry.
-
-  Generally, we consider infinitesimal Galilean transform in which
-  <math|<around*|\<\|\|\>|v|\<\|\|\>>\<ll\>1>. A general Galilean transform
-  can be seen as accumulation of a series of infinitesimal transformations.
-  This is the trick we will employ for dealing with quantum mechanics.
-
-  The same goes for quantum mechanics. In the
-  <math|<around*|(|<wide|x|~>,<wide|t|~>|)>>-coordinates, we expect that the
-  probability density of particles are invariant, in the sense that
-  <math|<around*|\||<wide|\<varphi\>|~><around*|(|x-v
-  t,t|)>|\|><rsup|2>=<around*|\||\<varphi\><around*|(|x,t|)>|\|><rsup|2>>. It
-  implies that <math|<wide|\<varphi\>|~><around*|(|x-v
-  t,t|)>=exp<around*|(|\<mathi\>v \<omega\><around*|(|x,t|)>|)>\<varphi\><around*|(|x,t|)>>
-  for some real function <math|\<omega\>>. The phase is linear in the in
-  <math|v> since <math|v> is infinitesimal and everything shall back to the
-  original when <math|v=0>. For the formal invariance of time evolution, we
-  first recall the path integral formalism
-
-  <\equation*>
-    \<varphi\><around*|(|x,t+\<Delta\>t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\>y<big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\>k|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|{|\<mathi\>k<around*|(|x-y|)>-\<mathi\><big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!>R<rsub|n><rsup|\<alpha\>><around*|(|y,t|)>k<rsub|\<alpha\>>\<Delta\>t|}>\<varphi\><around*|(|y,t|)>+\<omicron\><around*|(|\<Delta\>t|)>.
-  </equation*>
-
-  In the <math|<around*|(|<wide|x|~>,<wide|t|~>|)>>-coordinates, we expect to
-  find proper <math|<wide|R|~><rsub|n>>s such that
-
-  <\equation*>
-    <wide|\<varphi\>|~><around*|(|<wide|x|~>,<wide|t|~>+\<Delta\>t|)>=<big|int><rsub|\<bbb-R\><rsup|d>>\<mathd\><wide|y|~><big|int><rsub|\<bbb-R\><rsup|d>><frac|\<mathd\><wide|k|~>|<around*|(|2\<mathpi\>|)><rsup|d>>
-    exp<around*|{|\<mathi\><wide|k|~><around*|(|<wide|x|~>-<wide|y|~>|)>-\<mathi\><big|sum><rsub|n=0><rsup|N<rsub|cut>><frac|<around*|(|-\<mathi\>|)><rsup|n>|n!><wide|R|~><rsub|n><rsup|\<alpha\>><around*|(|<wide|y|~>,<wide|t|~>|)><wide|k|~><rsub|\<alpha\>>\<Delta\>t|}><wide|\<varphi\>|~><around*|(|<wide|y|~>,<wide|t|~>|)>+\<omicron\><around*|(|\<Delta\>t|)>.
-  </equation*>
-
-  The <math|<wide|R|~><rsub|n>>s play the same role as the <math|<wide|F|~>>
-  in Newton's mechanics.
-
-  <section|Back to Classical World>
-
-  \;
+  In fact, there is another part of PWS theorem, claiming the reverse that
+  the Fourier transform of a entire function is compact-supported. But for
+  our purpose, this will not help.
 </body>
 
 <\initial>
@@ -1069,25 +710,26 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|3>>
-    <associate|auto-10|<tuple|8|9>>
-    <associate|auto-11|<tuple|9|10>>
+    <associate|auto-10|<tuple|8|10>>
+    <associate|auto-11|<tuple|9|11>>
     <associate|auto-12|<tuple|10|12>>
-    <associate|auto-13|<tuple|11|12>>
-    <associate|auto-14|<tuple|12|13>>
+    <associate|auto-13|<tuple|11|13>>
     <associate|auto-2|<tuple|1.1|3>>
     <associate|auto-3|<tuple|1.2|3>>
     <associate|auto-4|<tuple|2|3>>
     <associate|auto-5|<tuple|3|4>>
-    <associate|auto-6|<tuple|4|6>>
-    <associate|auto-7|<tuple|5|6>>
-    <associate|auto-8|<tuple|6|7>>
-    <associate|auto-9|<tuple|7|8>>
-    <associate|axiom:local|<tuple|3|10>>
+    <associate|auto-6|<tuple|3.1|5>>
+    <associate|auto-7|<tuple|3.2|7>>
+    <associate|auto-8|<tuple|3.3|7>>
+    <associate|auto-9|<tuple|3.4|9>>
+    <associate|axiom:dense|<tuple|2|?>>
+    <associate|axiom:local|<tuple|5|10>>
     <associate|axiom:prob|<tuple|1|3>>
-    <associate|axiom:sup|<tuple|2|6>>
+    <associate|axiom:sup|<tuple|4|5>>
+    <associate|axiom:time-evol|<tuple|3|?>>
     <associate|eq:action|<tuple|10|9>>
     <associate|eq:hamiltonian|<tuple|7|8>>
-    <associate|eq:moment|<tuple|11|10>>
+    <associate|eq:moment|<tuple|11|9>>
     <associate|eq:momentexpansion|<tuple|13|10>>
     <associate|eq:pathint|<tuple|8|9>>
     <associate|eq:probtoself|<tuple|2|7>>
@@ -1098,25 +740,29 @@
     <associate|footnote-1|<tuple|1|4>>
     <associate|footnote-2|<tuple|2|5>>
     <associate|footnote-3|<tuple|3|6>>
-    <associate|footnote-4|<tuple|4|8>>
+    <associate|footnote-4|<tuple|4|6>>
     <associate|footnote-5|<tuple|5|8>>
-    <associate|footnote-6|<tuple|6|10>>
+    <associate|footnote-6|<tuple|6|8>>
     <associate|footnote-7|<tuple|7|10>>
-    <associate|footnote-8|<tuple|8|11>>
-    <associate|footnote-9|<tuple|9|?>>
+    <associate|footnote-8|<tuple|8|10>>
+    <associate|footnote-9|<tuple|9|11>>
     <associate|footnr-1|<tuple|1|4>>
     <associate|footnr-2|<tuple|2|5>>
     <associate|footnr-3|<tuple|3|6>>
-    <associate|footnr-4|<tuple|4|8>>
+    <associate|footnr-4|<tuple|4|6>>
     <associate|footnr-5|<tuple|5|8>>
-    <associate|footnr-6|<tuple|6|10>>
+    <associate|footnr-6|<tuple|6|8>>
     <associate|footnr-7|<tuple|7|10>>
-    <associate|footnr-8|<tuple|8|11>>
-    <associate|footnr-9|<tuple|9|?>>
+    <associate|footnr-8|<tuple|8|10>>
+    <associate|footnr-9|<tuple|9|11>>
     <associate|section:Expanding Kernel as Generalized Function|<tuple|7|9>>
-    <associate|section:Hermitianity on Moments|<tuple|9|12>>
+    <associate|section:Hermitianity on Moments|<tuple|9|11>>
     <associate|section:Locality Truncates the Moments|<tuple|8|10>>
-    <associate|section:Path Integral Formalism|<tuple|6|8>>
+    <associate|section:Path Integral Formalism|<tuple|6|7>>
+    <associate|theorem:cs-dense-l2|<tuple|12|?>>
+    <associate|theorem:kernel-approx|<tuple|23|?>>
+    <associate|theorem:pws|<tuple|24|?>>
+    <associate|theorem:schwartz-dense-l2|<tuple|15|?>>
   </collection>
 </references>
 
@@ -1146,38 +792,34 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6>
 
-      5<space|2spc>Kernel Is a Generalized Function
+      5<space|2spc>Hermitianity Bridges the Arguments of Kernel
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-7>
 
-      6<space|2spc>Hermitianity Bridges the Arguments of Kernel
+      6<space|2spc>Path Integral Formalism
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-8>
 
-      7<space|2spc>Path Integral Formalism
+      7<space|2spc>From Integral to Differential
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-9>
 
-      8<space|2spc>From Integral to Differential
+      8<space|2spc>Locality Truncates the Moments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-10>
 
-      9<space|2spc>Locality Truncates the Moments
+      9<space|2spc>Hermitianity on the Moments
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-11>
 
-      10<space|2spc>Hermitianity on the Moments
+      10<space|2spc>Galilean Symmetry Fixes
+      <with|mode|<quote|math>|N<rsub|cut>=2>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-12>
 
-      11<space|2spc>Galilean Symmetry Fixes
-      <with|mode|<quote|math>|N<rsub|cut>=2>
+      11<space|2spc>Back to Classical World
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-13>
-
-      12<space|2spc>Back to Classical World
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-14>
     </associate>
   </collection>
 </auxiliary>
