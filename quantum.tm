@@ -133,7 +133,11 @@
   This is weaker than using <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>
   as the codomain, because <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>\<subset\><around*|[|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>|]><rprime|'>>.
 
-  <section|Basic Mathematical Facts>
+  <section|Some Mathematical Objects and Tools>
+
+  In this section, we list some mathematical objects, together with some
+  useful tools, that we will encounter in the following sections. The center
+  task is recovering what these objects <em|look> like.
 
   <subsection|Lebesgue Integral and Limit>
 
@@ -686,17 +690,57 @@
   Now, the reason why <math|k> is usually called a kernel is manifest.
 
   <\theorem>
-    <label|theorem:pws>[PWS Theorem] The Fourier transform of a
-    compact-supported function is entire.
+    The Fourier transform of a compact-supported function is entire.
   </theorem>
 
   <\proof>
     TODO.
   </proof>
 
-  In fact, there is another part of PWS theorem, claiming the reverse that
-  the Fourier transform of a entire function is compact-supported. But for
-  our purpose, this will not help.
+  This theorem gives an astonishing result:
+
+  <\corollary>
+    Entire functions, restricted on <math|\<bbb-R\><rsup|d>>, are dense in
+    square-integrable space.
+  </corollary>
+
+  <\proof>
+    We are to show that, for any square-integrable function <math|f>, there
+    is an infinite sequence of entire functions
+    <math|<around*|(|f<rsub|1>,f<rsub|2>,\<ldots\>|)>> that
+    <math|<around*|\<\|\|\>|f<rsub|n>-f|\<\|\|\>><rsub|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>>
+    tends to zero as <math|n> increases. First recall that rapid decreasing
+    functions are dense in <math|L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>.
+    We can restrict <math|f> to rapid decreasing function, as
+    <math|f\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>. And since the
+    inclusion <math|i:\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>\<hookrightarrow\>L<rsup|2><around*|(|\<bbb-R\><rsup|d>|)>>
+    is continuous, we can replace the condition by
+    <math|<around*|\<\|\|\>|f<rsub|n>-f|\<\|\|\>><rsub|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>\<rightarrow\>0>.
+    To find such an infinite sequence of entire functions
+    <math|<around*|(|f<rsub|1>,f<rsub|2>,\<ldots\>|)>>, we first perform
+    Fourier transform to <math|f>, as <math|<wide|f|^>>. Since Fourier
+    transform is an automorphism on <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>,
+    we get <math|<wide|f|^>\<in\>\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
+    Then, there is an infinite sequence of smooth compact-supported functions
+    <math|<around*|(|<wide|f|^><rsub|1>,<wide|f|^><rsub|2>,\<ldots\>|)>> that
+    approach to <math|<wide|f|^>> in the sense that
+    <math|<around*|\<\|\|\>|<wide|f|^><rsub|n>-<wide|f|^>|\<\|\|\>><rsub|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>\<rightarrow\>0>
+    because <math|C<rsub|c><rsup|\<infty\>><around*|(|\<bbb-R\><rsup|d>|)>>
+    is a dense subspace of <math|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>.
+    Performing inverse Fourier transform on <math|<wide|f|^><rsub|n>>s gives
+    the <math|f<rsub|n>>, and <math|<around*|\<\|\|\>|f<rsub|n>-f|\<\|\|\>><rsub|\<cal-S\><around*|(|\<bbb-R\><rsup|d>|)>>>
+    tends to zero because inverse Fourier transform is continuous. These
+    <math|f<rsub|n>>s, as the Fourier transform of compact-supported
+    functions, are entire.
+  </proof>
+
+  Intuitively, square-integrable functions are very generic. Contrarily,
+  entire functions are very special. If we randomly pick up a function in the
+  ocean of functions, we will hardly find it entire. Obtaining a
+  square-integrable functions are still possible. But entire functions are
+  everywhere in the space of square-integrable functions. This looks like the
+  situation of rational numbers. The set of rational numbers has zero
+  measure, but rational numbers are dense on real axis.
 </body>
 
 <\initial>
@@ -710,59 +754,21 @@
 <\references>
   <\collection>
     <associate|auto-1|<tuple|1|3>>
-    <associate|auto-10|<tuple|8|10>>
-    <associate|auto-11|<tuple|9|11>>
-    <associate|auto-12|<tuple|10|12>>
-    <associate|auto-13|<tuple|11|13>>
     <associate|auto-2|<tuple|1.1|3>>
     <associate|auto-3|<tuple|1.2|3>>
     <associate|auto-4|<tuple|2|3>>
     <associate|auto-5|<tuple|3|4>>
-    <associate|auto-6|<tuple|3.1|5>>
-    <associate|auto-7|<tuple|3.2|7>>
-    <associate|auto-8|<tuple|3.3|7>>
-    <associate|auto-9|<tuple|3.4|9>>
-    <associate|axiom:dense|<tuple|2|?>>
-    <associate|axiom:local|<tuple|5|10>>
+    <associate|auto-6|<tuple|3.1|4>>
+    <associate|auto-7|<tuple|3.2|6>>
+    <associate|auto-8|<tuple|3.3|6>>
+    <associate|auto-9|<tuple|3.4|6>>
+    <associate|axiom:dense|<tuple|2|3>>
     <associate|axiom:prob|<tuple|1|3>>
-    <associate|axiom:sup|<tuple|4|5>>
-    <associate|axiom:time-evol|<tuple|3|?>>
-    <associate|eq:action|<tuple|10|9>>
-    <associate|eq:hamiltonian|<tuple|7|8>>
-    <associate|eq:moment|<tuple|11|9>>
-    <associate|eq:momentexpansion|<tuple|13|10>>
-    <associate|eq:pathint|<tuple|8|9>>
-    <associate|eq:probtoself|<tuple|2|7>>
-    <associate|eq:r-fourier|<tuple|4|8>>
-    <associate|eq:r-fourier-alt|<tuple|5|8>>
-    <associate|eq:transexp|<tuple|12|10>>
-    <associate|equ:superposition|<tuple|1|6>>
-    <associate|footnote-1|<tuple|1|4>>
-    <associate|footnote-2|<tuple|2|5>>
-    <associate|footnote-3|<tuple|3|6>>
-    <associate|footnote-4|<tuple|4|6>>
-    <associate|footnote-5|<tuple|5|8>>
-    <associate|footnote-6|<tuple|6|8>>
-    <associate|footnote-7|<tuple|7|10>>
-    <associate|footnote-8|<tuple|8|10>>
-    <associate|footnote-9|<tuple|9|11>>
-    <associate|footnr-1|<tuple|1|4>>
-    <associate|footnr-2|<tuple|2|5>>
-    <associate|footnr-3|<tuple|3|6>>
-    <associate|footnr-4|<tuple|4|6>>
-    <associate|footnr-5|<tuple|5|8>>
-    <associate|footnr-6|<tuple|6|8>>
-    <associate|footnr-7|<tuple|7|10>>
-    <associate|footnr-8|<tuple|8|10>>
-    <associate|footnr-9|<tuple|9|11>>
-    <associate|section:Expanding Kernel as Generalized Function|<tuple|7|9>>
-    <associate|section:Hermitianity on Moments|<tuple|9|11>>
-    <associate|section:Locality Truncates the Moments|<tuple|8|10>>
-    <associate|section:Path Integral Formalism|<tuple|6|7>>
-    <associate|theorem:cs-dense-l2|<tuple|12|?>>
-    <associate|theorem:kernel-approx|<tuple|23|?>>
-    <associate|theorem:pws|<tuple|24|?>>
-    <associate|theorem:schwartz-dense-l2|<tuple|15|?>>
+    <associate|axiom:time-evol|<tuple|3|4>>
+    <associate|theorem:cs-dense-l2|<tuple|12|6>>
+    <associate|theorem:kernel-approx|<tuple|23|9>>
+    <associate|theorem:pws|<tuple|24|9>>
+    <associate|theorem:schwartz-dense-l2|<tuple|15|7>>
   </collection>
 </references>
 
@@ -784,42 +790,25 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4>
 
-      3<space|2spc>Wavefunction Is Rapidly Decreasing
+      3<space|2spc>Basic Mathematical Facts
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-5>
 
-      4<space|2spc>Superposition Principle and Time Evolution
+      <with|par-left|<quote|1tab>|3.1<space|2spc>Lebesgue Integral and Limit
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-6>
+      <no-break><pageref|auto-6>>
 
-      5<space|2spc>Hermitianity Bridges the Arguments of Kernel
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7>
+      <with|par-left|<quote|1tab>|3.2<space|2spc>Linear Functionals and
+      Operators <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-7>>
 
-      6<space|2spc>Path Integral Formalism
+      <with|par-left|<quote|1tab>|3.3<space|2spc>Square-Integrable Functions
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-8>
+      <no-break><pageref|auto-8>>
 
-      7<space|2spc>From Integral to Differential
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-9>
-
-      8<space|2spc>Locality Truncates the Moments
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-10>
-
-      9<space|2spc>Hermitianity on the Moments
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-11>
-
-      10<space|2spc>Galilean Symmetry Fixes
-      <with|mode|<quote|math>|N<rsub|cut>=2>
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-12>
-
-      11<space|2spc>Back to Classical World
-      <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-13>
+      <with|par-left|<quote|1tab>|3.4<space|2spc>Rapid Decreasing Functions
+      and Distributions <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-9>>
     </associate>
   </collection>
 </auxiliary>
